@@ -5,7 +5,7 @@ block main
     .l-box
       h1 Frequently Asked Questions
       .l-box
-        #faq_section(ng-repeat="section in faq_sections")
+        .faq-section(ng-repeat="section in faq_sections")
           h3 {{ section.title }}
           ul
             li(ng-repeat="faq in section.faqs")
