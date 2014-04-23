@@ -7,8 +7,8 @@ angular.module('rmOnlineApp')
       title: "General"
       faqs: [
         {
-          q: "Tell me more about aRMadillo"
-          a: "aRMadillo is the brand name used by the Raymond Morris Group Limited who were founded in 1974. The RM Group specialises in providing Company Information, Company Registration and Trade Mark registration services. Our commitment to high standards of quality and technologic development continues to bring benefits to all our clients."
+          q: "Tell me more about RM"
+          a: "RM is the brand name used by the Raymond Morris Group Limited who were founded in 1974. The RM Group specialises in providing Company Information, Company Registration and Trade Mark registration services. Our commitment to high standards of quality and technologic development continues to bring benefits to all our clients."
         }
         {
           q: "How many companies are covered by the service?"
