@@ -373,6 +373,21 @@ module.exports = function (grunt) {
           src: ['generated/*']
         }]
       },
+      heroku: {
+        files: [{
+          expand: true,
+          dest: '<%= yeoman.dist %>',
+          cwd: 'heroku',
+          src: '*',
+          rename: function (dest, src) {
+            var path = require('path');
+            if (src === 'distpackage.json') {
+              return path.join(dest, 'package.json');
+            }
+            return path.join(dest, src);
+          }
+        }]
+      },
       styles: {
         expand: true,
         cwd: '<%= yeoman.app %>/styles',
@@ -430,6 +445,27 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js',
         singleRun: true
       }
+    },
+
+    buildcontrol: {
+      options: {
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      heroku: {
+        options: {
+          remote: 'git@heroku.com:rmonline.git',
+          branch: 'master'
+        }
+      },
+      local: {
+        options: {
+          remote: '../',
+          branch: 'build'
+        }
+      }
     }
   });
 
@@ -475,6 +511,7 @@ module.exports = function (grunt) {
     'concat',
     'ngmin',
     'copy:dist',
+    'copy:heroku',
     'cdnify',
     'cssmin',
     'uglify',
