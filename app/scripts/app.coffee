@@ -10,8 +10,11 @@ angular
   .config ($routeProvider) ->
     $routeProvider
       .when '/',
-        templateUrl: 'views/main.html'
-        controller: 'MainCtrl'
+        templateUrl: 'views/pages/main.html'
+        controller: 'PagesMainCtrl'
+      .when '/contact',
+        templateUrl: 'views/pages/contact.html'
+        controller: 'PagesContactCtrl'
       .otherwise
         redirectTo: '/'
 
