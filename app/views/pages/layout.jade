@@ -1,17 +1,17 @@
 .header
   .pure-menu.pure-menu-open.pure-menu-horizontal
-    a.pure-menu-heading(href='#') Your Logo
-    ul
-      li
-        a(href='#') Home
-      li.pure-menu-selected
-        a(href='#') About
-      li
-        a(href='#') Services
-      li
-        a(href='#/contact') Contact
+    a.pure-menu-heading(href='#') RM Logo
+
+    ul(ng-controller="NavCtrl", ng-init="partner='#{partner}'")
+      li(ng-repeat="navLink in navLinks", ng-class="navClass('{{navLink.link}}')")
+        a(href='#/{{navLink.link}}') {{navLink.link_text}}  
+
 .content
   .pure-g-r
     block main
 
 .footer
+  .pure-menu.pure-menu-open.pure-menu-horizontal
+    ul
+      li
+        a(href='#/faq') FAQ

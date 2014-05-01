@@ -1,0 +1,13 @@
+extends layout
+
+block main
+  .pure-u-1
+    .l-box
+      h1 Frequently Asked Questions
+      .l-box
+        #faq_section(ng-repeat="section in faq_sections")
+          h3 {{ section.title }}
+          ul
+            li(ng-repeat="faq in section.faqs")
+              h4(ng-bind-html="faq.q")
+              p(ng-bind-html="faq.a")
