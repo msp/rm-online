@@ -19,6 +19,7 @@ head
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
   link(rel='stylesheet', href='http://yui.yahooapis.com/pure/0.4.2/pure-min.css')
   link(rel='stylesheet', href='/styles/purecss/grid.css')
+  link(rel='stylesheet', href='/styles/purecss/rm-skin.css')
 
   // Place favicon.ico and apple-touch-icon.png in the root directory
   // build:css styles/vendor.css
@@ -28,7 +29,7 @@ head
   // build:css(.tmp) styles/main.css
   link(rel="stylesheet", href="styles/main.css")
   // endbuild
-body(ng-app="rmOnlineApp")
+body.pure-skin-rm(ng-app="rmOnlineApp")
   <!--[if lt IE 7]>
   p.browsehappy
     | You are using an
