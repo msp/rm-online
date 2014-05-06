@@ -6,16 +6,17 @@
     .pure-u-1-4
       .l-box
         a.pure-menu-heading(href='#')
-          img(src="/images/rmgroup-logo.png", alt="RM Logo")
-    .pure-u-12-24
+          #rm-logo.hide-text RM Logo
+          
+    .pure-u-10-24
       .pure-menu.pure-menu-open
         ul(ng-controller="NavCtrl", ng-init="partner='#{partner}'")
           li(ng-repeat="navLink in navLinks", ng-class="navClass('{{navLink.link}}')")
             a(href='#/{{navLink.link}}') {{navLink.link_text}}  
-    .pure-u-6-24
+    .pure-u-8-24
       .l-box
         a.pure-menu-heading(href='#')
-          img(src="/images/moss-fon.png", alt="Mossack Fonseca Logo")
+          #moss-fon-logo.hide-text Mossack Fonseca
     .pure-u-1
       .l-box
         hr
