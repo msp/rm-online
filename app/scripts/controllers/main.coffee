@@ -4,10 +4,6 @@ angular.module('rmOnlineApp')
   .controller 'NavCtrl', ($scope, $location) ->
     $scope.navLinks = [
       {
-        link: ''
-        link_text: 'Home'
-      }
-      {
         link: 'about'
         link_text: 'About'
       }
@@ -22,6 +18,10 @@ angular.module('rmOnlineApp')
       {
         link: 'faq'
         link_text: 'FAQ'
+      }
+      {
+        link: 'terms'
+        link_text: 'T&Cs'
       }
     ]
     $scope.navClass = (page) ->

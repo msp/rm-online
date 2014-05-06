@@ -18,6 +18,9 @@ angular
       .when '/faq',
         templateUrl: 'views/pages/faq.html'
         controller: 'PagesFaqCtrl'
+      .when '/terms',
+        templateUrl: 'views/pages/terms.html'
+        controller: 'PagesTermsCtrl'
       .otherwise
         redirectTo: '/'
 

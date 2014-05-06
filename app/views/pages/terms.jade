@@ -1,0 +1,11 @@
+extends layout
+
+block main
+
+  .pure-u-1
+    .l-box
+      h1 Terms and Conditions
+      .l-box
+        ol
+          li.terms-section(ng-repeat="term in terms") {{ term }}
+  
