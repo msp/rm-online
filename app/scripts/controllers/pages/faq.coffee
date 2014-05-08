@@ -8,7 +8,7 @@ angular.module('rmOnlineApp')
       faqs: [
         {
           q: "Tell me more about RM"
-          a: "RM is the brand name used by the Raymond Morris Group Limited who were founded in 1974. The RM Group specialises in providing Company Information, Company Registration and Trade Mark registration services. Our commitment to high standards of quality and technologic development continues to bring benefits to all our clients."
+          a: "RM is the brand name used by the Raymond Morris Group Limited who were founded in 1974. The RM Group specialises in providing Company Information and Company Registration services. Our commitment to high standards of quality and technologic development continues to bring benefits to all our clients."
         }
         {
           q: "How many companies are covered by the service?"
@@ -53,8 +53,10 @@ angular.module('rmOnlineApp')
       title: "Company Formation"
       faqs: [
         {
-          q: "<span class=\"highlight\">TODO</span> How does international formation work"
-          a: "<span class=\"highlight\">TODO</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit, mi pulvinar malesuada commodo, sapien est pellentesque enim, nec commodo odio ante sodales orci. Nam euismod leo quis augue elementum, quis egestas neque tincidunt. Morbi tincidunt, ligula nec ultrices consequat, nibh enim pretium libero, id cursus nisi ligula a sapien. Praesent eleifend eleifend mi, quis dignissim turpis consequat ac."
+          q: "How do UK or International formations work?"
+          a: "International and UK formations are simple and easy .
+              <br/><br/>For UK just search the name of the company that you require to ensure it has not already been registered. After you find the company name select the level of formation pack you require, pay and you will be registered in minutes.
+              <br/><br/>For International formations around the world select the country you require and contact us via the webpage. Our team of experienced lawyers will liaise with you by telephone or email. They will respond and advise immediately."
         }
       ]
     }
