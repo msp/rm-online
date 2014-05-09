@@ -77,4 +77,48 @@ body.pure-skin-rm(ng-app="rmOnlineApp")
   script(src="scripts/controllers/pages/contact.js")
   script(src="scripts/controllers/pages/faq.js")
   script(src="scripts/controllers/pages/terms.js")
+  script(src="scripts/controllers/pages/news.js")
   // endbuild
+
+  script(src="https://www.google.com/jsapi")
+
+  script.
+    
+    google.load("feeds", "1");
+
+    function feedLoaded(result) {
+      if (!result.error) {
+        
+        var content = document.getElementById('feed-content');
+        content.innerHTML = '';
+        //console.log(result.xmlDocument);
+        
+        var items = result.xmlDocument.getElementsByTagName('item');
+        
+        htmlBuffer = "";
+        for (var i = 0; i < items.length; i++) {
+          var item = items[i];
+          var title = item.getElementsByTagName('title')[0].firstChild.nodeValue;
+          var description = item.getElementsByTagName('description')[0].firstChild.nodeValue;
+          var guid = item.getElementsByTagName('guid')[0].firstChild.nodeValue;
+
+          htmlBuffer += "<div class=\"news-item\">";
+          htmlBuffer += "<h2><a href=\""+guid+"\">"+title+"</a></h2>";
+          htmlBuffer += description;
+          htmlBuffer += "<br/><br/><br/><br/>";
+          htmlBuffer += "</div>";
+        }
+        
+        content.innerHTML = htmlBuffer;
+      }
+    }
+    
+    function jsapiOnLoad() {
+      var feed = new google.feeds.Feed("http://www.experian.com/blogs/news/feed/");
+      feed.setResultFormat(google.feeds.Feed.XML_FORMAT);
+      feed.includeHistoricalEntries();
+      feed.setNumEntries(6);
+      feed.load(feedLoaded);
+    }
+    
+    google.setOnLoadCallback(jsapiOnLoad);

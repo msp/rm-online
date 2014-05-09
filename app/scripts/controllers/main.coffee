@@ -4,6 +4,10 @@ angular.module('rmOnlineApp')
   .controller 'NavCtrl', ($scope, $location) ->
     $scope.navLinks = [
       {
+        link: 'news'
+        link_text: 'News'
+      }
+      {
         link: 'about'
         link_text: 'About'
       }
