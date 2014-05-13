@@ -3,14 +3,17 @@ extends layout
 block main
   script.
     jsapiOnLoad();
-  
-  .pure-u-1
-    .l-box
-      h1 News
+
+    // Twitter embed code
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+  .l-box
+    h1 News
+    .pure-u-3-5
       .l-box
-        .pure-u-3-5
-          h2 Experian Feed
-          #feed-content
-        .pure-u-1-5.pure-hidden-phone
-          h2 Twitter
-          a(class="twitter-timeline", href="https://twitter.com/infrasonics", data-widget-id="464803765099311104") Tweets coming soon            
+        h2 Experian Feed
+        #feed-content
+    .pure-u-2-5.pure-hidden-phone
+      .l-box
+        h2 Twitter
+        a(class="twitter-timeline", href="https://twitter.com/infrasonics", data-widget-id="464803765099311104") Tweets coming soon
