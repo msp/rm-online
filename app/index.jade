@@ -29,7 +29,7 @@ head
   // build:css(.tmp) styles/main.css
   link(rel="stylesheet", href="styles/main.css")
   // endbuild
-body.pure-skin-rm(ng-app="rmOnlineApp")
+body.pure-skin-rm
   <!--[if lt IE 7]>
   p.browsehappy
     | You are using an
@@ -61,6 +61,7 @@ body.pure-skin-rm(ng-app="rmOnlineApp")
 
   // build:js scripts/vendor.js
   // bower:js
+  script(src='bower_components/jquery/dist/jquery.js')
   script(src='bower_components/es5-shim/es5-shim.js')
   script(src='bower_components/angular/angular.js')
   script(src='bower_components/json3/lib/json3.min.js')
@@ -91,7 +92,6 @@ body.pure-skin-rm(ng-app="rmOnlineApp")
         
         var content = document.getElementById('feed-content');
         content.innerHTML = '';
-        //console.log(result.xmlDocument);
         
         var items = result.xmlDocument.getElementsByTagName('item');
         
@@ -113,6 +113,12 @@ body.pure-skin-rm(ng-app="rmOnlineApp")
       }
     }
     
+    function bootAngular() {
+      angular.element(document).ready(function() {
+        angular.bootstrap(document, ['rmOnlineApp']);
+      });
+    }
+
     function jsapiOnLoad() {
       var feed = new google.feeds.Feed("http://www.experian.com/blogs/news/feed/");
       feed.setResultFormat(google.feeds.Feed.XML_FORMAT);
@@ -121,4 +127,4 @@ body.pure-skin-rm(ng-app="rmOnlineApp")
       feed.load(feedLoaded);
     }
     
-    google.setOnLoadCallback(jsapiOnLoad);
+    google.setOnLoadCallback(bootAngular);
