@@ -1,4 +1,4 @@
-extends layout
+extends index
 
 block main
 
@@ -7,5 +7,6 @@ block main
       h1 Terms and Conditions
       .l-box
         ol
-          li.terms-section(ng-repeat="term in terms") {{ term }}
+          each term in terms
+            li.terms-section= term
   

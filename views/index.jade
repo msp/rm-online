@@ -14,7 +14,7 @@ html.no-js
 head
   meta(charset="utf-8")
   meta(http-equiv="X-UA-Compatible", content="IE=edge")
-  title RM Online
+  title RM Online #{title}
   meta(name="description", content="")
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
   link(rel='stylesheet', href='http://yui.yahooapis.com/pure/0.4.2/pure-min.css')
@@ -41,28 +41,22 @@ body.pure-skin-rm
 
   // Add your site or application content here
 
-  div.container(ng-view)
+  div.container
     .header
       .pure-g-r
-        .pure-u-1
-          .l-box
-            hr
         .pure-u-1-4
           .l-box
-            a.pure-menu-heading(href='#')
+            a.pure-menu-heading(href='/')
               #rm-logo.hide-text RM Logo
                 .pure-u-10-24
           .pure-menu.pure-menu-open
-            ul(ng-controller="NavCtrl", ng-init="partner='#{partner}'")
-              li(ng-repeat="navLink in navLinks", ng-class="navClass('{{navLink.link}}')")
+            ul
+              li
                 a(href='#/{{navLink.link}}') {{navLink.link_text}}  
         .pure-u-8-24
           .l-box
             a.pure-menu-heading(href='#')
               #moss-fon-logo.hide-text Mossack Fonseca
-        .pure-u-1
-          .l-box
-            hr
     .content
       .pure-g-r
         block main
@@ -70,9 +64,9 @@ body.pure-skin-rm
       .pure-menu.pure-menu-open.pure-menu-horizontal
         ul
           li
-            a(href='#/faq') FAQ
+            a(href='/faq') FAQ
           li
-            a(href='#/terms') T&Cs
+            a(href='/terms') T&Cs
 
 
   // Google Analytics: change UA-XXXXX-X to be your site's ID
@@ -96,10 +90,6 @@ body.pure-skin-rm
   script(src='bower_components/es5-shim/es5-shim.js')
   script(src='bower_components/angular/angular.js')
   script(src='bower_components/json3/lib/json3.min.js')
-  script(src='bower_components/angular-resource/angular-resource.js')
-  script(src='bower_components/angular-cookies/angular-cookies.js')
-  script(src='bower_components/angular-sanitize/angular-sanitize.js')
-  script(src='bower_components/angular-route/angular-route.js')
   // endbower
   // endbuild
 
@@ -139,9 +129,10 @@ body.pure-skin-rm
     }
     
     function bootAngular() {
-      angular.element(document).ready(function() {
-        angular.bootstrap(document, ['rmOnlineApp']);
-      });
+      var foo = "bar";
+      //angular.element(document).ready(function() {
+      //  angular.bootstrap(document, ['rmOnlineApp']);
+      //});
     }
 
     function jsapiOnLoad() {
