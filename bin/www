@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+var coffee = require('coffee-script/register')
 var debug = require('debug')('rm-online');
 var app = require('../app');
 

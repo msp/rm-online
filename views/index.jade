@@ -18,6 +18,7 @@ head
   meta(name="description", content="")
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
   link(rel='stylesheet', href='http://yui.yahooapis.com/pure/0.4.2/pure-min.css')
+  link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Merriweather')
 
   // Place favicon.ico and apple-touch-icon.png in the root directory
   // build:css styles/vendor.css
@@ -41,26 +42,34 @@ body.pure-skin-rm
 
   // Add your site or application content here
 
-  div.container
-    .header
-      .pure-g-r
-        .pure-u-1-4
-          .l-box
-            a.pure-menu-heading(href='/')
-              #rm-logo.hide-text RM Logo
-                .pure-u-10-24
-          .pure-menu.pure-menu-open
-            ul
-              li
-                a(href='#/{{navLink.link}}') {{navLink.link_text}}  
-        .pure-u-8-24
-          .l-box
-            a.pure-menu-heading(href='#')
-              #moss-fon-logo.hide-text Mossack Fonseca
-    .content
+  .header
+    .pure-g-r.container
+      .pure-u-4-24
+        .l-box
+          a.pure-menu-heading(href='/')
+            #rm-logo.hide-text RM Logo
+      .pure-u-12-24.pure-hidden-phone
+        .l-box
+          small In assocaition with
+          #moss-fon-logo.hide-text Mossack Fonseca
+      .pure-u-8-24
+        .pure-menu.pure-menu-open.pure-menu-horizontal
+          ul
+            li
+              a(href='/news') News  
+            li
+              a(href='/about') About  
+            li
+              a(href='/services') Services  
+            li
+              a(href='/contact') Contact  
+
+  .content
+    .container
       .pure-g-r
         block main
-    .footer
+  .footer
+    .container
       .pure-menu.pure-menu-open.pure-menu-horizontal
         ul
           li

@@ -1,0 +1,16 @@
+extends ../index
+
+block main
+
+  .pure-u-16-24
+    .l-box
+      .breadcrumbs
+        a(href="/") HOME
+        | 
+        | > 
+        | 
+        | TERMS AND CONDITIONS
+      h1 Terms and Conditions
+      ol
+        each term in terms
+          li.terms-section= term

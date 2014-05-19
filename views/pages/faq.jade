@@ -1,13 +1,15 @@
-extends layout
+extends ../index
 
 block main
   .pure-u-1
     .l-box
       h1 Frequently Asked Questions
       .l-box
-        .faq-section(ng-repeat="section in faq_sections")
-          h3 {{ section.title }}
-          ul
-            li(ng-repeat="faq in section.faqs")
-              h4(ng-bind-html="faq.q")
-              p(ng-bind-html="faq.a")
+        each section in faq_sections
+          .faq-section
+            h3= section.title
+            ul
+              each faq in section.faqs
+                li
+                  h4!= faq.q
+                  p!= faq.a

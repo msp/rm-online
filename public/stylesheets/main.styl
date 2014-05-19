@@ -2,32 +2,62 @@
 rm-layout()
   margin 0 auto
   max-width 960px
-  background #fff
-
-rm-menu()
-  .pure-menu
-    background #fff
-/*box-shadow 0 2px 2px rgba(0,0,0, 0.10)*/
 
 /*Constants*/
-primary-color = #0187A4
+rm-blue = #0184a2
+rm-font-color = #474747
+
+.pure-skin-rm
+  .pure-g-r [class*="pure-u"]
+    font-family 'Merriweather', serif
+    color rm-font-color
+  h1
+    font-size 45px
+    color rm-blue
+    border-bottom 1px solid
+    padding-bottom 20px
+    
+  .pure-menu
+    li
+      a
+        padding 10px 10px
+   
+
+.breadcrumbs
+  font-size x-small
+  text-transform uppercase
+  margin-bottom 50px
+  a
+    text-decoration none
+    color rm-font-color
+    &:hover
+      text-decoration underline
 
 .content
-  rm-layout()
+  background #efefef
   color #333333
   padding-top 20px
+  
+.container
+  rm-layout()
 
 .header
-  rm-layout()
-  rm-menu()
-  hr
-    background-color primary-color
-    height 3px
-    border 0px
+  padding-bottom 20px
+  .container
+    display flex
+    align-items flex-end
+
+  background #fff
+
 
 .footer
-  rm-layout()
-  rm-menu()
+  background rm-blue
+  padding 30px 0px 30px 0px
+  .pure-menu
+    background rm-blue
+    a
+      color white
+  
 
 .contact-thumbnail
   background-image url(http://placehold.it/200x200)
@@ -59,8 +89,8 @@ li.terms-section
 
 #rm-logo
   background url("/images/rmgroup-logo.png") no-repeat
-  width 150px
-  height 150px
+  width 140px
+  height 134px
 
 #moss-fon-logo
   background url("/images/moss-fon.png") no-repeat
