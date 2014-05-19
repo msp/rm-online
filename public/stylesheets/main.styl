@@ -7,42 +7,38 @@ rm-layout()
 rm-blue = #0184a2
 rm-font-color = #474747
 
+/*Overrides*/
 .pure-skin-rm
   .content
-    .pure-g-r [class*="pure-u"]
+    html, button, input, select, textarea, .pure-g [class *= "pure-u"], .pure-g-r [class *= "pure-u"]
       font-family 'Source Sans Pro', serif
-      h1
+      h1, h2, h3, h4
         font-family 'Merriweather', serif
         color rm-font-color
-        font-size 45px
         color rm-blue
+      h1.no-border
+        border none
+        padding-bottom 0px
+      h1
+        font-size 45px
         border-bottom 1px solid
         padding-bottom 20px
+      h2
+        font-size 26px
       
   .pure-menu
     li
       a
         padding 10px 10px
-   
 
-.breadcrumbs
-  font-size small
-  text-transform uppercase
-  margin-bottom 50px
-  a
-    text-decoration none
-    color rm-font-color
-    &:hover
-      text-decoration underline
+.pure-skin-rm .pure-menu li a:hover, .pure-skin-rm .pure-menu li a:focus
+  color rm-blue
+  background inherit
 
-.content
-  background #efefef
-  color #333333
-  padding-top 20px
-  
+/*STRUCTURE*/
 .container
   rm-layout()
-
+/*header*/
 .header
   background #fff
   padding-bottom 20px
@@ -51,18 +47,66 @@ rm-font-color = #474747
     align-items flex-end
   .divider
     color rm-blue
+  #rm-logo
+    background url("/images/rmgroup-logo.png") no-repeat
+    width 140px
+    height 134px
   
+  #moss-fon-logo
+    background url("/images/moss-fon.png") no-repeat
+    width 250px
+    height 50px
+
+/*body|content*/
+.content
+  background #efefef
+  color #333333
+  padding-top 20px
+
+  .breadcrumbs
+    font-size small
+    text-transform uppercase
+    margin-bottom 50px
+    a
+      text-decoration none
+      color rm-font-color
+      &:hover
+        text-decoration underline
+
+/*footer*/
 .footer
   background rm-blue
   padding 30px 0px 30px 0px
+  font-size smaller
   .pure-menu
     background rm-blue
     a
       color white
     .divider
       color white
-  
 
+  .pure-menu li a:hover, .pure-skin-rm .pure-menu li a:focus
+    color rm-font-color
+    background inherit
+
+/*PAGES*/
+/*home*/
+.intro-copy
+  font-size 20px
+.rm-intro-box
+  background #ffffff
+  min-height 250px
+  margin-top 15px
+  margin-bottom 25px
+
+  .half-divider
+    border-bottom 1px solid rm-blue
+    display block
+  .service-intro-copy
+    margin-top 0px
+    color rm-font-color
+
+/*contact*/
 .contact-thumbnail
   background-image url(http://placehold.it/200x200)
   width 200px
@@ -77,33 +121,26 @@ rm-font-color = #474747
   .contact-thumbnail
     background-image url(/images/amanda.jpg)
 
-.l-box
-  padding 5px 20px 5px 20px
-
-.highlight
-  color red
-
+/*terms*/
 li.terms-section
   padding 10px
 
-.hide-text
-  text-indent 100%
-  white-space nowrap
-  overflow hidden
-
-#rm-logo
-  background url("/images/rmgroup-logo.png") no-repeat
-  width 140px
-  height 134px
-
-#moss-fon-logo
-  background url("/images/moss-fon.png") no-repeat
-  width 250px
-  height 50px
-
+/*news*/
 #feed-content
   iframe
     width 300px
     height 300px
     margin-bottom 20px
     display none
+    
+/*general*/
+.l-box
+  padding 5px 20px 5px 20px
+
+.highlight
+  color red
+
+.hide-text
+  text-indent 100%
+  white-space nowrap
+  overflow hidden

@@ -1,6 +1,24 @@
+include ../mixins/m-home.jade
 extends ../index
 
 block main
   .pure-u-1
-    .l-box
-      h1 Welcome!
+    .pure-u-1-2
+      .l-box
+        h1.no-border Welcome to RM
+        p.intro-copy This is intro copy this is for display only and is not intended to be read. This is intro copy this is for display only and is not intended to be.
+    .pure-u-1-2
+  .pure-u-1
+    .pure-g-r
+      .pure-u-1-2
+        +rm-intro-box("UK & International Company Reports", "Net in repudae doloreiundi")
+      .pure-u-1-2
+        +rm-intro-box("UK & International Company Documents", "Net in repudae doloreiundi")
+  .pure-u-1
+    .pure-g-r
+      .pure-u-1-3
+        +rm-intro-box("UK Company Formations", "Net in repudae doloreiundi")
+      .pure-u-1-3
+        +rm-intro-box("International Company Formations", "Net in repudae doloreiundi")
+      .pure-u-1-3
+        +rm-intro-box("Company Admin Services", "Net in repudae doloreiundi")

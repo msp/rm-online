@@ -24,6 +24,7 @@ head
   // build:css styles/vendor.css
   link(rel='stylesheet', href='stylesheets/purecss/grid.css')
   link(rel='stylesheet', href='stylesheets/purecss/rm-skin.css')
+  link(rel='stylesheet', href='stylesheets/hover.css')
   // bower:css
   // endbower
   // endbuild
@@ -48,7 +49,8 @@ body.pure-skin-rm
         .l-box
           a.pure-menu-heading(href='/')
             #rm-logo.hide-text RM Logo
-      .pure-u-12-24.pure-hidden-phone
+      .pure-u-1-24
+      .pure-u-11-24.pure-hidden-phone
         .l-box
           small In assocaition with
           #moss-fon-logo.hide-text Mossack Fonseca
@@ -57,13 +59,13 @@ body.pure-skin-rm
           ul
             li
               a(href='/news') News
-            li.divider |
+            li.divider.pure-hidden-phone |
             li
               a(href='/about') About
-            li.divider |
+            li.divider.pure-hidden-phone |
             li
               a(href='/services') Services
-            li.divider |
+            li.divider.pure-hidden-phone |
             li
               a(href='/contact') Contact  
 
@@ -76,7 +78,7 @@ body.pure-skin-rm
         ul
           li
             a(href='/faq') FAQ
-          li.divider |
+          li.divider.pure-hidden-phone |
           li
             a(href='/terms') T&Cs
 
