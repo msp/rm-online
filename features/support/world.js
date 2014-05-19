@@ -6,7 +6,7 @@ var World = function World(callback) {
     this.assert = assert;
   
     this.visit = function (url, callback) {
-        this.browser.visit("http://localhost:3000/"+url, callback);
+        this.browser.visit("http://localhost:9000/"+url, callback);
     };
 
     callback(); // tell Cucumber we're finished and to use 'this' as the world instance

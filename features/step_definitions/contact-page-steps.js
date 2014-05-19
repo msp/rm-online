@@ -2,10 +2,6 @@ var myStepDefinitionsWrapper = function () {
 
   this.World = require("../support/world.js").World;
 
-  this.When(/^I visit the "(.*)" page$/, function (pageURL, callback) {
-    this.visit('#/'+pageURL.toLowerCase(), callback);
-  });
-
   this.Then(/^I should see (\d+) staff contact points$/, function (num, callback) {
     this.assert.ok(this.browser.query("#contact_formations"));
     this.assert.ok(this.browser.query("#contact_documents"));
