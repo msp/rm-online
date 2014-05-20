@@ -1,0 +1,8 @@
+mixin breadcrumbs_from(bcList)
+  - var sep = ""
+  ul.breadcrumbs
+    each bc, index in bcList
+      unless index == 0
+        li!= sep 
+      li: a(href="#{bc.url}") #{bc.name}
+      - sep = "&gt;"

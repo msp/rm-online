@@ -1,4 +1,5 @@
 express = require("express")
+breadcrumbs = require('express-breadcrumbs')
 path = require("path")
 favicon = require("static-favicon")
 logger = require("morgan")
@@ -11,14 +12,21 @@ app = express()
 # view engine setup
 app.set "views", path.join(__dirname, "views")
 app.set "view engine", "jade"
+
+# breadcrumbs
+app.use(breadcrumbs.init())
+app.use(breadcrumbs.setHome("Home"))
+
 app.use favicon()
 app.use logger("dev")
 app.use bodyParser.json()
 app.use bodyParser.urlencoded()
 app.use cookieParser()
+
 app.use require("stylus").middleware(path.join(__dirname, "public"))
 app.use express.static(path.join(__dirname, "public"))
 app.use "/", routes
+
 TERMS = [
   "You shall use the Reports only for your own personal usage. You shall not provide the Reports to any other person."
   "From time to time we may amend the format and content of the Reports and any of the Report Information."
@@ -154,10 +162,11 @@ app.get "/faq", (req, res) ->
   return
 
 app.get "/terms", (req, res) ->
+  req.breadcrumbs('Terms and Conditions', 'terms')
   res.render "pages/terms",
     title: "Terms and Conditions"
     terms: TERMS
-
+    bcList: req.breadcrumbs()
   return
 
 app.use "/users", users

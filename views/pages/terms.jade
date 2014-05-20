@@ -4,12 +4,8 @@ block main
 
   .pure-u-16-24
     .l-box
-      .breadcrumbs
-        a(href="/") HOME
-        | 
-        | > 
-        | 
-        | TERMS AND CONDITIONS
+      +breadcrumbs_from(bcList)
+      
       h1 Terms and Conditions
       ol
         each term in terms
