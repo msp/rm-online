@@ -24,9 +24,9 @@ head
 
   // Place favicon.ico and apple-touch-icon.png in the root directory
   // build:css styles/vendor.css
-  link(rel='stylesheet', href='stylesheets/purecss/grid.css')
-  link(rel='stylesheet', href='stylesheets/purecss/rm-skin.css')
-  link(rel='stylesheet', href='stylesheets/hover.css')
+  link(rel='stylesheet', href='stylesheets/vendor/purecss/grid.css')
+  link(rel='stylesheet', href='stylesheets/vendor/purecss/rm-skin.css')
+  link(rel='stylesheet', href='stylesheets/vendor/hover.css')
   // bower:css
   // endbower
   // endbuild
@@ -96,16 +96,16 @@ body.pure-skin-rm
     ga('send', 'pageview');
 
   <!--[if lt IE 9]>
-  script(src="../app/bower_components/es5-shim/es5-shim.js")
-  script(src="../app/bower_components/json3/lib/json3.min.js")
+  script(src="bower_components/es5-shim/es5-shim.js")
+  script(src="bower_components/json3/lib/json3.min.js")
   <![endif]-->
 
   // build:js javascripts/vendor.js
   // bower:js
   script(src='bower_components/jquery/dist/jquery.js')
-  script(src='bower_components/jQuery-Collapse/src/jquery.collapse.js')
   script(src='bower_components/es5-shim/es5-shim.js')
   script(src='bower_components/json3/lib/json3.min.js')
+  script(src='bower_components/jQuery-Collapse/src/jquery.collapse.js')
   // endbower
   // endbuild
 

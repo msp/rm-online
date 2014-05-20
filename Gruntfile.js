@@ -52,15 +52,52 @@ module.exports = function (grunt) {
         }
       },
       stylus: {
-        files: [
-          'public/stylesheets/**/*.styl'
-        ],
-        tasks: [
-          'stylus'
-        ]
+        files: ['public/stylesheets/**/*.styl'],
+        tasks: ['stylus', 'autoprefixer']
+      },
+      bower: {
+        files: ['bower.json'],
+        tasks: ['bowerInstall']
+      }
+    },
+
+    // Add vendor prefixed styles
+    autoprefixer: {
+      options: {
+        browsers: ['last 1 version']
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'public/stylesheets/',
+          src: '*.css',
+          dest: 'public/stylesheets/'
+        }]
+      }
+    },
+
+    // Automatically inject Bower components into the app
+    bowerInstall: {
+      app: {
+        src: ['views/index.jade']
       }
     }
   });
 
-  grunt.registerTask('default', ['express:dev','watch']);
+  grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
+
+    grunt.task.run([
+      'bowerInstall',
+      'express:dev',
+      'autoprefixer',
+      'watch'
+    ]);
+  });
+
+  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
+    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
+    grunt.task.run(['serve:' + target]);
+  });
+
+  grunt.registerTask('default', ['serve']);
 };
