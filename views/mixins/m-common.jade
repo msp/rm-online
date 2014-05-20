@@ -3,6 +3,6 @@ mixin breadcrumbs_from(bcList)
   ul.breadcrumbs
     each bc, index in bcList
       unless index == 0
-        li!= sep 
+        li.spacer!= sep 
       li: a(href="#{bc.url}") #{bc.name}
       - sep = "&gt;"

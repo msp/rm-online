@@ -9,22 +9,29 @@ rm-font-color = #474747
 
 /*Overrides*/
 .pure-skin-rm
-  .content
+  .content, .header, .footer
     html, button, input, select, textarea, .pure-g [class *= "pure-u"], .pure-g-r [class *= "pure-u"]
       font-family 'Source Sans Pro', serif
+      font-size 16px
+      line-height 24px
       h1, h2, h3, h4
         font-family 'Merriweather', serif
-        color rm-font-color
+        font-weight normal
         color rm-blue
       h1.no-border
         border none
         padding-bottom 0px
-      h1
+      h1.home
         font-size 45px
+        line-height 45px
+        margin 35px 0px 40px 0px
+      h1
+        font-size 30px
         border-bottom 1px solid
         padding-bottom 20px
       h2
         font-size 26px
+        line-height 34px
       
   .pure-menu
     li
@@ -41,6 +48,7 @@ rm-font-color = #474747
 /*header*/
 .header
   background #fff
+  padding-top 25px
   padding-bottom 20px
   .container
     display flex
@@ -69,7 +77,10 @@ rm-font-color = #474747
     margin-bottom 50px
     list-style none
     padding-left 0px
-    
+
+    li.spacer
+      margin 0px 8px
+
     li
       display inline-block
       margin 0px 2px
@@ -99,11 +110,13 @@ rm-font-color = #474747
 /*home*/
 .intro-copy
   font-size 20px
+  line-height 30px
+  font-family 'Merriweather', serif
 .rm-intro-box
   background #ffffff
-  min-height 250px
+  min-height 275px
   margin-top 15px
-  margin-bottom 25px
+  margin-bottom 10px
 
   .half-divider
     border-bottom 1px solid rm-blue
@@ -112,6 +125,9 @@ rm-font-color = #474747
     margin-top 0px
     color rm-font-color
 
+.home-intro-padding
+  min-height 150px
+  
 /*contact*/
 .contact-thumbnail
   background-image url(http://placehold.it/200x200)

@@ -79,6 +79,7 @@ module.exports = function (grunt) {
     // Automatically inject Bower components into the app
     bowerInstall: {
       app: {
+        cwd: "",
         src: ['views/index.jade']
       }
     }
@@ -87,7 +88,7 @@ module.exports = function (grunt) {
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
 
     grunt.task.run([
-      'bowerInstall',
+//      'bowerInstall',
       'express:dev',
       'autoprefixer',
       'watch'
