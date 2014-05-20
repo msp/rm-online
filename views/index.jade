@@ -103,8 +103,8 @@ body.pure-skin-rm
   // build:js javascripts/vendor.js
   // bower:js
   script(src='bower_components/jquery/dist/jquery.js')
+  script(src='bower_components/jQuery-Collapse/src/jquery.collapse.js')
   script(src='bower_components/es5-shim/es5-shim.js')
-  script(src='bower_components/angular/angular.js')
   script(src='bower_components/json3/lib/json3.min.js')
   // endbower
   // endbuild
@@ -160,3 +160,12 @@ body.pure-skin-rm
     }
     
     google.setOnLoadCallback(bootAngular);
+
+    $(".faq-section li").collapse({
+        open: function() {
+          this.slideDown(100);
+        },
+        close: function() {
+          this.slideUp(100);
+        }
+      });

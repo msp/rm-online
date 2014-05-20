@@ -3,13 +3,16 @@ extends ../index
 block main
   .pure-u-1
     .l-box
+      +breadcrumbs_from(bcList)
+
       h1 Frequently Asked Questions
-      .l-box
+
+      #faqs
         each section in faq_sections
           .faq-section
-            h3= section.title
+            h2= section.title
             ul
               each faq in section.faqs
                 li
-                  h4!= faq.q
+                  h3!= faq.q
                   p!= faq.a

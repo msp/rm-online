@@ -48,7 +48,7 @@ FAQ_SECTIONS = [
     faqs: [
       {
         q: "Tell me more about RM"
-        a: "RM is the brand name used by the Raymond Morris Group Limited who were founded in 1974. The RM Group specialises in providing Company Information, Company Registration and Trade Mark registration services. Our commitment to high standards of quality and technologic development continues to bring benefits to all our clients."
+        a: "RM is the brand name used by the Raymond Morris Group Limited who were founded in 1974. The RM Group specialises in providing Company Information and Company Registration services. Our commitment to high standards of quality and technological development continues to bring benefits to all our clients."
       }
       {
         q: "How many companies are covered by the service?"
@@ -93,8 +93,9 @@ FAQ_SECTIONS = [
     title: "Company Formation"
     faqs: [
       {
-        q: "<span class=\"highlight\">TODO</span> How does international formation work"
-        a: "<span class=\"highlight\">TODO</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit, mi pulvinar malesuada commodo, sapien est pellentesque enim, nec commodo odio ante sodales orci. Nam euismod leo quis augue elementum, quis egestas neque tincidunt. Morbi tincidunt, ligula nec ultrices consequat, nibh enim pretium libero, id cursus nisi ligula a sapien. Praesent eleifend eleifend mi, quis dignissim turpis consequat ac."
+        q: "International and UK formations are simple and easy"
+        a: "For UK, just search the name of the company that you require to ensure it has not already been registered. After you find the company name, select the level of formation pack you require, pay and you will be registered in minutes.
+            <br/><br/>For International formations around the world, select the country you require and contact our team of experienced lawyers who will liaise with you by telephone or mail. They will respond and advise immediately"
       }
     ]
   }
@@ -155,16 +156,19 @@ app.get "/contact", (req, res) ->
   return
 
 app.get "/faq", (req, res) ->
+  title = "Frequently Asked Questions"
+  req.breadcrumbs(title, 'faq')
   res.render "pages/faq",
-    title: "Frequently Asked Questions"
+    title: title
     faq_sections: FAQ_SECTIONS
-
+    bcList: req.breadcrumbs()
   return
 
 app.get "/terms", (req, res) ->
-  req.breadcrumbs('Terms and Conditions', 'terms')
+  title = "Terms and Conditions"
+  req.breadcrumbs(title, 'terms')
   res.render "pages/terms",
-    title: "Terms and Conditions"
+    title: title
     terms: TERMS
     bcList: req.breadcrumbs()
   return
