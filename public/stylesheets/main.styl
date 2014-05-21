@@ -53,8 +53,10 @@ rm-font-color = #474747
   .container
     display flex
     align-items flex-end
-  .divider
+  li.divider
     color rm-blue
+    display none
+    
   #rm-logo
     background url("/images/rmgroup-logo.png") no-repeat
     width 140px
@@ -198,6 +200,15 @@ li.terms-section
 
 /*media*/
 @media screen and (min-width: 768px)
+  
+  .header
+    /*pure hidden phone not working in menu*/
+    .divider
+      display inline-block
+    /*safari can't handle Flex*/
+    #moss-fon-logo-container, #top-nav-container
+      margin-top 65px
+
   .faq-section
     ul
       li
