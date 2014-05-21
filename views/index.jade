@@ -132,11 +132,11 @@ body.pure-skin-rm
           var description = item.getElementsByTagName('description')[0].firstChild.nodeValue;
           var guid = item.getElementsByTagName('guid')[0].firstChild.nodeValue;
 
-          htmlBuffer += "<div class=\"news-item\">";
-          htmlBuffer += "<h2><a href=\""+guid+"\">"+title+"</a></h2>";
-          htmlBuffer += description;
-          htmlBuffer += "<br/><br/><br/><br/>";
-          htmlBuffer += "</div>";
+          htmlBuffer += "<tr class=\"news-item\"><td>";
+          htmlBuffer += "<h3><a href=\""+guid+"\">"+title+"</a></h3>";
+          //htmlBuffer += description;
+          //htmlBuffer += "<br/><br/><br/><br/>";
+          htmlBuffer += "</td></tr>";
         }
         
         content.innerHTML = htmlBuffer;
@@ -144,7 +144,8 @@ body.pure-skin-rm
     }
     
     function bootAngular() {
-      var foo = "bar";
+      // do this in partial for Angular      
+      jsapiOnLoad();
       //angular.element(document).ready(function() {
       //  angular.bootstrap(document, ['rmOnlineApp']);
       //});

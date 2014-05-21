@@ -636,7 +636,7 @@ striping:
 
 /* nth-child selector for modern browsers */
 .pure-skin-rm .pure-table-striped tr:nth-child(2n-1) td {
-    background-color: #c8edf4;
+    background-color: #e5e5e5;
     color: #0d3740;
 }
 

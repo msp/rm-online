@@ -132,16 +132,19 @@ FAQ_SECTIONS = [
 ]
   
 app.get "/news", (req, res) ->
-  res.render "pages/news",
-    title: "News"
+  title = "Industry News"
+  req.breadcrumbs(title, 'news')
 
+  res.render "pages/news",
+    title: title
+    bcList: req.breadcrumbs()
   return
 
 app.get "/about", (req, res) ->
   title = "About"
   req.breadcrumbs(title, 'about')
   res.render "pages/about",
-    title: "About"
+    title: title
     bcList: req.breadcrumbs()
   return
 
@@ -149,7 +152,7 @@ app.get "/services", (req, res) ->
   title = "Services"
   req.breadcrumbs(title, 'services')
   res.render "pages/services",
-    title: "Services"
+    title: title
     bcList: req.breadcrumbs()
   return
 
@@ -157,7 +160,7 @@ app.get "/contact", (req, res) ->
   title = "Contact"
   req.breadcrumbs(title, 'contact')
   res.render "pages/contact",
-    title: "Contact"
+    title: title
     bcList: req.breadcrumbs()
   return
 
