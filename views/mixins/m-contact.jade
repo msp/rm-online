@@ -1,0 +1,20 @@
+mixin contact(area, name, phone, email, introCopy)
+  .pure-g-r
+    .pure-u-2-5
+      .l-box
+        .contact-thumbnail
+    .pure-u-3-5
+      .l-box
+        h3 #{area}
+        h4.grey-font #{name}
+        p
+          label Telephone
+          br
+          | #{phone}
+          br
+          label Email
+          br
+          a(href="#{email}") #{email}
+    .pure-u-1
+      .l-box
+        p #{introCopy}

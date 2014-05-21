@@ -1,11 +1,41 @@
 extends ../index
+include ../mixins/m-contact
 
 block main
   .pure-u-1
     .l-box
+      +breadcrumbs_from(bcList)
       h1 Contact RM
-      .l-box
+
+  .pure-u-3-5
+    .l-box
+      #contact_formations.contact
+        +contact("Company Formations", "Amanda Coyle", "+44 (0) 1462 427 300", "amanda@rmonline.com", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit, mi pulvinar malesuada commodo.")
+      #contact_documents.contact
+        +contact("Documents & Reports", "Julia Kanger", "+44 (0) 1462 427 300", "juliak@rmonline.com", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit, mi pulvinar malesuada commodo.")
+      #contact_administration.contact
+        +contact("Company Administration", "Nerisa Jarrett", "+44 (0) 1462 427 300", "nerisa@rmonline.com", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit, mi pulvinar malesuada commodo.")
+  .pure-u-2-5
+    .l-box
+      #general-enquiries
+        h3 General Enquiries
+        
+        p
+          label Telephone
+          br
+          | +44 (0) 1462 427 300
+          br
+          label Facsimile
+          br
+          | +44 (0) 1462 427 375
+          br
+          label Email
+          br
+          a(href="mailto:sales@rmonline.com") sales@rmonline.com
+
         address
+          label Address
+          br
           | Invision house,
           br
           | Wilbury Way,
@@ -16,35 +46,9 @@ block main
           br
           | SG4 0TW, UK
           br
-          br
           small
-            a#maps_link(href="https://goo.gl/maps/QiCjp", target="blank") Open in Google Maps
+            a#maps_link(href="https://goo.gl/maps/QiCjp", target="blank") Open in Google maps
           br
           br
-          span#telephone Tel: +44 (0) 1462 427 300
-          br
-          span#fax Fax: +44 (0) 1462 427 375
-          br
-          br
-          a(href="mailto:sales@rmonline.com") sales@rmonline.com
-          br
-          br
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit, mi pulvinar malesuada commodo, sapien est pellentesque enim, nec commodo odio ante sodales orci. Nam euismod leo quis augue elementum, quis egestas neque tincidunt. Morbi tincidunt, ligula nec ultrices consequat, nibh enim pretium libero, id cursus nisi ligula a sapien. Praesent eleifend eleifend mi, quis dignissim turpis consequat ac. Praesent mi mi, pulvinar in mi vel, varius pharetra ligula. Pellentesque eu ipsum convallis, pharetra mauris ac, fermentum nibh. Sed sed odio at tellus dignissim consectetur in nec augue. In ultricies gravida sollicitudin. 
-  .pure-u-1-3
-    #contact_formations.l-box
-      h3 Amanda Coyle
-      .contact-thumbnail
-      h4 Company Formations
-      p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit, mi pulvinar malesuada commodo, sapien est pellentesque enim, nec commodo odio ante sodales orci.
-  .pure-u-1-3
-    #contact_documents.l-box
-      h3 Julia Kanger
-      .contact-thumbnail
-      h4 Documents & Reports
-      p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit, mi pulvinar malesuada commodo, sapien est pellentesque enim, nec commodo odio ante sodales orci.
-  .pure-u-1-3
-    #contact_administration.l-box
-      h3 Nerisa Jarrett
-      .contact-thumbnail
-      h4 Company Administration
-      p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit, mi pulvinar malesuada commodo, sapien est pellentesque enim, nec commodo odio ante sodales orci.
+        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit, mi pulvinar malesuada commodo, sapien est pellentesque enim, nec commodo odio ante sodales orci. Nam euismod leo quis augue elementum, quis egestas neque tincidunt. Morbi tincidunt, ligula nec ultrices consequat, nibh enim pretium libero, id cursus nisi ligula a sapien. Praesent eleifend eleifend mi, quis dignissim turpis consequat ac. Praesent mi mi, pulvinar in mi vel, varius pharetra.
+          

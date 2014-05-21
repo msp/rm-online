@@ -150,9 +150,11 @@ app.get "/services", (req, res) ->
   return
 
 app.get "/contact", (req, res) ->
+  title = "Contact"
+  req.breadcrumbs(title, 'contact')
   res.render "pages/contact",
     title: "Contact"
-
+    bcList: req.breadcrumbs()
   return
 
 app.get "/faq", (req, res) ->
