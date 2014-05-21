@@ -138,15 +138,19 @@ app.get "/news", (req, res) ->
   return
 
 app.get "/about", (req, res) ->
+  title = "About"
+  req.breadcrumbs(title, 'about')
   res.render "pages/about",
     title: "About"
-
+    bcList: req.breadcrumbs()
   return
 
 app.get "/services", (req, res) ->
+  title = "Services"
+  req.breadcrumbs(title, 'services')
   res.render "pages/services",
     title: "Services"
-
+    bcList: req.breadcrumbs()
   return
 
 app.get "/contact", (req, res) ->
