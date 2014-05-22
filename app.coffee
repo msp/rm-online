@@ -141,11 +141,12 @@ app.get "/news", (req, res) ->
   return
 
 app.get "/about", (req, res) ->
-  title = "About"
+  title = "About Us"
   req.breadcrumbs(title, 'about')
   res.render "pages/about",
     title: title
     bcList: req.breadcrumbs()
+    extendTemplate: true
   return
 
 app.get "/services", (req, res) ->
