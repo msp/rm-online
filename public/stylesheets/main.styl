@@ -1,11 +1,4 @@
-/*Mixins*/
-rm-layout()
-  margin 0 auto
-  max-width 960px
-
-/*Constants*/
-rm-blue = #0184a2
-rm-font-color = #474747
+@import common 
 
 /*Overrides*/
 .pure-skin-rm
@@ -221,13 +214,38 @@ li.terms-section
     height 300px
     margin-bottom 20px
     display none
+
+/*Company*/
+.company-data
+  h4
+    margin-bottom 3px
     
+  p
+    font-size 18px
+    font-weight bold
+    margin-top 0px
+    margin-bottom 0px
+    color rm-blue
+
+    
+.company-data
+  margin-bottom 20px
+  
+.report-box
+  background #fff
+  padding 5px 20px
+  margin-bottom 20px
+  display block
+
 /*general*/
 .l-box
   padding 5px 20px 5px 20px
 
 .highlight
   color red
+  
+.no-border
+  border none  
 
 .hide-text
   text-indent 130% // webkit needs more than 100%

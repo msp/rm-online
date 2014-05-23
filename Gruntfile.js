@@ -30,6 +30,7 @@ module.exports = function (grunt) {
       compile: {
         files: {
           'public/stylesheets/main.css': 'public/stylesheets/main.styl' // 1:1 compile
+          ,'public/stylesheets/tabs.css': 'public/stylesheets/tabs.styl'
         }
       }
     },
@@ -43,6 +44,7 @@ module.exports = function (grunt) {
           'public/stylesheets/**/*.css',
           'views/**/*.jade',
           'public/javascripts/**/*.js',
+          'routes/**/*.coffee',
           'public/images/**/*'
         ],
         tasks:  [ 'express:dev' ],

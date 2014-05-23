@@ -1,0 +1,60 @@
+@import common
+
+.r-tabs
+  h3
+    margin-top 0px
+    margin-bottom 0px
+    
+  position relative
+  .r-tabs-nav
+    background-color rm-dark-grey
+    border-bottom 0px solid #ccc
+    margin-bottom 40px
+    .r-tabs-tab
+      position relative
+      top 1px
+    .r-tabs-anchor
+      background rm-dark-grey
+      margin-bottom 3px
+      padding 12px 40px
+      display inline-block
+      text-decoration none
+      color #fff
+    .r-tabs-state-active
+      background-color rm-blue
+      margin-bottom -1px
+      border-top 1px solid #ccc
+      border-right 1px solid #ccc
+      border-left 1px solid #ccc
+      .r-tabs-anchor
+        color #fff
+        background-color rm-blue
+    .r-tabs-state-disabled
+      opacity 0.5
+  .r-tabs-panel
+    margin-bottom 3px
+    .pure-u-1-4
+      .l-box
+        min-height 200px
+        border-right 1px solid rm-blue
+      .l-box.no-border
+        border none
+  .r-tabs-accordion-title
+    .r-tabs-anchor
+      display block
+      padding 10px
+      background-color rm-dark-grey
+      color #fff
+      text-decoration none
+      margin-bottom 3px
+    &.r-tabs-state-disabled
+      opacity 0.5
+    &.r-tabs-state-active
+      .r-tabs-anchor
+        background-color rm-blue
+        color #fff
+        border-top 1px solid #ccc
+        border-right 1px solid #ccc
+        border-left 1px solid #ccc
+        margin-bottom 0
+

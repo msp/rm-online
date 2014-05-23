@@ -4,4 +4,5 @@ node_modules
 .idea
 .DS_Store
 main.css
+tabs.css
 npm-debug.log

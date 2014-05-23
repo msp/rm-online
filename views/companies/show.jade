@@ -1,0 +1,96 @@
+extends ../index
+  
+block main
+  .pure-u-1
+    +breadcrumbs_from(bcList)
+      
+    h1 #{company.name}
+      
+    .pure-g-r
+
+      .pure-u-1
+        #responsiveTabs
+          ul
+            li
+              h3: a(href="#tab-1") Details
+            li
+              h3: a(href="#tab-2") Reports
+            li
+              h3: a(href="#tab-3") Documents
+        
+          #tab-1
+            .pure-g-r
+              .pure-u-1-4
+                .l-box
+                  .company-data
+                    p Registered Number 
+                    | #{company.cro_number}
+  
+                  .company-data                
+                    p Registered Office 
+                    address
+                      | #{company.ro_address[0].line_one}
+                      | <br/> #{company.ro_address[0].line_two}
+                      | <br/> #{company.ro_address[0].line_three}
+                      
+                      if String(company.ro_address[0].line_four).trim() != String(company.ro_address[0].postcode).trim()
+                        | <br/> #{company.ro_address[0].line_four}
+                      
+                      | <br/> #{company.ro_address[0].postcode}
+                  
+              .pure-u-1-4
+                .l-box
+                  .company-data
+                    p Company Type
+                    | #{company.company_type_description}
+  
+                  .company-data
+                    p Incorporated
+                    | #{company.incorporation_date}
+  
+                  .company-data
+                    p Status
+                    | #{company.company_status}
+              .pure-u-1-4
+                .l-box
+                  .company-data
+                    p Latest Accounts
+                    | #{company.acc_made_up_date}
+                  .company-data
+                    p Latest Annual Return
+                    | #{company.ret_made_up_date}
+                  .company-data
+                    p Accounts Type
+                    | #{company.accounts_type}
+              .pure-u-1-4
+                .l-box.no-border
+                  .company-data
+                    p Last document filed
+                    p Previous names
+          #tab-2
+            .pure-g-r
+              each val in ["Experian", "D&B", "Jordans", "Equifax", "Mossack Fonseca", "Companies House" ]
+                .pure-u-1-3
+                  .l-box
+                    .report-box.hover-shadow
+                      h4= val
+                      p Report 1
+                      p Report 2
+                      p Report 3
+          #tab-3
+            .pure-g-r
+              each val in ["Experian", "D&B", "Jordans", "Equifax", "Mossack Fonseca", "Companies House" ]
+                .pure-u-1-3
+                  .l-box
+                    .report-box.hover-shadow
+                      h4= val
+                      p Doc 1
+                      p Doc 2
+                      p Doc 3
+    br
+    br
+    br
+    br
+    br
+    br
+    br

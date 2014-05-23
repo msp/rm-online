@@ -24,14 +24,17 @@ head
 
   // Place favicon.ico and apple-touch-icon.png in the root directory
   // build:css styles/vendor.css
-  link(rel='stylesheet', href='stylesheets/vendor/purecss/grid.css')
-  link(rel='stylesheet', href='stylesheets/vendor/purecss/rm-skin.css')
-  link(rel='stylesheet', href='stylesheets/vendor/hover.css')
+  link(rel='stylesheet', href='/stylesheets/vendor/purecss/grid.css')
+  link(rel='stylesheet', href='/stylesheets/vendor/purecss/rm-skin.css')
+  link(rel='stylesheet', href='/stylesheets/vendor/hover.css')
+  link(rel='stylesheet', href='/bower_components/responsive-tabs/css/responsive-tabs.css')
+  //link(rel='stylesheet', href='/bower_components/responsive-tabs/css/style.css')
   // bower:css
   // endbower
   // endbuild
   // build:css(.tmp) styles/main.css
-  link(rel="stylesheet", href="stylesheets/main.css")
+  link(rel="stylesheet", href="/stylesheets/main.css")
+  link(rel="stylesheet", href="/stylesheets/tabs.css")
   // endbuild
 body.pure-skin-rm
   <!--[if lt IE 7]>
@@ -103,16 +106,17 @@ body.pure-skin-rm
     ga('send', 'pageview');
 
   <!--[if lt IE 9]>
-  script(src="bower_components/es5-shim/es5-shim.js")
-  script(src="bower_components/json3/lib/json3.min.js")
+  script(src="/bower_components/es5-shim/es5-shim.js")
+  script(src="/bower_components/json3/lib/json3.min.js")
   <![endif]-->
 
   // build:js javascripts/vendor.js
   // bower:js
-  script(src='bower_components/jquery/dist/jquery.js')
-  script(src='bower_components/es5-shim/es5-shim.js')
-  script(src='bower_components/json3/lib/json3.min.js')
-  script(src='bower_components/jQuery-Collapse/src/jquery.collapse.js')
+  script(src='/bower_components/jquery/dist/jquery.js')
+  script(src='/bower_components/es5-shim/es5-shim.js')
+  script(src='/bower_components/json3/lib/json3.min.js')
+  script(src='/bower_components/jQuery-Collapse/src/jquery.collapse.js')
+  script(src='/bower_components/responsive-tabs/js/jquery.responsiveTabs.min.js')
   // endbower
   // endbuild
 
@@ -121,54 +125,57 @@ body.pure-skin-rm
 
   script(src="https://www.google.com/jsapi")
 
-  script.
-    
-    google.load("feeds", "1");
-
-    function feedLoaded(result) {
-      if (!result.error) {
-        
-        var content = document.getElementById('feed-content');
-        content.innerHTML = '';
-        
-        var items = result.xmlDocument.getElementsByTagName('item');
-        
-        htmlBuffer = "";
-        for (var i = 0; i < items.length; i++) {
-          var item = items[i];
-          var title = item.getElementsByTagName('title')[0].firstChild.nodeValue;
-          var description = item.getElementsByTagName('description')[0].firstChild.nodeValue;
-          var guid = item.getElementsByTagName('guid')[0].firstChild.nodeValue;
-
-          htmlBuffer += "<tr class=\"news-item\"><td>";
-          htmlBuffer += "<h3><a href=\""+guid+"\">"+title+"</a></h3>";
-          //htmlBuffer += description;
-          //htmlBuffer += "<br/><br/><br/><br/>";
-          htmlBuffer += "</td></tr>";
+  if path == "/news"
+    script.
+      
+      google.load("feeds", "1");
+  
+      function feedLoaded(result) {
+        if (!result.error) {
+          
+          var content = document.getElementById('feed-content');
+          content.innerHTML = '';
+          
+          var items = result.xmlDocument.getElementsByTagName('item');
+          
+          htmlBuffer = "";
+          for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            var title = item.getElementsByTagName('title')[0].firstChild.nodeValue;
+            var description = item.getElementsByTagName('description')[0].firstChild.nodeValue;
+            var guid = item.getElementsByTagName('guid')[0].firstChild.nodeValue;
+  
+            htmlBuffer += "<tr class=\"news-item\"><td>";
+            htmlBuffer += "<h3><a href=\""+guid+"\">"+title+"</a></h3>";
+            //htmlBuffer += description;
+            //htmlBuffer += "<br/><br/><br/><br/>";
+            htmlBuffer += "</td></tr>";
+          }
+          
+          content.innerHTML = htmlBuffer;
         }
-        
-        content.innerHTML = htmlBuffer;
       }
-    }
-    
-    function bootAngular() {
-      // do this in partial for Angular      
-      jsapiOnLoad();
-      //angular.element(document).ready(function() {
-      //  angular.bootstrap(document, ['rmOnlineApp']);
-      //});
-    }
+      
+      
+      function bootAngular() {
+        // do this in partial for Angular
+        jsapiOnLoad();
+        //angular.element(document).ready(function() {
+        //  angular.bootstrap(document, ['rmOnlineApp']);
+        //});
+      }
+  
+      function jsapiOnLoad() {
+        var feed = new google.feeds.Feed("http://www.experian.com/blogs/news/feed/");
+        feed.setResultFormat(google.feeds.Feed.XML_FORMAT);
+        feed.includeHistoricalEntries();
+        feed.setNumEntries(6);
+        feed.load(feedLoaded);
+      }
+      
+      google.setOnLoadCallback(bootAngular);
 
-    function jsapiOnLoad() {
-      var feed = new google.feeds.Feed("http://www.experian.com/blogs/news/feed/");
-      feed.setResultFormat(google.feeds.Feed.XML_FORMAT);
-      feed.includeHistoricalEntries();
-      feed.setNumEntries(6);
-      feed.load(feedLoaded);
-    }
-    
-    google.setOnLoadCallback(bootAngular);
-
+  script.
     $(".faq-section li").collapse({
         open: function() {
           this.slideDown(100);
@@ -177,3 +184,7 @@ body.pure-skin-rm
           this.slideUp(100);
         }
       });
+
+    $('#responsiveTabs').responsiveTabs({
+      startCollapsed: 'accordion'
+    });
