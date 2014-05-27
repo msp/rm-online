@@ -30,6 +30,13 @@ app.use cookieParser()
 app.use require("stylus").middleware(path.join(__dirname, "public"))
 app.use express.static(path.join(__dirname, "public"))
 
+#  helpers
+app.locals.slug = require('slug')
+
+# filters
+app.param('cro', companies.param)
+
+# routes
 app.get "/", (req, res) ->
   title = "Home"
   res.render "pages/home",
@@ -72,9 +79,11 @@ app.get "/contact", (req, res) ->
   return
 
 
-app.get('/faq', faq.index);
-app.get('/terms', terms.index);
-app.get('/companies/:id', companies.show);
+app.get('/faq', faq.index)
+app.get('/terms', terms.index)
+app.get('/companies/:cro', companies.show)
+app.get('/companies/:cro/view/:report', companies.viewReport)
+
 
 #/ catch 404 and forward to error handler
 app.use (req, res, next) ->

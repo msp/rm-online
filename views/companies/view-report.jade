@@ -1,0 +1,27 @@
+extends ../index
+
+block main
+  .pure-u-1
+    +breadcrumbs_from(bcList)
+
+    h1= company.name || "Error ["+error.code+"]: "+error.description
+
+    if company
+      h2= report
+      .pure-g-r
+        each val in ["Credit Report", "Ownership & Contact Report", "KYC Report"]
+          .pure-u-1-3
+            .report-box
+              .l-box
+                h4= val
+                p Detailed 5 year financial profile, credit score, current directors, shareholders, CCJ's, group structure, Companies House filings.
+                .pure-g-r
+                  .pure-u-1-2
+                    £10
+                  .pure-u-1-2
+                    button ADD TO BASKET
+
+    br
+    br
+    br
+    br

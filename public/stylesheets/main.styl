@@ -1,4 +1,4 @@
-@import common 
+@import common
 
 /*Overrides*/
 .pure-skin-rm
@@ -30,7 +30,7 @@
       h2
         font-size 26px
         line-height 34px
-      
+
   .pure-menu
     li
       a
@@ -54,12 +54,12 @@
   li.divider
     color rm-blue
     display none
-    
+
   #rm-logo
     background url("/images/rmgroup-logo.png") no-repeat
     width 140px
     height 134px
-  
+
   #moss-fon-logo
     background url("/images/moss-fon.png") no-repeat
     width 250px
@@ -129,7 +129,7 @@
 
 .home-intro-padding
   min-height 150px
-  
+
 /*contact*/
 #general-enquiries
   background white
@@ -153,7 +153,7 @@
     width 200px
     height 200px
     margin-top 15px
-  
+
 #contact_documents
   .contact-thumbnail
     background-image url(/images/julia-kanger.jpg)
@@ -169,7 +169,7 @@
 /*terms*/
 li.terms-section
   padding 10px
-  
+
 /*faq*/
 .faq-section
   ul
@@ -196,7 +196,7 @@ li.terms-section
       p
         padding 10px 30px 20px 30px
         margin 0px
-  
+
 
 /*news*/
 .news-item
@@ -219,7 +219,7 @@ li.terms-section
 .company-data
   h4
     margin-bottom 3px
-    
+
   p
     font-size 18px
     font-weight bold
@@ -227,15 +227,29 @@ li.terms-section
     margin-bottom 0px
     color rm-blue
 
-    
+
 .company-data
   margin-bottom 20px
-  
+
+$report
+  padding 20px 20px
+
 .report-box
   background #fff
-  padding 5px 20px
-  margin-bottom 20px
+  margin-left 20px
   display block
+  a
+    text-decoration none
+    color rm-font-color
+  .report-one
+    @extends $report
+    background #cce6ed
+  .report-two
+    @extends $report
+    background #B3DAE4
+  .report-three
+    @extends $report
+    background #9ACDDB
 
 /*general*/
 .l-box
@@ -243,19 +257,19 @@ li.terms-section
 
 .highlight
   color red
-  
+
 .no-border
-  border none  
+  border none
 
 .hide-text
   text-indent 130% // webkit needs more than 100%
   white-space nowrap
   overflow hidden
-  
+
 
 /*media*/
 @media screen and (min-width: 768px)
-  
+
   .header
     /*pure hidden phone not working in menu*/
     li.divider
