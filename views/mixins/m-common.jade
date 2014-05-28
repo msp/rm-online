@@ -1,8 +1,11 @@
 mixin breadcrumbs_from(bcList)
   - var sep = ""
+  - var lastClass = ""
   ul.breadcrumbs
     each bc, index in bcList
       unless index == 0
         li.spacer!= sep 
-      li: a(href="#{bc.url}") #{bc.name}
+      if index == bcList.length -1
+        - lastClass = "bold"
+      li: a(href="#{bc.url}", class="#{lastClass}") #{bc.name}
       - sep = "&gt;"

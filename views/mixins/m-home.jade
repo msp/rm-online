@@ -1,4 +1,4 @@
-mixin rm-intro-box(title, copy)
+mixin rm-intro-box(title, copy, image)
   .l-box
     .rm-intro-box.hover-shadow
       a(href="/companies/02425919")
@@ -12,5 +12,5 @@ mixin rm-intro-box(title, copy)
               p.service-intro-copy #{copy}
         .pure-u-1-24
         .pure-u-5-24
-          image(src="/images/home-page-icon.png", alt="RM icon")
+          image(src="/images/services/#{image}.png", alt="RM #{title}")
         .pure-u-1-24
