@@ -11,7 +11,7 @@ block main
         br
         br
         .pure-u-1
-          h2.underline Company Stats
+          h3.underline Company Stats
           .pure-g-r.stats
             .pure-u-1-3
               img(src="/images/stats/uk-docs.png", alt="UK commpanies house documents")
@@ -31,13 +31,15 @@ block main
 block main-white
   .pure-u-1
     .l-box
-      h2 Partner Organisations
+      h3 Partner Organisations
       .pure-g-r.partners
-        each logo in ["D&B", "Experian", "Equifax", "Companies House", "Mossack Fonseca", "Jordans"]
+        each logo, index in ["D&B", "Experian", "Equifax", "Companies House", "Mossack Fonseca", "Jordans"]
+          - firstClass = ""
+          if index % 3 == 0
+            - firstClass = "no-left-margin"
           .pure-u-1-3
-            .l-box
+            .logo(class="#{firstClass}")
               img(src="/images/partner-logos/#{slug(logo).toLowerCase()}.png", alt="#{logo} partner organisation")
-
       br
       br
       br
@@ -45,5 +47,5 @@ block main-white
 block main-footer
   .pure-u-1
     .l-box
-      h2 Our Services
+      h3 Our Services
   include ../includes/_services.jade
