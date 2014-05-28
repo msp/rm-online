@@ -5,6 +5,7 @@ var myStepDefinitionsWrapper = function () {
   });
 
   this.Then(/^I should see (\d+) available services$/, function (num, callback) {
+    this.assert.ok(this.browser.query(".services"));
     this.assert.equal(this.browser.queryAll(".rm-intro-box").length, num);
     callback();
   });
