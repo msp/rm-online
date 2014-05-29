@@ -12,22 +12,24 @@ exports.show = (req, res) ->
     bcList: req.breadcrumbs()
     company: req.company
     error: req.error
+    reports: req.reports
 
 
 exports.viewReport = (req, res) ->
 
-  report = req.params.report
+  vendor = req.params.vendor
 
   if req.company
     title = req.company.name
-    req.breadcrumbs(report, '/companies/'+req.params.cro+'/view/'+report)
+    req.breadcrumbs(vendor, '/companies/'+req.params.cro+'/view/'+vendor)
 
   res.render "companies/view-report",
     title: title
     bcList: req.breadcrumbs()
     company: req.company
     error: req.error
-    report: report
+    reports: req.reports
+    vendor: vendor
   return
 
 exports.param = (req, res, next, id) ->
@@ -36,6 +38,7 @@ exports.param = (req, res, next, id) ->
   title = id
   company = ""
   error = ""
+  reports = ""
 
   https.get("https://www.rmonline.com/servlet/com.armadillo.online?service=rm008&function=cobasic_nocaptcha&reference="+id+"&stylesheet=none", (resp) ->
     console.log("##################################################")
@@ -55,11 +58,13 @@ exports.param = (req, res, next, id) ->
           next()
         else
           company = result.horus.access_control[0].companies_house_data[0]
+          reports =  result.horus.reports[0]
 
           inspect(company)
           title = company.name
           req.breadcrumbs(title, '/companies/'+req.params.cro)
           req.company = company
+          req.reports = reports
           next()
 
   ).on "error", (e) ->

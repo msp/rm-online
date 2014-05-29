@@ -37,10 +37,27 @@
         font-weight bold
         margin-bottom 5px
 
-  .pure-menu
-    li
-      a
-        padding 10px 10px
+  #top-nav-container
+    .pure-menu
+      li
+        a
+          padding 10px 10px
+
+
+.pure-skin-rm .pure-button-primary,
+.pure-skin-rm .pure-button-selected,
+.pure-skin-rm a.pure-button-primary,
+.pure-skin-rm a.pure-button-selected
+    background-color white
+    color rm-font-color
+    border 1px solid rm-font-color
+    font-weight bold
+
+.pure-skin-rm .pure-button-hover,
+.pure-skin-rm .pure-button:hover
+    background rm-blue
+    color white
+  
 
 .pure-skin-rm .pure-menu li a:hover, .pure-skin-rm .pure-menu li a:focus
   color rm-blue
@@ -49,6 +66,7 @@
 /*STRUCTURE*/
 .container
   rm-layout()
+  border 0px solid
 /*header*/
 .header
   background #fff
@@ -242,23 +260,29 @@ $report
 
 .report-box
   background #fff
-  margin-left 20px
   display block
+  min-height 280px
+  margin-bottom 30px
   a
     text-decoration none
     color rm-font-color
-  .report-one
+  .report-1
     @extends $report
     background #cce6ed
-  .report-two
+    margin-top -8px
+  .report-2
     @extends $report
     background #B3DAE4
-  .report-three
+  .report-3
     @extends $report
     background #9ACDDB
+  .report-name
+    min-height 53px
+  .report-price
+    font-size x-large
+    line-height 36px
 
 /*about*/
-
 .stats
   margin-top 50px
   text-align center
@@ -291,7 +315,12 @@ $report
   overflow hidden
 .bold
   font-weight bold
-
+  
+.pure-g-r  
+  .pdf
+    width 39px
+    height 55px
+    margin-top 22px
 
 /*media*/
 @media screen and (min-width: 768px)

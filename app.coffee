@@ -82,7 +82,8 @@ app.get "/contact", (req, res) ->
 app.get('/faq', faq.index)
 app.get('/terms', terms.index)
 app.get('/companies/:cro', companies.show)
-app.get('/companies/:cro/view/:report', companies.viewReport)
+app.get('/companies/:cro/reports/:vendor', companies.viewReport)
+# app.get('/companies/:cro/documents/:vendor', companies.viewReport)
 
 
 #/ catch 404 and forward to error handler
