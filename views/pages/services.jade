@@ -1,7 +1,89 @@
 extends ../index
+include ../mixins/m-home.jade
 
 block main
   .pure-u-1
     .l-box
       +breadcrumbs_from(bcList)
       h1 #{title}
+      .pure-g-r
+        .pure-u-1-2
+          p.intro-copy 
+            span.highlight TODO
+            | 
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at aliquet sem, non blandit sem. 
+            | Sed in luctus justo. Nam pellentesque, risus sed pulvinar tempor, 
+            | lectus massa auctor enim, in sodales massa ante ultricies nulla. Mauris vitae mattis quam
+        br
+        br
+  .pure-u-1
+    .l-box
+      h3.underline What our customers say
+  .pure-u-1
+    .pure-g-r
+      .pure-u-2-5
+        +rm-reports
+      .pure-u-3-5
+        .quote
+          i.fa.fa-quote-left.fa-3x
+          p.intro-copy
+            span.highlight TODO
+            | 
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at aliquet sem, non blandit sem.
+      .pure-u-1
+        hr.rm-blue
+  .pure-u-1
+    .pure-g-r
+      .pure-u-3-5
+        .quote
+          i.fa.fa-quote-left.fa-3x
+          p.intro-copy
+            span.highlight TODO
+            | 
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at aliquet sem, non blandit sem.
+      .pure-u-2-5
+        +rm-documents
+
+      .pure-u-1
+        hr.rm-blue
+  .pure-u-1
+    .pure-g-r
+      .pure-u-2-5
+        +rm-uk-formations
+      .pure-u-3-5
+        .quote
+          i.fa.fa-quote-left.fa-3x
+          p.intro-copy
+            span.highlight TODO
+            | 
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at aliquet sem, non blandit sem.
+      .pure-u-1
+        hr.rm-blue
+  .pure-u-1
+    .pure-g-r
+      .pure-u-3-5
+        .quote
+          i.fa.fa-quote-left.fa-3x
+          p.intro-copy
+            span.highlight TODO
+            | 
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at aliquet sem, non blandit sem.
+      .pure-u-2-5
+        +rm-int-formations
+
+      .pure-u-1
+        hr.rm-blue
+  .pure-u-1
+    .pure-g-r
+      .pure-u-2-5
+        +rm-company-admin-services
+      .pure-u-3-5
+        .quote
+          i.fa.fa-quote-left.fa-3x
+          p.intro-copy
+            span.highlight TODO
+            | 
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at aliquet sem, non blandit sem.
+  br
+  br
+  br
