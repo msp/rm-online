@@ -71,6 +71,7 @@ exports.param = (req, res, next, id) ->
         if result.horus.error
           error = result.horus.error[0]
           console.log("ERROR from Horus")
+          inspect(error)
           req.company = company
           req.error = error
           next()

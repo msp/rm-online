@@ -5,7 +5,10 @@ block main
     .l-box
       +breadcrumbs_from(bcList)
 
-      h1.capitalize= String(company.name).toLowerCase() || "Error ["+error.code+"]: "+error.description
+      if (error)
+        h1= "Error ["+error.code[0]+"]: "+error.description[0]
+      else
+        h1.capitalize= String(company.name).toLowerCase()
 
       .pure-g-r
         if company
