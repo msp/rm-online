@@ -3,6 +3,23 @@ https = require 'https',
 xml2js = require 'xml2js'
 inspect = require('eyes').inspector({maxLength: false})
 
+ACCOUNT_TYPES = ["Not Available"
+                ,"Full Accounts"
+                ,"Small Company"
+                ,"Medium Company"
+                ,"Group Accounts"
+                ,"Dormant"
+                ,"Interim"
+                ,"Initial"
+                ,"Not Available"
+                ,"Full Accounts"
+                ,"Small Company"
+                ,"Medium Company"
+                ,"Group Accounts"
+                ,"Dormant"
+                ,"Interim"
+                ,"Initial"]
+
 exports.show = (req, res) ->
   if req.company
     title = req.company.name
@@ -13,6 +30,7 @@ exports.show = (req, res) ->
     company: req.company
     error: req.error
     reports: req.reports
+    account_types: ACCOUNT_TYPES
 
 
 exports.viewReport = (req, res) ->
