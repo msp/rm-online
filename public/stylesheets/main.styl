@@ -23,6 +23,8 @@
         font-size 45px
         line-height 45px
         margin 35px 0px 40px 0px
+      h1.capitalize
+        text-transform capitalize
       h2
         font-size 26px
         line-height 34px
@@ -304,12 +306,21 @@ $report
   padding 20px
   padding-left 60px
 
+.services
+  .rm-intro-box
+    min-height 344px
+
 /*general*/
 .l-box
   padding 5px 20px 5px 20px
 
 .highlight
   color red
+
+.border-bottom
+  border-bottom 1px solid rm-blue
+  margin-top 30px
+  margin-bottom 30px
 
 .no-border
   border none
@@ -329,11 +340,6 @@ $report
 
   .fa-quote-left, .fa-cog
     color rm-blue
-  hr.rm-blue
-    color rm-blue
-    border 1px solid
-    margin-top 30px
-    margin-bottom 30px
 
 /*media*/
 @media screen and (min-width: 768px)
