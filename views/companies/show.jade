@@ -84,7 +84,10 @@ block main
                         .l-box
                           .report-box.hover-shadow
                             a(href="/companies/"+company.cro_number+"/reports/"+slug(vendor).toLowerCase())
-                              img(src="/images/partner-logos/bw/#{slug(vendor).toLowerCase()}.jpg", alt="#{vendor}")
+                              if images[vendor.toLowerCase()]
+                                img(src="/images/partner-logos/bw/#{slug(images[vendor.toLowerCase()]).toLowerCase()}.jpg", alt="#{images[vendor.toLowerCase()])}")
+                              else
+                                p #{vendor}
                               each rep, index in reports[vendor][0].report
                                 if index < 3
                                   div(class="report-#{index+1}") #{rep.description}

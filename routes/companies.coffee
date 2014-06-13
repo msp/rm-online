@@ -20,6 +20,16 @@ ACCOUNT_TYPES = ["Not Available"
                 ,"Interim"
                 ,"Initial"]
 
+IMAGES_SHIM = {
+  ex: "Experian"
+  ,db: "D&B"
+  ,jd: "Jordans"
+  ,eq: "Equifax"
+  ,rm: "RM"
+  ,rmi: "Companies House"
+  ,cs: "Credit Safe"
+}
+
 exports.show = (req, res) ->
   if req.company
     title = req.company.name
@@ -31,6 +41,7 @@ exports.show = (req, res) ->
     error: req.error
     reports: req.reports
     account_types: ACCOUNT_TYPES
+    images: IMAGES_SHIM
 
 
 exports.viewReport = (req, res) ->
@@ -39,7 +50,7 @@ exports.viewReport = (req, res) ->
 
   if req.company
     title = req.company.name
-    req.breadcrumbs(vendor, '/companies/'+req.params.cro+'/view/'+vendor)
+    req.breadcrumbs(IMAGES_SHIM[vendor.toLowerCase()], '/companies/'+req.params.cro+'/view/'+vendor)
 
   res.render "companies/view-report",
     title: title
@@ -48,6 +59,7 @@ exports.viewReport = (req, res) ->
     error: req.error
     reports: req.reports
     vendor: vendor
+    images: IMAGES_SHIM
   return
 
 exports.param = (req, res, next, id) ->
@@ -56,9 +68,9 @@ exports.param = (req, res, next, id) ->
   title = id
   company = ""
   error = ""
-  reports = ""
+  reports = undefined
 
-  https.get("https://www.rmonline.com/servlet/com.armadillo.online?service=rm008&function=cobasic_nocaptcha&reference="+id+"&stylesheet=none", (resp) ->
+  https.get("https://www.rmonline.com/servlet/com.armadillo.online?service=ccard_v2&function=cobasic_nocaptcha&reference="+id+"&stylesheet=none", (resp) ->
     console.log("##################################################")
     console.log "Got response: " + resp.statusCode
 
@@ -80,6 +92,7 @@ exports.param = (req, res, next, id) ->
           reports =  result.horus.reports[0]
 
           inspect(company)
+          inspect(reports)
           title = company.name
           req.breadcrumbs(title, '/companies/'+req.params.cro)
           req.company = company
