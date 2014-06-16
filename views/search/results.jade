@@ -1,0 +1,47 @@
+extends ../index
+block main
+  .pure-u-1
+    .l-box
+      +breadcrumbs_from(bcList)
+
+      if (error)
+        h1= "Error ["+error.code[0]+"]: "+error.description[0]
+      else
+        h1.capitalize= title
+
+      if results
+        h3 #{results.length -1} results for '#{term}'
+
+        table.search-results.pure-table
+          thead
+            tr
+              th Company Name
+              th Address
+              th Reg No.
+
+          tbody
+            each company, index in results
+              //- the first row is meta data not a company :/
+              if index > 0
+
+                tr(class=index % 2 == 0  ? "" : "pure-table-odd", onclick="location.href='/companies/#{company.company}'")
+                  td
+                    a(href="/companies/#{company.company}")= company.name
+                  td
+                    = company.addressline1
+                    br
+                    = company.addressline2
+                    br
+                    = company.addressline3
+                  td= company.company
+
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br

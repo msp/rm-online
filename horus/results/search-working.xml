@@ -1,0 +1,81 @@
+<horus>
+    <row>
+        <service><![CDATA[rm008]]></service>
+        <ltd><![CDATA[yes]]></ltd>
+        <noli><![CDATA[no]]></noli>
+        <dir><![CDATA[yes]]></dir>
+        <subscriber><![CDATA[yes]]></subscriber>
+        <ccard><![CDATA[yes]]></ccard>
+        <name><![CDATA[RM Online]]></name>
+        <intco><![CDATA[yes]]></intco>
+        <baseurl><![CDATA[https://www.rmonline.com]]></baseurl>
+        <secureurl><![CDATA[https://www.rmonline.com]]></secureurl>
+    </row>
+    <row>
+        <company><![CDATA[02425920]]></company>
+        <name><![CDATA[EQUIFAX LIMITED]]></name>
+        <addressline1><![CDATA[CAPITAL HOUSE]]></addressline1>
+        <addressline2><![CDATA[25 CHAPEL STREET]]></addressline2>
+        <addressline3><![CDATA[LONDON]]></addressline3>
+        <addressline4><![CDATA[NW1 5DS]]></addressline4>
+        <postcode><![CDATA[NW1 5DS]]></postcode>
+        <phone><![CDATA[020 7298 3000]]></phone>
+        <fax><![CDATA[020 7723 7555]]></fax>
+        <uksic><![CDATA[82990]]></uksic>
+        <accounttype><![CDATA[Group]]></accounttype>
+        <cotype><![CDATA[Private Limited Company]]></cotype>
+        <companysizeband><![CDATA[B]]></companysizeband>
+        <incorporateddate><![CDATA[25/09/1989]]></incorporateddate>
+        <liquidationdate><![CDATA[?]]></liquidationdate>
+        <administrationdate><![CDATA[?]]></administrationdate>
+        <updateflag><![CDATA[N]]></updateflag>
+    </row>
+    <row>
+        <company><![CDATA[03900346]]></company>
+        <name><![CDATA[EQUIFAX SECURE LIMITED]]></name>
+        <addressline1><![CDATA[CAPITAL HOUSE]]></addressline1>
+        <addressline2><![CDATA[25 CHAPEL STREET]]></addressline2>
+        <addressline3><![CDATA[LONDON]]></addressline3>
+        <addressline4><![CDATA[NW1 5DS]]></addressline4>
+        <postcode><![CDATA[NW1 5DS]]></postcode>
+        <uksic><![CDATA[82990]]></uksic>
+        <accounttype><![CDATA[Full]]></accounttype>
+        <cotype><![CDATA[Private Limited Company]]></cotype>
+        <companysizeband><![CDATA[D]]></companysizeband>
+        <incorporateddate><![CDATA[29/12/1999]]></incorporateddate>
+        <liquidationdate><![CDATA[?]]></liquidationdate>
+        <administrationdate><![CDATA[?]]></administrationdate>
+        <updateflag><![CDATA[Y]]></updateflag>
+    </row>
+    <row>
+        <company><![CDATA[07171199]]></company>
+        <name><![CDATA[EQUIFAX EUA LIMITED]]></name>
+        <addressline1><![CDATA[CAPITAL HOUSE 25 CHAPEL STREET]]></addressline1>
+        <addressline2><![CDATA[LONDON]]></addressline2>
+        <addressline3><![CDATA[NW1 5DS]]></addressline3>
+        <postcode><![CDATA[NW1 5DS]]></postcode>
+        <uksic><![CDATA[82990]]></uksic>
+        <accounttype><![CDATA[Full]]></accounttype>
+        <cotype><![CDATA[Private Limited Company]]></cotype>
+        <companysizeband><![CDATA[A]]></companysizeband>
+        <incorporateddate><![CDATA[26/02/2010]]></incorporateddate>
+        <liquidationdate><![CDATA[?]]></liquidationdate>
+        <administrationdate><![CDATA[?]]></administrationdate>
+        <updateflag><![CDATA[Y]]></updateflag>
+    </row>
+    <row>
+        <company><![CDATA[08826552]]></company>
+        <name><![CDATA[EQUIFAX UK AH LIMITED]]></name>
+        <addressline1><![CDATA[CAPITAL HOUSE 25 CHAPEL STREET]]></addressline1>
+        <addressline2><![CDATA[LONDON]]></addressline2>
+        <addressline3><![CDATA[NW1 5DS]]></addressline3>
+        <postcode><![CDATA[NW1 5DS]]></postcode>
+        <accounttype><![CDATA[Not Avail]]></accounttype>
+        <cotype><![CDATA[Private Limited Company]]></cotype>
+        <companysizeband><![CDATA[E]]></companysizeband>
+        <incorporateddate><![CDATA[27/12/2013]]></incorporateddate>
+        <liquidationdate><![CDATA[?]]></liquidationdate>
+        <administrationdate><![CDATA[?]]></administrationdate>
+        <updateflag><![CDATA[N]]></updateflag>
+    </row>
+</horus>

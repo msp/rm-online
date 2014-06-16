@@ -10,6 +10,7 @@ bodyParser = require("body-parser")
 terms = require('./routes/terms');
 faq = require('./routes/faq');
 companies = require('./routes/companies');
+search = require('./routes/search');
 
 app = express()
 
@@ -84,6 +85,8 @@ app.get('/terms', terms.index)
 app.get('/companies/:cro', companies.show)
 app.get('/companies/:cro/reports/:vendor', companies.viewReport)
 # app.get('/companies/:cro/documents/:vendor', companies.viewReport)
+app.get('/search', search.index)
+app.post('/search', search.execute)
 
 
 #/ catch 404 and forward to error handler

@@ -38,6 +38,34 @@
         color rm-font-color
         font-weight bold
         margin-bottom 5px
+      .pure-table
+        width 100%
+        margin-top 20px
+        a
+          text-decoration none
+          color rm-blue
+        tr
+          padding 10px
+        td, th
+          border 0px
+        thead
+          background-color rm-light-grey
+          th
+            padding-top 15px
+            padding-bottom 15px
+        tbody
+          .pure-table-odd
+            background-color #e5e5e5
+            td
+              background-color inherit
+          tr, .pure-table-odd
+            border-top 2px dashed rm-blue
+            border-bottom 2px dashed rm-blue
+            &:hover
+              background-color rm-light-blue !important
+              cursor pointer
+          td
+            // border 1px solid rm-dark-grey
 
   #top-nav-container
     .pure-menu
@@ -55,11 +83,15 @@
     border 1px solid rm-font-color
     font-weight bold
 
+.pure-skin-rm .pure-button-secondary
+    background-color rm-blue
+    color white
+
 .pure-skin-rm .pure-button-hover,
 .pure-skin-rm .pure-button:hover
     background rm-blue
     color white
-  
+
 
 .pure-skin-rm .pure-menu li a:hover, .pure-skin-rm .pure-menu li a:focus
   color rm-blue
@@ -233,7 +265,7 @@ li.terms-section
       color rm-blue
       text-decoration none
   &:hover
-    background #cce6ed !important
+    background rm-light-blue !important
 #feed-content
   iframe
     width 300px
@@ -309,6 +341,27 @@ $report
 .services
   .rm-intro-box
     min-height 344px
+
+/*search*/
+#search-form
+  .search-box
+    fieldset
+      background-color rm-dark-grey
+      padding-left 30px
+      padding-right 30px
+      padding-bottom 30px
+      input
+        height 40px
+        margin 0px
+        padding 0px
+        border 0px
+      #search-term
+        width 100%
+        padding-left 10px
+      #search-submit
+        width 100%
+      h3
+        color white
 
 /*general*/
 .l-box

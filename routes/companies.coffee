@@ -73,11 +73,17 @@ exports.param = (req, res, next, id) ->
   https.get("https://www.rmonline.com/servlet/com.armadillo.online?service=ccard_v2&function=cobasic_nocaptcha&reference="+id+"&stylesheet=none", (resp) ->
     console.log("##################################################")
     console.log "Got response: " + resp.statusCode
+    console.log("##################################################")
 
-    resp.on "data", (data) ->
-      console.log("##################################################")
+    responseBuffer = ""
 
-      parser.parseString data, (err, result) ->
+    resp.on "data", (chunk) ->
+      responseBuffer += chunk;
+
+    resp.on "end", () ->
+      # console.log(responseBuffer)
+      parser.parseString responseBuffer, (err, result) ->
+        # inspect(err)
         # inspect(result)
 
         if result.horus.error
