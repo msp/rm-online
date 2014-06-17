@@ -86,7 +86,8 @@ app.get('/companies/:cro', companies.show)
 app.get('/companies/:cro/reports/:vendor', companies.viewReport)
 # app.get('/companies/:cro/documents/:vendor', companies.viewReport)
 app.get('/search', search.index)
-app.post('/search', search.execute)
+app.get('/search/:country', search.index)
+app.get('/search/:country/results', search.execute)
 
 
 #/ catch 404 and forward to error handler

@@ -2,6 +2,7 @@ fs = require 'fs',
 https = require 'https',
 xml2js = require 'xml2js'
 inspect = require('eyes').inspector({maxLength: false})
+search = require('./search');
 
 ACCOUNT_TYPES = ["Not Available"
                 ,"Full Accounts"

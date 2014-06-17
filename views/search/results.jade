@@ -25,7 +25,7 @@ block main
               if index > 0
 
                 tr(class=index % 2 == 0  ? "" : "pure-table-odd", onclick="location.href='/companies/#{company.company}'")
-                  td
+                  td.company-name
                     a(href="/companies/#{company.company}")= company.name
                   td
                     = company.addressline1
@@ -35,13 +35,13 @@ block main
                     = company.addressline3
                   td= company.company
 
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br

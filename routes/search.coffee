@@ -3,26 +3,34 @@ https = require 'https',
 xml2js = require 'xml2js'
 inspect = require('eyes').inspector({maxLength: false})
 
+class SearchRoute
+  @SEARCH_RESULTS_TITLE: "Search Results"
+  @UK_INFO_SEARCH_TITLE: "UK Company Information Search"
+
+exports.SearchRoute = SearchRoute
+
 exports.index = (req, res) ->
-  title = "UK Company Information Search"
-  req.breadcrumbs(title, 'search')
+  title = SearchRoute.UK_INFO_SEARCH_TITLE
+  country =  if req.params.country then req.params.country else "UK"
+  req.breadcrumbs(title, "/search/#{country}")
   res.render "search/index",
     title: title
     bcList: req.breadcrumbs()
+    country: country
   return
 
 
 exports.execute = (req, res) ->
-  title = "UK Company Information Search"
-  req.breadcrumbs(title, 'search')
-  title = "Search Results"
-  req.breadcrumbs(title, 'search')
+  country =  req.params.country
+  term = req.query.term
+  title = SearchRoute.UK_INFO_SEARCH_TITLE
+  req.breadcrumbs(title, "/search/#{country}")
+  title = SearchRoute.SEARCH_RESULTS_TITLE
+  req.breadcrumbs(title, "/search/#{country}/results?term=#{term}")
 
   parser = new xml2js.Parser()
   error = undefined
   results = undefined
-
-  term = req.body.searchTerm
 
   https.get("https://www.rmonline.com/servlet/com.armadillo.online?service=rm008&function=busmatch_nocaptcha&searchdata="+term+"&stylesheet=none", (resp) ->
     console.log("##################################################")
@@ -49,6 +57,7 @@ exports.execute = (req, res) ->
           bcList: req.breadcrumbs()
           results: results
           term: term
+          country: country
         return
 
 
