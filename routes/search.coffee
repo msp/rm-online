@@ -32,45 +32,54 @@ exports.execute = (req, res) ->
   error = undefined
   results = undefined
 
-  https.get("https://www.rmonline.com/servlet/com.armadillo.online?service=rm008&function=busmatch_nocaptcha&searchdata="+term+"&stylesheet=none", (resp) ->
-    console.log("##################################################")
-    console.log "Got response: " + resp.statusCode
-    console.log("##################################################")
-
-    responseBuffer = ""
-
-    resp.on "data", (chunk) ->
-      responseBuffer += chunk;
-
-    resp.on "end", () ->
+  if term
+    https.get("https://www.rmonline.com/servlet/com.armadillo.online?service=rm008&function=busmatch_nocaptcha&searchdata="+term+"&stylesheet=none", (resp) ->
+      console.log("##################################################")
+      console.log "Got response: " + resp.statusCode
+      console.log("##################################################")
+  
+      responseBuffer = ""
+  
+      resp.on "data", (chunk) ->
+        responseBuffer += chunk;
+  
+      resp.on "end", () ->
       # console.log(responseBuffer)
-      parser.parseString responseBuffer, (err, result) ->
-        # inspect(err)
-        # inspect(result)
-        console.log("RESULTS from Horus")
-        results =  result.horus.row
-
-        inspect(results)
-
-        res.render "search/results",
-          title: title
-          bcList: req.breadcrumbs()
-          results: results
-          term: term
-          country: country
-        return
-
-
-  ).on "error", (e) ->
-    console.log "Got error: " + e.message
-    error = {
-      code: 99
-      description: e.message
-    }
-    console.log("ERROR transport error talking to Horus")
-    req.error = error
+        parser.parseString responseBuffer, (err, result) ->
+          # inspect(err)
+          # inspect(result)
+          console.log("RESULTS from Horus")
+          results =  result.horus.row
+  
+          inspect(results)
+  
+          res.render "search/results",
+            title: title
+            bcList: req.breadcrumbs()
+            results: results
+            term: term
+            country: country
+          return
+  
+  
+    ).on "error", (e) ->
+      console.log "Got error: " + e.message
+      error = {
+        code: 99
+        description: e.message
+      }
+      console.log("ERROR transport error talking to Horus")
+      req.error = error
+      res.render "search/results",
+        title: title
+        bcList: req.breadcrumbs()
+        results: results
+      return
+  else
     res.render "search/results",
       title: title
       bcList: req.breadcrumbs()
-      results: results
+      results: undefined
+      term: term
+      country: country
     return

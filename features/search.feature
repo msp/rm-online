@@ -13,6 +13,10 @@ Feature: UK Company Information search
     And I execute a company search for "radial solutions"
     Then I should see 1 search results for "radial solutions"
 
-  # Scenario: Empty search , no table, message
-  # Scenario: Number of results & pagination?
-  # Scenario: Server Errors ?
+  # Scenario: Empty search
+  #   When I visit the "search/uk" page
+  #   And I execute a company search for ""
+  #   Then I should see 0 search results for ""
+  #   And I should see a prompt to enter a valid search term
+
+  # Scenario: Server Errors ? e.g. search for [']

@@ -4,33 +4,43 @@ block main
     .l-box
       +breadcrumbs_from(bcList)
 
-      if (error)
-        h1= "Error ["+error.code[0]+"]: "+error.description[0]
+      if (results)
+        h1.capitalize.reduced-bottom-margin= title
       else
-        h1.capitalize= title
+        if (!term)
+          h1.reduced-bottom-margin Please enter a valid search term and try again.          
+        if (error)
+          h1= "Error ["+error.code[0]+"]: "+error.description[0]
+        a#back-to-search.rm-blue(href="javascript:window.history.back()") BACK TO SEARCH
 
       if results
-        h3 #{results.length -1} results for '#{term}'
+        .pure-g-r
+          .pure-u-20-24#num-search-results
+              | #{results.length -1} results for 
+              span.rm-blue '#{term}'
+          //- .pure-u-4-24#back-to-search
+          //-   a.rm-blue(href="javascript:window.history.back()") BACK TO SEARCH
 
-        table.search-results.pure-table
-          thead
-            tr
-              th Company Name
-              th Address
-              th Reg No.
-
-          tbody
-            each company, index in results
-              //- the first row is meta data not a company :/
-              if index > 0
-
-                tr(class=index % 2 == 0  ? "" : "pure-table-odd", onclick="location.href='/companies/#{company.company}'")
-                  td.company-name
-                    a(href="/companies/#{company.company}")= company.name
-                  td
-                    = company.addressline1
-                    br
-                    = company.addressline2
-                    br
-                    = company.addressline3
-                  td= company.company
+        //- the first row is meta data not a company :/
+        if results.length > 1
+          table.search-results.pure-table
+            thead
+              tr
+                th Company Name
+                th.pure-hidden-phone Registered Office
+                th Reg No.
+  
+            tbody
+              each company, index in results                
+                if index > 0
+  
+                  tr(class=index % 2 == 0  ? "" : "pure-table-odd")
+                    td.company-name.capitalize
+                      a(href="/companies/#{company.company}")= String(company.name).toLowerCase()
+                    td.capitalize.pure-hidden-phone
+                      = String(company.addressline1).toLowerCase()
+                      br
+                      = String(company.addressline2).toLowerCase()
+                      br
+                      = String(company.addressline3).toLowerCase()
+                    td= company.company
