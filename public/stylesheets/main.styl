@@ -63,16 +63,27 @@ $merriweather-20
           th
             padding-top 15px
             padding-bottom 15px
+            padding-right 20px
             font-weight normal
-            @extends $merriweather-20
+            font-family 'Merriweather', serif
         tbody
+          td
+            height 100%
+            padding-top 15px
+            padding-bottom 15px
+          td.company-name
+            font-weight bold
+          .cell-wrapper
+            border-right 1px solid #ccc
+            height 100%
+            width 100%
+            background red
           .pure-table-odd
             background-color #e5e5e5
             td
               background-color inherit
-              padding-top 15px
-              padding-bottom 15px
           tr, .pure-table-odd
+            height 100%
             border-top 2px dashed rm-blue
             border-bottom 2px dashed rm-blue
             &:hover

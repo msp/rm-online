@@ -8,7 +8,7 @@ block main
         h1.capitalize.reduced-bottom-margin= title
       else
         if (!term)
-          h1.reduced-bottom-margin Please enter a valid search term and try again.          
+          h1.reduced-bottom-margin Please enter a valid search term and try again.
         if (error)
           h1= "Error ["+error.code[0]+"]: "+error.description[0]
         a#back-to-search.rm-blue(href="javascript:window.history.back()") BACK TO SEARCH
@@ -16,7 +16,8 @@ block main
       if results
         .pure-g-r
           .pure-u-20-24#num-search-results
-              | #{results.length -1} results for 
+              | #{results.length -1} results for
+              | 
               span.rm-blue '#{term}'
           //- .pure-u-4-24#back-to-search
           //-   a.rm-blue(href="javascript:window.history.back()") BACK TO SEARCH
@@ -29,11 +30,11 @@ block main
                 th Company Name
                 th.pure-hidden-phone Registered Office
                 th Reg No.
-  
+
             tbody
-              each company, index in results                
+              each company, index in results
                 if index > 0
-  
+
                   tr(class=index % 2 == 0  ? "" : "pure-table-odd")
                     td.company-name.capitalize
                       a(href="/companies/#{company.company}")= String(company.name).toLowerCase()
