@@ -1,4 +1,5 @@
 extends ../index
+include ../mixins/m-contact
 
 block main
   .pure-u-1
@@ -18,19 +19,27 @@ block main
         thead
           tr
             th Jurisdiction
-            th Set-up (&pound;)
-            th With Legalisation (&pound;)
-            th 2 Years (&pound;)
-            th 2 Years With Legalisation (&pound;)
+            th Set-up
+            th With Legalisation
+            th.pure-hidden-phone 2 Years
+            th.pure-hidden-phone 2 Years With Legislation
             th
 
         tbody
           each country, index in countries
             tr(class=index % 2 == 0  ? "" : "pure-table-odd")
-              td.company-name.rm-blue #{country.name}
-              td #{country.setup}
-              td #{country.withLegislation}
-              td #{country.twoYears}
-              td #{country.twoYearsWithLegislation}
-              td
+              td.country-name.rm-blue #{country.name}
+              td.number &pound;#{country.setup}
+              td.number &pound;#{country.withLegislation}
+              td.number.pure-hidden-phone &pound;#{country.twoYears}
+              td.number.pure-hidden-phone &pound;#{country.twoYearsWithLegislation}
+              td.bold.rm-blue
                 a(href="mailto:amanda@rmonline.com?subject=RM Online: Company formation request in #{country.name}&body=Please include your contact details and one of our advisors will get back to you within an hour!") BUY
+  .pure-u-2-5
+    .l-box
+      h3.international Need some help?
+      p Call Amanda to discuss your requirements.
+  .pure-u-3-5
+    .l-box
+      #contact_formations.contact
+        +contact("Company Formations", "Amanda Coyle", "+44 (0) 1462 427 300", "amanda@rmonline.com", "")

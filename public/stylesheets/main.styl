@@ -48,9 +48,13 @@ $merriweather-20
         color rm-font-color
         font-weight bold
         margin-bottom 5px
+      h3.international
+        margin-top 0px
+        margin-bottom 0px
       .pure-table
         width 100%
         margin-top 20px
+        margin-bottom 40px
         a
           text-decoration none
           color rm-blue
@@ -66,6 +70,7 @@ $merriweather-20
             padding-right 20px
             font-weight normal
             font-family 'Merriweather', serif
+            font-size 10px
         tbody
           td
             height 100%
@@ -73,8 +78,12 @@ $merriweather-20
             padding-bottom 15px
           td.company-name
             font-weight bold
+          td.country-name
+            font-weight bold
           td.rm-blue
             color rm-blue
+          td.number
+            text-align center
           .cell-wrapper
             border-right 1px solid #ccc
             height 100%
@@ -436,6 +445,7 @@ li.terms-section
     text-decoration none
 .capitalize
   text-transform capitalize
+
 /*media*/
 @media screen and (min-width: 768px)
 
@@ -453,3 +463,11 @@ li.terms-section
         h3
           a
             font-size inherit
+
+  .pure-skin-rm
+    .content, .header, .footer
+      html, button, input, select, textarea, .pure-g [class *= "pure-u"], .pure-g-r [class *= "pure-u"]
+        .pure-table
+          thead
+            th
+              font-size 16px

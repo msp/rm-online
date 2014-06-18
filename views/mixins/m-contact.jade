@@ -14,7 +14,7 @@ mixin contact(area, name, phone, email, introCopy)
           br
           label Email
           br
-          a(href="#{email}") #{email}
+          a(href="mailto:#{email}?subject=RM Online: contact from website&body=Hi #{name}....") #{email}
     .pure-u-1
       .l-box
         p #{introCopy}
