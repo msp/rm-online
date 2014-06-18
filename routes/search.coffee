@@ -37,43 +37,58 @@ exports.execute = (req, res) ->
       console.log("##################################################")
       console.log "Got response: " + resp.statusCode
       console.log("##################################################")
-  
+
       responseBuffer = ""
-  
+
       resp.on "data", (chunk) ->
         responseBuffer += chunk;
-  
+
       resp.on "end", () ->
       # console.log(responseBuffer)
-        parser.parseString responseBuffer, (err, result) ->
-          # inspect(err)
-          # inspect(result)
-          console.log("RESULTS from Horus")
-          results =  result.horus.row
-  
-          inspect(results)
-  
+        if resp.statusCode == 200
+          parser.parseString responseBuffer, (err, result) ->
+            # inspect(err)
+            # inspect(result)
+            console.log("RESULTS from Horus")
+            results =  result.horus.row
+
+            inspect(results)
+
+            res.render "search/results",
+              title: title
+              bcList: req.breadcrumbs()
+              results: results
+              term: term
+              country: country
+            return
+        else
+          error = {
+            code: [98]
+            description: ["Sorry, unsuccessful response from our search API. Please try again later."]
+          }
+
           res.render "search/results",
             title: title
             bcList: req.breadcrumbs()
             results: results
             term: term
             country: country
+            error: error
           return
-  
-  
+
+
     ).on "error", (e) ->
-      console.log "Got error: " + e.message
+      console.log("ERROR transport error talking to Horus: "+e.message)
       error = {
-        code: 99
-        description: e.message
+        code: [99]
+        description: [e.message]
       }
-      console.log("ERROR transport error talking to Horus")
-      req.error = error
       res.render "search/results",
         title: title
         bcList: req.breadcrumbs()
         results: results
+        term: term
+        error: error
       return
   else
     res.render "search/results",

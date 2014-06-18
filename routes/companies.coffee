@@ -109,8 +109,8 @@ exports.param = (req, res, next, id) ->
   ).on "error", (e) ->
     console.log "Got error: " + e.message
     error = {
-              code: 99
-              description: e.message
+              code: [99]
+              description: [e.message]
             }
     console.log("ERROR transport error talking to Horus")
     req.company = company
