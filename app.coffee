@@ -11,6 +11,7 @@ terms = require('./routes/terms');
 faq = require('./routes/faq');
 companies = require('./routes/companies');
 search = require('./routes/search');
+formations = require('./routes/formations');
 
 app = express()
 
@@ -88,6 +89,8 @@ app.get('/companies/:cro/reports/:vendor', companies.viewReport)
 app.get('/search', search.index)
 app.get('/search/:country', search.index)
 app.get('/search/:country/results', search.execute)
+
+app.get("/company-formations/international", formations.international)
 
 
 #/ catch 404 and forward to error handler

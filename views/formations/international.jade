@@ -1,0 +1,36 @@
+extends ../index
+
+block main
+  .pure-u-1
+    .l-box
+      +breadcrumbs_from(bcList)
+      h1 #{title}
+      .pure-g-r
+        .pure-u-1-2
+          p.intro-copy
+            span.highlight TODO
+            | 
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at aliquet sem, non blandit sem. Sed in luctus justo. Nam pellentesque, risus sed pulvinar tempor, lectus massa auctor enim, in sodales massa ante ultricies nulla. Mauris vitae mattis quam
+        br
+  .pure-u-1
+    .l-box
+      table.pure-table
+        thead
+          tr
+            th Jurisdiction
+            th Set-up (&pound;)
+            th With Legalisation (&pound;)
+            th 2 Years (&pound;)
+            th 2 Years With Legalisation (&pound;)
+            th
+
+        tbody
+          each country, index in countries
+            tr(class=index % 2 == 0  ? "" : "pure-table-odd")
+              td.company-name.rm-blue #{country.name}
+              td #{country.setup}
+              td #{country.withLegislation}
+              td #{country.twoYears}
+              td #{country.twoYearsWithLegislation}
+              td
+                a(href="mailto:amanda@rmonline.com?subject=RM Online: Company formation request in #{country.name}&body=Please include your contact details and one of our advisors will get back to you within an hour!") BUY
