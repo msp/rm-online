@@ -1,7 +1,7 @@
-mixin rm-intro-box(title, copy, image)
+mixin rm-intro-box(title, copy, image, link)
   .l-box
     .rm-intro-box.hover-shadow
-      a(href="/search")
+      a(href="#{link}")
         .pure-u-17-24
           .l-box
             .pure-u-1
@@ -16,16 +16,16 @@ mixin rm-intro-box(title, copy, image)
         .pure-u-1-24
 
 mixin rm-reports
-  +rm-intro-box("UK and International Business Reports", "The only consolidator of all the major brand products from D&B, Experian, Equifax, EBR and RM.", "reports")
+  +rm-intro-box("UK and International Business Reports", "The only consolidator of all the major brand products from D&B, Experian, Equifax, EBR and RM.", "reports", "/search/UK")
 
 mixin rm-documents
-  +rm-intro-box("Company Documents", "Available from Companies House and 200 countries across the globe, many instantly.", "docs")
+  +rm-intro-box("Company Documents", "Available from Companies House and 200 countries across the globe, many instantly.", "docs", "/search/UK")
 
 mixin rm-uk-formations
-  +rm-intro-box("UK Company Formations", "Fast, professional, easy.", "uk-formations")
+  +rm-intro-box("UK Company Formations", "Fast, professional, easy.", "uk-formations", "/company-formations/UK")
 
 mixin rm-int-formations
-  +rm-intro-box("International Company Formations", "Simple, professional, cost effective.", "int-formations")
+  +rm-intro-box("International Company Formations", "Simple, professional, cost effective.", "int-formations", "/company-formations/international")
 
 mixin rm-company-admin-services
-  +rm-intro-box("Company Admin Services", "Making things simple for you.", "company-admin")
+  +rm-intro-box("Company Admin Services", "Making things simple for you.", "company-admin", "/search/UK")

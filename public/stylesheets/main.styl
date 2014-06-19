@@ -201,9 +201,6 @@ $merriweather-20
 
 /*PAGES*/
 /*home*/
-.intro-copy
-  line-height 30px
-  @extends $merriweather-20
 .rm-intro-box
   background #ffffff
   min-height 275px
@@ -395,10 +392,6 @@ li.terms-section
         width 100%
       h3
         color white
-.search-icon
-  margin-left auto
-  margin-right auto
-  display block
 .search
   a
     text-decoration none
@@ -428,9 +421,18 @@ li.terms-section
   text-indent 130% // webkit needs more than 100%
   white-space nowrap
   overflow hidden
+
 .bold
   font-weight bold
 
+.intro-copy
+  line-height 30px
+  @extends $merriweather-20
+.intro-icon
+  margin-left auto
+  margin-right auto
+  display block
+  
 .pure-g-r
   .pdf
     width 39px

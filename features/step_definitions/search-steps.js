@@ -19,7 +19,7 @@ var myStepDefinitionsWrapper = function () {
     this.assert.equal(this.browser.text("#num-search-results").toLowerCase(), num+" results for '"+term+"'".toLowerCase());
     this.assert.equal(this.browser.text("H1").toLowerCase(), "Search Results".toLowerCase());
     this.assert.ok(this.browser.query(".search-results"));
-    this.assert.ok(this.browser.text(".search-results tr td.company-name").toLowerCase().indexOf(term) == 0);
+    this.assert.ok(this.browser.text(".search-results tr td.company-name").toLowerCase().indexOf(term) != -1);
     callback();
   });
 
