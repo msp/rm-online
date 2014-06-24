@@ -29,15 +29,12 @@ block main
                     .pure-u-19-24
                       .l-box
                         .report-name
-                          h4.grey-font= rep.description
+                          h4.grey-font= rep.name
                     .pure-u-5-24
                       img.pdf(src="/images/reports/pdf.png", alt="PDF")
                     .pure-u-1
                       .l-box
-                        p
-                          span.highlight TODO
-                          | 
-                          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at aliquet sem, non blandit sem. Sed in luctus justo.
+                        p= rep.description
                         .pure-g
                           .pure-u-8-24
                             .report-price £#{rep.vat}
