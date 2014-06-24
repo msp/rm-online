@@ -1202,6 +1202,10 @@ li.terms-section {
   border-radius: 0;
 }
 
+#search-form .search-box fieldset #company-suffix {
+  width: 100%;
+}
+
 #search-form .search-box fieldset #search-term {
   width: 100%;
   padding-left: 10px;
