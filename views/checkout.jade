@@ -1,0 +1,26 @@
+extends index
+
+block main
+  .pure-u-1
+    .l-box
+      +breadcrumbs_from(bcList)
+      h1 Mock Checkout
+
+      h3 The following items will be POST'd to Horus from the shopping cart  .
+      p
+        strong The price must be validated by the server for correctness!
+      p Upon validation and acceptance of either credit card or subscriber credentials we'll make the documents/reports available here for download.
+
+      table.pure-table
+        thead
+          tr
+            th item_name_(n)
+            th item_price_(n)
+            th item_quantity_(n)
+        each item in checkoutItems
+          tbody
+            tr
+              td #{item.name}
+              td &pound;#{item.price}
+              td #{item.quantity}
+

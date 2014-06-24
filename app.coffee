@@ -13,6 +13,7 @@ faq = require('./routes/faq');
 companies = require('./routes/companies');
 search = require('./routes/search');
 formations = require('./routes/formations');
+checkout = require('./routes/checkout');
 
 app = express()
 
@@ -82,7 +83,6 @@ app.get "/contact", (req, res) ->
     bcList: req.breadcrumbs()
   return
 
-
 app.get('/faq', faq.index)
 app.get('/terms', terms.index)
 app.get('/companies/:cro', companies.show)
@@ -95,6 +95,8 @@ app.get('/search/:country/results', search.execute)
 app.get("/company-formations/international", formations.international)
 app.get("/company-formations/UK", formations.uk)
 app.get("/company-formations/UK/results", formations.search)
+
+app.post("/checkout", checkout.index)
 
 app.get "/company-formations/iframe", (req, res) ->
   title = "Spiking the iFrame integration"

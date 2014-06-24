@@ -983,6 +983,10 @@
   height: 50px;
 }
 
+.header #shopping-cart-toggle:hover {
+  cursor: pointer;
+}
+
 .content {
   color: #333;
   padding-top: 20px;
@@ -1343,6 +1347,10 @@ li.terms-section {
 
 .rm-service-grey {
   background-color: #dfe2e6;
+}
+
+.hidden {
+  display: none;
 }
 
 .pure-g-r .pdf {

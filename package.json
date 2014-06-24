@@ -18,7 +18,8 @@
     "express-breadcrumbs": "0.0.2",
     "xml2js": "~0.4.3",
     "eyes": "~0.1.8",
-    "slug": "~0.5.0"
+    "slug": "~0.5.0",
+    "wiredep": "~1.8.1"
   },
   "devDependencies": {
     "cucumber": "latest",
@@ -29,6 +30,7 @@
     "grunt-parallel": "~0.3.1",
     "grunt-contrib-stylus": "~0.16.0",
     "grunt-bower-install": "~1.0.0",
-    "grunt-autoprefixer": "~0.4.0"
+    "grunt-autoprefixer": "~0.4.0",
+    "grunt-wiredep": "~1.8.0"
   }
 }

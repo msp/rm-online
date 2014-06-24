@@ -84,8 +84,8 @@ module.exports = function (grunt) {
     },
 
     // Automatically inject Bower components into the app
-    bowerInstall: {
-      app: {
+    wiredep: {
+      target: {
         cwd: "",
         src: ['views/index.jade']
       }

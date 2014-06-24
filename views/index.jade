@@ -55,10 +55,10 @@ body.pure-skin-rm
           a.pure-menu-heading(href='/')
             #rm-logo.hide-text RM Logo
       .pure-u-1-24
-      .pure-u-11-24.pure-hidden-phone#moss-fon-logo-container
+      .pure-u-9-24.pure-hidden-phone#moss-fon-logo-container
         small IN ASSOCIATION WITH
         #moss-fon-logo.hide-text Mossack Fonseca
-      .pure-u-8-24#top-nav-container
+      .pure-u-10-24#top-nav-container
         .pure-menu.pure-menu-open.pure-menu-horizontal
           ul
             li
@@ -72,6 +72,22 @@ body.pure-skin-rm
             li.divider.pure-hidden-phone |
             li
               a(href='/news') NEWS
+            li.divider.pure-hidden-phone |
+            li
+              a#shopping-cart-toggle
+                i.fa.fa-shopping-cart
+                &nbsp;
+                | (
+                span.simpleCart_quantity
+                | )
+    .pure-g-r.container
+      .pure-u-1
+        #shopping-cart.hidden
+          .pure-table.simpleCart_items
+          .simpleCart_total
+          a.simpleCart_empty.pure-button.pure-button-secondary(href="javascript:;") Empty
+
+          a.simpleCart_checkout.pure-button.pure-button-primary(href="javascript:;") Checkout
 
   .content
     .container.pure-g-r
@@ -125,6 +141,7 @@ body.pure-skin-rm
   script(src='/bower_components/json3/lib/json3.min.js')
   script(src='/bower_components/jQuery-Collapse/src/jquery.collapse.js')
   script(src='/bower_components/responsive-tabs/js/jquery.responsiveTabs.min.js')
+  script(src='/bower_components/simplecart-js/simpleCart.js')
   // endbower
   // endbuild
 
@@ -132,6 +149,15 @@ body.pure-skin-rm
   // endbuild
 
   script(src="https://www.google.com/jsapi")
+
+  script.
+      simpleCart({
+        checkout: {
+          type: "SendForm"
+          ,url: "/checkout"}
+        ,cartStyle: "table"
+        ,currency: "GBP"
+      });
 
   if path == "/news"
     script.
@@ -197,4 +223,10 @@ body.pure-skin-rm
       $('#responsiveTabs').responsiveTabs({
         startCollapsed: 'accordion'
       });
+
+      $('#shopping-cart-toggle').click(function() {
+        $('#shopping-cart').toggle("slide");
+      });
+
+
     });
