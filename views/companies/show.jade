@@ -85,7 +85,7 @@ block main
                           .report-box.hover-shadow
                             a(href="/companies/"+company.cro_number+"/reports/"+slug(vendor).toLowerCase())
                               if images[vendor.toLowerCase()]
-                                img(src="/images/partner-logos/bw/#{slug(images[vendor.toLowerCase()]).toLowerCase()}.jpg", alt="#{images[vendor.toLowerCase()])}")
+                                img(src="/images/partner-logos/bw/#{slug(images[vendor.toLowerCase()]).toLowerCase()}.png", alt="#{images[vendor.toLowerCase()]}")
                               else
                                 p #{vendor}
                               each rep, index in reports[vendor][0].report
@@ -98,7 +98,7 @@ block main
                       .l-box
                         .report-box.hover-shadow
                           //- a(href="/companies/"+company.cro_number+"/documents/"+slug(vendor).toLowerCase())
-                          img(src="/images/partner-logos/bw/#{slug(vendor).toLowerCase()}.jpg", alt="#{vendor}")
+                          img(src="/images/partner-logos/bw/#{slug(vendor).toLowerCase()}.png", alt="#{vendor}")
                           .report-1 Document 1
                           .report-2 Document 2
                           .report-3 Document 3

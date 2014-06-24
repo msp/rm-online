@@ -21,6 +21,7 @@ $merriweather-20
         color rm-blue
       h1
         font-size 30px
+        line-height 35px
         border-bottom 1px solid
         padding-bottom 20px
         margin-bottom 40px
@@ -139,6 +140,7 @@ $merriweather-20
   background #fff
   padding-top 25px
   padding-bottom 20px
+  border-bottom 3px solid rm-blue
   .container
     display flex
     align-items flex-end
@@ -158,7 +160,6 @@ $merriweather-20
 
 /*body|content*/
 .content
-  background #efefef
   color #333333
   padding-top 20px
 
@@ -202,7 +203,7 @@ $merriweather-20
 /*PAGES*/
 /*home*/
 .rm-intro-box
-  background #ffffff
+  background rm-service-grey
   min-height 275px
   margin-top 15px
   margin-bottom 10px
@@ -219,9 +220,8 @@ $merriweather-20
 
 /*contact*/
 #general-enquiries
-  background white
   padding 20px
-
+  background rm-service-grey
   h3
     margin-top 0px
   label
@@ -230,7 +230,7 @@ $merriweather-20
     font-style normal
 
 .contact
-  background white
+  background rm-service-grey
   margin-bottom 40px
 
   label
@@ -263,7 +263,7 @@ li.terms-section
     list-style none
     padding-left 0px
     li
-      background white
+      background rm-service-grey
       margin-bottom  10px
       padding 15px 10px
       h3
@@ -319,13 +319,15 @@ li.terms-section
   margin-bottom 20px
 
 .report-box
-  background #fff
+  background rm-service-grey
   display block
   min-height 280px
   margin-bottom 30px
   a
     text-decoration none
     color rm-font-color
+  img
+    background-color rm-service-grey
   .report-1
     @extends $report
     background #cce6ed
@@ -432,7 +434,9 @@ li.terms-section
   margin-left auto
   margin-right auto
   display block
-  
+.rm-service-grey
+  background-color rm-service-grey
+
 .pure-g-r
   .pdf
     width 39px

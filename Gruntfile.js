@@ -38,13 +38,13 @@ module.exports = function (grunt) {
     watch: {
       express: {
         files: [
-          'public/stylesheets/**/*.css',
-          'views/**/*.jade',
-          'public/javascripts/**/*.js',
-          'routes/**/*.coffee',
-          'public/images/**/*',
-          '!public/stylesheets/**/tabs.css',
-          '!public/stylesheets/**/main.css'
+          'public/stylesheets/**/*.css'
+          ,'views/**/*.jade'
+          ,'public/javascripts/**/*.js'
+          ,'routes/**/*.coffee'
+          ,'public/images/**/*'
+          ,'!public/stylesheets/**/tabs.css'
+          ,'!public/stylesheets/**/main.css'
         ],
         tasks:  [ 'express:dev' ],
         // server used with FF extension
