@@ -1,0 +1,1412 @@
+.report-box .report-1,
+.report-box .report-2,
+.report-box .report-3 {
+  padding: 20px 20px;
+}
+
+#num-search-results,
+.intro-copy {
+  font-family: 'Merriweather',serif;
+  font-size: 20px;
+}
+
+.pure-skin-rm .content html,
+.pure-skin-rm .header html,
+.pure-skin-rm .footer html,
+.pure-skin-rm .content button,
+.pure-skin-rm .header button,
+.pure-skin-rm .footer button,
+.pure-skin-rm .content input,
+.pure-skin-rm .header input,
+.pure-skin-rm .footer input,
+.pure-skin-rm .content select,
+.pure-skin-rm .header select,
+.pure-skin-rm .footer select,
+.pure-skin-rm .content textarea,
+.pure-skin-rm .header textarea,
+.pure-skin-rm .footer textarea,
+.pure-skin-rm .content .pure-g [class *= "pure-u"],
+.pure-skin-rm .header .pure-g [class *= "pure-u"],
+.pure-skin-rm .footer .pure-g [class *= "pure-u"],
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"],
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"],
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] {
+  font-family: 'Source Sans Pro',serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.pure-skin-rm .content html h1,
+.pure-skin-rm .header html h1,
+.pure-skin-rm .footer html h1,
+.pure-skin-rm .content button h1,
+.pure-skin-rm .header button h1,
+.pure-skin-rm .footer button h1,
+.pure-skin-rm .content input h1,
+.pure-skin-rm .header input h1,
+.pure-skin-rm .footer input h1,
+.pure-skin-rm .content select h1,
+.pure-skin-rm .header select h1,
+.pure-skin-rm .footer select h1,
+.pure-skin-rm .content textarea h1,
+.pure-skin-rm .header textarea h1,
+.pure-skin-rm .footer textarea h1,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] h1,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] h1,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] h1,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] h1,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] h1,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h1,
+.pure-skin-rm .content html h2,
+.pure-skin-rm .header html h2,
+.pure-skin-rm .footer html h2,
+.pure-skin-rm .content button h2,
+.pure-skin-rm .header button h2,
+.pure-skin-rm .footer button h2,
+.pure-skin-rm .content input h2,
+.pure-skin-rm .header input h2,
+.pure-skin-rm .footer input h2,
+.pure-skin-rm .content select h2,
+.pure-skin-rm .header select h2,
+.pure-skin-rm .footer select h2,
+.pure-skin-rm .content textarea h2,
+.pure-skin-rm .header textarea h2,
+.pure-skin-rm .footer textarea h2,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] h2,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] h2,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] h2,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] h2,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] h2,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h2,
+.pure-skin-rm .content html h3,
+.pure-skin-rm .header html h3,
+.pure-skin-rm .footer html h3,
+.pure-skin-rm .content button h3,
+.pure-skin-rm .header button h3,
+.pure-skin-rm .footer button h3,
+.pure-skin-rm .content input h3,
+.pure-skin-rm .header input h3,
+.pure-skin-rm .footer input h3,
+.pure-skin-rm .content select h3,
+.pure-skin-rm .header select h3,
+.pure-skin-rm .footer select h3,
+.pure-skin-rm .content textarea h3,
+.pure-skin-rm .header textarea h3,
+.pure-skin-rm .footer textarea h3,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] h3,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] h3,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] h3,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] h3,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] h3,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h3,
+.pure-skin-rm .content html h4,
+.pure-skin-rm .header html h4,
+.pure-skin-rm .footer html h4,
+.pure-skin-rm .content button h4,
+.pure-skin-rm .header button h4,
+.pure-skin-rm .footer button h4,
+.pure-skin-rm .content input h4,
+.pure-skin-rm .header input h4,
+.pure-skin-rm .footer input h4,
+.pure-skin-rm .content select h4,
+.pure-skin-rm .header select h4,
+.pure-skin-rm .footer select h4,
+.pure-skin-rm .content textarea h4,
+.pure-skin-rm .header textarea h4,
+.pure-skin-rm .footer textarea h4,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] h4,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] h4,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] h4,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] h4,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] h4,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h4 {
+  font-family: 'Merriweather',serif;
+  font-weight: normal;
+  color: #0184a2;
+}
+
+.pure-skin-rm .content html h1,
+.pure-skin-rm .header html h1,
+.pure-skin-rm .footer html h1,
+.pure-skin-rm .content button h1,
+.pure-skin-rm .header button h1,
+.pure-skin-rm .footer button h1,
+.pure-skin-rm .content input h1,
+.pure-skin-rm .header input h1,
+.pure-skin-rm .footer input h1,
+.pure-skin-rm .content select h1,
+.pure-skin-rm .header select h1,
+.pure-skin-rm .footer select h1,
+.pure-skin-rm .content textarea h1,
+.pure-skin-rm .header textarea h1,
+.pure-skin-rm .footer textarea h1,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] h1,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] h1,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] h1,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] h1,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] h1,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h1 {
+  font-size: 30px;
+  line-height: 35px;
+  border-bottom: 1px solid;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+.pure-skin-rm .content html h1.no-border,
+.pure-skin-rm .header html h1.no-border,
+.pure-skin-rm .footer html h1.no-border,
+.pure-skin-rm .content button h1.no-border,
+.pure-skin-rm .header button h1.no-border,
+.pure-skin-rm .footer button h1.no-border,
+.pure-skin-rm .content input h1.no-border,
+.pure-skin-rm .header input h1.no-border,
+.pure-skin-rm .footer input h1.no-border,
+.pure-skin-rm .content select h1.no-border,
+.pure-skin-rm .header select h1.no-border,
+.pure-skin-rm .footer select h1.no-border,
+.pure-skin-rm .content textarea h1.no-border,
+.pure-skin-rm .header textarea h1.no-border,
+.pure-skin-rm .footer textarea h1.no-border,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] h1.no-border,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] h1.no-border,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] h1.no-border,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] h1.no-border,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] h1.no-border,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h1.no-border {
+  border: none;
+  padding-bottom: 0;
+}
+
+.pure-skin-rm .content html h1.home,
+.pure-skin-rm .header html h1.home,
+.pure-skin-rm .footer html h1.home,
+.pure-skin-rm .content button h1.home,
+.pure-skin-rm .header button h1.home,
+.pure-skin-rm .footer button h1.home,
+.pure-skin-rm .content input h1.home,
+.pure-skin-rm .header input h1.home,
+.pure-skin-rm .footer input h1.home,
+.pure-skin-rm .content select h1.home,
+.pure-skin-rm .header select h1.home,
+.pure-skin-rm .footer select h1.home,
+.pure-skin-rm .content textarea h1.home,
+.pure-skin-rm .header textarea h1.home,
+.pure-skin-rm .footer textarea h1.home,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] h1.home,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] h1.home,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] h1.home,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] h1.home,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] h1.home,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h1.home {
+  font-size: 45px;
+  line-height: 45px;
+  margin: 35px 0 40px 0;
+}
+
+.pure-skin-rm .content html h1.capitalize,
+.pure-skin-rm .header html h1.capitalize,
+.pure-skin-rm .footer html h1.capitalize,
+.pure-skin-rm .content button h1.capitalize,
+.pure-skin-rm .header button h1.capitalize,
+.pure-skin-rm .footer button h1.capitalize,
+.pure-skin-rm .content input h1.capitalize,
+.pure-skin-rm .header input h1.capitalize,
+.pure-skin-rm .footer input h1.capitalize,
+.pure-skin-rm .content select h1.capitalize,
+.pure-skin-rm .header select h1.capitalize,
+.pure-skin-rm .footer select h1.capitalize,
+.pure-skin-rm .content textarea h1.capitalize,
+.pure-skin-rm .header textarea h1.capitalize,
+.pure-skin-rm .footer textarea h1.capitalize,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] h1.capitalize,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] h1.capitalize,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] h1.capitalize,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] h1.capitalize,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] h1.capitalize,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h1.capitalize {
+  text-transform: capitalize;
+}
+
+.pure-skin-rm .content html h1.reduced-bottom-margin,
+.pure-skin-rm .header html h1.reduced-bottom-margin,
+.pure-skin-rm .footer html h1.reduced-bottom-margin,
+.pure-skin-rm .content button h1.reduced-bottom-margin,
+.pure-skin-rm .header button h1.reduced-bottom-margin,
+.pure-skin-rm .footer button h1.reduced-bottom-margin,
+.pure-skin-rm .content input h1.reduced-bottom-margin,
+.pure-skin-rm .header input h1.reduced-bottom-margin,
+.pure-skin-rm .footer input h1.reduced-bottom-margin,
+.pure-skin-rm .content select h1.reduced-bottom-margin,
+.pure-skin-rm .header select h1.reduced-bottom-margin,
+.pure-skin-rm .footer select h1.reduced-bottom-margin,
+.pure-skin-rm .content textarea h1.reduced-bottom-margin,
+.pure-skin-rm .header textarea h1.reduced-bottom-margin,
+.pure-skin-rm .footer textarea h1.reduced-bottom-margin,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] h1.reduced-bottom-margin,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] h1.reduced-bottom-margin,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] h1.reduced-bottom-margin,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] h1.reduced-bottom-margin,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] h1.reduced-bottom-margin,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h1.reduced-bottom-margin {
+  margin-bottom: 20px;
+}
+
+.pure-skin-rm .content html h2,
+.pure-skin-rm .header html h2,
+.pure-skin-rm .footer html h2,
+.pure-skin-rm .content button h2,
+.pure-skin-rm .header button h2,
+.pure-skin-rm .footer button h2,
+.pure-skin-rm .content input h2,
+.pure-skin-rm .header input h2,
+.pure-skin-rm .footer input h2,
+.pure-skin-rm .content select h2,
+.pure-skin-rm .header select h2,
+.pure-skin-rm .footer select h2,
+.pure-skin-rm .content textarea h2,
+.pure-skin-rm .header textarea h2,
+.pure-skin-rm .footer textarea h2,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] h2,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] h2,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] h2,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] h2,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] h2,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h2 {
+  font-size: 26px;
+  line-height: 34px;
+}
+
+.pure-skin-rm .content html h3,
+.pure-skin-rm .header html h3,
+.pure-skin-rm .footer html h3,
+.pure-skin-rm .content button h3,
+.pure-skin-rm .header button h3,
+.pure-skin-rm .footer button h3,
+.pure-skin-rm .content input h3,
+.pure-skin-rm .header input h3,
+.pure-skin-rm .footer input h3,
+.pure-skin-rm .content select h3,
+.pure-skin-rm .header select h3,
+.pure-skin-rm .footer select h3,
+.pure-skin-rm .content textarea h3,
+.pure-skin-rm .header textarea h3,
+.pure-skin-rm .footer textarea h3,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] h3,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] h3,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] h3,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] h3,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] h3,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h3 {
+  font-size: 20px;
+}
+
+.pure-skin-rm .content html h3.underline,
+.pure-skin-rm .header html h3.underline,
+.pure-skin-rm .footer html h3.underline,
+.pure-skin-rm .content button h3.underline,
+.pure-skin-rm .header button h3.underline,
+.pure-skin-rm .footer button h3.underline,
+.pure-skin-rm .content input h3.underline,
+.pure-skin-rm .header input h3.underline,
+.pure-skin-rm .footer input h3.underline,
+.pure-skin-rm .content select h3.underline,
+.pure-skin-rm .header select h3.underline,
+.pure-skin-rm .footer select h3.underline,
+.pure-skin-rm .content textarea h3.underline,
+.pure-skin-rm .header textarea h3.underline,
+.pure-skin-rm .footer textarea h3.underline,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] h3.underline,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] h3.underline,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] h3.underline,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] h3.underline,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] h3.underline,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h3.underline {
+  border-bottom: 1px solid;
+  padding-bottom: 20px;
+  margin-bottom: 60px;
+}
+
+.pure-skin-rm .content html h4.grey-font,
+.pure-skin-rm .header html h4.grey-font,
+.pure-skin-rm .footer html h4.grey-font,
+.pure-skin-rm .content button h4.grey-font,
+.pure-skin-rm .header button h4.grey-font,
+.pure-skin-rm .footer button h4.grey-font,
+.pure-skin-rm .content input h4.grey-font,
+.pure-skin-rm .header input h4.grey-font,
+.pure-skin-rm .footer input h4.grey-font,
+.pure-skin-rm .content select h4.grey-font,
+.pure-skin-rm .header select h4.grey-font,
+.pure-skin-rm .footer select h4.grey-font,
+.pure-skin-rm .content textarea h4.grey-font,
+.pure-skin-rm .header textarea h4.grey-font,
+.pure-skin-rm .footer textarea h4.grey-font,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] h4.grey-font,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] h4.grey-font,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] h4.grey-font,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] h4.grey-font,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] h4.grey-font,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h4.grey-font {
+  color: #474747;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.pure-skin-rm .content html h3.international,
+.pure-skin-rm .header html h3.international,
+.pure-skin-rm .footer html h3.international,
+.pure-skin-rm .content button h3.international,
+.pure-skin-rm .header button h3.international,
+.pure-skin-rm .footer button h3.international,
+.pure-skin-rm .content input h3.international,
+.pure-skin-rm .header input h3.international,
+.pure-skin-rm .footer input h3.international,
+.pure-skin-rm .content select h3.international,
+.pure-skin-rm .header select h3.international,
+.pure-skin-rm .footer select h3.international,
+.pure-skin-rm .content textarea h3.international,
+.pure-skin-rm .header textarea h3.international,
+.pure-skin-rm .footer textarea h3.international,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] h3.international,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] h3.international,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] h3.international,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] h3.international,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] h3.international,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h3.international {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.pure-skin-rm .content html .pure-table,
+.pure-skin-rm .header html .pure-table,
+.pure-skin-rm .footer html .pure-table,
+.pure-skin-rm .content button .pure-table,
+.pure-skin-rm .header button .pure-table,
+.pure-skin-rm .footer button .pure-table,
+.pure-skin-rm .content input .pure-table,
+.pure-skin-rm .header input .pure-table,
+.pure-skin-rm .footer input .pure-table,
+.pure-skin-rm .content select .pure-table,
+.pure-skin-rm .header select .pure-table,
+.pure-skin-rm .footer select .pure-table,
+.pure-skin-rm .content textarea .pure-table,
+.pure-skin-rm .header textarea .pure-table,
+.pure-skin-rm .footer textarea .pure-table,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.pure-skin-rm .content html .pure-table a,
+.pure-skin-rm .header html .pure-table a,
+.pure-skin-rm .footer html .pure-table a,
+.pure-skin-rm .content button .pure-table a,
+.pure-skin-rm .header button .pure-table a,
+.pure-skin-rm .footer button .pure-table a,
+.pure-skin-rm .content input .pure-table a,
+.pure-skin-rm .header input .pure-table a,
+.pure-skin-rm .footer input .pure-table a,
+.pure-skin-rm .content select .pure-table a,
+.pure-skin-rm .header select .pure-table a,
+.pure-skin-rm .footer select .pure-table a,
+.pure-skin-rm .content textarea .pure-table a,
+.pure-skin-rm .header textarea .pure-table a,
+.pure-skin-rm .footer textarea .pure-table a,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table a,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table a,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table a,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table a,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table a,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table a {
+  text-decoration: none;
+  color: #0184a2;
+}
+
+.pure-skin-rm .content html .pure-table tr,
+.pure-skin-rm .header html .pure-table tr,
+.pure-skin-rm .footer html .pure-table tr,
+.pure-skin-rm .content button .pure-table tr,
+.pure-skin-rm .header button .pure-table tr,
+.pure-skin-rm .footer button .pure-table tr,
+.pure-skin-rm .content input .pure-table tr,
+.pure-skin-rm .header input .pure-table tr,
+.pure-skin-rm .footer input .pure-table tr,
+.pure-skin-rm .content select .pure-table tr,
+.pure-skin-rm .header select .pure-table tr,
+.pure-skin-rm .footer select .pure-table tr,
+.pure-skin-rm .content textarea .pure-table tr,
+.pure-skin-rm .header textarea .pure-table tr,
+.pure-skin-rm .footer textarea .pure-table tr,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table tr,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table tr,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table tr,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table tr,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table tr,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table tr {
+  padding: 10px;
+}
+
+.pure-skin-rm .content html .pure-table td,
+.pure-skin-rm .header html .pure-table td,
+.pure-skin-rm .footer html .pure-table td,
+.pure-skin-rm .content button .pure-table td,
+.pure-skin-rm .header button .pure-table td,
+.pure-skin-rm .footer button .pure-table td,
+.pure-skin-rm .content input .pure-table td,
+.pure-skin-rm .header input .pure-table td,
+.pure-skin-rm .footer input .pure-table td,
+.pure-skin-rm .content select .pure-table td,
+.pure-skin-rm .header select .pure-table td,
+.pure-skin-rm .footer select .pure-table td,
+.pure-skin-rm .content textarea .pure-table td,
+.pure-skin-rm .header textarea .pure-table td,
+.pure-skin-rm .footer textarea .pure-table td,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table td,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table td,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table td,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table td,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table td,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table td,
+.pure-skin-rm .content html .pure-table th,
+.pure-skin-rm .header html .pure-table th,
+.pure-skin-rm .footer html .pure-table th,
+.pure-skin-rm .content button .pure-table th,
+.pure-skin-rm .header button .pure-table th,
+.pure-skin-rm .footer button .pure-table th,
+.pure-skin-rm .content input .pure-table th,
+.pure-skin-rm .header input .pure-table th,
+.pure-skin-rm .footer input .pure-table th,
+.pure-skin-rm .content select .pure-table th,
+.pure-skin-rm .header select .pure-table th,
+.pure-skin-rm .footer select .pure-table th,
+.pure-skin-rm .content textarea .pure-table th,
+.pure-skin-rm .header textarea .pure-table th,
+.pure-skin-rm .footer textarea .pure-table th,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table th,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table th,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table th,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table th,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table th,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table th {
+  border: 0;
+}
+
+.pure-skin-rm .content html .pure-table thead,
+.pure-skin-rm .header html .pure-table thead,
+.pure-skin-rm .footer html .pure-table thead,
+.pure-skin-rm .content button .pure-table thead,
+.pure-skin-rm .header button .pure-table thead,
+.pure-skin-rm .footer button .pure-table thead,
+.pure-skin-rm .content input .pure-table thead,
+.pure-skin-rm .header input .pure-table thead,
+.pure-skin-rm .footer input .pure-table thead,
+.pure-skin-rm .content select .pure-table thead,
+.pure-skin-rm .header select .pure-table thead,
+.pure-skin-rm .footer select .pure-table thead,
+.pure-skin-rm .content textarea .pure-table thead,
+.pure-skin-rm .header textarea .pure-table thead,
+.pure-skin-rm .footer textarea .pure-table thead,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table thead,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table thead,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table thead,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table thead,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table thead,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table thead {
+  background-color: #fff;
+}
+
+.pure-skin-rm .content html .pure-table thead th,
+.pure-skin-rm .header html .pure-table thead th,
+.pure-skin-rm .footer html .pure-table thead th,
+.pure-skin-rm .content button .pure-table thead th,
+.pure-skin-rm .header button .pure-table thead th,
+.pure-skin-rm .footer button .pure-table thead th,
+.pure-skin-rm .content input .pure-table thead th,
+.pure-skin-rm .header input .pure-table thead th,
+.pure-skin-rm .footer input .pure-table thead th,
+.pure-skin-rm .content select .pure-table thead th,
+.pure-skin-rm .header select .pure-table thead th,
+.pure-skin-rm .footer select .pure-table thead th,
+.pure-skin-rm .content textarea .pure-table thead th,
+.pure-skin-rm .header textarea .pure-table thead th,
+.pure-skin-rm .footer textarea .pure-table thead th,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table thead th,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table thead th,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table thead th,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table thead th,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table thead th,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table thead th {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 20px;
+  font-weight: normal;
+  font-family: 'Merriweather',serif;
+  font-size: 10px;
+}
+
+.pure-skin-rm .content html .pure-table tbody td,
+.pure-skin-rm .header html .pure-table tbody td,
+.pure-skin-rm .footer html .pure-table tbody td,
+.pure-skin-rm .content button .pure-table tbody td,
+.pure-skin-rm .header button .pure-table tbody td,
+.pure-skin-rm .footer button .pure-table tbody td,
+.pure-skin-rm .content input .pure-table tbody td,
+.pure-skin-rm .header input .pure-table tbody td,
+.pure-skin-rm .footer input .pure-table tbody td,
+.pure-skin-rm .content select .pure-table tbody td,
+.pure-skin-rm .header select .pure-table tbody td,
+.pure-skin-rm .footer select .pure-table tbody td,
+.pure-skin-rm .content textarea .pure-table tbody td,
+.pure-skin-rm .header textarea .pure-table tbody td,
+.pure-skin-rm .footer textarea .pure-table tbody td,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table tbody td,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table tbody td,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table tbody td,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table tbody td,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table tbody td,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table tbody td {
+  height: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.pure-skin-rm .content html .pure-table tbody td.company-name,
+.pure-skin-rm .header html .pure-table tbody td.company-name,
+.pure-skin-rm .footer html .pure-table tbody td.company-name,
+.pure-skin-rm .content button .pure-table tbody td.company-name,
+.pure-skin-rm .header button .pure-table tbody td.company-name,
+.pure-skin-rm .footer button .pure-table tbody td.company-name,
+.pure-skin-rm .content input .pure-table tbody td.company-name,
+.pure-skin-rm .header input .pure-table tbody td.company-name,
+.pure-skin-rm .footer input .pure-table tbody td.company-name,
+.pure-skin-rm .content select .pure-table tbody td.company-name,
+.pure-skin-rm .header select .pure-table tbody td.company-name,
+.pure-skin-rm .footer select .pure-table tbody td.company-name,
+.pure-skin-rm .content textarea .pure-table tbody td.company-name,
+.pure-skin-rm .header textarea .pure-table tbody td.company-name,
+.pure-skin-rm .footer textarea .pure-table tbody td.company-name,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table tbody td.company-name,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table tbody td.company-name,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table tbody td.company-name,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table tbody td.company-name,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table tbody td.company-name,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table tbody td.company-name {
+  font-weight: bold;
+}
+
+.pure-skin-rm .content html .pure-table tbody td.country-name,
+.pure-skin-rm .header html .pure-table tbody td.country-name,
+.pure-skin-rm .footer html .pure-table tbody td.country-name,
+.pure-skin-rm .content button .pure-table tbody td.country-name,
+.pure-skin-rm .header button .pure-table tbody td.country-name,
+.pure-skin-rm .footer button .pure-table tbody td.country-name,
+.pure-skin-rm .content input .pure-table tbody td.country-name,
+.pure-skin-rm .header input .pure-table tbody td.country-name,
+.pure-skin-rm .footer input .pure-table tbody td.country-name,
+.pure-skin-rm .content select .pure-table tbody td.country-name,
+.pure-skin-rm .header select .pure-table tbody td.country-name,
+.pure-skin-rm .footer select .pure-table tbody td.country-name,
+.pure-skin-rm .content textarea .pure-table tbody td.country-name,
+.pure-skin-rm .header textarea .pure-table tbody td.country-name,
+.pure-skin-rm .footer textarea .pure-table tbody td.country-name,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table tbody td.country-name,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table tbody td.country-name,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table tbody td.country-name,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table tbody td.country-name,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table tbody td.country-name,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table tbody td.country-name {
+  font-weight: bold;
+}
+
+.pure-skin-rm .content html .pure-table tbody td.rm-blue,
+.pure-skin-rm .header html .pure-table tbody td.rm-blue,
+.pure-skin-rm .footer html .pure-table tbody td.rm-blue,
+.pure-skin-rm .content button .pure-table tbody td.rm-blue,
+.pure-skin-rm .header button .pure-table tbody td.rm-blue,
+.pure-skin-rm .footer button .pure-table tbody td.rm-blue,
+.pure-skin-rm .content input .pure-table tbody td.rm-blue,
+.pure-skin-rm .header input .pure-table tbody td.rm-blue,
+.pure-skin-rm .footer input .pure-table tbody td.rm-blue,
+.pure-skin-rm .content select .pure-table tbody td.rm-blue,
+.pure-skin-rm .header select .pure-table tbody td.rm-blue,
+.pure-skin-rm .footer select .pure-table tbody td.rm-blue,
+.pure-skin-rm .content textarea .pure-table tbody td.rm-blue,
+.pure-skin-rm .header textarea .pure-table tbody td.rm-blue,
+.pure-skin-rm .footer textarea .pure-table tbody td.rm-blue,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table tbody td.rm-blue,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table tbody td.rm-blue,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table tbody td.rm-blue,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table tbody td.rm-blue,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table tbody td.rm-blue,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table tbody td.rm-blue {
+  color: #0184a2;
+}
+
+.pure-skin-rm .content html .pure-table tbody td.number,
+.pure-skin-rm .header html .pure-table tbody td.number,
+.pure-skin-rm .footer html .pure-table tbody td.number,
+.pure-skin-rm .content button .pure-table tbody td.number,
+.pure-skin-rm .header button .pure-table tbody td.number,
+.pure-skin-rm .footer button .pure-table tbody td.number,
+.pure-skin-rm .content input .pure-table tbody td.number,
+.pure-skin-rm .header input .pure-table tbody td.number,
+.pure-skin-rm .footer input .pure-table tbody td.number,
+.pure-skin-rm .content select .pure-table tbody td.number,
+.pure-skin-rm .header select .pure-table tbody td.number,
+.pure-skin-rm .footer select .pure-table tbody td.number,
+.pure-skin-rm .content textarea .pure-table tbody td.number,
+.pure-skin-rm .header textarea .pure-table tbody td.number,
+.pure-skin-rm .footer textarea .pure-table tbody td.number,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table tbody td.number,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table tbody td.number,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table tbody td.number,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table tbody td.number,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table tbody td.number,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table tbody td.number {
+  text-align: center;
+}
+
+.pure-skin-rm .content html .pure-table tbody .cell-wrapper,
+.pure-skin-rm .header html .pure-table tbody .cell-wrapper,
+.pure-skin-rm .footer html .pure-table tbody .cell-wrapper,
+.pure-skin-rm .content button .pure-table tbody .cell-wrapper,
+.pure-skin-rm .header button .pure-table tbody .cell-wrapper,
+.pure-skin-rm .footer button .pure-table tbody .cell-wrapper,
+.pure-skin-rm .content input .pure-table tbody .cell-wrapper,
+.pure-skin-rm .header input .pure-table tbody .cell-wrapper,
+.pure-skin-rm .footer input .pure-table tbody .cell-wrapper,
+.pure-skin-rm .content select .pure-table tbody .cell-wrapper,
+.pure-skin-rm .header select .pure-table tbody .cell-wrapper,
+.pure-skin-rm .footer select .pure-table tbody .cell-wrapper,
+.pure-skin-rm .content textarea .pure-table tbody .cell-wrapper,
+.pure-skin-rm .header textarea .pure-table tbody .cell-wrapper,
+.pure-skin-rm .footer textarea .pure-table tbody .cell-wrapper,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table tbody .cell-wrapper,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table tbody .cell-wrapper,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table tbody .cell-wrapper,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table tbody .cell-wrapper,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table tbody .cell-wrapper,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table tbody .cell-wrapper {
+  border-right: 1px solid #ccc;
+  height: 100%;
+  width: 100%;
+  background: #f00;
+}
+
+.pure-skin-rm .content html .pure-table tbody .pure-table-odd,
+.pure-skin-rm .header html .pure-table tbody .pure-table-odd,
+.pure-skin-rm .footer html .pure-table tbody .pure-table-odd,
+.pure-skin-rm .content button .pure-table tbody .pure-table-odd,
+.pure-skin-rm .header button .pure-table tbody .pure-table-odd,
+.pure-skin-rm .footer button .pure-table tbody .pure-table-odd,
+.pure-skin-rm .content input .pure-table tbody .pure-table-odd,
+.pure-skin-rm .header input .pure-table tbody .pure-table-odd,
+.pure-skin-rm .footer input .pure-table tbody .pure-table-odd,
+.pure-skin-rm .content select .pure-table tbody .pure-table-odd,
+.pure-skin-rm .header select .pure-table tbody .pure-table-odd,
+.pure-skin-rm .footer select .pure-table tbody .pure-table-odd,
+.pure-skin-rm .content textarea .pure-table tbody .pure-table-odd,
+.pure-skin-rm .header textarea .pure-table tbody .pure-table-odd,
+.pure-skin-rm .footer textarea .pure-table tbody .pure-table-odd,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table tbody .pure-table-odd,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table tbody .pure-table-odd,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table tbody .pure-table-odd,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table tbody .pure-table-odd,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table tbody .pure-table-odd,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table tbody .pure-table-odd {
+  background-color: #e5e5e5;
+}
+
+.pure-skin-rm .content html .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .header html .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .footer html .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .content button .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .header button .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .footer button .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .content input .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .header input .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .footer input .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .content select .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .header select .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .footer select .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .content textarea .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .header textarea .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .footer textarea .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table tbody .pure-table-odd td,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table tbody .pure-table-odd td {
+  background-color: inherit;
+}
+
+.pure-skin-rm .content html .pure-table tbody tr,
+.pure-skin-rm .header html .pure-table tbody tr,
+.pure-skin-rm .footer html .pure-table tbody tr,
+.pure-skin-rm .content button .pure-table tbody tr,
+.pure-skin-rm .header button .pure-table tbody tr,
+.pure-skin-rm .footer button .pure-table tbody tr,
+.pure-skin-rm .content input .pure-table tbody tr,
+.pure-skin-rm .header input .pure-table tbody tr,
+.pure-skin-rm .footer input .pure-table tbody tr,
+.pure-skin-rm .content select .pure-table tbody tr,
+.pure-skin-rm .header select .pure-table tbody tr,
+.pure-skin-rm .footer select .pure-table tbody tr,
+.pure-skin-rm .content textarea .pure-table tbody tr,
+.pure-skin-rm .header textarea .pure-table tbody tr,
+.pure-skin-rm .footer textarea .pure-table tbody tr,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table tbody tr,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table tbody tr,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table tbody tr,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table tbody tr,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table tbody tr,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table tbody tr,
+.pure-skin-rm .content html .pure-table tbody .pure-table-odd,
+.pure-skin-rm .header html .pure-table tbody .pure-table-odd,
+.pure-skin-rm .footer html .pure-table tbody .pure-table-odd,
+.pure-skin-rm .content button .pure-table tbody .pure-table-odd,
+.pure-skin-rm .header button .pure-table tbody .pure-table-odd,
+.pure-skin-rm .footer button .pure-table tbody .pure-table-odd,
+.pure-skin-rm .content input .pure-table tbody .pure-table-odd,
+.pure-skin-rm .header input .pure-table tbody .pure-table-odd,
+.pure-skin-rm .footer input .pure-table tbody .pure-table-odd,
+.pure-skin-rm .content select .pure-table tbody .pure-table-odd,
+.pure-skin-rm .header select .pure-table tbody .pure-table-odd,
+.pure-skin-rm .footer select .pure-table tbody .pure-table-odd,
+.pure-skin-rm .content textarea .pure-table tbody .pure-table-odd,
+.pure-skin-rm .header textarea .pure-table tbody .pure-table-odd,
+.pure-skin-rm .footer textarea .pure-table tbody .pure-table-odd,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table tbody .pure-table-odd,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table tbody .pure-table-odd,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table tbody .pure-table-odd,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table tbody .pure-table-odd,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table tbody .pure-table-odd,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table tbody .pure-table-odd {
+  height: 100%;
+  border-top: 2px dashed #0184a2;
+  border-bottom: 2px dashed #0184a2;
+}
+
+.pure-skin-rm .content html .pure-table tbody tr:hover,
+.pure-skin-rm .header html .pure-table tbody tr:hover,
+.pure-skin-rm .footer html .pure-table tbody tr:hover,
+.pure-skin-rm .content button .pure-table tbody tr:hover,
+.pure-skin-rm .header button .pure-table tbody tr:hover,
+.pure-skin-rm .footer button .pure-table tbody tr:hover,
+.pure-skin-rm .content input .pure-table tbody tr:hover,
+.pure-skin-rm .header input .pure-table tbody tr:hover,
+.pure-skin-rm .footer input .pure-table tbody tr:hover,
+.pure-skin-rm .content select .pure-table tbody tr:hover,
+.pure-skin-rm .header select .pure-table tbody tr:hover,
+.pure-skin-rm .footer select .pure-table tbody tr:hover,
+.pure-skin-rm .content textarea .pure-table tbody tr:hover,
+.pure-skin-rm .header textarea .pure-table tbody tr:hover,
+.pure-skin-rm .footer textarea .pure-table tbody tr:hover,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table tbody tr:hover,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table tbody tr:hover,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table tbody tr:hover,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table tbody tr:hover,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table tbody tr:hover,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table tbody tr:hover,
+.pure-skin-rm .content html .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .header html .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .footer html .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .content button .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .header button .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .footer button .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .content input .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .header input .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .footer input .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .content select .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .header select .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .footer select .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .content textarea .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .header textarea .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .footer textarea .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table tbody .pure-table-odd:hover,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table tbody .pure-table-odd:hover {
+  background-color: #cce6ed !important;
+}
+
+.pure-skin-rm #top-nav-container .pure-menu li a {
+  padding: 10px 10px;
+}
+
+.pure-skin-rm .pure-button-primary,
+.pure-skin-rm .pure-button-selected,
+.pure-skin-rm a.pure-button-primary,
+.pure-skin-rm a.pure-button-selected {
+  background-color: #fff;
+  color: #474747;
+  border: 1px solid #474747;
+  font-weight: bold;
+}
+
+.pure-skin-rm .pure-button-secondary {
+  background-color: #0184a2;
+  color: #fff;
+}
+
+.pure-skin-rm .pure-button-hover,
+.pure-skin-rm .pure-button:hover {
+  background: #0184a2;
+  color: #fff;
+}
+
+.pure-skin-rm .pure-menu li a:hover,
+.pure-skin-rm .pure-menu li a:focus {
+  color: #0184a2;
+  background: inherit;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 960px;
+  border: 0 solid;
+}
+
+.header {
+  background: #fff;
+  padding-top: 25px;
+  padding-bottom: 20px;
+  border-bottom: 3px solid #0184a2;
+}
+
+.header .container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.header li.divider {
+  color: #0184a2;
+  display: none;
+}
+
+.header #rm-logo {
+  background: url("/images/rmgroup-logo.png") no-repeat;
+  width: 140px;
+  height: 134px;
+}
+
+.header #moss-fon-logo {
+  background: url("/images/moss-fon.png") no-repeat;
+  width: 250px;
+  height: 50px;
+}
+
+.content {
+  color: #333;
+  padding-top: 20px;
+}
+
+.content .breadcrumbs {
+  font-size: small;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.content .breadcrumbs li.spacer {
+  margin: 0 8px;
+}
+
+.content .breadcrumbs li {
+  display: inline-block;
+  margin: 0 2px;
+}
+
+.content .breadcrumbs li a {
+  text-decoration: none;
+  color: #474747;
+}
+
+.content .breadcrumbs li a:hover {
+  text-decoration: underline;
+}
+
+.content.content-grey {
+  background: #dfe2e6;
+}
+
+.footer {
+  background: #0184a2;
+  padding: 30px 0 30px 0;
+  font-size: smaller;
+}
+
+.footer .pure-menu {
+  background: #0184a2;
+}
+
+.footer .pure-menu a {
+  color: #fff;
+}
+
+.footer .pure-menu .divider {
+  color: #fff;
+}
+
+.footer .pure-menu li a:hover,
+.footer .pure-skin-rm .pure-menu li a:focus {
+  color: #474747;
+  background: inherit;
+}
+
+.rm-intro-box {
+  background: #dfe2e6;
+  min-height: 275px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.rm-intro-box .half-divider {
+  border-bottom: 1px solid #0184a2;
+  display: block;
+}
+
+.rm-intro-box .service-intro-copy {
+  margin-top: 0;
+  color: #474747;
+}
+
+.footer-padding {
+  min-height: 150px;
+}
+
+#general-enquiries {
+  padding: 20px;
+  background: #dfe2e6;
+}
+
+#general-enquiries h3 {
+  margin-top: 0;
+}
+
+#general-enquiries label {
+  font-weight: bold;
+}
+
+#general-enquiries address {
+  font-style: normal;
+}
+
+.contact {
+  background: #dfe2e6;
+  margin-bottom: 40px;
+}
+
+.contact label {
+  font-weight: bold;
+}
+
+.contact .contact-thumbnail {
+  background-image: url("http://placehold.it/200x200");
+  width: 200px;
+  height: 200px;
+  margin-top: 15px;
+}
+
+#contact_documents .contact-thumbnail {
+  background-image: url("/images/julia-kanger.jpg");
+}
+
+#contact_formations .contact-thumbnail {
+  background-image: url("/images/amanda-coyle.jpg");
+}
+
+#contact_administration .contact-thumbnail {
+  background-image: url("/images/nerisa-jarrett.jpg");
+}
+
+li.terms-section {
+  padding: 10px;
+}
+
+.faq-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.faq-section ul li {
+  background: #dfe2e6;
+  margin-bottom: 10px;
+  padding: 15px 10px;
+}
+
+.faq-section ul li h3 {
+  margin: 0;
+}
+
+.faq-section ul li h3 a {
+  background: url("/images/faq-sprite.png") 10px 13px no-repeat;
+  display: block;
+  padding: 10px;
+  padding-left: 32px;
+  margin: 0;
+  text-decoration: none;
+  color: #474747;
+  font-size: small;
+}
+
+.faq-section ul li h3.open a {
+  background-position: 8px -88px;
+}
+
+.faq-section ul li p {
+  padding: 10px 30px 20px 30px;
+  margin: 0;
+}
+
+.news-item {
+  padding: 10px 0;
+  border-top: 1px solid #0184a2;
+}
+
+.news-item h3 a {
+  color: #0184a2;
+  text-decoration: none;
+}
+
+.news-item:hover {
+  background: #cce6ed !important;
+}
+
+#feed-content iframe {
+  width: 300px;
+  height: 300px;
+  margin-bottom: 20px;
+  display: none;
+}
+
+.company-data h4 {
+  margin-bottom: 3px;
+}
+
+.company-data p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #0184a2;
+}
+
+.company-data {
+  margin-bottom: 20px;
+}
+
+.report-box {
+  background: #dfe2e6;
+  display: block;
+  min-height: 280px;
+  margin-bottom: 30px;
+}
+
+.report-box a {
+  text-decoration: none;
+  color: #474747;
+}
+
+.report-box img {
+  background-color: #dfe2e6;
+}
+
+.report-box .report-1 {
+  background: #cce6ed;
+  margin-top: -8px;
+}
+
+.report-box .report-2 {
+  background: #b3dae4;
+}
+
+.report-box .report-3 {
+  background: #9acddb;
+}
+
+.report-box .report-name {
+  min-height: 53px;
+}
+
+.report-box .report-price {
+  font-size: x-large;
+  line-height: 36px;
+}
+
+.stats {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.stats img {
+  width: 160px;
+  height: 160px;
+}
+
+.partners {
+  margin-top: 50px;
+}
+
+.partners .logo {
+  margin-left: 15px;
+  margin-bottom: 15px;
+  min-height: 146px;
+  background-color: #fff;
+}
+
+.partners .no-left-margin {
+  margin-left: 0;
+}
+
+.quote {
+  padding: 20px;
+  padding-left: 60px;
+}
+
+.services .rm-intro-box {
+  min-height: 344px;
+}
+
+#search-form {
+  margin-top: 30px;
+}
+
+#search-form .search-box fieldset {
+  background-color: #474747;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+}
+
+#search-form .search-box fieldset input {
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+#search-form .search-box fieldset #search-term {
+  width: 100%;
+  padding-left: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#search-form .search-box fieldset #search-submit {
+  width: 100%;
+}
+
+#search-form .search-box fieldset h3 {
+  color: #fff;
+}
+
+.search a {
+  text-decoration: none;
+}
+
+.search .intro-copy {
+  margin-top: 0;
+}
+
+#back-to-search {
+  text-align: right;
+}
+
+.l-box {
+  padding: 5px 20px 5px 20px;
+}
+
+.highlight {
+  color: #f00;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #0184a2;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.no-border {
+  border: none;
+}
+
+.hide-text {
+  text-indent: 130%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.intro-copy {
+  line-height: 30px;
+}
+
+.intro-icon {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.rm-service-grey {
+  background-color: #dfe2e6;
+}
+
+.pure-g-r .pdf {
+  width: 39px;
+  height: 55px;
+  margin-top: 22px;
+}
+
+.pure-g-r .fa-quote-left,
+.pure-g-r .fa-cog {
+  color: #0184a2;
+}
+
+.pure-g-r .rm-blue {
+  color: #0184a2;
+  text-decoration: none;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+@media screen and (min-width:768px) {
+  .header li.divider {
+    display: inline-block;
+  }
+
+  .header #moss-fon-logo-container,
+  .header #top-nav-container {
+    margin-top: 65px;
+  }
+
+  .faq-section ul li h3 a {
+    font-size: inherit;
+  }
+
+  .pure-skin-rm .content html .pure-table thead th,
+  .pure-skin-rm .header html .pure-table thead th,
+  .pure-skin-rm .footer html .pure-table thead th,
+  .pure-skin-rm .content button .pure-table thead th,
+  .pure-skin-rm .header button .pure-table thead th,
+  .pure-skin-rm .footer button .pure-table thead th,
+  .pure-skin-rm .content input .pure-table thead th,
+  .pure-skin-rm .header input .pure-table thead th,
+  .pure-skin-rm .footer input .pure-table thead th,
+  .pure-skin-rm .content select .pure-table thead th,
+  .pure-skin-rm .header select .pure-table thead th,
+  .pure-skin-rm .footer select .pure-table thead th,
+  .pure-skin-rm .content textarea .pure-table thead th,
+  .pure-skin-rm .header textarea .pure-table thead th,
+  .pure-skin-rm .footer textarea .pure-table thead th,
+  .pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table thead th,
+  .pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table thead th,
+  .pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table thead th,
+  .pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table thead th,
+  .pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table thead th,
+  .pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table thead th {
+    font-size: 16px;
+  }
+}
+
+.r-tabs {
+  position: relative;
+}
+
+.r-tabs h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.r-tabs .r-tabs-nav {
+  background-color: #474747;
+  border-bottom: 0 solid #ccc;
+  margin-bottom: 50px;
+}
+
+.r-tabs .r-tabs-nav .r-tabs-tab {
+  position: relative;
+  border-right: 2px solid #efefef;
+}
+
+.r-tabs .r-tabs-nav .r-tabs-anchor {
+  background: #474747;
+  padding: 12px 40px;
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  min-width: 100px;
+  text-align: center;
+}
+
+.r-tabs .r-tabs-nav .r-tabs-state-active .r-tabs-anchor {
+  color: #fff;
+  background-color: #0184a2;
+}
+
+.r-tabs .r-tabs-nav .r-tabs-state-disabled {
+  opacity: .5;
+}
+
+.r-tabs .r-tabs-panel {
+  margin-bottom: 3px;
+  padding: 0;
+}
+
+.r-tabs .r-tabs-panel .pure-u-1-24 .l-box {
+  min-height: 200px;
+  border-left: 1px solid #0184a2;
+}
+
+.r-tabs .r-tabs-panel .pure-u-1-24 .l-box.no-border {
+  border: none;
+}
+
+.r-tabs .r-tabs-accordion-title .r-tabs-anchor {
+  display: block;
+  padding: 10px;
+  background-color: #474747;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 3px;
+}
+
+.r-tabs .r-tabs-accordion-title.r-tabs-state-disabled {
+  opacity: .5;
+}
+
+.r-tabs .r-tabs-accordion-title.r-tabs-state-active {
+  margin-bottom: 30px;
+}
+
+.r-tabs .r-tabs-accordion-title.r-tabs-state-active .r-tabs-anchor {
+  background-color: #0184a2;
+  color: #fff;
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  margin-bottom: 0;
+}
