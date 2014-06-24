@@ -1,0 +1,11 @@
+extends ../index
+include ../mixins/m-contact
+
+block main
+  .pure-u-1
+    .l-box
+      +breadcrumbs_from(bcList)
+      h1 #{title}
+      .pure-g-r
+        .pure-u-1
+          iframe(src="/company-formations/spike", width="1024", height="1400", seamless, scrolling="no")

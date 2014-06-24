@@ -1,0 +1,10 @@
+form.form-search(name='search', method='post', action='https://www.rmonline.com/servlet/com.armadillo.online')
+  input(type='hidden', value='einc', name='service')
+  input(type='hidden', value='cosearch_ch', name='function')
+  input(type='hidden', value='NameAvailableSearch', name='Request')
+  input(type='hidden', value='1', name='SearchRows')
+  input(type='hidden', value='initial_match_discount.xsl', name='stylesheet')
+  input#SearchData_2.input-xlarge(type='text', name='SearchData', value="does not exist limited")
+  select.span3
+    option United Kingdom
+  button.btn(type='submit') Search

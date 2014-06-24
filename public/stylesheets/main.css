@@ -840,6 +840,31 @@
   background-color: #cce6ed !important;
 }
 
+.pure-skin-rm .content html iframe,
+.pure-skin-rm .header html iframe,
+.pure-skin-rm .footer html iframe,
+.pure-skin-rm .content button iframe,
+.pure-skin-rm .header button iframe,
+.pure-skin-rm .footer button iframe,
+.pure-skin-rm .content input iframe,
+.pure-skin-rm .header input iframe,
+.pure-skin-rm .footer input iframe,
+.pure-skin-rm .content select iframe,
+.pure-skin-rm .header select iframe,
+.pure-skin-rm .footer select iframe,
+.pure-skin-rm .content textarea iframe,
+.pure-skin-rm .header textarea iframe,
+.pure-skin-rm .footer textarea iframe,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] iframe,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] iframe,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] iframe,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] iframe,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] iframe,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] iframe {
+  border: 0;
+  overflow: hidden;
+}
+
 .pure-skin-rm #top-nav-container .pure-menu li a {
   padding: 10px 10px;
 }

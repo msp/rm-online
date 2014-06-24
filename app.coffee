@@ -96,6 +96,23 @@ app.get("/company-formations/international", formations.international)
 app.get("/company-formations/UK", formations.uk)
 app.get("/company-formations/UK/results", formations.search)
 
+app.get "/company-formations/iframe", (req, res) ->
+  title = "Spiking the iFrame integration"
+  req.breadcrumbs(title, 'iframe')
+  res.render "formations/iframe",
+    title: title
+    bcList: req.breadcrumbs()
+  return
+
+app.get "/company-formations/spike", (req, res) ->
+  title = "Spiking the iFrame integration"
+  req.breadcrumbs(title, 'spike')
+  res.render "formations/spike",
+    title: title
+    bcList: req.breadcrumbs()
+  return
+
+
 
 #/ catch 404 and forward to error handler
 app.use (req, res, next) ->
