@@ -7,7 +7,8 @@ Scenario: Add to cart
   And I view the reports tab
   And I click through to the Credit Safe report
   When I add 1 standard report to my cart
-  And I view the cart
+  Then I should see the product button display 1 item in cart
+  When I view the cart
   Then I should see 1 items in the cart total
   And the total cost should be 18.00
   
@@ -15,13 +16,17 @@ Scenario: Remove from cart
   When I visit the profile page for company "02425919"
   And I view the reports tab
   And I click through to the Credit Safe report
-  And I add 3 standard report to my cart
+  And I add 3 standard reports to my cart
+  Then I should see the product button display 3 items in cart
   When I view the cart
   And I decrement the number of items in my cart
   # Zombie can't handle links with JS in them so revisit :/
-  When I visit the profile page for company "02425919"
+  And I visit the profile page for company "02425919"
   And I view the cart
-  Then I should see 1 items in the cart total
+  Then I should see 2 items in the cart total
+  When I view the reports tab
+  And I click through to the Credit Safe report  
+  And I should see the product button display 2 items in cart
   And the total cost should be 36.00
   
   

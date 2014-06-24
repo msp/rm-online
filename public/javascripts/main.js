@@ -13,8 +13,6 @@ $(document).ready(function() {
   });
 
   function redrawButtons() {
-    console.log("MSP REDRAW");
-
     // reset all
     $(".item_add").text("ADD TO CART");
     // update those in basket

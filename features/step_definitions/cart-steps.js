@@ -15,12 +15,12 @@ var myStepDefinitionsWrapper = function () {
     for(var i = 0; i < num; i++) {
       addToCart.call(this);
     }
+    
     callback();
-
   });
 
   this.Then(/^I should see (\d+) items in the cart total/, function (num, callback) {
-    this.assert.equal(this.browser.queryAll(".simpleCart_quantity").length, num);
+    this.assert.equal(this.browser.text(".simpleCart_quantity"), num);
     callback();
   });
 
@@ -35,6 +35,11 @@ var myStepDefinitionsWrapper = function () {
 
   this.When(/^I decrement the number of items in my cart$/, function (callback) {
     this.browser.clickLink(".simpleCart_decrement", callback);
+  });
+
+  this.Then(/^I should see the product button display (\d+) items? in cart$/, function (num, callback) {
+    this.assert.equal(this.browser.text(".item_add"), "("+num+") IN CART");
+    callback();
   });
 };
 module.exports = myStepDefinitionsWrapper;
