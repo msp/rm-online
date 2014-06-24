@@ -1,6 +1,6 @@
 var myStepDefinitionsWrapper = function () {
   function addToCart(callback) {
-    this.browser.clickLink("ADD TO BASKET", callback);
+    this.browser.clickLink(".item_add", callback);
   }
 
   function viewCart(callback) {

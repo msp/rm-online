@@ -1363,6 +1363,10 @@ li.terms-section {
   margin-bottom: 20px;
 }
 
+.item_add {
+  width: 100%;
+}
+
 .l-box {
   padding: 5px 20px 5px 20px;
 }

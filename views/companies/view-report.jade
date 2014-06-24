@@ -31,15 +31,16 @@ block main
                         .report-name
                           h4.grey-font= rep.name
                         .checkout-name.item_name.hidden
-                          p  #{company.name} | #{company.cro_number} | #{rep.name}
+                          p  #{company.name} | #{company.cro_number} | #{vendor} | #{rep.name}
+                        .item_rmid.hidden #{company.cro_number}-#{rep.name}
                     .pure-u-5-24
                       img.pdf(src="/images/reports/pdf.png", alt="PDF")
                     .pure-u-1
                       .l-box
                         p= rep.description
                         .pure-g
-                          .pure-u-8-24
+                          .pure-u-9-24
                             .report-price.item_price £#{rep.vat}
                             input(type="hidden" value="1" class="item_Quantity")
-                          .pure-u-16-24
-                            a.pure-button.pure-button-primary.item_add ADD TO BASKET
+                          .pure-u-15-24
+                            a(id="#{company.cro_number}-#{rep.name}").pure-button.pure-button-primary.item_add ADD TO CART

@@ -12,6 +12,18 @@ $(document).ready(function() {
     startCollapsed: 'accordion'
   });
 
+  function redrawButtons() {
+    console.log("MSP REDRAW");
+
+    // reset all
+    $(".item_add").text("ADD TO CART");
+    // update those in basket
+    simpleCart.each(function(item){
+      var htmlId = "#"+item.get("rmid");
+      $(htmlId).text("("+item.get("quantity")+") IN CART");
+    })
+  }
+
   simpleCart({
     checkout: {
       type: "SendForm"
@@ -29,10 +41,15 @@ $(document).ready(function() {
       ]
   });
 
+  simpleCart.bind( 'load' , function(){
+    redrawButtons();
+  });
+
   simpleCart.bind( 'beforeCheckout' , function( data ){
     $('#checkout-intro').toggle("slow");
   });
 
-
-
+  simpleCart.bind( 'update' , function(){
+    redrawButtons();
+  });
 });
