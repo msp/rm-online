@@ -1,7 +1,7 @@
 Feature: As a customer
   I can interact with a shopping cart
   So I can purchase documents & reports
-  
+
 Scenario: Add to cart
   When I visit the profile page for company "02425919"
   And I view the reports tab
@@ -11,7 +11,7 @@ Scenario: Add to cart
   When I view the cart
   Then I should see 1 items in the cart total
   And the total cost should be 18.00
-  
+
 Scenario: Remove from cart
   When I visit the profile page for company "02425919"
   And I view the reports tab
@@ -25,8 +25,8 @@ Scenario: Remove from cart
   And I view the cart
   Then I should see 2 items in the cart total
   When I view the reports tab
-  And I click through to the Credit Safe report  
+  And I click through to the Credit Safe report
   And I should see the product button display 2 items in cart
   And the total cost should be 36.00
-  
-  
+
+
