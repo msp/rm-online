@@ -28,9 +28,11 @@ module.exports = function (grunt) {
 
     stylus: {
       compile: {
+        options: {
+          compress: true
+        },
         files: {
-          'public/stylesheets/main.css': 'public/stylesheets/main.styl' // 1:1 compile
-          ,'public/stylesheets/tabs.css': 'public/stylesheets/tabs.styl'
+          'src/stylesheets/main.css': ['src/stylesheets/*.styl']
         }
       }
     },
@@ -38,15 +40,13 @@ module.exports = function (grunt) {
     watch: {
       express: {
         files: [
-          'public/stylesheets/**/*.css'
-          ,'views/**/*.jade'
+          'views/**/*.jade'
           ,'public/javascripts/**/*.js'
           ,'routes/**/*.coffee'
           ,'public/images/**/*'
-          ,'!public/stylesheets/**/tabs.css'
-          ,'!public/stylesheets/**/main.css'
+          ,'!public/stylesheets/**/*.css'
         ],
-        tasks:  [ 'express:dev' ],
+        tasks:  ['express:dev' ],
         // server used with FF extension
         options: {
           livereload: true,
@@ -54,7 +54,7 @@ module.exports = function (grunt) {
         }
       },
       stylus: {
-        files: ['public/stylesheets/**/*.styl'],
+        files: ['src/stylesheets/**/*.styl'],
         tasks: ['stylus', 'autoprefixer']
       },
       bower: {
@@ -74,16 +74,12 @@ module.exports = function (grunt) {
 
     // Add vendor prefixed styles
     autoprefixer: {
-      options: {
-        browsers: ['last 1 version']
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: 'public/stylesheets/',
-          src: '*.css',
-          dest: 'public/stylesheets/'
-        }]
+      multiple_files: {
+         diff: true
+        // ,expand: false
+        // ,flatten: true
+        ,src: 'src/stylesheets/main.css'
+        ,dest: 'public/stylesheets/main.css'
       }
     },
 
@@ -101,6 +97,7 @@ module.exports = function (grunt) {
     grunt.task.run([
 //      'bowerInstall',
       'express:dev',
+      'stylus',
       'autoprefixer',
       'watch'
     ]);

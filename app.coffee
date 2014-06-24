@@ -5,6 +5,7 @@ favicon = require("static-favicon")
 logger = require("morgan")
 cookieParser = require("cookie-parser")
 bodyParser = require("body-parser")
+stylus = require('stylus');
 
 #routes
 terms = require('./routes/terms');
@@ -29,7 +30,8 @@ app.use bodyParser.json()
 app.use bodyParser.urlencoded()
 app.use cookieParser()
 
-app.use require("stylus").middleware(path.join(__dirname, "public"))
+# grunt is tasking care of this instead. Remove?
+app.use stylus.middleware(path.join(__dirname, "public"))
 app.use express.static(path.join(__dirname, "public"))
 
 #  helpers
