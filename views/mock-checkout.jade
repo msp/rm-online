@@ -1,0 +1,39 @@
+extends index
+
+block main
+  .pure-u-1
+    .l-box
+      h1 #{title}
+
+      h3 The following items will be POST'd to Horus from the shopping cart  .
+
+      table.pure-table
+        thead
+          tr
+            th item_name_(n)
+            th item_price_(n)
+            th item_quantity_(n)
+        each item in checkoutItems
+          tbody
+            tr
+              td #{item.name}
+              td &pound;#{item.price}
+              td #{item.quantity}
+
+
+      p Here's he steps on Horus as I see it. Input welcome!
+
+      ol
+        li Consume the HTTP POST parameters
+        li Present a page with the option to pay by either Card or Enter Subscriber Details
+        li
+          strong Validate the price for correctness!
+        li Either start Sage Pay process or validate subscriber credentials
+        li Return links to documents/reports upon success
+        li Return appropriate error message if invalid user credentials or payment details and return to 2)
+
+      p
+        strong NB
+        |  We expect any new HTML to be unstyled and consume the parent page CSS, conforming to
+        a(href="http://purecss.io")  Purecss
+        |  grid markup structure

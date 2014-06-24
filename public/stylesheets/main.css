@@ -378,6 +378,54 @@
   margin-bottom: 0;
 }
 
+.pure-skin-rm .content html table,
+.pure-skin-rm .header html table,
+.pure-skin-rm .footer html table,
+.pure-skin-rm .content button table,
+.pure-skin-rm .header button table,
+.pure-skin-rm .footer button table,
+.pure-skin-rm .content input table,
+.pure-skin-rm .header input table,
+.pure-skin-rm .footer input table,
+.pure-skin-rm .content select table,
+.pure-skin-rm .header select table,
+.pure-skin-rm .footer select table,
+.pure-skin-rm .content textarea table,
+.pure-skin-rm .header textarea table,
+.pure-skin-rm .footer textarea table,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] table,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] table,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] table,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] table,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] table,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] table {
+  width: 100%;
+}
+
+.pure-skin-rm .content html .pure-table.simpleCart_items,
+.pure-skin-rm .header html .pure-table.simpleCart_items,
+.pure-skin-rm .footer html .pure-table.simpleCart_items,
+.pure-skin-rm .content button .pure-table.simpleCart_items,
+.pure-skin-rm .header button .pure-table.simpleCart_items,
+.pure-skin-rm .footer button .pure-table.simpleCart_items,
+.pure-skin-rm .content input .pure-table.simpleCart_items,
+.pure-skin-rm .header input .pure-table.simpleCart_items,
+.pure-skin-rm .footer input .pure-table.simpleCart_items,
+.pure-skin-rm .content select .pure-table.simpleCart_items,
+.pure-skin-rm .header select .pure-table.simpleCart_items,
+.pure-skin-rm .footer select .pure-table.simpleCart_items,
+.pure-skin-rm .content textarea .pure-table.simpleCart_items,
+.pure-skin-rm .header textarea .pure-table.simpleCart_items,
+.pure-skin-rm .footer textarea .pure-table.simpleCart_items,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-table.simpleCart_items,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-table.simpleCart_items,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-table.simpleCart_items,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-table.simpleCart_items,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table.simpleCart_items,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table.simpleCart_items {
+  margin-bottom: 10px;
+}
+
 .pure-skin-rm .content html .pure-table,
 .pure-skin-rm .header html .pure-table,
 .pure-skin-rm .footer html .pure-table,
@@ -1305,6 +1353,14 @@ li.terms-section {
 
 #already-registered {
   margin-top: 30px;
+}
+
+.simpleCart_total {
+  text-align: right;
+  border-bottom: 2px solid #0184a2;
+  padding-right: 46px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .l-box {

@@ -906,9 +906,12 @@
 				},
 				generateAndSendForm: function (opts) {
 					var form = simpleCart.$create("form");
-					form.attr('style', 'display:none;');
+          form.attr('style', 'display:none;');
+					form.attr('target', 'payment-gateway-iframe');
 					form.attr('action', opts.action);
 					form.attr('method', opts.method);
+          console.log("MSP");
+          console.log(form);
 					simpleCart.each(opts.data, function (val, x, name) {
 						form.append(
 							simpleCart.$create("input").attr("type","hidden").attr("name",name).val(val)

@@ -1,0 +1,21 @@
+#shopping-cart-modal.modal.content.fade(tabindex='-1', role='dialog', aria-labelledby='shopping-cart-modal-label', aria-hidden='true')
+  .pure-g-r
+    .pure-u-1
+      .modal-dialog
+        .modal-content
+          .modal-header
+            .pure-g
+              .pure-u-23-24
+                h2#shopping-cart-modal-label.modal-title Shopping Cart
+              .pure-u-1-24
+                button.close(type='button', data-dismiss='modal')
+                  span(aria-hidden='true') ×
+                  span.sr-only Close
+
+          .modal-body
+            include _cart.jade
+          .modal-footer
+            .pure-g-r
+              .pure-u-1
+                //- a.simpleCart_empty.pure-button.pure-button-secondary(href="javascript:;") Empty
+                a.pure-button.pure-button-primary(href="/checkout") Checkout

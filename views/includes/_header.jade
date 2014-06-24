@@ -1,0 +1,33 @@
+.header
+  .pure-g-r.container
+    .pure-u-4-24
+      .l-box
+        a.pure-menu-heading(href='/')
+          #rm-logo.hide-text RM Logo
+    .pure-u-1-24
+    .pure-u-9-24.pure-hidden-phone#moss-fon-logo-container
+      small IN ASSOCIATION WITH
+      #moss-fon-logo.hide-text Mossack Fonseca
+    .pure-u-10-24#top-nav-container
+      .pure-menu.pure-menu-open.pure-menu-horizontal
+        ul
+          li
+            a(href='/services') SERVICES
+          li.divider.pure-hidden-phone |
+          li
+            a(href='/about') ABOUT
+          li.divider.pure-hidden-phone |
+          li
+            a(href='/contact') CONTACT
+          li.divider.pure-hidden-phone |
+          li
+            a(href='/news') NEWS
+          if path != '/checkout'
+            li.divider.pure-hidden-phone |
+            li
+              a#shopping-cart-toggle(data-toggle='modal', data-target='#shopping-cart-modal')
+                i.fa.fa-shopping-cart
+                  &nbsp;
+                | (
+                span.simpleCart_quantity
+                | )

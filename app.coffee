@@ -13,7 +13,7 @@ faq = require('./routes/faq');
 companies = require('./routes/companies');
 search = require('./routes/search');
 formations = require('./routes/formations');
-checkout = require('./routes/checkout');
+mockCheckout = require('./routes/mockCheckout');
 
 app = express()
 
@@ -96,7 +96,17 @@ app.get("/company-formations/international", formations.international)
 app.get("/company-formations/UK", formations.uk)
 app.get("/company-formations/UK/results", formations.search)
 
-app.post("/checkout", checkout.index)
+app.post("/mock-checkout", mockCheckout.index)
+
+app.get "/checkout", (req, res) ->
+  title = "Review your basket"
+  req.breadcrumbs(title, 'checkout')
+  res.render "checkout",
+    title: title
+    bcList: req.breadcrumbs()
+    path: req.path
+    verb: req.method
+  return
 
 app.get "/company-formations/iframe", (req, res) ->
   title = "Spiking the iFrame integration"

@@ -23,12 +23,14 @@ head
   link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Merriweather|Source+Sans+Pro')
 
   // Place favicon.ico and apple-touch-icon.png in the root directory
+  // Bootstrap is customised for modal only functionality
   // build:css styles/vendor.css
   link(rel='stylesheet', href='/stylesheets/vendor/purecss/grid.css')
   link(rel='stylesheet', href='/stylesheets/vendor/purecss/rm-skin.css')
   link(rel='stylesheet', href='/stylesheets/vendor/hover.css')
   link(rel='stylesheet', href='/bower_components/responsive-tabs/css/responsive-tabs.css')
-  //link(rel='stylesheet', href='/bower_components/responsive-tabs/css/style.css')
+  link(rel='stylesheet', href='/bower_components/bootstrap/css/bootstrap.min.css')
+
   // bower:css
   link(rel='stylesheet', href='/bower_components/font-awesome/css/font-awesome.css')
   // endbower
@@ -46,48 +48,8 @@ body.pure-skin-rm
     |  to improve your experience.
   <![endif]-->
 
-  // Add your site or application content here
-
-  .header
-    .pure-g-r.container
-      .pure-u-4-24
-        .l-box
-          a.pure-menu-heading(href='/')
-            #rm-logo.hide-text RM Logo
-      .pure-u-1-24
-      .pure-u-9-24.pure-hidden-phone#moss-fon-logo-container
-        small IN ASSOCIATION WITH
-        #moss-fon-logo.hide-text Mossack Fonseca
-      .pure-u-10-24#top-nav-container
-        .pure-menu.pure-menu-open.pure-menu-horizontal
-          ul
-            li
-              a(href='/services') SERVICES
-            li.divider.pure-hidden-phone |
-            li
-              a(href='/about') ABOUT
-            li.divider.pure-hidden-phone |
-            li
-              a(href='/contact') CONTACT
-            li.divider.pure-hidden-phone |
-            li
-              a(href='/news') NEWS
-            li.divider.pure-hidden-phone |
-            li
-              a#shopping-cart-toggle
-                i.fa.fa-shopping-cart
-                &nbsp;
-                | (
-                span.simpleCart_quantity
-                | )
-    .pure-g-r.container
-      .pure-u-1
-        #shopping-cart.hidden
-          .pure-table.simpleCart_items
-          .simpleCart_total
-          a.simpleCart_empty.pure-button.pure-button-secondary(href="javascript:;") Empty
-
-          a.simpleCart_checkout.pure-button.pure-button-primary(href="javascript:;") Checkout
+  if !excludeHeader
+    include includes/_header.jade
 
   .content
     .container.pure-g-r
@@ -106,28 +68,12 @@ body.pure-skin-rm
         block main-footer
         .pure-u-1.footer-padding
           | &nbsp;
-  .footer
-    .container.pure-g
-      .pure-u-18-24
-        .pure-menu.pure-menu-open.pure-menu-horizontal
-          ul
-            li
-              a(href='/faq') FAQ
-            li.divider.pure-hidden-phone |
-            li
-              a(href='/terms') T&amp;Cs
-      .pure-u-6-24
-        img(src="/images/creditations.png")
 
-  // Google Analytics: change UA-XXXXX-X to be your site's ID
-  script.
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-XXXXX-X');
-    ga('send', 'pageview');
+  if path != '/checkout'
+    include includes/_modal-cart.jade
+  if !excludeFooter
+    include includes/_footer.jade
+    include includes/_google.jade
 
   <!--[if lt IE 9]>
   script(src="/bower_components/es5-shim/es5-shim.js")
@@ -142,91 +88,14 @@ body.pure-skin-rm
   script(src='/bower_components/jQuery-Collapse/src/jquery.collapse.js')
   script(src='/bower_components/responsive-tabs/js/jquery.responsiveTabs.min.js')
   script(src='/bower_components/simplecart-js/simpleCart.js')
+  script(src='/bower_components/bootstrap/js/bootstrap.min.js')
   // endbower
   // endbuild
 
   // build:js(.tmp) javascripts/main.js
+  script(src='/javascripts/main.js')
   // endbuild
 
-  script(src="https://www.google.com/jsapi")
-
-  script.
-      simpleCart({
-        checkout: {
-          type: "SendForm"
-          ,url: "/checkout"}
-        ,cartStyle: "table"
-        ,currency: "GBP"
-      });
-
   if path == "/news"
-    script.
-
-      google.load("feeds", "1");
-
-      function feedLoaded(result) {
-        if (!result.error) {
-
-          var content = document.getElementById('feed-content');
-          content.innerHTML = '';
-
-          var items = result.xmlDocument.getElementsByTagName('item');
-
-          htmlBuffer = "";
-          for (var i = 0; i < items.length; i++) {
-            var item = items[i];
-            var title = item.getElementsByTagName('title')[0].firstChild.nodeValue;
-            var description = item.getElementsByTagName('description')[0].firstChild.nodeValue;
-            var guid = item.getElementsByTagName('guid')[0].firstChild.nodeValue;
-
-            htmlBuffer += "<tr class=\"news-item\"><td>";
-            htmlBuffer += "<h3><a href=\""+guid+"\">"+title+"</a></h3>";
-            //htmlBuffer += description;
-            //htmlBuffer += "<br/><br/><br/><br/>";
-            htmlBuffer += "</td></tr>";
-          }
-
-          content.innerHTML = htmlBuffer;
-        }
-      }
-
-
-      function bootAngular() {
-        // do this in partial for Angular
-        jsapiOnLoad();
-        //angular.element(document).ready(function() {
-        //  angular.bootstrap(document, ['rmOnlineApp']);
-        //});
-      }
-
-      function jsapiOnLoad() {
-        var feed = new google.feeds.Feed("http://www.experian.com/blogs/news/feed/");
-        feed.setResultFormat(google.feeds.Feed.XML_FORMAT);
-        feed.includeHistoricalEntries();
-        feed.setNumEntries(6);
-        feed.load(feedLoaded);
-      }
-
-      google.setOnLoadCallback(bootAngular);
-
-  script.
-    $(document).ready(function() {
-      $(".faq-section li").collapse({
-          open: function() {
-            this.slideDown(100);
-          },
-          close: function() {
-            this.slideUp(100);
-          }
-        });
-
-      $('#responsiveTabs').responsiveTabs({
-        startCollapsed: 'accordion'
-      });
-
-      $('#shopping-cart-toggle').click(function() {
-        $('#shopping-cart').toggle("slide");
-      });
-
-
-    });
+    script(src="https://www.google.com/jsapi")
+    script(src="/javascripts/news.js")
