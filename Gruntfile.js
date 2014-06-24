@@ -44,7 +44,7 @@ module.exports = function (grunt) {
           ,'public/javascripts/**/*.js'
           ,'routes/**/*.coffee'
           ,'public/images/**/*'
-          ,'!public/stylesheets/**/*.css'
+          ,'public/stylesheets/**/*.css'
         ],
         tasks:  ['express:dev' ],
         // server used with FF extension

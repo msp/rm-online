@@ -1,18 +1,22 @@
 extends ../index
 
 block main
-  .pure-u-1
-    .l-box
-      +breadcrumbs_from(bcList)
 
-      if (results)
-        - var numResults = results[0].Body[0].NameSearch[0].SearchRows
+  if results
+    - var numResults = results.GovTalkMessage[0].Body[0].NameSearch[0].SearchRows
 
-        if numResults > 0
-          h1.capitalize.reduced-bottom-margin '#{term}' already registered
-        else
-          h1.capitalize '#{term}' available
+  if numResults > 0
+    - var title = "'"+term+" "+suffix+"' already registered"
+    include ../includes/_uk-formation-search
+  else
+    .pure-u-1
+      .l-box
+        +breadcrumbs_from(bcList)
+        h1.capitalize '#{term} #{suffix}' available
 
+  if results
+    .pure-u-1
+      .l-box
         #formation-results
           if numResults > 0
             table#already-registered.pure-table
@@ -23,9 +27,9 @@ block main
                   th Match type
               tbody
                   tr.pure-table-odd
-                    td #{results[0].Body[0].NameSearch[0].CoSearchItem[0].CompanyName}
-                    td #{results[0].Body[0].NameSearch[0].CoSearchItem[0].CompanyNumber}
-                    td #{results[0].Body[0].NameSearch[0].CoSearchItem[0].SearchMatch}
+                    td #{results.GovTalkMessage[0].Body[0].NameSearch[0].CoSearchItem[0].CompanyName}
+                    td #{results.GovTalkMessage[0].Body[0].NameSearch[0].CoSearchItem[0].CompanyNumber}
+                    td #{results.GovTalkMessage[0].Body[0].NameSearch[0].CoSearchItem[0].SearchMatch}
 
             .pure-g-r
               .pure-u-1-2
@@ -33,14 +37,14 @@ block main
 
                 table#alternative-names.pure-table
                   tbody
-                    each alternative, index in [term+" foo", term+" bar", term+" baz", term+" qux"]
+                    each alternative, index in results.altNames[0].altName
                       tr(class=index % 2 == 0  ? "pure-table-odd" : "")
-                        td #{alternative}
+                        td.capitalize #{alternative.toLowerCase()}
           else
-            h3 Great, you're good to go ahead and register '#{term}'.
-      else
-        if (!term)
-          h1.reduced-bottom-margin Please enter a valid search term and try again.
-        if (error)
-          h1= "Error ["+error.code[0]+"]: "+error.description[0]
-        a#back-to-search.rm-blue(href="javascript:window.history.back()") BACK TO SEARCH
+            h3 Great, you're good to go ahead and register '#{term} #{suffix}'.
+  else
+    if (!term)
+      h1.reduced-bottom-margin Please enter a valid search term and try again.
+    if (error)
+      h1= "Error ["+error.code[0]+"]: "+error.description[0]
+    a#back-to-search.rm-blue(href="javascript:window.history.back()") BACK TO SEARCH

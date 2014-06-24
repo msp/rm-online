@@ -7,12 +7,12 @@ class HorusAPI
 
   @SERVLET = "https://www.rmonline.com/servlet/com.armadillo.online"
   @COMPANY_SEARCH_URL = "#{HorusAPI.SERVLET}?service=rm008&function=busmatch_nocaptcha&searchdata="
-  @FORMATIONS_URL = "#{HorusAPI.SERVLET}?service=einc&function=cosearch_ch&Request=NameAvailableSearch&SearchRows=1&stylesheet=none&SearchData="
+  @FORMATIONS_URL = "#{HorusAPI.SERVLET}?service=einc&function=cosearch_ch_alt&Request=NameAvailableSearch&SearchRows=1&stylesheet=none&SearchData="
 
   @HTTP_ERROR = "Sorry, unsuccessful response from our search API. Please try again later."
   @TRANSPORT_ERROR = "ERROR transport error talking to Horus: "
 
-  constructor: (@req, @res, @term, @title, @country) ->
+  constructor: (@req, @res, @term, @title, @country, @suffix) ->
     @parser = new xml2js.Parser()
     @error =  undefined
     @results = undefined
@@ -27,8 +27,10 @@ class HorusAPI
   formationSearch: ->
     console.log("formationSearch")
     @template = "formations/results"
-    # after lunch walk the DOM
-    @_search(HorusAPI.FORMATIONS_URL+"#{@term}", (result) -> this.results = result.horus.GovTalkMessage)
+
+    callback = (result) ->
+      this.results = result.horus
+    @_search(HorusAPI.FORMATIONS_URL+"#{@term} #{@suffix}", callback)
 
   _search: (@url, @callback) ->
     self = this
@@ -37,7 +39,7 @@ class HorusAPI
     if self.term
       https.get(@url, (resp) ->
         resp.on "data", (chunk) ->
-          responseBuffer += chunk;
+          responseBuffer += chunk
 
         resp.on "end", () ->
           console.log(responseBuffer)
@@ -67,6 +69,7 @@ class HorusAPI
       bcList: self.req.breadcrumbs()
       results: self.results
       term: self.term
+      suffix: self.suffix
       country: self.country
       error: self.error
     return

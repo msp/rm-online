@@ -166,10 +166,11 @@ class FormationsRoute
 exports.search = (req, res) ->
   country =  req.params.country
   term = req.query.term
+  suffix = req.query.suffix
   title = FormationsRoute.UK_INFO_SEARCH_TITLE
   req.breadcrumbs(title, "/company-formations/UK")
   title = FormationsRoute.SEARCH_RESULTS_TITLE
   req.breadcrumbs(title, "/company-formations/UK/results?term=#{term}")
 
-  api = new horusAPI(req, res, term, title, country)
+  api = new horusAPI(req, res, term, title, country, suffix)
   api.formationSearch()
