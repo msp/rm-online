@@ -1,7 +1,7 @@
 var myStepDefinitionsWrapper = function () {
-  
+
   var COMPANY_NUMBER = undefined;
-  
+
   this.When(/^I visit the profile page for company "([^"]*)"$/, function (company_number, callback) {
     COMPANY_NUMBER = company_number;
     this.visit("companies/"+company_number, callback);
@@ -20,7 +20,7 @@ var myStepDefinitionsWrapper = function () {
 
   this.Then(/^I should see the available documents & reports$/, function (callback) {
     this.browser.clickLink("Reports");
-    this.assert.equal(this.browser.queryAll("#reports .report-box").length, 5);
+    this.assert.equal(this.browser.queryAll("#reports .report-box").length, 7);
     callback();
   });
 
