@@ -1,7 +1,7 @@
 var myStepDefinitionsWrapper = function () {
-  
-  var WAIT = 1;
-  
+
+  var WAIT = 3;
+
   this.Then(/^I should be on the UK company formation page$/, function (callback) {
     this.assert.equal(this.browser.location.pathname, "/company-formations/uk");
     this.assert.equal(this.browser.text("H1").toLowerCase(), "UK Company Formation".toLowerCase());

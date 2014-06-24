@@ -4,7 +4,7 @@ var myStepDefinitionsWrapper = function () {
   }
 
   function viewCart(callback) {
-    this.browser.clickLink("#shopping-cart-toggle", callback);
+    this.browser.pressButton("#shopping-cart-toggle", callback);
   }
 
   function assertTotalCostEqual(whole, unit) {
@@ -15,7 +15,7 @@ var myStepDefinitionsWrapper = function () {
     for(var i = 0; i < num; i++) {
       addToCart.call(this);
     }
-    
+
     callback();
   });
 
