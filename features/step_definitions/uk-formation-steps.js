@@ -1,4 +1,7 @@
 var myStepDefinitionsWrapper = function () {
+  
+  var WAIT = 1;
+  
   this.Then(/^I should be on the UK company formation page$/, function (callback) {
     this.assert.equal(this.browser.location.pathname, "/company-formations/uk");
     this.assert.equal(this.browser.text("H1").toLowerCase(), "UK Company Formation".toLowerCase());
@@ -13,17 +16,23 @@ var myStepDefinitionsWrapper = function () {
   });
 
   this.Then(/^I should see that "([^"]*)" is already registered$/, function (company, callback) {
-    this.assert.equal(this.browser.text("H1").toLowerCase(),"'"+company+"' already registered");
-    this.assert.equal(this.browser.text("#formation-results H3").toLowerCase(),
-      "please try an alternative or select one of our suggested variations.");
-    callback();
+    self = this;
+    this.browser.wait(WAIT, function() {
+      self.assert.equal(self.browser.text("H1").toLowerCase(),"'"+company+"' already registered");
+      self.assert.equal(self.browser.text("#formation-results H3").toLowerCase(),
+        "please try an alternative or select one of our suggested variations.");
+      callback();
+    })
   });
 
   this.Then(/^I should see that "([^"]*)" is available$/, function (company, callback) {
-    this.assert.equal(this.browser.text("H1").toLowerCase(),"'"+company.toLowerCase()+"' available");
-    this.assert.equal(this.browser.text("#formation-results H3").toLowerCase(),
-      "great, you're good to go ahead and register '"+company.toLowerCase()+"'.");
-    callback();
+    self = this;
+    this.browser.wait(WAIT, function() {
+      self.assert.equal(self.browser.text("H1").toLowerCase(),"'"+company.toLowerCase()+"' available");
+      self.assert.equal(self.browser.text("#formation-results H3").toLowerCase(),
+          "great, you're good to go ahead and register '"+company.toLowerCase()+"'.");
+      callback();
+    })
   });
 
   this.Then(/^I should see (\d+) alternative suggestions similar to "([^"]*)"$/, function (num, company, callback) {

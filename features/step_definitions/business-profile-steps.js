@@ -34,7 +34,7 @@ var myStepDefinitionsWrapper = function () {
     callback();
   });
 
-  this.When(/^I click through to the Experian report$/, function (callback) {
+  this.When(/^I click through to the Credit Safe report$/, function (callback) {
     this.browser.clickLink("#reports .report-box a", callback);
   });
 

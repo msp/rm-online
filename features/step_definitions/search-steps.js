@@ -19,11 +19,14 @@ var myStepDefinitionsWrapper = function () {
 
   this.Then(/^I should see (\d+) search results? for "([^"]*)"$/, function (num, term, callback) {
     this.assert.equal(this.browser.location.pathname.toLowerCase(), "/search/UK/results".toLowerCase());
-    this.assert.equal(this.browser.text("#num-search-results").toLowerCase(), num+" results for '"+term+"'".toLowerCase());
-    this.assert.equal(this.browser.text("H1").toLowerCase(), "Search Results".toLowerCase());
-    this.assert.ok(this.browser.query(".search-results"));
-    this.assert.ok(this.browser.text(".search-results tr td.company-name").toLowerCase().indexOf(term) != -1);
-    callback();
+    self = this;
+    this.browser.wait(1, function() {
+      self.assert.equal(self.browser.text("#num-search-results").toLowerCase(), num+" results for '"+term+"'".toLowerCase());
+      self.assert.equal(self.browser.text("H1").toLowerCase(), "Search Results".toLowerCase());
+      self.assert.ok(self.browser.query(".search-results"));
+      self.assert.ok(self.browser.text(".search-results tr td.company-name").toLowerCase().indexOf(term) != -1);
+      callback();      
+    })
   });
 
   this.Then(/^I should see a prompt to enter a valid search term$/, function (callback) {
