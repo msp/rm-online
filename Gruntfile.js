@@ -36,18 +36,18 @@ module.exports = function (grunt) {
     },
 
     watch: {
-      options: {
-        livereload: true
-      },
       express: {
         files: [
           'public/stylesheets/**/*.css',
           'views/**/*.jade',
           'public/javascripts/**/*.js',
           'routes/**/*.coffee',
-          'public/images/**/*'
+          'public/images/**/*',
+          '!public/stylesheets/**/tabs.css',
+          '!public/stylesheets/**/main.css'
         ],
         tasks:  [ 'express:dev' ],
+        // server used with FF extension
         options: {
           livereload: true,
           spawn: false
@@ -60,6 +60,15 @@ module.exports = function (grunt) {
       bower: {
         files: ['bower.json'],
         tasks: ['bowerInstall']
+      }
+    },
+
+    reload: {
+      port: 35729,
+      liveReload: {},
+      proxy: {
+        host: "localhost",
+        port: 9000
       }
     },
 
