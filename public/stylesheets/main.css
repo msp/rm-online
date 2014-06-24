@@ -865,6 +865,52 @@
   overflow: hidden;
 }
 
+.pure-skin-rm .content html .pure-form input,
+.pure-skin-rm .header html .pure-form input,
+.pure-skin-rm .footer html .pure-form input,
+.pure-skin-rm .content button .pure-form input,
+.pure-skin-rm .header button .pure-form input,
+.pure-skin-rm .footer button .pure-form input,
+.pure-skin-rm .content input .pure-form input,
+.pure-skin-rm .header input .pure-form input,
+.pure-skin-rm .footer input .pure-form input,
+.pure-skin-rm .content select .pure-form input,
+.pure-skin-rm .header select .pure-form input,
+.pure-skin-rm .footer select .pure-form input,
+.pure-skin-rm .content textarea .pure-form input,
+.pure-skin-rm .header textarea .pure-form input,
+.pure-skin-rm .footer textarea .pure-form input,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-form input,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-form input,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-form input,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-form input,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-form input,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-form input,
+.pure-skin-rm .content html .pure-form select,
+.pure-skin-rm .header html .pure-form select,
+.pure-skin-rm .footer html .pure-form select,
+.pure-skin-rm .content button .pure-form select,
+.pure-skin-rm .header button .pure-form select,
+.pure-skin-rm .footer button .pure-form select,
+.pure-skin-rm .content input .pure-form select,
+.pure-skin-rm .header input .pure-form select,
+.pure-skin-rm .footer input .pure-form select,
+.pure-skin-rm .content select .pure-form select,
+.pure-skin-rm .header select .pure-form select,
+.pure-skin-rm .footer select .pure-form select,
+.pure-skin-rm .content textarea .pure-form select,
+.pure-skin-rm .header textarea .pure-form select,
+.pure-skin-rm .footer textarea .pure-form select,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .pure-form select,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .pure-form select,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .pure-form select,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .pure-form select,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-form select,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-form select {
+  height: 40px;
+  border-radius: 0;
+}
+
 .pure-skin-rm #top-nav-container .pure-menu li a {
   padding: 10px 10px;
 }
@@ -1219,12 +1265,6 @@ li.terms-section {
   padding-left: 30px;
   padding-right: 30px;
   padding-bottom: 30px;
-}
-
-#search-form .search-box fieldset input,
-#search-form .search-box fieldset select {
-  height: 40px;
-  border-radius: 0;
 }
 
 #search-form .search-box fieldset #company-suffix {

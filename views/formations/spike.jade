@@ -1,10 +1,52 @@
-form.form-search(name='search', method='post', action='https://www.rmonline.com/servlet/com.armadillo.online')
-  input(type='hidden', value='einc', name='service')
-  input(type='hidden', value='cosearch_ch', name='function')
-  input(type='hidden', value='NameAvailableSearch', name='Request')
-  input(type='hidden', value='1', name='SearchRows')
-  input(type='hidden', value='initial_match_discount.xsl', name='stylesheet')
-  input#SearchData_2.input-xlarge(type='text', name='SearchData', value="does not exist limited")
-  select.span3
-    option United Kingdom
-  button.btn(type='submit') Search
+include ../mixins/m-common
+
+doctype html
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7">
+<![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8">
+<![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+html.no-js
+<!--<![endif]-->
+head
+  meta(charset="utf-8")
+  meta(http-equiv="X-UA-Compatible", content="IE=edge")
+  title RM Online: #{title}
+  meta(name="description", content="")
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet', href='http://yui.yahooapis.com/pure/0.4.2/pure-min.css')
+  link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Merriweather|Source+Sans+Pro')
+
+  // Place favicon.ico and apple-touch-icon.png in the root directory
+  // build:css styles/vendor.css
+  link(rel='stylesheet', href='/stylesheets/vendor/purecss/grid.css')
+  link(rel='stylesheet', href='/stylesheets/vendor/purecss/rm-skin.css')
+  link(rel='stylesheet', href='/stylesheets/vendor/hover.css')
+  link(rel='stylesheet', href='/bower_components/responsive-tabs/css/responsive-tabs.css')
+  //link(rel='stylesheet', href='/bower_components/responsive-tabs/css/style.css')
+  // bower:css
+  link(rel='stylesheet', href='/bower_components/font-awesome/css/font-awesome.css')
+  // endbower
+  // endbuild
+  // build:css(.tmp) styles/main.css
+  link(rel="stylesheet", href="/stylesheets/main.css")
+  // endbuild
+body.pure-skin-rm
+  .content
+    .container.pure-g-r
+      .pure-u-1
+        form.pure-form.form-search(name='search', method='post', action='https://www.rmonline.com/servlet/com.armadillo.online')
+          input(type='hidden', value='einc', name='service')
+          input(type='hidden', value='cosearch_ch', name='function')
+          input(type='hidden', value='NameAvailableSearch', name='Request')
+          input(type='hidden', value='1', name='SearchRows')
+          input(type='hidden', value='initial_match_discount.xsl', name='stylesheet')
+          input#SearchData_2.input-xlarge(type='text', name='SearchData', value="does not exist limited")
+          select.span3
+            option United Kingdom
+          button.btn.pure-button.pure-button-primary(type='submit') Search
