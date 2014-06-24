@@ -6,13 +6,41 @@ block main
       +breadcrumbs_from(bcList)
 
       if (results)
-        h1.capitalize.reduced-bottom-margin= title
+        - var numResults = results[0].Body[0].NameSearch[0].SearchRows
+
+        if numResults > 0
+          h1.capitalize.reduced-bottom-margin '#{term}' already registered
+        else
+          h1.capitalize '#{term}' available
+
+        #formation-results
+          if numResults > 0
+            table#already-registered.pure-table
+              thead
+                tr
+                  th Name
+                  th Company Number
+                  th Match type
+              tbody
+                  tr.pure-table-odd
+                    td #{results[0].Body[0].NameSearch[0].CoSearchItem[0].CompanyName}
+                    td #{results[0].Body[0].NameSearch[0].CoSearchItem[0].CompanyNumber}
+                    td #{results[0].Body[0].NameSearch[0].CoSearchItem[0].SearchMatch}
+
+            .pure-g-r
+              .pure-u-1-2
+                h3 Please try an alternative or select one of our suggested variations.
+
+                table#alternative-names.pure-table
+                  tbody
+                    each alternative, index in [term+" foo", term+" bar", term+" baz", term+" qux"]
+                      tr(class=index % 2 == 0  ? "pure-table-odd" : "")
+                        td #{alternative}
+          else
+            h3 Great, you're good to go ahead and register '#{term}'.
       else
         if (!term)
           h1.reduced-bottom-margin Please enter a valid search term and try again.
         if (error)
           h1= "Error ["+error.code[0]+"]: "+error.description[0]
         a#back-to-search.rm-blue(href="javascript:window.history.back()") BACK TO SEARCH
-
-      #formation-results
-        h3 The name '#{term}' is already taken. Please try an alternative or select one of our suggested variations

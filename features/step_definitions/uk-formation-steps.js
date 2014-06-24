@@ -13,13 +13,23 @@ var myStepDefinitionsWrapper = function () {
   });
 
   this.Then(/^I should see that "([^"]*)" is already registered$/, function (company, callback) {
+    this.assert.equal(this.browser.text("H1").toLowerCase(),"'"+company+"' already registered");
     this.assert.equal(this.browser.text("#formation-results H3").toLowerCase(),
-      "the name '"+company+"' is already taken. please try an alternative or select one of our suggested variations");
+      "please try an alternative or select one of our suggested variations.");
     callback();
   });
 
-  this.Then(/^I should see a list of alternative suggestions similar to "([^"]*)"$/, function (arg1, callback) {
-    callback.pending();
+  this.Then(/^I should see that "([^"]*)" is available$/, function (company, callback) {
+    this.assert.equal(this.browser.text("H1").toLowerCase(),"'"+company.toLowerCase()+"' available");
+    this.assert.equal(this.browser.text("#formation-results H3").toLowerCase(),
+      "great, you're good to go ahead and register '"+company.toLowerCase()+"'.");
+    callback();
+  });
+
+  this.Then(/^I should see (\d+) alternative suggestions similar to "([^"]*)"$/, function (num, company, callback) {
+    this.assert.ok(this.browser.query("#formation-results #alternative-names"));
+    this.assert.equal(this.browser.queryAll("#formation-results #alternative-names tbody tr").length, num);
+    callback();
   });
 };
 module.exports = myStepDefinitionsWrapper;

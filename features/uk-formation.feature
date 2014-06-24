@@ -12,16 +12,9 @@ Feature: UK Formation
     When I visit the "company-formations/uk" page
     And I execute a company search for "radial solutions"
     Then I should see that "radial solutions" is already registered
-    And I should see a list of alternative suggestions similar to "radial solutions"
-#
-#  Scenario: Empty search doesn't hit Horus API
-#    When I visit the "search/uk" page
-#    And I execute a company search for ""
-#    And I should see a prompt to enter a valid search term
-#    And I should see a link taking me back to try the search again
-#
-#  Scenario: Horus returns a 500 error
-#    When I visit the "search/uk" page
-#    And I execute a company search for "'"
-#    Then I should see an error message that Horus returned an error
-#    And I should see a link taking me back to try the search again
+    And I should see 4 alternative suggestions similar to "radial solutions"
+
+  Scenario: Non existing company search
+    When I visit the "company-formations/uk" page
+    And I execute a company search for "XradialX XsolutionsX"
+    Then I should see that "XradialX XsolutionsX" is available

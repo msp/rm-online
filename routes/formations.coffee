@@ -2,6 +2,7 @@ fs = require 'fs',
 https = require 'https',
 xml2js = require 'xml2js'
 inspect = require('eyes').inspector({maxLength: false})
+horusAPI = require('./horus-api')
 
 COUNTRIES = [
   {
@@ -160,7 +161,7 @@ exports.uk = (req, res) ->
 
 class FormationsRoute
   @SEARCH_RESULTS_TITLE: "Search Results"
-  @UK_INFO_SEARCH_TITLE: "UK Company Formation Search"
+  @UK_INFO_SEARCH_TITLE: "UK Company Formation"
 
 exports.search = (req, res) ->
   country =  req.params.country
@@ -170,76 +171,5 @@ exports.search = (req, res) ->
   title = FormationsRoute.SEARCH_RESULTS_TITLE
   req.breadcrumbs(title, "/company-formations/UK/results?term=#{term}")
 
-  parser = new xml2js.Parser()
-  error = undefined
-  results = undefined
-
-  view = "formations/results"
-
-  # TODO factor this out into a common method that takes a parse block
-  if term
-    https.get("https://www.rmonline.com/servlet/com.armadillo.online?service=einc&function=cosearch_ch&Request=NameAvailableSearch&SearchRows=1&stylesheet=none&SearchData="+term, (resp) ->
-      console.log("##################################################")
-      console.log "Got response: " + resp.statusCode
-      console.log("##################################################")
-
-      responseBuffer = ""
-
-      resp.on "data", (chunk) ->
-        responseBuffer += chunk;
-
-      resp.on "end", () ->
-      # console.log(responseBuffer)
-        if resp.statusCode == 200
-          parser.parseString responseBuffer, (err, result) ->
-            # inspect(err)
-            # inspect(result)
-            console.log("RESULTS from Horus")
-            results =  result.horus.row
-
-            inspect(results)
-
-            res.render view,
-              title: title
-              bcList: req.breadcrumbs()
-              results: results
-              term: term
-              country: country
-            return
-        else
-          error = {
-            code: [98]
-            description: ["Sorry, unsuccessful response from our search API. Please try again later."]
-          }
-
-          res.render view,
-            title: title
-            bcList: req.breadcrumbs()
-            results: results
-            term: term
-            country: country
-            error: error
-          return
-
-
-    ).on "error", (e) ->
-      console.log("ERROR transport error talking to Horus: "+e.message)
-      error = {
-        code: [99]
-        description: [e.message]
-      }
-      res.render view,
-        title: title
-        bcList: req.breadcrumbs()
-        results: results
-        term: term
-        error: error
-      return
-  else
-    res.render view,
-      title: title
-      bcList: req.breadcrumbs()
-      results: undefined
-      term: term
-      country: country
-    return
+  api = new horusAPI(req, res, term, title, country)
+  api.formationSearch()
