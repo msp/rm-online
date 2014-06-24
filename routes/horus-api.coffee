@@ -11,6 +11,7 @@ class HorusAPI
 
   @HTTP_ERROR = "Sorry, unsuccessful response from our search API. Please try again later."
   @TRANSPORT_ERROR = "ERROR transport error talking to Horus: "
+  @SUFFIXES = ["LIMITED", "PLC", "LLP"]
 
   constructor: (@req, @res, @term, @title, @country, @suffix) ->
     @parser = new xml2js.Parser()
@@ -19,6 +20,7 @@ class HorusAPI
     @template = "search/results"
     @results = undefined
     @debug = true
+    @term = @term.trim()
 
   companySearch: ->
     console.log("companySearch")
@@ -27,10 +29,13 @@ class HorusAPI
   formationSearch: ->
     console.log("formationSearch")
     @template = "formations/results"
+    @_removeAnyUserSuffixes()
 
-    callback = (result) ->
-      this.results = result.horus
-    @_search(HorusAPI.FORMATIONS_URL+"#{@term} #{@suffix}", callback)
+    @_search(HorusAPI.FORMATIONS_URL+"#{@term} #{@suffix}", (result) -> this.results = result.horus)
+
+  _removeAnyUserSuffixes: () ->
+    for suffix in HorusAPI.SUFFIXES
+      @term = @term.replace(new RegExp(suffix+"$", "gi"), "")
 
   _search: (@url, @callback) ->
     self = this
@@ -42,7 +47,7 @@ class HorusAPI
           responseBuffer += chunk
 
         resp.on "end", () ->
-          console.log(responseBuffer)
+          if self.debug then console.log(responseBuffer)
           if resp.statusCode == 200
             self.parser.parseString responseBuffer, (err, result) ->
               if err && self.debug then inspect(err)
