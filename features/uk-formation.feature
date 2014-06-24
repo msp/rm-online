@@ -11,10 +11,10 @@ Feature: UK Formation
   Scenario: Existing company search
     When I visit the "company-formations/uk" page
     And I execute a company search for "radial solutions"
-    Then I should see that "radial solutions" is already registered
-    And I should see 4 alternative suggestions similar to "radial solutions"
+    Then I should see that "radial solutions limited" is already registered
+    And I should see 10 alternative suggestions similar to "radial solutions"
 
   Scenario: Non existing company search
     When I visit the "company-formations/uk" page
     And I execute a company search for "XradialX XsolutionsX"
-    Then I should see that "XradialX XsolutionsX" is available
+    Then I should see that "XradialX XsolutionsX limited" is available
