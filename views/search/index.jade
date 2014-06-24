@@ -1,32 +1,7 @@
 extends ../index
 
 block main
-  .pure-u-1
-    .l-box
-      +breadcrumbs_from(bcList)
-
-      h1.capitalize= title
-
-    .pure-g-r.search
-      .pure-u-1-2
-        .l-box
-          p.intro-copy
-            span.highlight TODO
-            | 
-            | This is introduction text and is not intended to be read. This is introduction text and is not intended to be read. This is introduction text and is not intended to be read. This is introduction text and is not intended to be read. This is introduction text and is not intended to be read.
-      .pure-u-1-2
-        .l-box
-          img.intro-icon(src="/images/search/search-icon-large.png", alt="search for company information")
-
-  .pure-u-1
-    .l-box
-      form#search-form(action="/search/#{country}/results", method="get")
-        div.search-box
-          fieldset
-            h3 Search for information on a #{country} company
-            .pure-g-r
-              .pure-u-15-24
-                input(id='search-term', type='text', value='', placeholder='enter a company name', name="term")
-              .pure-u-2-24
-              .pure-u-7-24
-                input.pure-button.pure-button-secondary(id='search-submit', type='submit', value='Search')
+  - var searchTitle = "Search for information on a "+country+" company"
+  - var searchButton = "Search"
+  - var searchURL = "/search/"+country+"/results"
+  include ../includes/_search.jade

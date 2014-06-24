@@ -7,12 +7,14 @@ var myStepDefinitionsWrapper = function () {
 
   this.Then(/^I should see the search box$/, function (callback) {
     this.assert.ok(this.browser.query(".search-box"));
+    this.assert.equal(this.browser.text(".search-box H3").toLowerCase(), "Search for information on a UK company".toLowerCase());
+    this.assert.equal(this.browser.query(".search-box #search-submit").value.toLowerCase(), "Search".toLowerCase());
     callback();
   });
 
   this.When(/^I execute a company search for "([^"]*)"$/, function (term, callback) {
     this.browser.fill("#search-term", term).
-      pressButton("Search", callback);
+      pressButton("#search-submit", callback);
   });
 
   this.Then(/^I should see (\d+) search results? for "([^"]*)"$/, function (num, term, callback) {

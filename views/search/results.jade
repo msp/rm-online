@@ -17,10 +17,7 @@ block main
         .pure-g-r
           .pure-u-20-24#num-search-results
               | #{results.length -1} results for
-              | 
-              span.rm-blue '#{term}'
-          //- .pure-u-4-24#back-to-search
-          //-   a.rm-blue(href="javascript:window.history.back()") BACK TO SEARCH
+              span.rm-blue= " '"+term+"'"
 
         //- the first row is meta data not a company :/
         if results.length > 1

@@ -1,0 +1,18 @@
+extends ../index
+
+block main
+  .pure-u-1
+    .l-box
+      +breadcrumbs_from(bcList)
+
+      if (results)
+        h1.capitalize.reduced-bottom-margin= title
+      else
+        if (!term)
+          h1.reduced-bottom-margin Please enter a valid search term and try again.
+        if (error)
+          h1= "Error ["+error.code[0]+"]: "+error.description[0]
+        a#back-to-search.rm-blue(href="javascript:window.history.back()") BACK TO SEARCH
+
+      #formation-results
+        h3 The name '#{term}' is already taken. Please try an alternative or select one of our suggested variations

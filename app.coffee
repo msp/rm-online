@@ -93,6 +93,8 @@ app.get('/search/:country', search.index)
 app.get('/search/:country/results', search.execute)
 
 app.get("/company-formations/international", formations.international)
+app.get("/company-formations/UK", formations.uk)
+app.get("/company-formations/UK/results", formations.search)
 
 
 #/ catch 404 and forward to error handler
