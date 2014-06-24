@@ -10,7 +10,7 @@ block main
         .pure-u-1-2
           p.intro-copy
             span.highlight TODO
-            | 
+            |  -
             | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at aliquet sem, non blandit sem. Sed in luctus justo. Nam pellentesque, risus sed pulvinar tempor, lectus massa auctor enim, in sodales massa ante ultricies nulla. Mauris vitae mattis quam
         .pure-u-1-2
           .l-box
@@ -25,7 +25,7 @@ block main
             th Set-up
             th With Legalisation
             th.pure-hidden-phone 2 Years
-            th.pure-hidden-phone 2 Years With Legislation
+            th.pure-hidden-phone 2 Years With Legalisation
             th
 
         tbody
@@ -33,9 +33,9 @@ block main
             tr(class=index % 2 == 0  ? "" : "pure-table-odd")
               td.country-name.rm-blue #{country.name}
               td.number &pound;#{country.setup}
-              td.number!= country.withLegislation != "-" ? "&pound;"+country.withLegislation : country.withLegislation
+              td.number!= country.withLegalisation != "-" ? "&pound;"+country.withLegalisation : country.withLegalisation
               td.number.pure-hidden-phone &pound;#{country.twoYears}
-              td.number.pure-hidden-phone!= country.twoYearsWithLegislation != "-" ? "&pound;"+country.twoYearsWithLegislation : country.twoYearsWithLegislation
+              td.number.pure-hidden-phone!= country.twoYearsWithLegalisation != "-" ? "&pound;"+country.twoYearsWithLegalisation : country.twoYearsWithLegalisation
               td.bold.rm-blue.buy-now
                 a(href="mailto:amanda@rmonline.com?subject=RM Online: Company formation request in #{country.name}&body=Please include your contact details and one of our advisors will get back to you within an hour!") BUY
   .pure-u-2-5

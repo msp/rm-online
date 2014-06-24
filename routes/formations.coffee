@@ -2,128 +2,137 @@ COUNTRIES = [
   {
     name: "Belize"
     setup: 399
-    withLegislation: 649
+    withLegalisation: 649
     twoYears: 748
-    twoYearsWithLegislation: 998
+    twoYearsWithLegalisation: 998
+    intro: "Belize, which is located in Central America along the Caribbean Sea between Guatemala and Mexico, provides one of the most competitive international company laws in the world.
+            As well, it enjoys an excellent reputation owing to its regulated international financial industry and specific laws against money laundering and fraud.  Belize does not appear on the OECD’s blacklist or on that of the Financial Action Task Force.
+            The Mossack Fonseca Group holds a license issued by the International Financial Services Commission for incorporating and managing International Business Companies (IBCs).
+            One of major advantages of this jurisdiction, IBCs has a simple corporate structure, lending Belize a competitive international touch that makes it an entrepreneurial leader in the incorporation of IBCs."
+    highlights: [
+      "Flexible company law.  No exchange control regulations."
+
+
+    ]
   }
   {
     name: "British Anguilla"
     setup: 600
-    withLegislation: 850
+    withLegalisation: 850
     twoYears: 1000
-    twoYearsWithLegislation: 1250
+    twoYearsWithLegalisation: 1250
   }
   {
     name: "British Samoa"
     setup: 550
-    withLegislation: 800
+    withLegalisation: 800
     twoYears: 950
-    twoYearsWithLegislation: 1200
+    twoYearsWithLegalisation: 1200
   }
   {
     name: "British Virgin Islands"
     setup: 550
-    withLegislation: 845
+    withLegalisation: 845
     twoYears: 950
-    twoYearsWithLegislation: 1200
+    twoYearsWithLegalisation: 1200
   }
   {
     name: "Cook Islands"
     setup: 599
-    withLegislation: 849
+    withLegalisation: 849
     twoYears: 1148
-    twoYearsWithLegislation: 1398
+    twoYearsWithLegalisation: 1398
   }
   {
     name: "Cyprus"
     setup: 1750
-    withLegislation: 2000
+    withLegalisation: 2000
     twoYears: 2700
-    twoYearsWithLegislation: 2950
+    twoYearsWithLegalisation: 2950
   }
   {
     name: "Delaware"
     setup: 299
-    withLegislation: 549
+    withLegalisation: 549
     twoYears: 550
-    twoYearsWithLegislation: 799
+    twoYearsWithLegalisation: 799
   }
   {
     name: "Dominica IBC"
     setup: 599
-    withLegislation: 850
+    withLegalisation: 850
     twoYears: 1149
-    twoYearsWithLegislation: 1400
+    twoYearsWithLegalisation: 1400
   }
   {
     name: "Dubai"
     setup: 2150
-    withLegislation: "-"
+    withLegalisation: "-"
     twoYears: 3650
-    twoYearsWithLegislation: "-"
+    twoYearsWithLegalisation: "-"
   }
   {
     name: "Gibraltar"
     setup: 799
-    withLegislation: 1049
+    withLegalisation: 1049
     twoYears: 1399
-    twoYearsWithLegislation: 1650
+    twoYearsWithLegalisation: 1650
   }
   {
     name: "Hong Kong"
     setup: 1050
-    withLegislation: 1445
+    withLegalisation: 1445
     twoYears: 1900
-    twoYearsWithLegislation: 2700
+    twoYearsWithLegalisation: 2700
   }
   {
     name: "Malta"
     setup: 2175
-    withLegislation: 2425
+    withLegalisation: 2425
     twoYears: 3175
-    twoYearsWithLegislation: 3425
+    twoYearsWithLegalisation: 3425
   }
   {
     name: "Marshall Islands"
     setup: 699
-    withLegislation: 949
+    withLegalisation: 949
     twoYears: 1198
-    twoYearsWithLegislation: 1448
+    twoYearsWithLegalisation: 1448
   }
   {
     name: "Nevada"
     setup: 1050
-    withLegislation: 1300
+    withLegalisation: 1300
     twoYears: 1900
-    twoYearsWithLegislation: 2150
+    twoYearsWithLegalisation: 2150
   }
   {
     name: "New Zealand"
     setup: 1900
-    withLegislation: "-"
+    withLegalisation: "-"
     twoYears: 3100
-    twoYearsWithLegislation: "-"
+    twoYearsWithLegalisation: "-"
   }
   {
     name: "Panama"
     setup: 600
-    withLegislation: 850
+    withLegalisation: 850
     twoYears: 1000
-    twoYearsWithLegislation: 1250
+    twoYearsWithLegalisation: 1250
   }
   {
     name: "Seychelles"
     setup: 340
-    withLegislation: 600
+    withLegalisation: 600
     twoYears: 550
-    twoYearsWithLegislation: 850
+    twoYearsWithLegalisation: 850
   }
   {
     name: "Wyoming (USA)"
     setup: 700
-    withLegislation: 950
+    withLegalisation: 950
     twoYears: 1300
-    twoYearsWithLegislation: 1600
+    twoYearsWithLegalisation: 1600
   }
 ]
 

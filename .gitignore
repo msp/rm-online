@@ -6,3 +6,5 @@ node_modules
 main.css
 tabs.css
 npm-debug.log
+tmp.*
+horus/spike

@@ -16,6 +16,7 @@ var myStepDefinitionsWrapper = function () {
   });
 
   this.Then(/^I should see (\d+) search results? for "([^"]*)"$/, function (num, term, callback) {
+    this.assert.equal(this.browser.location.pathname.toLowerCase(), "/search/UK/results".toLowerCase());
     this.assert.equal(this.browser.text("#num-search-results").toLowerCase(), num+" results for '"+term+"'".toLowerCase());
     this.assert.equal(this.browser.text("H1").toLowerCase(), "Search Results".toLowerCase());
     this.assert.ok(this.browser.query(".search-results"));
