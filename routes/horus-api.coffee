@@ -19,7 +19,7 @@ class HorusAPI
     @results = undefined
     @template = "search/results"
     @results = undefined
-    @debug = true
+    @debug = false
     @term = @term.trim()
 
   companySearch: ->
