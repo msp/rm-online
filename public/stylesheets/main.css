@@ -1448,6 +1448,12 @@ li.terms-section {
   text-transform: capitalize;
 }
 
+google-map {
+  display: block;
+  height: 300px;
+  margin-bottom: 40px;
+}
+
 @media screen and (min-width:768px) {
   .header li.divider {
     display: inline-block;

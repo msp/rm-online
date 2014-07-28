@@ -3,6 +3,7 @@ https = require 'https',
 xml2js = require 'xml2js'
 inspect = require('eyes').inspector({maxLength: false})
 horusAPI = require('./horus-api')
+slug = require('slug')
 
 COUNTRIES = [
   {
@@ -142,6 +143,12 @@ COUNTRIES = [
   }
 ]
 
+COUNTRIES_SHOW = {}
+
+for country in COUNTRIES
+  do (country) ->
+    COUNTRIES_SHOW[slug(country.name).toLowerCase()] = require("../json/#{slug(country.name).toLowerCase()}.json")
+
 exports.international = (req, res) ->
   title = "International Company Formation"
   req.breadcrumbs(title, "/company-formations/international")
@@ -149,6 +156,21 @@ exports.international = (req, res) ->
   title: title
   bcList: req.breadcrumbs()
   countries: COUNTRIES
+  return
+
+exports.internationalShow = (req, res) ->
+
+  country = COUNTRIES_SHOW[req.params.jurisdiction][0]
+  inspect(country)
+
+  title = "International Company Formation"
+  req.breadcrumbs(title, "/company-formations/international")
+  title = country.country
+  req.breadcrumbs(title, "/company-formations/"+req.params.jurisdiction)
+  res.render "formations/international-show",
+  title: title
+  bcList: req.breadcrumbs()
+  country: country
   return
 
 exports.uk = (req, res) ->
@@ -174,3 +196,9 @@ exports.search = (req, res) ->
 
   api = new horusAPI(req, res, term, title, country, suffix)
   api.formationSearch()
+
+exports.param = (req, res, next, id) ->
+  # load up the country jurisdiction json
+  # pass through request
+  foo = "bar"
+

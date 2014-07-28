@@ -40,6 +40,7 @@ app.locals.slug = require('slug')
 
 # filters
 app.param('cro', companies.param)
+# app.param('jurisdiction', formations.param)
 
 # routes
 app.get "/", (req, res) ->
@@ -93,6 +94,7 @@ app.get('/search/:country', search.index)
 app.get('/search/:country/results', search.execute)
 
 app.get("/company-formations/international", formations.international)
+app.get("/company-formations/international/:jurisdiction", formations.internationalShow)
 app.get("/company-formations/UK", formations.uk)
 app.get("/company-formations/UK/results", formations.search)
 

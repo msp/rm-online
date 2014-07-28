@@ -1,0 +1,32 @@
+extends ../index
+
+block main
+  .pure-u-1
+    .l-box
+      +breadcrumbs_from(bcList)
+      h1 #{title}
+
+      article.pure-u-1
+        google-map(latitude="17.527641", longitude="-88.352791" disabledefaultui='disableDefaultUI')
+
+        each intro_p in country.intro
+          p #{intro_p}
+
+        if country.highlights
+          h3 Highlights
+          ul.highlights
+            each highlight in country.highlights
+              li #{highlight}
+
+        if country.uses
+          h3 Uses
+          ul.uses
+            each use in country.uses
+              li #{use}
+
+        if country.social
+          h3 Social and Economic Indicators
+          ul.uses
+            each social in country.social
+              li #{social}
+

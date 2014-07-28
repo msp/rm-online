@@ -31,7 +31,8 @@ block main
         tbody
           each country, index in countries
             tr(class=index % 2 == 0  ? "" : "pure-table-odd")
-              td.country-name.rm-blue #{country.name}
+              td.country-name.rm-blue
+                a(href="/company-formations/international/"+slug(country.name).toLowerCase()) #{country.name}
               td.number &pound;#{country.setup}
               td.number!= country.withLegalisation != "-" ? "&pound;"+country.withLegalisation : country.withLegalisation
               td.number.pure-hidden-phone &pound;#{country.twoYears}
