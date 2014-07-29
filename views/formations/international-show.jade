@@ -1,4 +1,5 @@
 extends ../index
+include ../mixins/m-contact
 
 block main
   .pure-u-1
@@ -7,38 +8,39 @@ block main
       h1 #{title}
 
       article.pure-u-1
-        google-map(latitude="#{country.lat}", longitude="#{country.lon}" zoom="7")
+        google-map(latitude="#{countryShow.lat}", longitude="#{countryShow.lon}" zoom="7")
           //- google-map-marker(latitude="{country.lat}", longitude="#{country.lon}" title="#{title}")
 
-        each intro_p in country.intro
+        each intro_p in countryShow.intro
           p #{intro_p}
 
-        if country.features
+        if countryShow.features
           h3 Features
           ul.features
-            each feature in country.features
+            each feature in countryShow.features
               li #{feature}
 
-        if country.highlights
+        if countryShow.highlights
           h3 Highlights
           ul.highlights
-            each highlight in country.highlights
+            each highlight in countryShow.highlights
               li #{highlight}
 
-        if country.uses
+        if countryShow.uses
           h3 Uses
           ul.uses
-            each use in country.uses
+            each use in countryShow.uses
               li #{use}
 
-        if country.social
+        if countryShow.social
           h3 Social and Economic Indicators
           ul.uses
-            each social in country.social
+            each social in countryShow.social
               li #{social}
 
-        if country.guidelines
+        if countryShow.guidelines
           h3 Guidelines
-          each guideline in country.guidelines
+          each guideline in countryShow.guidelines
             p #{guideline}
 
+  include _jurisdictions-table

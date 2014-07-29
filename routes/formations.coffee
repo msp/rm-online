@@ -161,7 +161,8 @@ exports.internationalShow = (req, res) ->
   res.render "formations/international-show",
   title: title
   bcList: req.breadcrumbs()
-  country: country
+  countryShow: country
+  countries: COUNTRIES
   polymer: true
   return
 

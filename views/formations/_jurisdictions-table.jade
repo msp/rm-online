@@ -1,0 +1,31 @@
+.pure-u-1
+  .l-box
+    table.pure-table.jurisdictions
+      thead
+        tr
+          th Jurisdiction
+          th Set-up
+          th With Legalisation
+          th.pure-hidden-phone 2 Years
+          th.pure-hidden-phone 2 Years With Legalisation
+          th
+
+      tbody
+        each country, index in countries
+          tr(class=index % 2 == 0  ? "" : "pure-table-odd")
+            td.country-name.rm-blue
+              a(href="/company-formations/international/"+slug(country.name).toLowerCase()) #{country.name}
+            td.number &pound;#{country.setup}
+            td.number!= country.withLegalisation != "-" ? "&pound;"+country.withLegalisation : country.withLegalisation
+            td.number.pure-hidden-phone &pound;#{country.twoYears}
+            td.number.pure-hidden-phone!= country.twoYearsWithLegalisation != "-" ? "&pound;"+country.twoYearsWithLegalisation : country.twoYearsWithLegalisation
+            td.bold.rm-blue.buy-now
+              a(href="mailto:amanda@rmonline.com?subject=RM Online: Company formation request in #{country.name}&body=Please include your contact details and one of our advisors will get back to you within an hour!") BUY
+.pure-u-2-5
+  .l-box
+    h3.international Need some help?
+    p Call Amanda to discuss your requirements.
+.pure-u-3-5
+  .l-box
+    #contact_formations.contact
+      +contact("Company Formations", "Amanda Coyle", "+44 (0) 1462 427 300", "amanda@rmonline.com", "")
