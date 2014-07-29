@@ -1,6 +1,8 @@
 [
   {
     "country": "Nevada, USA",
+    "lat": "38.802610",
+    "lon": "-116.419389",
     "intro": [
       "Nevada is considered one of the best jurisdictions in the United States for the incorporation of companies due to its versatility, low costs and fast service. Nevada Limited Liability Companies (LLCs) can conduct business outside the United States and employ any currency of their choice."
     ],
@@ -15,7 +17,7 @@
       "Excellent name availability for company incorporations.",
       "An LLC can have a perpetual duration."
     ],
-    "uses": [
+    "features": [
       "Excellent corporation law.",
       "No taxes levied on offshore and banking transactions.",
       "Political and economic stability.",

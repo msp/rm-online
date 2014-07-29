@@ -1,18 +1,20 @@
 [
   {
     "country": "New Zealand",
+    "lat": "-40.900557",
+    "lon": "174.885971",
     "intro": [
       "New Zealand is a prosperous and stable country having a strong economy. It has as well, secure and very flexible company and trust laws, allowing speedy formation of ideal vehicles for wealth protection, inheritance and tax planning.",
       "Among those main vehicles offered by this Oceania country, member of the British Commonwealth and the OECD we can mention, foreign trusts, Limited Partnerships or LPs and recently, the Look Through Companies or LTCs."
     ],
-    "highlights": [
+    "uses": [
       "International tax planning.",
       "Wealth Management.",
       "Trading.",
       "Own assets."
     ],
-    "social": [
-      "The “look through company” regime, Income Tax Act 2007 Section BD 1(5)(c) and New Zealand companies act 1993.",
+    "highlights": [
+      "The 'look through company' regime, Income Tax Act 2007 Section BD 1(5)(c) and New Zealand companies act 1993.",
       "Exempt from all local taxes.",
       "No foreign exchange control",
       "Political and economic stability.",
@@ -21,6 +23,18 @@
       "No capital gains tax.",
       "No Stamp Duty",
       "Large tax double tax and information agreements network"
+    ],
+    "social": [
+      "Location: Southwestern Pacific Ocean, situated at 1,500 kilometer east of Australia across the Tasman Sea.",
+      "Area: 267,710 sq km",
+      "Population: 4,365,113 (July 2013 est.)",
+      "Climate: Temperate",
+      "Official Language: English",
+      "Government: Parliamentary democracy and a Commonwealth realm.",
+      "Living Standard: High",
+      "Banking: Worldwide banking facilities available",
+      "Legal Tender: New Zealand Dollar (NZD)",
+      "Industries: Tourism, Banking, Insurance, Dairy and Agriculture"
     ]
   }
 ]

@@ -7,10 +7,17 @@ block main
       h1 #{title}
 
       article.pure-u-1
-        google-map(latitude="17.527641", longitude="-88.352791" disabledefaultui='disableDefaultUI')
+        google-map(latitude="#{country.lat}", longitude="#{country.lon}" zoom="7")
+          //- google-map-marker(latitude="{country.lat}", longitude="#{country.lon}" title="#{title}")
 
         each intro_p in country.intro
           p #{intro_p}
+
+        if country.features
+          h3 Features
+          ul.features
+            each feature in country.features
+              li #{feature}
 
         if country.highlights
           h3 Highlights
@@ -29,4 +36,9 @@ block main
           ul.uses
             each social in country.social
               li #{social}
+
+        if country.guidelines
+          h3 Guidelines
+          each guideline in country.guidelines
+            p #{guideline}
 
