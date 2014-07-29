@@ -171,6 +171,7 @@ exports.internationalShow = (req, res) ->
   title: title
   bcList: req.breadcrumbs()
   country: country
+  polymer: true
   return
 
 exports.uk = (req, res) ->

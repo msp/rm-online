@@ -1,6 +1,6 @@
 var myStepDefinitionsWrapper = function () {
 
-  var WAIT = 3;
+  var WAIT = 4000;
 
   this.Then(/^I should be on the "([^"]*)" search page$/, function (country, callback) {
     this.assert.equal(this.browser.location.pathname, "/search/"+country);

@@ -39,13 +39,13 @@ head
   link(rel="stylesheet", href="/stylesheets/main.css")
   // endbuild
 
-  // Polymer
-  // Polyfill Web Components support for older browsers, must be first
-  script(src="/bower_components/platform/platform.js")
+  if polymer
+    // Polyfill Web Components support for older browsers, must be first
+    script(src="/bower_components/platform/platform.js")
 
-  // Polymer imports
-  link(rel="import", href="/bower_components/google-map/google-map.html")
-  link(rel="import", href="/bower_components/google-map/google-map-search.html")
+    // Polymer imports
+    link(rel="import", href="/bower_components/google-map/google-map.html")
+    link(rel="import", href="/bower_components/google-map/google-map-search.html")
 
 body.pure-skin-rm
   <!--[if lt IE 7]>
