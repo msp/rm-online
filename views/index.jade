@@ -110,10 +110,12 @@ body.pure-skin-rm
     script(src="https://www.google.com/jsapi")
     script(src="/javascripts/news.js")
 
-  if /search/i.test(path)
-    script(src="/javascripts/vendor/jquery-ui-autocomplete.js")
-    script(src="/javascripts/vendor-hacked/jquery.select-to-autocomplete.js")
-    script.
-      $(document).ready(function() {
-        $('select#country-selector').selectToAutocomplete();
-      })
+  // zombie craps out with this script
+  if settings.env == "production" || settings.env == "development"
+    if /search/i.test(path)
+      script(src="/javascripts/vendor/jquery-ui-autocomplete.js")
+      script(src="/javascripts/vendor-hacked/jquery.select-to-autocomplete.js")
+      script.
+        $(document).ready(function() {
+          $('select#country-selector').selectToAutocomplete();
+        })
