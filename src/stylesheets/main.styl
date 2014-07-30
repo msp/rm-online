@@ -402,6 +402,16 @@ li.terms-section
       padding-left 30px
       padding-right 30px
       padding-bottom 30px
+      a
+        color white
+        margin-bottom 1px
+        display inline-block
+      a.search-highlight
+        color rm-blue
+      .divider
+        padding-left 5px
+        padding-right 5px
+        text-align center
       #company-suffix
         width 100%
       #search-term
@@ -440,6 +450,29 @@ li.terms-section
 
 .item_add
   width 100%
+
+// autocomplete
+.ui-autocomplete
+  padding 0
+  list-style none
+  background-color #fff
+  width 218px
+  border 1px solid #B0BECA
+  max-height 350px
+  overflow-y scroll
+  .ui-menu-item
+    a
+      border-top 1px solid #B0BECA
+      display block
+      padding 4px 6px
+      color #353D44
+      cursor pointer
+      &.ui-state-hover
+        background-color #D5E5F4
+        color #161A1C
+    &:first-child
+      a
+        border-top none
 
 /*general*/
 .l-box

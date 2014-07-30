@@ -4,13 +4,13 @@ var myStepDefinitionsWrapper = function () {
 
   this.Then(/^I should be on the "([^"]*)" search page$/, function (country, callback) {
     this.assert.equal(this.browser.location.pathname, "/search/"+country);
-    this.assert.equal(this.browser.text("H1").toLowerCase(), "UK Company Information Search".toLowerCase());
+    this.assert.equal(this.browser.text("H1").toLowerCase(), "Company Information Search".toLowerCase());
     callback();
   });
 
   this.Then(/^I should see the search box$/, function (callback) {
     this.assert.ok(this.browser.query(".search-box"));
-    this.assert.equal(this.browser.text(".search-box H3").toLowerCase(), "Search for information on a UK company".toLowerCase());
+    this.assert.equal(this.browser.text(".search-box H3").toLowerCase(), "Search for information on a company".toLowerCase());
     this.assert.equal(this.browser.query(".search-box #search-submit").value.toLowerCase(), "Search".toLowerCase());
     callback();
   });
@@ -21,7 +21,7 @@ var myStepDefinitionsWrapper = function () {
   });
 
   this.Then(/^I should see (\d+) search results? for "([^"]*)"$/, function (num, term, callback) {
-    this.assert.equal(this.browser.location.pathname.toLowerCase(), "/search/UK/results".toLowerCase());
+    this.assert.equal(this.browser.location.pathname.toLowerCase(), "/search/results".toLowerCase());
     self = this;
     this.browser.wait(WAIT, function() {
       self.assert.equal(self.browser.text("#num-search-results").toLowerCase(), num+" results for '"+term+"'".toLowerCase());

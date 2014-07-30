@@ -4,7 +4,7 @@ var myStepDefinitionsWrapper = function () {
 
   this.When(/^I visit the profile page for company "([^"]*)"$/, function (company_number, callback) {
     COMPANY_NUMBER = company_number;
-    this.visit("companies/"+company_number, callback);
+    this.visit("companies/gb/"+company_number, callback);
   });
 
   this.Then(/^I should be on the profile page$/, function (callback) {
@@ -40,7 +40,7 @@ var myStepDefinitionsWrapper = function () {
 
   this.Then(/^I should be on the the report detail page$/, function (callback) {
     this.assert.ok(this.browser.success);
-    this.assert.equal(this.browser.location.pathname, "/companies/"+COMPANY_NUMBER+"/reports/cs");
+    this.assert.equal(this.browser.location.pathname, "/companies/gb/"+COMPANY_NUMBER+"/reports/cs");
     this.assert.equal(this.browser.queryAll(".report-box").length, 1);
     callback();
   });

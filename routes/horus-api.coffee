@@ -6,7 +6,8 @@ inspect = require('eyes').inspector({maxLength: false})
 class HorusAPI
 
   @SERVLET = "https://www.rmonline.com/servlet/com.armadillo.online"
-  @COMPANY_SEARCH_URL = "#{HorusAPI.SERVLET}?service=rm008&function=busmatch_nocaptcha&searchdata="
+  @UK_COMPANY_SEARCH_URL = "#{HorusAPI.SERVLET}?service=rm008&function=busmatch_nocaptcha&searchdata="
+  @INT_COMPANY_SEARCH_URL = "#{HorusAPI.SERVLET}?service=rm008&function=intcomatch_rmonline_nocaptcha&databases=LDP&type=A&requestType=search&archdb=LPD"
   @FORMATIONS_URL = "#{HorusAPI.SERVLET}?service=einc&function=cosearch_ch_alt&Request=NameAvailableSearch&SearchRows=1&stylesheet=none&SearchData="
 
   @HTTP_ERROR = "Sorry, unsuccessful response from our search API. Please try again later."
@@ -21,10 +22,48 @@ class HorusAPI
     @results = undefined
     @debug = false
     @term = @term.trim()
+    @country = country
 
-  companySearch: ->
-    console.log("companySearch")
-    @_search(HorusAPI.COMPANY_SEARCH_URL+"#{@term}&stylesheet=none", (result) -> this.results = result.horus.row)
+  ukCompanySearch: ->
+    console.log("UK companySearch")
+
+    mappingCallback = (result) ->
+      records = []
+      for record, index in result.horus.row
+        # first record is meta data
+        if index > 0
+          tmp =
+            name: String(record.name)
+            addressLine1: String(record.addressline1)
+            addressLine2: String(record.addressline2)
+            addressLine3: String(record.addressline3)
+            registeredNumber: String(record.company)
+          records.push tmp
+      this.results = records
+
+    @_search(HorusAPI.UK_COMPANY_SEARCH_URL+"#{@term}&stylesheet=none", mappingCallback)
+
+  intCompanySearch: ->
+    console.log("INT companySearch")
+
+    mappingCallback = (result) ->
+      records = []
+
+      if result.horus.error
+        this.error = { code: [97], description: result.horus.error }
+      else
+        for record in result.horus.DGX[0].CREDITMSGSRSV2[0].LOOKUPTRNRS[0].LOOKUPRS[0].LOOKUPRSCOMPANY
+          tmp =
+            name: String(record.NME)
+            addressLine1: String(record.ADR_LINE)
+            addressLine2: String(record.NON_POST_TOWN)
+            addressLine3: String(record.POST_CODE)
+            registeredNumber: String(record.DUNS_NBR)
+          records.push tmp
+        this.results = records
+
+    # love this clean API :/
+    @_search(HorusAPI.INT_COMPANY_SEARCH_URL+"&country=#{@country}&searchdata=#{@term}&searchdata2=#{@term}&companyName=#{@term}&stylesheet=none", mappingCallback)
 
   formationSearch: ->
     console.log("formationSearch")
@@ -51,6 +90,7 @@ class HorusAPI
           if resp.statusCode == 200
             self.parser.parseString responseBuffer, (err, result) ->
               if err && self.debug then inspect(err)
+              if self.debug then inspect(result)
 
               self.callback(result)
 

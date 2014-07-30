@@ -43,6 +43,7 @@ exports.show = (req, res) ->
     reports: req.reports
     account_types: ACCOUNT_TYPES
     images: IMAGES_SHIM
+    country: req.params.country
 
 
 exports.viewReport = (req, res) ->
@@ -51,7 +52,7 @@ exports.viewReport = (req, res) ->
 
   if req.company
     title = req.company.name
-    req.breadcrumbs(IMAGES_SHIM[vendor.toLowerCase()], '/companies/'+req.params.cro+'/view/'+vendor)
+    req.breadcrumbs(IMAGES_SHIM[vendor.toLowerCase()], "/companies/#{req.params.country}/#{req.params.cro}/reports/#{vendor}")
 
   res.render "companies/view-report",
     title: title
@@ -101,7 +102,7 @@ exports.param = (req, res, next, id) ->
           inspect(company)
           inspect(reports)
           title = company.name
-          req.breadcrumbs(title, '/companies/'+req.params.cro)
+          req.breadcrumbs(title, "/companies/#{req.params.country}/#{req.params.cro}")
           req.company = company
           req.reports = reports
           next()

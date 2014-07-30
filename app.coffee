@@ -86,10 +86,11 @@ app.get "/contact", (req, res) ->
 
 app.get('/faq', faq.index)
 app.get('/terms', terms.index)
-app.get('/companies/:cro', companies.show)
-app.get('/companies/:cro/reports/:vendor', companies.viewReport)
+app.get('/companies/:country/:cro', companies.show)
+app.get('/companies/:country/:cro/reports/:vendor', companies.viewReport)
 # app.get('/companies/:cro/documents/:vendor', companies.viewReport)
 app.get('/search', search.index)
+app.get('/search/results', search.execute)
 app.get('/search/:country', search.index)
 app.get('/search/:country/results', search.execute)
 

@@ -12,6 +12,21 @@ $(document).ready(function() {
     startCollapsed: 'accordion'
   });
 
+//  $('#uk-info-search').click(function(e) {
+//    $(this).addClass("search-highlight");
+//    $('#int-info-search').removeClass("search-highlight");
+//    $('.ui-autocomplete-input').fadeOut();
+//    e.preventDefault();
+//  });
+//
+//  $('#int-info-search').click(function(e) {
+//    $(this).addClass("search-highlight");
+//    $('#uk-info-search').removeClass("search-highlight");
+//
+//    $('.ui-autocomplete-input').fadeIn();
+//    e.preventDefault();
+//  });
+
   function redrawButtons() {
     // reset all
     $(".item_add").text("ADD TO CART");

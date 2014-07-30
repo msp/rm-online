@@ -1331,6 +1331,22 @@ li.terms-section {
   padding-bottom: 30px;
 }
 
+#search-form .search-box fieldset a {
+  color: #fff;
+  margin-bottom: 1px;
+  display: inline-block;
+}
+
+#search-form .search-box fieldset a.search-highlight {
+  color: #0184a2;
+}
+
+#search-form .search-box fieldset .divider {
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+}
+
 #search-form .search-box fieldset #company-suffix {
   width: 100%;
 }
@@ -1380,6 +1396,33 @@ li.terms-section {
 
 .item_add {
   width: 100%;
+}
+
+.ui-autocomplete {
+  padding: 0;
+  list-style: none;
+  background-color: #fff;
+  width: 218px;
+  border: 1px solid #b0beca;
+  max-height: 350px;
+  overflow-y: scroll;
+}
+
+.ui-autocomplete .ui-menu-item a {
+  border-top: 1px solid #b0beca;
+  display: block;
+  padding: 4px 6px;
+  color: #353d44;
+  cursor: pointer;
+}
+
+.ui-autocomplete .ui-menu-item a.ui-state-hover {
+  background-color: #d5e5f4;
+  color: #161a1c;
+}
+
+.ui-autocomplete .ui-menu-item:first-child a {
+  border-top: none;
 }
 
 .l-box {

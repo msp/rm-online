@@ -109,3 +109,11 @@ body.pure-skin-rm
   if path == "/news"
     script(src="https://www.google.com/jsapi")
     script(src="/javascripts/news.js")
+
+  if /search/i.test(path)
+    script(src="/javascripts/vendor/jquery-ui-autocomplete.js")
+    script(src="/javascripts/vendor-hacked/jquery.select-to-autocomplete.js")
+    script.
+      $(document).ready(function() {
+        $('select#country-selector').selectToAutocomplete();
+      })
