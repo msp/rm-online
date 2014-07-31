@@ -2,31 +2,49 @@ fs = require 'fs',
 https = require 'https',
 xml2js = require 'xml2js'
 inspect = require('eyes').inspector({maxLength: false})
+companies = require('./companies')
 
 class HorusAPI
 
   @SERVLET = "https://www.rmonline.com/servlet/com.armadillo.online"
-  @UK_COMPANY_SEARCH_URL = "#{HorusAPI.SERVLET}?service=rm008&function=busmatch_nocaptcha&searchdata="
-  @INT_COMPANY_SEARCH_URL = "#{HorusAPI.SERVLET}?service=rm008&function=intcomatch_rmonline_nocaptcha&databases=LDP&type=A&requestType=search&archdb=LPD"
+  @UK_COMPANY_SEARCH_URL = "#{HorusAPI.SERVLET}?service=rm008&function=busmatch_nocaptcha&stylesheet=none&searchdata="
+  @INT_COMPANY_SEARCH_URL = "#{HorusAPI.SERVLET}?service=rm008&function=intcomatch_rmonline_nocaptcha&databases=LDP&type=A&requestType=search&archdb=LPD&stylesheet=none"
   @FORMATIONS_URL = "#{HorusAPI.SERVLET}?service=einc&function=cosearch_ch_alt&Request=NameAvailableSearch&SearchRows=1&stylesheet=none&SearchData="
+
+  @UK_COMPANY_URL = "#{HorusAPI.SERVLET}?service=ccard_v2&function=cobasic_nocaptcha&stylesheet=none&reference="
 
   @HTTP_ERROR = "Sorry, unsuccessful response from our search API. Please try again later."
   @TRANSPORT_ERROR = "ERROR transport error talking to Horus: "
   @SUFFIXES = ["LIMITED", "PLC", "LLP"]
 
-  constructor: (@req, @res, @term, @title, @country, @suffix) ->
+  constructor: (@req, @res, @term, @title, @country) ->
     @parser = new xml2js.Parser()
     @error =  undefined
     @results = undefined
+    @reports = undefined
     @template = "search/results"
     @results = undefined
     @debug = false
     @term = @term.trim()
     @country = country
+    @company = undefined
+
+  ukCompanyReports: ->
+    console.log("UK company reports, vendor: #{this.req.params.vendor}")
+
+    @template = "companies/view-report"
+    @_search(HorusAPI.UK_COMPANY_URL+"#{@term}", companies.mappingCallback, companies.validationCallback)
+
+  ukCompany: ->
+    console.log("UK company")
+
+    @template = "companies/show"
+    @_search(HorusAPI.UK_COMPANY_URL+"#{@term}", companies.mappingCallback, companies.validationCallback)
 
   ukCompanySearch: ->
     console.log("UK companySearch")
 
+    # callbacks
     mappingCallback = (result) ->
       records = []
       for record, index in result.horus.row
@@ -41,11 +59,16 @@ class HorusAPI
           records.push tmp
       this.results = records
 
-    @_search(HorusAPI.UK_COMPANY_SEARCH_URL+"#{@term}&stylesheet=none", mappingCallback)
+    validationCallback = () ->
+      console.log("validationCallback, term: #{this.term}")
+      if !this.term then this._renderTemplate()
+
+    @_search(HorusAPI.UK_COMPANY_SEARCH_URL+"#{@term}", mappingCallback, validationCallback)
 
   intCompanySearch: ->
     console.log("INT companySearch")
 
+    # callbacks
     mappingCallback = (result) ->
       records = []
 
@@ -62,60 +85,75 @@ class HorusAPI
           records.push tmp
         this.results = records
 
-    # love this clean API :/
-    @_search(HorusAPI.INT_COMPANY_SEARCH_URL+"&country=#{@country}&searchdata=#{@term}&searchdata2=#{@term}&companyName=#{@term}&stylesheet=none", mappingCallback)
+    validationCallback = () ->
+      console.log("validationCallback, term: #{this.term}")
+      if !this.term then this._renderTemplate()
+
+    # love this API :/
+    searchURL = HorusAPI.INT_COMPANY_SEARCH_URL+"&country=#{@country}&searchdata=#{@term}&searchdata2=#{@term}&companyName=#{@term}"
+
+    @_search(searchURL, mappingCallback, validationCallback)
 
   formationSearch: ->
-    console.log("formationSearch")
+    console.log("formationSearch term: #{@term}, suffix: #{@req.query.suffix}")
     @template = "formations/results"
     @_removeAnyUserSuffixes()
 
-    @_search(HorusAPI.FORMATIONS_URL+"#{@term} #{@suffix}", (result) -> this.results = result.horus)
+    mappingCallback = (result) ->
+      this.results = result.horus
+      this.suffix = this.req.query.suffix
+
+    @_search(HorusAPI.FORMATIONS_URL+"#{@term} #{@req.query.suffix}", mappingCallback)
 
   _removeAnyUserSuffixes: () ->
     for suffix in HorusAPI.SUFFIXES
       @term = @term.replace(new RegExp(suffix+"$", "gi"), "")
 
-  _search: (@url, @callback) ->
+  _search: (@url, @callback, @validate) ->
     self = this
     responseBuffer = ""
 
-    if self.term
-      https.get(@url, (resp) ->
-        resp.on "data", (chunk) ->
-          responseBuffer += chunk
+    if self.validate then self.validate()
 
-        resp.on "end", () ->
-          if self.debug then console.log(responseBuffer)
-          if resp.statusCode == 200
-            self.parser.parseString responseBuffer, (err, result) ->
-              if err && self.debug then inspect(err)
-              if self.debug then inspect(result)
+    https.get(@url, (resp) ->
+      resp.on "data", (chunk) ->
+        responseBuffer += chunk
 
-              self.callback(result)
+      resp.on "end", () ->
+        if self.debug then console.log(responseBuffer)
+        if resp.statusCode == 200
+          self.parser.parseString responseBuffer, (err, result) ->
+            if err && self.debug then inspect(err)
+            if self.debug then inspect(result)
 
-              if self.debug then inspect(self.results)
-              self._renderTemplate()
-          else
-            self.error = { code: [98], description: [HorusAPI.HTTP_ERROR] }
+            self.callback(result)
+
+            if self.debug then inspect(self.results)
             self._renderTemplate()
+        else
+          self.error = { code: [98], description: [HorusAPI.HTTP_ERROR] }
+          self._renderTemplate()
 
-      ).on "error", (e) ->
-        console.log(HorusAPI.TRANSPORT_ERROR+e.message)
-        self.error = { code: [99], description: [e.message]}
-        self._renderTemplate()
-    else
+    ).on "error", (e) ->
+      console.log(HorusAPI.TRANSPORT_ERROR+e.message)
+      self.error = { code: [99], description: [e.message]}
       self._renderTemplate()
 
+  # TODO this is WAY overloaded to cater for each template
   _renderTemplate: () ->
     self = this
     self.res.render self.template,
       title: self.title
       bcList: self.req.breadcrumbs()
       results: self.results
+      company: self.company
+      reports: self.reports
       term: self.term
       suffix: self.suffix
       country: self.country
+      vendor: self.req.params.vendor
+      account_types: companies.ACCOUNT_TYPES
+      images: companies.IMAGES_SHIM
       error: self.error
     return
 

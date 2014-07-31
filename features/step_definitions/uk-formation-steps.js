@@ -1,6 +1,6 @@
 var myStepDefinitionsWrapper = function () {
 
-  var WAIT = 4000;
+  var WAIT = 8000;
 
   this.Then(/^I should be on the UK company formation page$/, function (callback) {
     this.assert.equal(this.browser.location.pathname, "/company-formations/uk");

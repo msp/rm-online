@@ -3,8 +3,9 @@ https = require 'https',
 xml2js = require 'xml2js'
 inspect = require('eyes').inspector({maxLength: false})
 search = require('./search');
+horusAPI = require('./horus-api')
 
-ACCOUNT_TYPES = ["Not Available"
+exports.ACCOUNT_TYPES = ["Not Available"
                 ,"Full Accounts"
                 ,"Small Company"
                 ,"Medium Company"
@@ -21,7 +22,7 @@ ACCOUNT_TYPES = ["Not Available"
                 ,"Interim"
                 ,"Initial"]
 
-IMAGES_SHIM = {
+exports.IMAGES_SHIM = {
   ex: "Experian"
   ,db: "D&B"
   ,jd: "Jordans"
@@ -32,88 +33,34 @@ IMAGES_SHIM = {
 }
 
 exports.show = (req, res) ->
-  if req.company
-    title = req.company.name
-
-  res.render "companies/show",
-    title: title
-    bcList: req.breadcrumbs()
-    company: req.company
-    error: req.error
-    reports: req.reports
-    account_types: ACCOUNT_TYPES
-    images: IMAGES_SHIM
-    country: req.params.country
-
+  console.log("companies SHOW, company: #{req.params.cro}")
+  title = ""
+  api = new horusAPI(req, res, req.params.cro, title, req.params.country)
+  api.ukCompany()
 
 exports.viewReport = (req, res) ->
+  console.log("companies REPORTS, company: #{req.params.cro}")
+  title = ""
+  api = new horusAPI(req, res, req.params.cro, title, req.params.country)
+  api.ukCompanyReports()
 
-  vendor = req.params.vendor
 
-  if req.company
-    title = req.company.name
-    req.breadcrumbs(IMAGES_SHIM[vendor.toLowerCase()], "/companies/#{req.params.country}/#{req.params.cro}/reports/#{vendor}")
+# callbacks
+exports.mappingCallback = (result) ->
 
-  res.render "companies/view-report",
-    title: title
-    bcList: req.breadcrumbs()
-    company: req.company
-    error: req.error
-    reports: req.reports
-    vendor: vendor
-    images: IMAGES_SHIM
-  return
+  if result.horus.error
+    this.error = result.horus.error[0]
+    console.log("ERROR from Horus")
+    inspect(this.error)
+  else
+    this.results = result.horus.access_control[0].companies_house_data
+    this.reports =  result.horus.reports[0]
 
-exports.param = (req, res, next, id) ->
+    this.company = this.results[0]
+    this.title = this.company.name
 
-  parser = new xml2js.Parser()
-  title = id
-  company = ""
-  error = ""
-  reports = undefined
+  this.req.breadcrumbs(this.title, "/companies/#{this.req.params.country}/#{this.req.params.cro}")
 
-  https.get("https://www.rmonline.com/servlet/com.armadillo.online?service=ccard_v2&function=cobasic_nocaptcha&reference="+id+"&stylesheet=none", (resp) ->
-    console.log("##################################################")
-    console.log "Got response: " + resp.statusCode
-    console.log("##################################################")
-
-    responseBuffer = ""
-
-    resp.on "data", (chunk) ->
-      responseBuffer += chunk;
-
-    resp.on "end", () ->
-      # console.log(responseBuffer)
-      parser.parseString responseBuffer, (err, result) ->
-        # inspect(err)
-        # inspect(result)
-
-        if result.horus.error
-          error = result.horus.error[0]
-          console.log("ERROR from Horus")
-          inspect(error)
-          req.company = company
-          req.error = error
-          next()
-        else
-          company = result.horus.access_control[0].companies_house_data[0]
-          reports =  result.horus.reports[0]
-
-          inspect(company)
-          inspect(reports)
-          title = company.name
-          req.breadcrumbs(title, "/companies/#{req.params.country}/#{req.params.cro}")
-          req.company = company
-          req.reports = reports
-          next()
-
-  ).on "error", (e) ->
-    console.log "Got error: " + e.message
-    error = {
-              code: [99]
-              description: [e.message]
-            }
-    console.log("ERROR transport error talking to Horus")
-    req.company = company
-    req.error = error
-    next()
+exports.validationCallback = () ->
+  console.log("validationCallback, term: [#{this.term}]")
+  if !this.term then this._renderTemplate()

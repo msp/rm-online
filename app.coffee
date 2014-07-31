@@ -39,7 +39,7 @@ app.use express.static(path.join(__dirname, "public"))
 app.locals.slug = require('slug')
 
 # filters
-app.param('cro', companies.param)
+# app.param('cro', companies.param)
 # app.param('jurisdiction', formations.param)
 
 # routes
