@@ -36,7 +36,11 @@ exports.show = (req, res) ->
   console.log("companies SHOW, company: #{req.params.cro}")
   title = ""
   api = new horusAPI(req, res, req.params.cro, title, req.params.country)
-  api.ukCompany()
+
+  if req.params.country.toLowerCase() == "gb"
+    api.ukCompany()
+  else
+    api.intCompany()
 
 exports.viewReport = (req, res) ->
   console.log("companies REPORTS, company: #{req.params.cro}")
@@ -46,7 +50,7 @@ exports.viewReport = (req, res) ->
 
 
 # callbacks
-exports.mappingCallback = (result) ->
+exports.ukMappingCallback = (result) ->
 
   if result.horus.error
     this.error = result.horus.error[0]
@@ -61,6 +65,15 @@ exports.mappingCallback = (result) ->
 
   this.req.breadcrumbs(this.title, "/companies/#{this.req.params.country}/#{this.req.params.cro}")
 
-exports.validationCallback = () ->
+exports.ukValidationCallback = () ->
+  console.log("validationCallback, term: [#{this.term}]")
+  if !this.term then this._renderTemplate()
+
+exports.intMappingCallback = (result) ->
+
+  this.results = []
+  this.error = { code: [88], description: ["Session lockdown! We need this removed from Horus"] }
+
+exports.intValidationCallback = () ->
   console.log("validationCallback, term: [#{this.term}]")
   if !this.term then this._renderTemplate()

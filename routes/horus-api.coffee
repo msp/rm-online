@@ -12,6 +12,7 @@ class HorusAPI
   @FORMATIONS_URL = "#{HorusAPI.SERVLET}?service=einc&function=cosearch_ch_alt&Request=NameAvailableSearch&SearchRows=1&stylesheet=none&SearchData="
 
   @UK_COMPANY_URL = "#{HorusAPI.SERVLET}?service=ccard_v2&function=cobasic_nocaptcha&stylesheet=none&reference="
+  @INT_COMPANY_URL = "#{HorusAPI.SERVLET}?service=rm008&function=intcobasic&requestType=product&stylesheet=none&companyID="
 
   @HTTP_ERROR = "Sorry, unsuccessful response from our search API. Please try again later."
   @TRANSPORT_ERROR = "ERROR transport error talking to Horus: "
@@ -33,13 +34,19 @@ class HorusAPI
     console.log("UK company reports, vendor: #{this.req.params.vendor}")
 
     @template = "companies/view-report"
-    @_search(HorusAPI.UK_COMPANY_URL+"#{@term}", companies.mappingCallback, companies.validationCallback)
+    @_search(HorusAPI.UK_COMPANY_URL+"#{@term}", companies.ukMappingCallback, companies.ukValidationCallback)
 
   ukCompany: ->
     console.log("UK company")
 
     @template = "companies/show"
-    @_search(HorusAPI.UK_COMPANY_URL+"#{@term}", companies.mappingCallback, companies.validationCallback)
+    @_search(HorusAPI.UK_COMPANY_URL+"#{@term}", companies.ukMappingCallback, companies.ukValidationCallback)
+
+  intCompany: ->
+    console.log("INT company")
+
+    @template = "companies/show"
+    @_search(HorusAPI.INT_COMPANY_URL+"#{@term}", companies.intMappingCallback, companies.intValidationCallback)
 
   ukCompanySearch: ->
     console.log("UK companySearch")
