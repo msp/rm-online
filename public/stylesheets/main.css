@@ -1497,6 +1497,10 @@ google-map {
   margin-bottom: 40px;
 }
 
+google-map img {
+  max-width: inherit !important;
+}
+
 @media screen and (min-width:768px) {
   .header li.divider {
     display: inline-block;
