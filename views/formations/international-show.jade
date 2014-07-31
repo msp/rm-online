@@ -8,8 +8,9 @@ block main
       h1 #{title}
 
       article.pure-u-1
-        google-map(latitude="#{countryShow.lat}", longitude="#{countryShow.lon}" zoom="7")
-          //- google-map-marker(latitude="{country.lat}", longitude="#{country.lon}" title="#{title}")
+        if settings.env == "production" || settings.env == "development"
+          google-map(latitude="#{countryShow.lat}", longitude="#{countryShow.lon}" zoom="7")
+            //- google-map-marker(latitude="{country.lat}", longitude="#{country.lon}" title="#{title}")
 
         each intro_p in countryShow.intro
           p #{intro_p}
@@ -34,13 +35,13 @@ block main
 
         if countryShow.social
           h3 Social and Economic Indicators
-          ul.uses
+          ul.social
             each social in countryShow.social
               li #{social}
 
         if countryShow.guidelines
           h3 Guidelines
           each guideline in countryShow.guidelines
-            p #{guideline}
+            p.guideline #{guideline}
 
   include _jurisdictions-table

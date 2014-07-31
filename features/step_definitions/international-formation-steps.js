@@ -31,5 +31,14 @@ var myStepDefinitionsWrapper = function () {
     }
     callback();
   });
+
+  this.When(/^I click through to British Virgin Islands$/, function (callback) {
+    this.browser.clickLink("British Virgin Islands", callback);
+  });
+
+  this.Then(/^I should see a list of (\d+) "([^"]*)"$/, function (num, selector, callback) {
+    this.assert.equal(this.browser.queryAll(selector).length, num);
+    callback();
+  });
 };
 module.exports = myStepDefinitionsWrapper;

@@ -20,6 +20,12 @@ var myStepDefinitionsWrapper = function () {
       pressButton("#search-submit", callback);
   });
 
+  this.When(/^I execute an Belgium company search for "([^"]*)"$/, function (term, callback) {
+    this.browser.fill("#search-term", term).
+      select("#country-selector", "Belgium").
+        pressButton("#search-submit", callback);
+  });
+
   this.Then(/^I should see (\d+) search results? for "([^"]*)"$/, function (num, term, callback) {
     this.assert.equal(this.browser.location.pathname.toLowerCase(), "/search/results".toLowerCase());
     self = this;
