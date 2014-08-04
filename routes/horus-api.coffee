@@ -11,8 +11,8 @@ class HorusAPI
   @INT_COMPANY_SEARCH_URL = "#{HorusAPI.SERVLET}?service=rm008&function=intcomatch_rmonline_nocaptcha&databases=LDP&type=A&requestType=search&archdb=LPD&stylesheet=none"
   @FORMATIONS_URL = "#{HorusAPI.SERVLET}?service=einc&function=cosearch_ch_alt&Request=NameAvailableSearch&SearchRows=1&stylesheet=none&SearchData="
 
-  @UK_COMPANY_URL = "#{HorusAPI.SERVLET}?service=ccard_v2&function=cobasic_nocaptcha&stylesheet=none&reference="
-  @INT_COMPANY_URL = "#{HorusAPI.SERVLET}?service=rm008&function=intcobasic&requestType=product&stylesheet=none&companyID="
+  @UK_COMPANY_URL = "#{HorusAPI.SERVLET}?service=ccard_v3&function=cobasic_nocaptcha&stylesheet=none&reference="
+  @INT_COMPANY_URL = "#{HorusAPI.SERVLET}?service=ccard_v3&function=intcobasic&requestType=product&stylesheet=none&session=&companyID="
 
   @HTTP_ERROR = "Sorry, unsuccessful response from our search API. Please try again later."
   @TRANSPORT_ERROR = "ERROR transport error talking to Horus: "
@@ -23,6 +23,8 @@ class HorusAPI
     @error =  undefined
     @results = undefined
     @reports = undefined
+    @documents = undefined
+    @documentsByCabinet = undefined
     @template = "search/results"
     @results = undefined
     @debug = false
@@ -33,7 +35,13 @@ class HorusAPI
   ukCompanyReports: ->
     console.log("UK company reports, vendor: #{this.req.params.vendor}")
 
-    @template = "companies/view-report"
+    @template = "companies/view-reports"
+    @_search(HorusAPI.UK_COMPANY_URL+"#{@term}", companies.ukMappingCallback, companies.ukValidationCallback)
+
+  ukCompanyDocuments: ->
+    console.log("UK company documents, vendor: #{this.req.params.vendor}")
+
+    @template = "companies/view-documents"
     @_search(HorusAPI.UK_COMPANY_URL+"#{@term}", companies.ukMappingCallback, companies.ukValidationCallback)
 
   ukCompany: ->
@@ -156,6 +164,8 @@ class HorusAPI
       results: self.results
       company: self.company
       reports: self.reports
+      documents: self.documents
+      documentsByCabinet: self.documentsByCabinet
       term: self.term
       suffix: self.suffix
       country: self.country

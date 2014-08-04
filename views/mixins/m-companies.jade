@@ -1,0 +1,28 @@
+mixin reportsAndDocumentsBox(name, checkoutName, guid, description, price, date)
+  - var sep = ""
+  - var lastClass = ""
+  .pure-u-1-3
+    .l-box
+      .report-box.simpleCart_shelfItem
+        .pure-g
+          .pure-u-19-24
+            .l-box
+              .report-name
+                p= name
+              .checkout-name.item_name.hidden
+                h4= checkoutName
+              .item_rmid.hidden= guid
+          .pure-u-5-24
+            img.pdf(src="/images/reports/pdf.png", alt="PDF")
+          .pure-u-1
+            .l-box
+              if date
+                p #{date}
+              p= description
+              br
+              .pure-g
+                .pure-u-9-24
+                  .report-price.item_price £#{price}
+                  input(type="hidden" value="1" class="item_Quantity")
+                .pure-u-15-24
+                  a(id="#{guid}").pure-button.pure-button-primary.item_add ADD TO CART

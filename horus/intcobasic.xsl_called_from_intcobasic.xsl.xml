@@ -1,0 +1,283 @@
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:include href="http://localhost/ccards/common/includes/replace.xsl"/>
+<xsl:include href="http://localhost/ccards/common/includes/vat.xsl"/>
+<xsl:template name="basic">
+  <xsl:variable name="SID"><xsl:value-of select="/horus/@session"/></xsl:variable>
+  <xsl:variable name="CONAME">
+    <xsl:call-template name="replace-string">
+      <xsl:with-param name="text" select="/horus/DGX/CREDITMSGSRSV2/LOOKUPTRNRS/LOOKUPRS/LOOKUPRSCOMPANY/NME"/>
+      <xsl:with-param name="replace" select="'&amp;'"/>
+      <xsl:with-param name="with" select="'%26'"/>
+    </xsl:call-template>
+  </xsl:variable>
+  
+
+  <table width="100%">
+	<tr>
+	  <td colspan="2"><p class="page-text"></p></td>
+	</tr>
+	<tr>
+	  <td>
+	    <img border="0" height="10" src="/ccards/common/images/spacer.gif" width="3"/>
+	  </td>
+	</tr>
+	<tr>
+	  <td valign="top" width="45%">
+	  
+		      <!-- BEGIN ProvideSupport.com Graphics Chat Button Code -->
+        <div id="ciArRy" style="z-index:100;position:absolute"></div>
+        <div id="scArRy" style="display:inline"></div>
+        <div id="sdArRy" style="display:none"></div>
+        <script type="text/javascript">
+         <xsl:comment><![CDATA[
+          var seArRy=document.createElement("script");seArRy.type="text/javascript";var seArRys=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/0xwrlulm7zomo09eb4gq0vx0dj/safe-standard.js?ps_h=ArRy&ps_t="+new Date().getTime();setTimeout("seArRy.src=seArRys;document.getElementById('sdArRy').appendChild(seArRy)",1)
+          //]]></xsl:comment>
+
+        </script>
+        <noscript>
+          <div style="display:inline"><a href="http://www.providesupport.com?messenger=0xwrlulm7zomo09eb4gq0vx0dj">Online Chat</a></div>
+        </noscript>
+      <!-- END ProvideSupport.com Graphics Chat Button Code -->
+
+		<table width="100%">
+          <tr><td align="center" colspan="3" class="subheader">Business Profile</td></tr>
+          <tr>
+	        <td colspan="3">
+	          <img border="0" height="10" src="/comgate/images/spacer.gif" width="3"/>
+	        </td>
+          </tr>
+          <tr>
+            <td class="display-label" width="60px">Name</td>
+	        <td class="display-label" width="2px">:</td>
+	        <td><xsl:value-of select="/horus/DGX/CREDITMSGSRSV2/LOOKUPTRNRS/LOOKUPRS/LOOKUPRSCOMPANY/NME"/></td>
+          </tr>
+          <tr>
+	        <td class="display-label">Address</td>
+	        <td class="display-label">:</td> 
+	        <td><xsl:value-of select="/horus/DGX/CREDITMSGSRSV2/LOOKUPTRNRS/LOOKUPRS/LOOKUPRSCOMPANY/ADR_LINE"/></td>
+          </tr>
+          <tr>
+            <td/>
+	        <td/>
+            <td><xsl:value-of select="/horus/DGX/CREDITMSGSRSV2/LOOKUPTRNRS/LOOKUPRS/LOOKUPRSCOMPANY/NON_POST_TOWN"/></td>
+          </tr>
+          <tr>
+	        <td class="display-label">Post Code</td>
+	        <td class="display-label">:</td>
+	        <td><xsl:value-of select="/horus/DGX/CREDITMSGSRSV2/LOOKUPTRNRS/LOOKUPRS/LOOKUPRSCOMPANY/POST_CODE"/></td>
+          </tr>
+		  <tr>
+	        <td class="display-label">Phone</td>
+	        <td class="display-label">:</td>
+	        <td>Sorry you must be a subscriber to view this information</td>
+          </tr>
+		  <tr>
+	        <td class="display-label">Type</td>
+	        <td class="display-label">:</td>
+	        <td>
+			  <xsl:choose>
+		        <xsl:when test="/horus/DGX/CREDITMSGSRSV2/LOOKUPTRNRS/LOOKUPRS/LOOKUPRSCOMPANY/BR_IND='B'">Branch</xsl:when>
+			    <xsl:when test="/horus/DGX/CREDITMSGSRSV2/LOOKUPTRNRS/LOOKUPRS/LOOKUPRSCOMPANY/BR_IND='N'">Not a branch</xsl:when>
+			    <xsl:when test="/horus/DGX/CREDITMSGSRSV2/LOOKUPTRNRS/LOOKUPRS/LOOKUPRSCOMPANY/BR_IND='H'">Headquarters</xsl:when>
+			    <xsl:when test="/horus/DGX/CREDITMSGSRSV2/LOOKUPTRNRS/LOOKUPRS/LOOKUPRSCOMPANY/BR_IND='S'">Single location</xsl:when>
+		      </xsl:choose>
+			</td>
+          </tr>
+        </table>
+	  </td>
+	  <td valign="top" width="55%">
+	    <table width="100%">
+		  <tr><td align="center" colspan="2" class="subheader">Services available for this company</td></tr>
+		  <tr>
+	        <td colspan="2">
+		      <img border="0" height="10" src="/ccards/common/images/spacer.gif" width="3"/>
+	        </td>
+	      </tr>
+		  <tr>
+			<td class="col-label">Click the product title below to purchase</td>
+			<td class="col-label">To view a sample and description click below</td>
+		  </tr>
+		  <xsl:for-each select="/horus/DGX/CREDITMSGSRSV2/PRODUCTLISTTRNRS/PRODUCTLISTRS/PROD_DET[PROD_NME[not(.=following::PROD_NME)] and PROD_TYPE_CD='T' and INDT_CD=1]">         		  
+		  <xsl:if test="PROD_NME='Comprehensive Report'">
+		  <xsl:variable name="REP">
+		    <xsl:choose>
+	          <xsl:when test="PROD_NME='D and B Business Information Report'">I01</xsl:when>
+	          <xsl:when test="PROD_NME='Comprehensive Report'">I02</xsl:when>
+	          <xsl:when test="PROD_NME='Compact Report'">I03</xsl:when>
+	        </xsl:choose>
+		  </xsl:variable>
+		  <xsl:variable name="REPNAME">
+		    <xsl:choose>
+	          <xsl:when test="PROD_NME='D and B Business Information Report'">Business Information Report</xsl:when>
+	          <xsl:when test="PROD_NME='Comprehensive Report'">Comprehensive Report</xsl:when>
+	          <xsl:when test="PROD_NME='Compact Report'">Compact Report</xsl:when>
+	        </xsl:choose>
+		  </xsl:variable>
+		  <tr>
+		    <td>
+			  <a class="link1" href="{/horus/row/baseurl}/servlet/com.armadillo.online?service={/horus/row/service}&amp;function=intcologin&amp;requestType=data&amp;companyID={/horus/DGX/CREDITMSGSRSV2/LOOKUPTRNRS/LOOKUPRS/LOOKUPRSCOMPANY/DUNS_NBR}&amp;reportType={PROD_NME}&amp;country={/horus/row/country}&amp;reasonCode={/horus/row/reasoncode}&amp;rep={$REP}&amp;companyName={$CONAME}&amp;session={$SID}&amp;repp={$REP}"><xsl:value-of select="$REPNAME"/></a>
+			  <br/><xsl:text> &#163;</xsl:text>
+			  <xsl:for-each select="/horus/row[report=$REP]">
+			    <xsl:value-of select="format-number(price,'#,##0.00')"/> (+ VAT @ <xsl:call-template name="show_vat_rate"/>% = &#163;<xsl:value-of select="format-number(number(vat),'##0.00')"/>)
+			  </xsl:for-each>
+			</td>
+			<td valign="top"><a class="link1" href="/{$REP}_ccsample.htm" target="_blank">Sample</a></td>
+		  </tr>
+		  </xsl:if>
+		  </xsl:for-each>
+		  
+		  <xsl:for-each select="/horus/DGX/CREDITMSGSRSV2/PRODUCTLISTTRNRS/PRODUCTLISTRS/PROD_DET[PROD_NME[not(.=following::PROD_NME)] and PROD_TYPE_CD='T' and INDT_CD=1]">         		  
+		  <xsl:if test="PROD_NME='D and B Business Information Report'">
+		  <xsl:variable name="REP">
+		    <xsl:choose>
+	          <xsl:when test="PROD_NME='D and B Business Information Report'">I01</xsl:when>
+	          <xsl:when test="PROD_NME='Comprehensive Report'">I02</xsl:when>
+	          <xsl:when test="PROD_NME='Compact Report'">I03</xsl:when>
+	        </xsl:choose>
+		  </xsl:variable>
+		  <xsl:variable name="REPNAME">
+		    <xsl:choose>
+	          <xsl:when test="PROD_NME='D and B Business Information Report'">Business Information Report</xsl:when>
+	          <xsl:when test="PROD_NME='Comprehensive Report'">Comprehensive Report</xsl:when>
+	          <xsl:when test="PROD_NME='Compact Report'">Compact Report</xsl:when>
+	        </xsl:choose>
+		  </xsl:variable>
+		  <tr>
+		    <td>
+			  <a class="link1" href="{/horus/row/baseurl}/servlet/com.armadillo.online?service={/horus/row/service}&amp;function=intcologin&amp;requestType=data&amp;companyID={/horus/DGX/CREDITMSGSRSV2/LOOKUPTRNRS/LOOKUPRS/LOOKUPRSCOMPANY/DUNS_NBR}&amp;reportType={PROD_NME}&amp;country={/horus/row/country}&amp;reasonCode={/horus/row/reasoncode}&amp;rep={$REP}&amp;companyName={$CONAME}&amp;session={$SID}&amp;repp={$REP}"><xsl:value-of select="$REPNAME"/></a>
+			  <br/><xsl:text> &#163;</xsl:text>
+			  <xsl:for-each select="/horus/row[report=$REP]">
+			    <xsl:value-of select="format-number(price,'#,##0.00')"/> (+ VAT @ <xsl:call-template name="show_vat_rate"/>% = &#163;<xsl:value-of select="format-number(number(vat),'##0.00')"/>)
+			  </xsl:for-each>
+			</td>
+			<td valign="top"><a class="link1" href="/{$REP}_ccsample.htm" target="_blank">Sample</a></td>
+		  </tr>
+		  </xsl:if>
+		  </xsl:for-each>
+		  
+		  <xsl:for-each select="/horus/DGX/CREDITMSGSRSV2/PRODUCTLISTTRNRS/PRODUCTLISTRS/PROD_DET[PROD_NME[not(.=following::PROD_NME)] and PROD_TYPE_CD='T' and INDT_CD=1]">         		  
+		  <xsl:if test="PROD_NME='Compact Report'">
+		  <xsl:variable name="REP">
+		    <xsl:choose>
+	          <xsl:when test="PROD_NME='D and B Business Information Report'">I01</xsl:when>
+	          <xsl:when test="PROD_NME='Comprehensive Report'">I02</xsl:when>
+	          <xsl:when test="PROD_NME='Compact Report'">I03</xsl:when>
+	        </xsl:choose>
+		  </xsl:variable>
+		  <xsl:variable name="REPNAME">
+		    <xsl:choose>
+	          <xsl:when test="PROD_NME='D and B Business Information Report'">Business Information Report</xsl:when>
+	          <xsl:when test="PROD_NME='Comprehensive Report'">Comprehensive Report</xsl:when>
+	          <xsl:when test="PROD_NME='Compact Report'">Compact Report</xsl:when>
+	        </xsl:choose>
+		  </xsl:variable>
+		  <tr>
+		    <td>
+			  <a class="link1" href="{/horus/row/baseurl}/servlet/com.armadillo.online?service={/horus/row/service}&amp;function=intcologin&amp;requestType=data&amp;companyID={/horus/DGX/CREDITMSGSRSV2/LOOKUPTRNRS/LOOKUPRS/LOOKUPRSCOMPANY/DUNS_NBR}&amp;reportType={PROD_NME}&amp;country={/horus/row/country}&amp;reasonCode={/horus/row/reasoncode}&amp;rep={$REP}&amp;companyName={$CONAME}&amp;session={$SID}&amp;repp={$REP}"><xsl:value-of select="$REPNAME"/></a>
+			  <br/><xsl:text> &#163;</xsl:text>
+			  <xsl:for-each select="/horus/row[report=$REP]">
+			    <xsl:value-of select="format-number(price,'#,##0.00')"/> (+ VAT @ <xsl:call-template name="show_vat_rate"/>% = &#163;<xsl:value-of select="format-number(number(vat),'##0.00')"/>)
+			  </xsl:for-each>
+			</td>
+			<td valign="top"><a class="link1" href="/{$REP}_ccsample.htm" target="_blank">Sample</a></td>
+		  </tr>
+		  </xsl:if>
+		  </xsl:for-each>
+		  
+		  <xsl:for-each select="/horus/DGX/CREDITMSGSRSV2/PRODUCTLISTTRNRS/PRODUCTLISTRS/PROD_DET[PROD_NME[not(.=following::PROD_NME)] and PROD_TYPE_CD='T' and INDT_CD=2]">         		  
+		  <xsl:variable name="REP">
+		    <xsl:choose>
+	          <xsl:when test="PROD_NME='D and B Business Information Report'">I01</xsl:when>
+	          <xsl:when test="PROD_NME='Comprehensive Report'">I02</xsl:when>
+	          <xsl:when test="PROD_NME='Compact Report'">I03</xsl:when>
+	        </xsl:choose>
+		  </xsl:variable>
+		  <xsl:variable name="REPNAME">
+		    <xsl:choose>
+	          <xsl:when test="PROD_NME='D and B Business Information Report'">Old Business Information Report</xsl:when>
+	          <xsl:when test="PROD_NME='Comprehensive Report'">Old Comprehensive Report</xsl:when>
+	          <xsl:when test="PROD_NME='Compact Report'">Old Compact Report</xsl:when>
+	        </xsl:choose>
+		  </xsl:variable>
+		  <!--
+		  <tr>
+		    <td>
+			  <a class="link1" href="{/horus/row/baseurl}/servlet/com.armadillo.online?service={/horus/row/service}&amp;function=intcologin&amp;requestType=data&amp;companyID={/horus/DGX/CREDITMSGSRSV2/LOOKUPTRNRS/LOOKUPRS/LOOKUPRSCOMPANY/DUNS_NBR}&amp;reportType={PROD_NME}&amp;country={/horus/row/country}&amp;reasonCode={/horus/row/reasoncode}&amp;rep={$REP}&amp;companyName={$CONAME}&amp;session={$SID}&amp;old=yes"><xsl:value-of select="$REPNAME"/></a>
+			  <br/><xsl:text> &#163;</xsl:text>
+			  <xsl:for-each select="/horus/row[report=$REP]">
+			    <xsl:value-of select="format-number(price,'#,##0.00')"/> (+ VAT @ <xsl:call-template name="show_vat_rate"/>% = &#163;<xsl:value-of select="format-number(number(vat),'##0.00')"/>)
+			  </xsl:for-each>
+			</td>
+			<td valign="top"><a class="link1" href="/{$REP}_ccsample.htm" target="_blank">Sample</a></td>
+		  </tr>
+		  -->
+		  <tr>
+		    <td>
+			  Update required. <a class="link1" href="{/horus/row/baseurl}/servlet/com.armadillo.online?service={/horus/row/service}&amp;function=intcologin&amp;requestType=data&amp;companyID={/horus/DGX/CREDITMSGSRSV2/LOOKUPTRNRS/LOOKUPRS/LOOKUPRSCOMPANY/DUNS_NBR}&amp;reportType={PROD_NME}&amp;country={/horus/row/country}&amp;reasonCode={/horus/row/reasoncode}&amp;rep={$REP}&amp;companyName={$CONAME}&amp;session={$SID}&amp;invtype=2&amp;old=yes&amp;repp=I02">View the old <xsl:value-of select="$REPNAME"/> and order a normal 5 day analyst investigation</a>
+			  <br/><xsl:text> &#163;</xsl:text>
+			  <xsl:for-each select="/horus/row[report='I02']">
+			    <xsl:value-of select="format-number(price,'#,##0.00')"/> (+ VAT @ <xsl:call-template name="show_vat_rate"/>% = &#163;<xsl:value-of select="format-number(number(vat),'##0.00')"/>)
+			  </xsl:for-each>
+			</td>
+			<td valign="top"><a class="link1" href="/{$REP}_ccsample.htm" target="_blank">Sample</a></td>
+		  </tr>
+
+		  <tr>
+		    <td>
+			  Update required. <a class="link1" href="{/horus/row/baseurl}/servlet/com.armadillo.online?service={/horus/row/service}&amp;function=intcologin&amp;requestType=data&amp;companyID={/horus/DGX/CREDITMSGSRSV2/LOOKUPTRNRS/LOOKUPRS/LOOKUPRSCOMPANY/DUNS_NBR}&amp;reportType={PROD_NME}&amp;country={/horus/row/country}&amp;reasonCode={/horus/row/reasoncode}&amp;rep={$REP}&amp;companyName={$CONAME}&amp;session={$SID}&amp;invtype=1&amp;old=yes&amp;repp=I10">View the old <xsl:value-of select="$REPNAME"/> and order an EXPRESS 3 day analyst investigation</a>
+			  <br/><xsl:text> &#163;</xsl:text>
+			  <xsl:for-each select="/horus/row[report='I10']">
+			    <xsl:value-of select="format-number(price,'#,##0.00')"/> (+ VAT @ <xsl:call-template name="show_vat_rate"/>% = &#163;<xsl:value-of select="format-number(number(vat),'##0.00')"/>)
+			  </xsl:for-each>
+			</td>
+			<td valign="top"><a class="link1" href="/{$REP}_ccsample.htm" target="_blank">Sample</a></td>
+		  </tr>
+		  </xsl:for-each>
+		  
+		  <xsl:if test="count(/horus/DGX/CREDITMSGSRSV2/PRODUCTLISTTRNRS/PRODUCTLISTRS/PROD_DET[INDT_CD=2])=0">
+		  <xsl:for-each select="/horus/DGX/CREDITMSGSRSV2/PRODUCTLISTTRNRS/PRODUCTLISTRS/PROD_DET[PROD_NME[not(.=following::PROD_NME)] and PROD_TYPE_CD='T' and INDT_CD=3]">         		  
+		  <xsl:if test="position()=last()">
+		  <xsl:variable name="REP">I02</xsl:variable>
+		  <xsl:variable name="REPNAME">Order A New Report</xsl:variable>
+		  <tr>
+		    <td>
+			  <a class="link1" href="{/horus/row/baseurl}/servlet/com.armadillo.online?service={/horus/row/service}&amp;function=intcologin&amp;requestType=data&amp;companyID={/horus/DGX/CREDITMSGSRSV2/LOOKUPTRNRS/LOOKUPRS/LOOKUPRSCOMPANY/DUNS_NBR}&amp;reportType={PROD_NME}&amp;country={/horus/row/country}&amp;reasonCode={/horus/row/reasoncode}&amp;rep={$REP}&amp;companyName={$CONAME}&amp;session={$SID}&amp;invtype=2&amp;old=no&amp;repp={$REP}">There is curently no report available for this company. Click here to request a normal 5 day analyst investigation</a>
+			  <br/><xsl:text> &#163;</xsl:text>
+			  <xsl:for-each select="/horus/row[report=$REP]">
+			    <xsl:value-of select="format-number(price,'#,##0.00')"/> (+ VAT @ <xsl:call-template name="show_vat_rate"/>% = &#163;<xsl:value-of select="format-number(number(vat),'##0.00')"/>)
+			  </xsl:for-each>
+			</td>
+			<td valign="top"><a class="link1" href="/{$REP}_ccsample.htm" target="_blank">Sample</a></td>
+		  </tr>
+
+		  <xsl:variable name="REP">I10</xsl:variable>
+		  <xsl:variable name="REPNAME">Order A New Report EXPRESS</xsl:variable>
+		  <tr>
+		    <td>
+			  <a class="link1" href="{/horus/row/baseurl}/servlet/com.armadillo.online?service={/horus/row/service}&amp;function=intcologin&amp;requestType=data&amp;companyID={/horus/DGX/CREDITMSGSRSV2/LOOKUPTRNRS/LOOKUPRS/LOOKUPRSCOMPANY/DUNS_NBR}&amp;reportType={PROD_NME}&amp;country={/horus/row/country}&amp;reasonCode={/horus/row/reasoncode}&amp;rep={$REP}&amp;companyName={$CONAME}&amp;session={$SID}&amp;invtype=1&amp;old=no&amp;repp={$REP}">There is currently no report available for this company. Click here to order an EXPRESS 3 day analyst investigation</a>
+			  <br/><xsl:text> &#163;</xsl:text>
+			  <xsl:for-each select="/horus/row[report=$REP]">
+			    <xsl:value-of select="format-number(price,'#,##0.00')"/> (+ VAT @ <xsl:call-template name="show_vat_rate"/>% = &#163;<xsl:value-of select="format-number(number(vat),'##0.00')"/>)
+			  </xsl:for-each>
+			</td>
+			<td valign="top"><a class="link1" href="/I02_ccsample.htm" target="_blank">Sample</a></td>
+		  </tr>
+		  </xsl:if>
+		  </xsl:for-each>
+		  </xsl:if>
+		  
+		  <tr>
+		    <td>
+			  <a class="link1" href="{/horus/row/baseurl}/servlet/com.armadillo.online?service={/horus/row/service}&amp;function=intcologin&amp;companyID={/horus/DGX/CREDITMSGSRSV2/LOOKUPTRNRS/LOOKUPRS/LOOKUPRSCOMPANY/DUNS_NBR}&amp;country={/horus/row/country}&amp;reasonCode={/horus/row/reasoncode}&amp;companyName={$CONAME}&amp;session={$SID}&amp;ord=yes">Order Official Documents</a>
+			  <br/><xsl:text> &#163;Variable</xsl:text>
+			</td>
+			<td valign="top"></td>
+		  </tr>
+		  
+		</table>
+	  </td>
+	</tr>
+  </table>
+
+</xsl:template>
+</xsl:stylesheet>

@@ -46,7 +46,7 @@ $merriweather-20
         border-bottom 1px solid
         padding-bottom 20px
         margin-bottom 60px
-      h4.grey-font
+      h4.grey-font, h3.grey-font
         color rm-font-color
         font-weight bold
         margin-bottom 5px
@@ -345,25 +345,28 @@ li.terms-section
 .report-box
   background rm-service-grey
   display block
-  min-height 280px
+  min-height 240px
   margin-bottom 30px
   a
     text-decoration none
     color rm-font-color
   img
     background-color rm-service-grey
-  .report-1
+  .report-1, .document-1
     @extends $report
     background #cce6ed
     margin-top -8px
-  .report-2
+  .report-2, .document-2
     @extends $report
     background #B3DAE4
-  .report-3
+  .report-3, .document-3
     @extends $report
     background #9ACDDB
   .report-name
-    min-height 53px
+    p
+      font-size x-large
+      padding-top 15px
+      margin-bottom 10px
   .report-price
     font-size x-large
     line-height 36px

@@ -38,6 +38,7 @@ app.use express.static(path.join(__dirname, "public"))
 
 #  helpers
 app.locals.slug = require('slug')
+app.locals.moment = require('moment')
 
 # filters
 # app.param('cro', companies.param)
@@ -91,12 +92,12 @@ app.get('/terms', terms.index)
 
 # Business Profiles
 app.get('/companies/:country/:cro', companies.show)
-app.get('/companies/:country/:cro/reports/:vendor', companies.viewReport)
-# app.get('/companies/:cro/documents/:vendor', companies.viewReport)
+app.get('/companies/:country/:cro/reports/:vendor', companies.viewReports)
+app.get('/companies/:country/:cro/documents/:vendor', companies.viewDocuments)
 ## SEO versions
 app.get('/companies/:country/:cro/:name', companies.show)
-app.get('/companies/:country/:cro/:name/reports/:vendor', companies.viewReport)
-# app.get('/companies/:cro/:name/documents/:vendor', companies.viewReport)
+app.get('/companies/:country/:cro/:name/reports/:vendor', companies.viewReports)
+app.get('/companies/:country/:cro/:name/documents/:vendor', companies.viewDocuments)
 
 # Search
 app.get('/search', search.index)

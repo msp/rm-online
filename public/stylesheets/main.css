@@ -1,6 +1,9 @@
 .report-box .report-1,
+.report-box .document-1,
 .report-box .report-2,
-.report-box .report-3 {
+.report-box .document-2,
+.report-box .report-3,
+.report-box .document-3 {
   padding: 20px 20px;
 }
 
@@ -348,7 +351,28 @@
 .pure-skin-rm .footer .pure-g [class *= "pure-u"] h4.grey-font,
 .pure-skin-rm .content .pure-g-r [class *= "pure-u"] h4.grey-font,
 .pure-skin-rm .header .pure-g-r [class *= "pure-u"] h4.grey-font,
-.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h4.grey-font {
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h4.grey-font,
+.pure-skin-rm .content html h3.grey-font,
+.pure-skin-rm .header html h3.grey-font,
+.pure-skin-rm .footer html h3.grey-font,
+.pure-skin-rm .content button h3.grey-font,
+.pure-skin-rm .header button h3.grey-font,
+.pure-skin-rm .footer button h3.grey-font,
+.pure-skin-rm .content input h3.grey-font,
+.pure-skin-rm .header input h3.grey-font,
+.pure-skin-rm .footer input h3.grey-font,
+.pure-skin-rm .content select h3.grey-font,
+.pure-skin-rm .header select h3.grey-font,
+.pure-skin-rm .footer select h3.grey-font,
+.pure-skin-rm .content textarea h3.grey-font,
+.pure-skin-rm .header textarea h3.grey-font,
+.pure-skin-rm .footer textarea h3.grey-font,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] h3.grey-font,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] h3.grey-font,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] h3.grey-font,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] h3.grey-font,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] h3.grey-font,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h3.grey-font {
   color: #474747;
   font-weight: bold;
   margin-bottom: 5px;
@@ -1252,7 +1276,7 @@ li.terms-section {
 .report-box {
   background: #dfe2e6;
   display: block;
-  min-height: 280px;
+  min-height: 240px;
   margin-bottom: 30px;
 }
 
@@ -1265,21 +1289,26 @@ li.terms-section {
   background-color: #dfe2e6;
 }
 
-.report-box .report-1 {
+.report-box .report-1,
+.report-box .document-1 {
   background: #cce6ed;
   margin-top: -8px;
 }
 
-.report-box .report-2 {
+.report-box .report-2,
+.report-box .document-2 {
   background: #b3dae4;
 }
 
-.report-box .report-3 {
+.report-box .report-3,
+.report-box .document-3 {
   background: #9acddb;
 }
 
-.report-box .report-name {
-  min-height: 53px;
+.report-box .report-name p {
+  font-size: x-large;
+  padding-top: 15px;
+  margin-bottom: 10px;
 }
 
 .report-box .report-price {
@@ -1541,13 +1570,24 @@ google-map img {
   }
 }
 
-.r-tabs {
-  position: relative;
+#docResponsiveTabs.r-tabs .r-tabs-nav {
+  background-color: inherit;
+  margin-bottom: 40px;
 }
 
-.r-tabs h3 {
-  margin-top: 0;
-  margin-bottom: 0;
+#docResponsiveTabs.r-tabs .r-tabs-nav .r-tabs-tab {
+  border-bottom: 2px solid #efefef;
+  width: 25%;
+}
+
+#docResponsiveTabs.r-tabs .r-tabs-nav .r-tabs-anchor {
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.r-tabs {
+  position: relative;
 }
 
 .r-tabs .r-tabs-nav {
@@ -1559,6 +1599,13 @@ google-map img {
 .r-tabs .r-tabs-nav .r-tabs-tab {
   position: relative;
   border-right: 2px solid #efefef;
+}
+
+.r-tabs .r-tabs-nav .r-tabs-tab h3,
+.r-tabs .r-tabs-nav .r-tabs-tab h4,
+.r-tabs .r-tabs-nav .r-tabs-tab h5 {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .r-tabs .r-tabs-nav .r-tabs-anchor {

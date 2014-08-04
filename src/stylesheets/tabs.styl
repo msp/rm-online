@@ -1,16 +1,29 @@
 @import common
 
-.r-tabs
-  h3
-    margin-top 0px
-    margin-bottom 0px
+// overrides/additions for docs
+#docResponsiveTabs.r-tabs
+  .r-tabs-nav
+    background-color inherit
+    margin-bottom 40px
+    .r-tabs-tab
+      border-bottom 2px solid rm-light-grey
+      width 25%
+    .r-tabs-anchor
+      width 100%
+      padding-left 10px
+      padding-right 10px
 
+.r-tabs
   position relative
   .r-tabs-nav
     background-color rm-dark-grey
     border-bottom 0px solid #ccc
     margin-bottom 50px
     .r-tabs-tab
+      h3, h4, h5
+        margin-top 0px
+        margin-bottom 0px
+
       position relative
       border-right 2px solid rm-light-grey
     .r-tabs-anchor
