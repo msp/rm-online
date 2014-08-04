@@ -40,7 +40,7 @@ var myStepDefinitionsWrapper = function () {
 
   this.Then(/^I should be on the the report detail page$/, function (callback) {
     this.assert.ok(this.browser.success);
-    this.assert.equal(this.browser.location.pathname, "/companies/gb/"+COMPANY_NUMBER+"/reports/cs");
+    this.assert.equal(this.browser.location.pathname, "/companies/gb/"+COMPANY_NUMBER+"/northern-connectors-limited/reports/cs");
     this.assert.equal(this.browser.queryAll(".report-box").length, 1);
     callback();
   });

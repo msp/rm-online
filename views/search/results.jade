@@ -30,7 +30,7 @@ block main
             each company, index in results
               tr(class=index % 2 == 0  ? "" : "pure-table-odd")
                 td.company-name.capitalize
-                  a(href="/companies/#{country}/#{company.registeredNumber}")= company.name
+                  a(href="/companies/#{country}/#{company.registeredNumber}/#{slug(company.name).toLowerCase()}")= company.name
                 td.capitalize.pure-hidden-phone
                   = company.addressLine1.toLowerCase()
                   br

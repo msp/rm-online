@@ -84,21 +84,32 @@ app.get "/contact", (req, res) ->
     bcList: req.breadcrumbs()
   return
 
+# Static
 app.get('/faq', faq.index)
 app.get('/terms', terms.index)
+
+# Business Profiles
 app.get('/companies/:country/:cro', companies.show)
 app.get('/companies/:country/:cro/reports/:vendor', companies.viewReport)
 # app.get('/companies/:cro/documents/:vendor', companies.viewReport)
+## SEO versions
+app.get('/companies/:country/:cro/:name', companies.show)
+app.get('/companies/:country/:cro/:name/reports/:vendor', companies.viewReport)
+# app.get('/companies/:cro/:name/documents/:vendor', companies.viewReport)
+
+# Search
 app.get('/search', search.index)
 app.get('/search/results', search.execute)
 app.get('/search/:country', search.index)
 app.get('/search/:country/results', search.execute)
 
+# Formations
 app.get("/company-formations/international", formations.international)
 app.get("/company-formations/international/:jurisdiction", formations.internationalShow)
 app.get("/company-formations/UK", formations.uk)
 app.get("/company-formations/UK/results", formations.search)
 
+# Checkout
 app.post("/mock-checkout", mockCheckout.index)
 
 app.get "/checkout", (req, res) ->

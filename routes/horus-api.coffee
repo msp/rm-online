@@ -117,6 +117,7 @@ class HorusAPI
       @term = @term.replace(new RegExp(suffix+"$", "gi"), "")
 
   _search: (@url, @callback, @validate) ->
+    if @debug then console.log("URL: #{@url}")
     self = this
     responseBuffer = ""
 
