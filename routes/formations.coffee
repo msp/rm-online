@@ -188,3 +188,5 @@ exports.search = (req, res) ->
 
   api = new horusAPI(req, res, term, title, country)
   api.formationSearch()
+
+exports.countries = COUNTRIES

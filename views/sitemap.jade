@@ -1,0 +1,63 @@
+doctype xml
+urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+
+  url
+    loc #{appUrl}
+    lastmod #{now}
+    changefreq monthly
+    priority 0.8
+
+  url
+    loc #{appUrl}/news
+    lastmod #{now}
+    changefreq daily
+    priority 0.6
+
+  url
+    loc #{appUrl}/about
+    lastmod #{now}
+    changefreq yearly
+    priority 0.7
+
+  url
+    loc #{appUrl}/services
+    lastmod #{now}
+    changefreq yearly
+    priority 0.7
+
+  url
+    loc #{appUrl}/contact
+    lastmod #{now}
+    changefreq yearly
+    priority 0.7
+
+  url
+    loc #{appUrl}/faq
+    lastmod #{now}
+    changefreq yearly
+    priority 0.7
+
+  url
+    loc #{appUrl}/terms
+    lastmod #{now}
+    changefreq yearly
+    priority 0.7
+
+  url
+    loc #{appUrl}//company-formations/international
+    lastmod #{now}
+    changefreq monthly
+    priority 0.8
+
+  each country in countries
+    url
+      loc #{appUrl}//company-formations/international/#{slug(country.name).toLowerCase()}
+      lastmod #{now}
+      changefreq monthly
+      priority 0.8
+
+  url
+    loc #{appUrl}//company-formations/uk
+    lastmod #{now}
+    changefreq monthly
+    priority 0.8

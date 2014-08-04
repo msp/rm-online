@@ -5,15 +5,16 @@ favicon = require("static-favicon")
 logger = require("morgan")
 cookieParser = require("cookie-parser")
 bodyParser = require("body-parser")
-stylus = require('stylus');
+stylus = require('stylus')
 
 #routes
-terms = require('./routes/terms');
-faq = require('./routes/faq');
-companies = require('./routes/companies');
-search = require('./routes/search');
-formations = require('./routes/formations');
-mockCheckout = require('./routes/mockCheckout');
+terms = require('./routes/terms')
+faq = require('./routes/faq')
+companies = require('./routes/companies')
+search = require('./routes/search')
+formations = require('./routes/formations')
+mockCheckout = require('./routes/mockCheckout')
+sitemap = require('./routes/sitemap')
 
 app = express()
 
@@ -25,7 +26,7 @@ app.set "view engine", "jade"
 app.use(breadcrumbs.init())
 app.use(breadcrumbs.setHome("Home"))
 
-app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'))
 app.use logger("dev")
 app.use bodyParser.json()
 app.use bodyParser.urlencoded()
@@ -138,7 +139,8 @@ app.get "/company-formations/spike", (req, res) ->
     bcList: req.breadcrumbs()
   return
 
-
+# Sitemap
+app.get "/sitemap.xml", sitemap.generate
 
 #/ catch 404 and forward to error handler
 app.use (req, res, next) ->
