@@ -1,6 +1,6 @@
 var myStepDefinitionsWrapper = function () {
   function addToCart(callback) {
-    this.browser.clickLink(".item_add", callback);
+    this.browser.clickLink("#rep-02425919-fullBus", callback);
   }
 
   function viewCart(callback) {
@@ -38,7 +38,7 @@ var myStepDefinitionsWrapper = function () {
   });
 
   this.Then(/^I should see the product button display (\d+) items? in cart$/, function (num, callback) {
-    this.assert.equal(this.browser.text(".item_add"), "("+num+") IN CART");
+    this.assert.equal(this.browser.text("#rep-02425919-fullBus"), "("+num+") IN CART");
     callback();
   });
 };

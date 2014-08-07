@@ -17,6 +17,6 @@ Feature: Business Profile feature
   Scenario: Report details
     When I visit the profile page for company "02425919"
     And I view the reports tab
-    And I click through to the Credit Safe report
+    And I click through to the Experian report
     Then I should be on the the report detail page
 

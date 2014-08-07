@@ -36,7 +36,7 @@ block main
                     each doc in cabinet.values
 
                       - var checkoutName = company.name+" | "+company.cro_number+" | "+vendor+" | "+doc.document_id
-                      - var guid = company.cro_number+"-"+doc.document_id
+                      - var guid = "doc-"+doc.document_id+"-"+company.cro_number
                       - var price = vendor.toLowerCase() == "rm" ? "0.50" : "??"
                       - var desc = doc.doc_description
                       - var name = doc.document_type+" - "+doc.document_id
