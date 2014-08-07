@@ -1,10 +1,13 @@
-fs = require 'fs',
-https = require 'https',
+fs = require 'fs'
+https = require 'https'
 xml2js = require 'xml2js'
+slug = require 'slug'
 inspect = require('eyes').inspector({maxLength: false})
-search = require('./search');
-horusAPI = require('./horus-api')
+search = require('./search')
+HorusAPI = require('./horus-api')
+Company = require('./models/company')
 
+# TODO move to utils
 Array::toDict = (key) ->
   @reduce ((dict, obj) -> dict[ obj[key] ] = obj if obj[key]?; return dict), {}
 
@@ -103,7 +106,7 @@ CABINETS_DICT = exports.CABINETS.toDict("cabinet")
 exports.show = (req, res) ->
   console.log("companies SHOW, company: #{req.params.cro}")
   title = ""
-  api = new horusAPI(req, res, req.params.cro, title, req.params.country)
+  api = new HorusAPI(req, res, req.params.cro, title, req.params.country)
 
   if req.params.country.toLowerCase() == "gb"
     api.ukCompany()
@@ -113,15 +116,18 @@ exports.show = (req, res) ->
 exports.viewReports = (req, res) ->
   console.log("companies REPORTS, company: #{req.params.cro}")
   title = ""
-  api = new horusAPI(req, res, req.params.cro, title, req.params.country)
-  api.ukCompanyReports()
+  api = new HorusAPI(req, res, req.params.cro, title, req.params.country)
+
+  if req.params.country.toLowerCase() == "gb"
+    api.ukCompanyReports()
+  else
+    api.intCompanyReports()
 
 exports.viewDocuments = (req, res) ->
   console.log("companies Documents, company: #{req.params.cro}")
   title = ""
-  api = new horusAPI(req, res, req.params.cro, title, req.params.country)
+  api = new HorusAPI(req, res, req.params.cro, title, req.params.country)
   api.ukCompanyDocuments()
-
 
 # callbacks
 exports.ukMappingCallback = (result) ->
@@ -139,8 +145,6 @@ exports.ukMappingCallback = (result) ->
 
     grouped = []
 
-    console.log("CABINETS_DICT: #{CABINETS_DICT["acc"].short}")
-
     # we need to group the docs by vendor, then cabinet
     for vendor in vendors
       do (vendor) ->
@@ -157,25 +161,31 @@ exports.ukMappingCallback = (result) ->
             vendorDocs.push tmpGrp
         tmpVendor[vendor] = vendorDocs
         grouped.push tmpVendor
-
     # inspect grouped
 
     this.documentsByCabinet = grouped
     this.documents = result.horus.documents[0]
 
-    this.company = this.results[0]
-    this.title = this.company.name
+    company = new Company
 
-  companyURL = "/companies/#{this.req.params.country}/#{this.req.params.cro}"
-  this.req.breadcrumbs(this.title, companyURL)
+    company.id = this.results[0].cro_number
+    company.name =  this.results[0].name
+    company.address1 = this.results[0].ro_address[0].line_one
+    company.address2 = this.results[0].ro_address[0].line_two
+    company.address3 = this.results[0].ro_address[0].line_three
+    company.address4 = this.results[0].ro_address[0].line_four
+    company.postcode = this.results[0].ro_address[0].postcode
+    company.type = this.results[0].company_type_description
+    company.incorporationDate = this.results[0].incorporation_date
+    company.status = this.results[0].company_status
+    company.latestAccounts = this.results[0].acc_made_up_date
+    company.latestAnnualReturn = this.results[0].ret_made_up_date
+    company.accountsType = exports.ACCOUNT_TYPES[this.results[0].accounts_type]
 
-  if this.req.params.vendor
-    label = "Reports"
-    if /documents/i.test(this.req.path) then label = "Documents"
+    this.company = company
+    this.title = company.name
 
-    this.req.breadcrumbs("#{exports.IMAGES_SHIM[this.req.params.vendor]} #{label}", "#{companyURL}/reports/#{exports.IMAGES_SHIM[this.req.params.vendor]}")
-
-
+    buildBreadcrumbs(this.req, company.name)
 
 exports.ukValidationCallback = () ->
   console.log("validationCallback, term: [#{this.term}]")
@@ -183,9 +193,44 @@ exports.ukValidationCallback = () ->
 
 exports.intMappingCallback = (result) ->
 
-  this.results = []
-  this.error = { code: [88], description: ["Session lockdown! We need this removed from Horus"] }
+  if result.horus.error
+    this.error = result.horus.error[0]
+    console.log("ERROR from Horus")
+    inspect(this.error)
+  else
+    this.results = result.horus.DGX[0].CREDITMSGSRSV2[0].LOOKUPTRNRS[0].LOOKUPRS[0].LOOKUPRSCOMPANY
+    this.reports = result.horus.DGX[0].reports[0]
+
+    company = new Company
+
+    inspect(this.results)
+    company.id = this.results[0].DUNS_NBR
+    company.name =  this.results[0].NME
+    company.address1 = this.results[0].ADR_LINE
+    # company.address2 = this.results[0].ro_address[0].line_two
+    # company.address3 = this.results[0].ro_address[0].line_three
+    # company.address4 = this.results[0].ro_address[0].line_four
+    company.postcode = this.results[0].POST_CODE
+    # company.type = this.results[0].company_type_description
+    # company.incorporationDate = this.results[0].incorporation_date
+    # company.status = this.results[0].company_status
+    # company.latestAccounts = this.results[0].acc_made_up_date
+    # company.latestAnnualReturn = this.results[0].ret_made_up_date
+    # company.accountsType = exports.ACCOUNT_TYPES[this.results[0].accounts_type]
+
+    this.company = company
+  # this.error = { code: [88], description: ["Session lockdown! We need this removed from Horus"] }
+
+    buildBreadcrumbs(this.req, company.name)
 
 exports.intValidationCallback = () ->
   console.log("validationCallback, term: [#{this.term}]")
-  if !this.term then this._renderTemplate()
+
+buildBreadcrumbs = (req, name) ->
+  companyURL = "/companies/#{req.params.country}/#{req.params.cro}/#{slug(name).toLowerCase()}"
+  req.breadcrumbs(name, companyURL)
+
+  if req.params.vendor
+    label = "Reports"
+    if /documents/i.test(req.path) then label = "Documents"
+    req.breadcrumbs("#{exports.IMAGES_SHIM[req.params.vendor]} #{label}", "#{companyURL}/reports/#{req.params.vendor}")

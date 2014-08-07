@@ -22,8 +22,8 @@ block main
     .pure-g-r
       if reports
         each rep, index in reports[vendor.toUpperCase()][0].report
-          - var checkoutName = company.name+" | "+company.cro_number+" | "+vendor+" | "+rep.name
-          - var guid = "rep-"+company.cro_number+"-"+rep.name
+          - var checkoutName = company.name+" | "+company.id+" | "+vendor+" | "+rep.name
+          - var guid = "rep-"+company.id+"-"+rep.name
 
           +reportsAndDocumentsBox(rep.description, checkoutName, guid, rep.name, rep.vat )
 
