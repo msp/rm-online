@@ -56,13 +56,6 @@ COUNTRIES = [
     twoYearsWithLegalisation: 799
   }
   {
-    name: "Dominica IBC"
-    setup: 599
-    withLegalisation: 850
-    twoYears: 1149
-    twoYearsWithLegalisation: 1400
-  }
-  {
     name: "Dubai"
     setup: 2150
     withLegalisation: "-"

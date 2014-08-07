@@ -1,33 +1,30 @@
 [
   {
-    "country": "TODO Gibraltar",
+    "country": "Gibraltar",
     "lat": "36.140751",
     "lon": "-5.353585",
     "intro": [
-      "British Anguilla is a British Overseas Territory and it offers a broad variety of services for international companies and non-resident natural persons. Its government is fully committed to the advancement of its financial sector, offering all the necessary requirements in terms of expeditiousness, cost-effectiveness and efficacy in company formation matters. This jurisdiction facilitates the creation of trusts, foundations, International Business Companies (IBCs) and Limited Liability Companies (LLCs) and it is ideal for import, export, e-commerce, real estate and intellectual property businesses, among others."
+      "Gibraltar is located on the rock of Gibraltar which is situated on the peninsular at the southern tip of Spain. It is 6 kilometres long. Gibraltar is one of the oldest offshore countries. The legal system is based on British common law and statute law."
     ],
     "highlights": [
-      "Excellent corporation law.",
-      "Modern company law.",
-      "No taxes levied on international and banking transactions.",
-      "No exchange control regulations.",
-      "Political and economic stability.",
-      "Excellent hotel accommodations.",
-      "Excellent worldwide communication facilities.",
-      "Skilled personnel.",
-      "No capital gains, income or other kinds of taxes."
+      "Subject to name approval, a company can be formed in five days."
+      ,"The names of the company officers appear on public record. Anonymity can be preserved through the use of nominee directors / shareholders."
+      ,"The tax rate is 10% levied on company profits which derive in Gibraltar."
+      ,"Very stable jurisdiction / no exchange controls."
+      ,"Companies must appoint a resident company secretary."
+    ],
+    "uses": [
+      "Asset holding"
+      ,"Trading"
+      ,"International Leasing"
     ],
     "social": [
-      "Location: Caribbean (over 160 kilometres east of Puerto Rico).",
-      "Area: 102 square kilometres divided in over 20 islands, many of which are not permanently inhabited, the largest being British Anguilla and, home to its capital, The Valley.",
-      "Population: 15,754 (2013 est.)",
-      "Climate: Tropical",
-      "Official Language: English",
-      "Government: British Overseas Territory. These are territories which are under the sovereignty of the United Kingdom, but are not considered part of the United Kingdom itself.",
-      "Living Standard: High",
-      "Banking: Worldwide banking facilities available",
-      "Legal Tender: British Anguilla’s currency is the East Caribbean dollar, though the US dollar is also widely accepted.",
-      "Industries: Tourism and financial services."
+      "Location: Southern tip of Spain."
+      ,"Area: 6km long / 450m high."
+      ,"Climate: Mediterranean."
+      ,"Language: English / Spanish."
+      ,"Living Standard: Good."
+      ,"Population: 30,000."
     ]
   }
 ]

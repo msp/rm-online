@@ -1,6 +1,6 @@
 var myStepDefinitionsWrapper = function () {
 
-  var TOTAL_JURISDICTIONS = 18;
+  var TOTAL_JURISDICTIONS = 17;
 
   this.Then(/^I should be on the "([^"]*)" formations search page$/, function (country, callback) {
     this.assert.equal(this.browser.location.pathname, "/company-formations/"+country);
