@@ -15,6 +15,7 @@ search = require('./routes/search')
 formations = require('./routes/formations')
 mockCheckout = require('./routes/mockCheckout')
 sitemap = require('./routes/sitemap')
+companyAdmin = require('./routes/company-admin')
 
 app = express()
 
@@ -110,6 +111,9 @@ app.get("/company-formations/international", formations.international)
 app.get("/company-formations/international/:jurisdiction", formations.internationalShow)
 app.get("/company-formations/UK", formations.uk)
 app.get("/company-formations/UK/results", formations.search)
+
+#  Admin
+app.get("/company-admin-services", companyAdmin.index)
 
 # Checkout
 app.post("/mock-checkout", mockCheckout.index)

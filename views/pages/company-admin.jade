@@ -1,0 +1,29 @@
+extends ../index
+include ../mixins/m-contact
+
+block main
+  article.pure-u-1
+    .l-box
+      +breadcrumbs_from(bcList)
+
+      h1= title
+
+      #admin-sections
+        each section in admin_sections
+          .admin-section
+            h3= section.title
+            p= section.intro
+
+            if section.bullets
+              ul
+                each bullet in section.bullets
+                  li= bullet
+
+  article.pure-u-2-5
+    .l-box
+      h3.international Need some help?
+      p Call Nerisa to discuss your requirements.
+  article.pure-u-3-5
+    .l-box
+      #contact_administration.contact
+        +contact("Company Admin Services", "Nerisa Jarrett", "+44 (0) 1462 427 300", "nerisa@rmonline.com", "")
