@@ -44,20 +44,20 @@ urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     priority 0.7
 
   url
-    loc #{appUrl}//company-formations/international
+    loc #{appUrl}/company-formations/international
     lastmod #{now}
     changefreq monthly
     priority 0.8
 
   each country in countries
     url
-      loc #{appUrl}//company-formations/international/#{slug(country.name).toLowerCase()}
+      loc #{appUrl}/company-formations/international/#{slug(country.name).toLowerCase()}
       lastmod #{now}
       changefreq monthly
       priority 0.8
 
   url
-    loc #{appUrl}//company-formations/uk
+    loc #{appUrl}/company-formations/uk
     lastmod #{now}
     changefreq monthly
     priority 0.8
