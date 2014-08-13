@@ -30,7 +30,7 @@ var myStepDefinitionsWrapper = function () {
     this.browser.wait(WAIT, function() {
       self.assert.equal(self.browser.text("H1").toLowerCase(),"'"+company.toLowerCase()+"' available");
       self.assert.equal(self.browser.text("#formation-results H3").toLowerCase(),
-          "great, you're good to go ahead and register '"+company.toLowerCase()+"'.");
+          "great, you're good to go ahead and register '"+company.toLowerCase()+"'. please click the button below to start the process");
       callback();
     })
   });

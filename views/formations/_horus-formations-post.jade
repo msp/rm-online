@@ -1,0 +1,9 @@
+//- Horus POST params to render the registration form in an iFrame
+form#horus-formations.pure-form.form-search(name='search', method='post', target="horus-iframe", action='https://www.rmonline.com/servlet/com.armadillo.online')
+  input(type='hidden', value='einc2', name='service')
+  input(type='hidden', value='cosearch_ch', name='function')
+  input(type='hidden', value='NameAvailableSearch', name='Request')
+  input(type='hidden', value='1', name='SearchRows')
+  input(type='hidden', value='initial_match_discount.xsl', name='stylesheet')
+  input#SearchData_2.input-xlarge(type='hidden', name='SearchData', value="#{requestedCompany}")
+  button.horus-formations-post.btn.pure-button.pure-button-primary(type='submit') Register

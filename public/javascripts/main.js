@@ -8,6 +8,14 @@ $(document).ready(function() {
       }
     });
 
+
+  $('.horus-formations-post').click(function(){
+    $('#company-available').slideUp();
+    $('.company-unavailable').slideUp();
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    $('#horus-iframe').show();
+  })
+
   $('#responsiveTabs').responsiveTabs({
     startCollapsed: 'accordion'
   });

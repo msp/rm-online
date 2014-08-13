@@ -6,8 +6,9 @@ block main
     - var numResults = results.GovTalkMessage[0].Body[0].NameSearch[0].SearchRows
 
   if numResults > 0
-    - var title = "'"+term+" "+suffix+"' already registered"
-    include ../includes/_uk-formation-search
+    .company-unavailable
+      - var title = "'"+term+" "+suffix+"' already registered"
+      include ../includes/_uk-formation-search
   else
     .pure-u-1
       .l-box
@@ -19,29 +20,47 @@ block main
       .l-box
         #formation-results
           if numResults > 0
-            table#already-registered.pure-table
-              thead
-                tr
-                  th Name
-                  th Company Number
-                  th Match type
-              tbody
-                  tr.pure-table-odd
-                    td #{results.GovTalkMessage[0].Body[0].NameSearch[0].CoSearchItem[0].CompanyName}
-                    td #{results.GovTalkMessage[0].Body[0].NameSearch[0].CoSearchItem[0].CompanyNumber}
-                    td #{results.GovTalkMessage[0].Body[0].NameSearch[0].CoSearchItem[0].SearchMatch}
+            .company-unavailable
+              table#already-registered.pure-table
+                thead
+                  tr
+                    th Name
+                    th Company Number
+                    th Match type
+                tbody
+                    tr.pure-table-odd
+                      td #{results.GovTalkMessage[0].Body[0].NameSearch[0].CoSearchItem[0].CompanyName}
+                      td #{results.GovTalkMessage[0].Body[0].NameSearch[0].CoSearchItem[0].CompanyNumber}
+                      td #{results.GovTalkMessage[0].Body[0].NameSearch[0].CoSearchItem[0].SearchMatch}
 
-            .pure-g-r
-              .pure-u-1-2
-                h3 Please try an alternative or select one of our suggested variations.
+              .pure-g-r
+                .pure-u-1-2
+                  h3 Please try an alternative or select one of our suggested variations.
 
-                table#alternative-names.pure-table
-                  tbody
-                    each alternative, index in results.altNames[0].altName
-                      tr(class=index % 2 == 0  ? "pure-table-odd" : "")
-                        td.capitalize #{alternative.toLowerCase()}
+                  table#alternative-names.pure-table
+                    tbody
+                      each alternative, index in results.altNames[0].altName
+                        tr(class=index % 2 == 0  ? "pure-table-odd" : "")
+                          td(valign="middle").capitalize
+                            .pure-g-r
+                              .pure-u-17-24
+                                p.alternative-name #{alternative.toLowerCase()}
+                              .pure-u-7-24
+                                - var requestedCompany = alternative.toLowerCase()
+                                include _horus-formations-post
+
+
           else
-            h3 Great, you're good to go ahead and register '#{term} #{suffix}'.
+            #company-available
+              h3 Great, you're good to go ahead and register '#{term} #{suffix}'. Please click the button below to start the process
+
+              - var requestedCompany = term+" "+suffix
+              include _horus-formations-post
+
+
+    .pure-u-1
+      iframe(src="/company-formations/spike", width="1024", height="1400", seamless, scrolling="no", id="horus-iframe", name="horus-iframe", style="display:none;")
+
   else
     if (!term)
       h1.reduced-bottom-margin Please enter a valid search term and try again.
