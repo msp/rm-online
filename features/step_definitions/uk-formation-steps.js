@@ -3,7 +3,7 @@ var myStepDefinitionsWrapper = function () {
   var WAIT = 8000;
 
   this.Then(/^I should be on the UK company formation page$/, function (callback) {
-    this.assert.equal(this.browser.location.pathname, "/company-formations/uk");
+    this.assert.equal(this.browser.location.pathname, "/company-formations/uk/search");
     this.assert.equal(this.browser.text("H1").toLowerCase(), "UK Company Formation".toLowerCase());
     callback();
   });
@@ -14,6 +14,11 @@ var myStepDefinitionsWrapper = function () {
     this.assert.equal(this.browser.query(".search-box #search-submit").value.toLowerCase(), "Check name".toLowerCase());
     callback();
   });
+
+  this.Then(/^I should see a Limited company selector$/, function (callback) {
+    this.assert.ok(this.browser.query("#company-suffix"));
+    callback();
+  });  
 
   this.Then(/^I should see that "([^"]*)" is already registered$/, function (company, callback) {
     self = this;
@@ -38,6 +43,11 @@ var myStepDefinitionsWrapper = function () {
   this.Then(/^I should see (\d+) alternative suggestions similar to "([^"]*)"$/, function (num, company, callback) {
     this.assert.ok(this.browser.query("#formation-results #alternative-names"));
     this.assert.equal(this.browser.queryAll("#formation-results #alternative-names tbody tr").length, num);
+    callback();
+  });
+
+  this.Then(/^I should see the option to register those alternative (\d+) suggestions$/, function (num, callback) {
+    this.assert.equal(this.browser.queryAll("#formation-results #alternative-names .horus-formations-post").length, num);
     callback();
   });
 };

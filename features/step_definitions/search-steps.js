@@ -2,18 +2,30 @@ var myStepDefinitionsWrapper = function () {
 
   var WAIT = 4000;
 
-  this.Then(/^I should be on the "([^"]*)" search page$/, function (country, callback) {
-    this.assert.equal(this.browser.location.pathname, "/search/"+country);
-    this.assert.equal(this.browser.text("H1").toLowerCase(), "Company Information Search".toLowerCase());
+  this.Then(/^I should be on the uk and international search page$/, function (callback) {
+    this.assert.equal(this.browser.location.pathname, "/uk-and-international-reports/search");
+    this.assert.equal(this.browser.text("H1").toLowerCase(), "UK and International Reports".toLowerCase());
     callback();
   });
 
-  this.Then(/^I should see the search box$/, function (callback) {
+  this.Then(/^I should be on the company documents search page$/, function (callback) {
+    this.assert.equal(this.browser.location.pathname, "/company-documents/search");
+    this.assert.equal(this.browser.text("H1").toLowerCase(), "Company Documents".toLowerCase());
+    callback();
+  });
+
+  this.Then(/^I should see the company search box$/, function (callback) {
     this.assert.ok(this.browser.query(".search-box"));
     this.assert.equal(this.browser.text(".search-box H3").toLowerCase(), "Search for information on a company".toLowerCase());
     this.assert.equal(this.browser.query(".search-box #search-submit").value.toLowerCase(), "Search".toLowerCase());
     callback();
   });
+
+  this.Then(/^I should see a country selector$/, function (callback) {
+    this.assert.ok(this.browser.query("#country-selector"));
+    callback();
+  });
+
 
   this.When(/^I execute a company search for "([^"]*)"$/, function (term, callback) {
     this.browser.fill("#search-term", term).
@@ -26,8 +38,13 @@ var myStepDefinitionsWrapper = function () {
         pressButton("#search-submit", callback);
   });
 
-  this.Then(/^I should see (\d+) search results? for "([^"]*)"$/, function (num, term, callback) {
-    this.assert.equal(this.browser.location.pathname.toLowerCase(), "/search/results".toLowerCase());
+  this.Then(/^I should see (\d+) "([^"]*)" search results? for "([^"]*)"$/, function (num, docs, term, callback) {
+    if (docs == "documents") {
+      this.assert.equal(this.browser.location.pathname.toLowerCase(), "/company-documents/search/results".toLowerCase());
+    } else if (docs == "reports") {
+      this.assert.equal(this.browser.location.pathname.toLowerCase(), "/uk-and-international-reports/search/results".toLowerCase());
+    }
+    
     self = this;
     this.browser.wait(WAIT, function() {
       self.assert.equal(self.browser.text("#num-search-results").toLowerCase(), num+" results for '"+term+"'".toLowerCase());

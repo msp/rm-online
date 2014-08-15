@@ -124,6 +124,13 @@ class HorusAPI
       this.results = result.horus
       this.suffix = this.req.query.suffix
 
+      numResults = this.results.GovTalkMessage[0].Body[0].NameSearch[0].SearchRows
+
+      if numResults > 0
+        this.title = "'#{this.term} #{this.suffix}' already registered"
+      else
+        this.title = "'#{this.term} #{this.suffix}' available"
+
     @_search(HorusAPI.FORMATIONS_URL+"#{@term} #{@req.query.suffix}", mappingCallback)
 
   _removeAnyUserSuffixes: () ->

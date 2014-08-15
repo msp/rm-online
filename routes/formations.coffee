@@ -137,9 +137,9 @@ exports.international = (req, res) ->
   title = "International Company Formation"
   req.breadcrumbs(title, "/company-formations/international")
   res.render "formations/international",
-  title: title
-  bcList: req.breadcrumbs()
-  countries: COUNTRIES
+    title: title
+    bcList: req.breadcrumbs()
+    countries: COUNTRIES
   return
 
 exports.internationalShow = (req, res) ->
@@ -152,19 +152,22 @@ exports.internationalShow = (req, res) ->
   title = country.country
   req.breadcrumbs(title, "/company-formations/"+req.params.jurisdiction)
   res.render "formations/international-show",
-  title: title
-  bcList: req.breadcrumbs()
-  countryShow: country
-  countries: COUNTRIES
-  polymer: true
+    title: title
+    bcList: req.breadcrumbs()
+    countryShow: country
+    countries: COUNTRIES
+    polymer: true
   return
 
 exports.uk = (req, res) ->
   title = "UK Company Formation"
-  req.breadcrumbs(title, "/company-formations/UK")
+  req.breadcrumbs(title, "/company-formations/UK/search")
   res.render "formations/uk",
-  title: title
-  bcList: req.breadcrumbs()
+    title: title
+    bcList: req.breadcrumbs()
+    searchTitle: "Check company name availability"
+    searchButton: "Check name"
+    searchURL: "/company-formations/UK/search/results"
   return
 
 class FormationsRoute
@@ -175,9 +178,9 @@ exports.search = (req, res) ->
   country =  req.params.country
   term = req.query.term
   title = FormationsRoute.UK_INFO_SEARCH_TITLE
-  req.breadcrumbs(title, "/company-formations/UK")
+  req.breadcrumbs(title, "/company-formations/UK/search")
   title = FormationsRoute.SEARCH_RESULTS_TITLE
-  req.breadcrumbs(title, "/company-formations/UK/results?term=#{term}")
+  req.breadcrumbs(title, "/company-formations/UK/search/results?term=#{term}")
 
   api = new horusAPI(req, res, term, title, country)
   api.formationSearch()

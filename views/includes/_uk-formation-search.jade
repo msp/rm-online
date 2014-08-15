@@ -1,5 +1,27 @@
-- var searchTitle = "Check company name availability"
-- var searchButton = "Check name"
-- var searchURL = "/company-formations/UK/results"
 - var formations = true
-include ../includes/_search.jade
+- var searchButton = "Check name"
+- var searchTitle = "Check company name availability"
+
+.pure-u-1
+  .l-box
+    +breadcrumbs_from(bcList)
+
+    h1.capitalize= title
+
+
+  .pure-g-r.search
+    .pure-u-1-2
+      .l-box
+        p.intro-copy
+          span.highlight TODO
+          |  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at aliquet sem, non blandit sem.
+          | Sed in luctus justo. Nam pellentesque, risus sed pulvinar tempor,
+          | lectus massa auctor enim, in sodales massa ante ultricies nulla. Mauris vitae mattis quam
+    .pure-u-1-2
+      .l-box
+        img.intro-icon(src="/images/search/search-icon-large.png", alt="search for company information")
+
+
+.pure-u-1
+  .l-box
+    include ../search/_search

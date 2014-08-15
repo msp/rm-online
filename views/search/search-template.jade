@@ -1,0 +1,27 @@
+include ../mixins/m-common
+extends ../index
+
+block main
+
+  .pure-u-1
+    .l-box
+      +breadcrumbs_from(bcList)
+
+      h1.capitalize= title
+
+
+    .pure-g-r.search
+      .pure-u-1-2
+        .l-box
+          block intro-copy
+      .pure-u-1-2
+        .l-box
+          img.intro-icon(src="/images/search/search-icon-large.png", alt="search for company information")
+
+
+  .pure-u-1
+    .l-box
+      include _search
+  .pure-u-1
+    .l-box
+      block body-copy

@@ -1,0 +1,22 @@
+form#search-form.pure-form(action="#{searchURL}", method="get")
+  div.search-box
+    fieldset
+      h3= searchTitle
+      //- if !formations
+      //-   .pure-g-r
+      //-     .pure-u-1
+      //-       a(id="uk-info-search", href="#", class="search-highlight") United Kingdom
+      //-       span.divider  |
+      //-       a(id="int-info-search", href="#")  International
+      .pure-g-r
+        .pure-u-14-24
+          input(id='search-term', type='text', value='', placeholder='enter a company name', name="term")
+        .pure-u-5-24
+          if !formations
+            include _country-selector
+          else
+            select(id="company-suffix", name="suffix", autocomplete="off")
+              each companySuffix in ["LIMITED", "PLC", "LLP"]
+                option(value=companySuffix selected=suffix == companySuffix) #{companySuffix}
+        .pure-u-5-24
+          input.pure-button.pure-button-secondary(id='search-submit', type='submit', value='#{searchButton}')

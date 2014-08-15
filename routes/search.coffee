@@ -12,6 +12,13 @@ defaultCountry = 'United Kingdom';
 class SearchRoute
   @SEARCH_RESULTS_TITLE: "Search Results"
   @INFO_SEARCH_TITLE: "Company Information Search"
+  @UK_AND_INT_REPORTS: "UK and International Reports"
+  @COMPANY_DOCUMENTS: "Company Documents"
+
+  @BREADCRUMBS = {
+    "/uk-and-international-reports/search": @UK_AND_INT_REPORTS
+    "/company-documents/search": @COMPANY_DOCUMENTS
+  }
 
 exports.SearchRoute = SearchRoute
 
@@ -27,14 +34,21 @@ exports.index = (req, res) ->
     path: req.path
   return
 
+exports.reports = (req, res) ->
+  renderView(req, res, "search/uk-and-international-reports", SearchRoute.UK_AND_INT_REPORTS)
+
+exports.documents = (req, res) ->
+  renderView(req, res, "search/company-documents",SearchRoute.COMPANY_DOCUMENTS)
+
 
 exports.execute = (req, res) ->
+  sourceURL = req.path.replace("/results", "")
   term = req.query.term
   country =  req.query.country
-  title = SearchRoute.INFO_SEARCH_TITLE
-  req.breadcrumbs(title, "/search")
+  title = SearchRoute.BREADCRUMBS[sourceURL]
+  req.breadcrumbs(title, sourceURL)
   title = SearchRoute.SEARCH_RESULTS_TITLE
-  req.breadcrumbs(title, "/search/results?term=#{term}&country=#{country}")
+  req.breadcrumbs(title, "#{req.path}?term=#{term}&country=#{country}")
 
   api = new horusAPI(req, res, term, title, country)
 
@@ -42,3 +56,18 @@ exports.execute = (req, res) ->
     api.ukCompanySearch()
   else
     api.intCompanySearch()
+
+renderView = (req, res, view, title) ->
+  country =  if req.params.country then req.params.country else "UK"
+  req.breadcrumbs(title, req.path)
+  res.render view,
+    title: title
+    bcList: req.breadcrumbs()
+    country: country
+    countries: clib.countryList(defaultCountry)
+    path: req.path
+    searchURL: req.path+"/results"
+    searchTitle: "Search for information on a company"
+    searchButton: "Search"
+  return
+
