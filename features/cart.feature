@@ -1,4 +1,5 @@
-Feature: As a customer
+Feature: Shopping Cart
+  As a customer
   I can interact with a shopping cart
   So I can purchase documents & reports
 

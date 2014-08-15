@@ -1,4 +1,4 @@
-Feature: Contact page feature
+Feature: Contact page
   As a visitor
   I can view a Contact page
   So that I can get info on which staff member can help me with my enquiry
@@ -7,7 +7,7 @@ Feature: Contact page feature
     When I visit the "contact" page
     Then I should be on the contact page
     And I should see 3 staff contact points
-    
+
   Scenario: Address, phone & maps link
     When I visit the "contact" page
     Then I should see a contact address

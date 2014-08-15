@@ -1,4 +1,4 @@
-Feature: Business Profile feature
+Feature: Business Profile
   As a visitor
   I can view a business profile
   So that I can purchase documents and reports

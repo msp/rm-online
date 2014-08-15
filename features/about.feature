@@ -1,4 +1,4 @@
-Feature: About page feature
+Feature: About page
   As a visitor
   I can view an About page
   So that I can get assurance RM are an established company

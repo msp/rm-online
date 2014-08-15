@@ -1,4 +1,4 @@
-Feature: T&Cs page feature
+Feature: T&Cs page
   As a visitor
   I can view an terms and conditions page
 

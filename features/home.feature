@@ -1,4 +1,4 @@
-Feature: Home page feature
+Feature: Home page
   As a visitor
   I can view a Home page
   So that I can get so get a clear overview of the site services
