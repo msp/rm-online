@@ -101,15 +101,21 @@ app.get('/companies/:country/:cro/:name/reports/:vendor', companies.viewReports)
 app.get('/companies/:country/:cro/:name/documents/:vendor', companies.viewDocuments)
 
 # Search
+app.get('/uk-and-international-reports', search.reports)
+app.get('/uk-and-international-reports/results', search.execute)
 app.get('/uk-and-international-reports/search', search.reports)
 app.get('/uk-and-international-reports/search/results', search.execute)
 
+app.get('/company-documents', search.documents)
+app.get('/company-documents/results', search.execute)
 app.get('/company-documents/search', search.documents)
 app.get('/company-documents/search/results', search.execute)
 
 # Formations
 app.get("/company-formations/international", formations.international)
 app.get("/company-formations/international/:jurisdiction", formations.internationalShow)
+app.get("/company-formations", formations.uk)
+app.get("/company-formations/UK", formations.uk)
 app.get("/company-formations/UK/search", formations.uk)
 app.get("/company-formations/UK/search/results", formations.search)
 
