@@ -1355,6 +1355,10 @@ li.terms-section {
   margin-bottom: 40px;
 }
 
+#search-form .ui-autocomplete-input {
+  width: 100%;
+}
+
 #search-form .search-box fieldset {
   background-color: #474747;
   padding-left: 30px;
