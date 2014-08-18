@@ -7,7 +7,7 @@ Scenario: Company documents
    When I visit the "company-documents/search" page
    Then I should be on the company documents search page
    And I should see the company search box
-  And I should see a country selector
+   And I should see a country selector
 
 Scenario: Executing a UK document search
    When I visit the "company-documents/search" page

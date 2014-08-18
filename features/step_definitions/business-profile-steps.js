@@ -2,17 +2,18 @@ var myStepDefinitionsWrapper = function () {
 
   var COMPANY_NUMBER = undefined;
 
-  this.When(/^I visit the profile page for company "([^"]*)"$/, function (company_number, callback) {
-    COMPANY_NUMBER = company_number;
-    this.visit("companies/gb/"+company_number, callback);
+  this.When(/^I visit the profile page for company "([^"]*)"$/, function (companyNumber, callback) {
+    COMPANY_NUMBER = companyNumber;
+    this.visit("companies/gb/"+companyNumber, callback);
   });
 
-  this.Then(/^I should be on the profile page$/, function (callback) {
-    this.assert.equal(this.browser.text("H1").toLowerCase(), "Northern Connectors Limited".toLowerCase());
+  this.Then(/^I should be on the profile page for "([^"]*)"$/, function (companyName, callback) {
+    this.assert.equal(this.browser.location.pathname, "/companies/gb/"+COMPANY_NUMBER);
+    this.assert.equal(this.browser.text("H1").toLowerCase(), companyName.toLowerCase());
     callback();
   });
 
-  this.Then(/^I should see and company overview$/, function (callback) {
+  this.Then(/^I should see a company overview$/, function (callback) {
     this.assert.equal(this.browser.text("#cro_number"), COMPANY_NUMBER);
     this.assert.ok(this.browser.query("address"));
     callback();

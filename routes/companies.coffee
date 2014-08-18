@@ -174,7 +174,12 @@ exports.ukMappingCallback = (result) ->
     company.address2 = this.results[0].ro_address[0].line_two
     company.address3 = this.results[0].ro_address[0].line_three
     company.address4 = this.results[0].ro_address[0].line_four
-    company.postcode = this.results[0].ro_address[0].postcode
+
+    if String(company.address3) != String(this.results[0].ro_address[0].postcode) &&
+       String(company.address4) != String(this.results[0].ro_address[0].postcode)
+      company.postcode = this.results[0].ro_address[0].postcode
+
+
     company.type = this.results[0].company_type_description
     company.incorporationDate = this.results[0].incorporation_date
     company.status = this.results[0].company_status
@@ -200,6 +205,7 @@ exports.intMappingCallback = (result) ->
   else
     this.results = result.horus.DGX[0].CREDITMSGSRSV2[0].LOOKUPTRNRS[0].LOOKUPRS[0].LOOKUPRSCOMPANY
     this.reports = result.horus.DGX[0].reports[0]
+    this.document = []
 
     company = new Company
 
@@ -207,10 +213,10 @@ exports.intMappingCallback = (result) ->
     company.id = this.results[0].DUNS_NBR
     company.name =  this.results[0].NME
     company.address1 = this.results[0].ADR_LINE
-    # company.address2 = this.results[0].ro_address[0].line_two
+    company.address2 = this.results[0].POST_CODE
     # company.address3 = this.results[0].ro_address[0].line_three
     # company.address4 = this.results[0].ro_address[0].line_four
-    company.postcode = this.results[0].POST_CODE
+    # company.postcode = this.results[0].POST_CODE
     # company.type = this.results[0].company_type_description
     # company.incorporationDate = this.results[0].incorporation_date
     # company.status = this.results[0].company_status
@@ -219,7 +225,7 @@ exports.intMappingCallback = (result) ->
     # company.accountsType = exports.ACCOUNT_TYPES[this.results[0].accounts_type]
 
     this.company = company
-  # this.error = { code: [88], description: ["Session lockdown! We need this removed from Horus"] }
+    this.title = company.name
 
     buildBreadcrumbs(this.req, company.name)
 

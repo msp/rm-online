@@ -1,11 +1,10 @@
 extends ../index
+include ../mixins/m-contact
 
 block main
   .pure-u-1
     .l-box
       +breadcrumbs_from(bcList)
-
-      //- h1 #{documents.RM[0].document[0].document_id}
 
       if (error)
         h1= "Error ["+error.code[0]+"]: "+error.description[0]
@@ -19,12 +18,10 @@ block main
               ul
                 li
                   h3: a(href="#details") Details
-                if reports
-                  li
-                    h3: a(href="#reports") Reports
-                if documents
-                  li
-                    h3: a(href="#documents") Documents
+                li
+                  h3: a(href="#reports") Reports
+                li
+                  h3: a(href="#documents") Documents
 
               #details
                 .pure-g-r
@@ -39,47 +36,38 @@ block main
                         | #{company.address1}
                         | <br/> #{company.address2}
                         | <br/> #{company.address3}
-
-                        if String(company.address4).trim() != String(company.postcode).trim()
-                          | <br/> #{company.address4}
-
+                        | <br/> #{company.address4}
                         | <br/> #{company.postcode}
 
-                  .pure-u-1-24.pure-hidden-phone
-                    .l-box
-                      br
-                  .pure-u-5-24
-                    .company-data
-                      p Company Type
-                      | #{company.type}
+                  if country == "GB"
+                    .pure-u-1-24.pure-hidden-phone
+                      .l-box
+                        br
+                    .pure-u-5-24
+                      .company-data
+                        p Company Type
+                        | #{company.type}
 
-                    .company-data
-                      p Incorporated
-                      | #{company.incorporation_date}
+                      .company-data
+                        p Incorporated
+                        | #{company.incorporation_date}
 
-                    .company-data
-                      p Status
-                      | #{company.status}
-                  .pure-u-1-24.pure-hidden-phone
-                    .l-box
-                      br
-                  .pure-u-5-24
-                    .company-data
-                      p Latest Accounts
-                      | #{company.latestAccounts}
-                    .company-data
-                      p Latest Annual Return
-                      | #{company.latestAnnualReturn}
-                    .company-data
-                      p Accounts Type
-                      | #{company.accountsType}
-                  .pure-u-1-24.pure-hidden-phone
-                    .l-box
-                      br
-                  .pure-u-5-24
-                    .company-data
-                      p Last document filed
-                      p Previous names
+                      .company-data
+                        p Status
+                        | #{company.status}
+                    .pure-u-1-24.pure-hidden-phone
+                      .l-box
+                        br
+                    .pure-u-5-24
+                      .company-data
+                        p Latest Accounts
+                        | #{company.latestAccounts}
+                      .company-data
+                        p Latest Annual Return
+                        | #{company.latestAnnualReturn}
+                      .company-data
+                        p Accounts Type
+                        | #{company.accountsType}
               #reports
                 .pure-g-r
                   if reports
@@ -125,3 +113,12 @@ block main
                               //-     - label += comma+cabinet.label
                               //-     - comma = ", "
                               //-     - cabCount++
+                  if country != "GB"
+                    article.pure-u-2-5
+                      .l-box
+                        h3.international Available on request
+                        p Call Julia to discuss your requirements.
+                    article.pure-u-3-5
+                      .l-box
+                        #contact_documents.contact
+                          +contact("Documents & Reports", "Julia Kanger", "+44 (0) 1462 427 300", "infodesk@rmonline.com", "")

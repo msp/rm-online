@@ -9,6 +9,11 @@ var myStepDefinitionsWrapper = function () {
     callback();
   });
 
+  this.Then(/^I should see a documents contact for bespoke international docs$/, function (callback) {
+    this.assert.ok(this.browser.query("#contact_documents"));
+    callback();
+  });
+
   this.Then(/^I should be on the contact page$/, function (callback) {
     this.assert.equal(this.browser.text("H1"), "Contact RM");
     callback();
@@ -20,7 +25,7 @@ var myStepDefinitionsWrapper = function () {
   });
 
   this.Then(/^I should see a contact telephone$/, function (callback) {
-    this.assert.ok(this.browser.query("#telephone"));    
+    this.assert.ok(this.browser.query("#telephone"));
     callback();
   });
 
