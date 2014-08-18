@@ -37,7 +37,7 @@ $(document).ready(function() {
   simpleCart({
     checkout: {
       type: "SendForm"
-      ,url: "/mock-checkout"}
+      ,url: "http://www.rmonline.com/servlet/sagePayMultiServlet"}
     ,cartStyle: "table"
     ,currency: "GBP"
     ,cartColumns: [
