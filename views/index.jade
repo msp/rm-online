@@ -98,7 +98,10 @@ body.pure-skin-rm
   script(src='/bower_components/jQuery-Collapse/src/jquery.collapse.js')
   script(src='/bower_components/responsive-tabs/js/jquery.responsiveTabs.min.js')
   script(src='/bower_components/simplecart-js/simpleCart.js')
-  script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
+  // Bootstrap modal is needed by SimpleCart
+  // Be careful about pulling in all of Bootstrap as it's collapse will clash 
+  // with our JQuery Collapse plugin.
+  script(src='/bower_components/bootstrap/js/modal.js')
   // endbower
   // endbuild
 

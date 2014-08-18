@@ -38,10 +38,6 @@ FAQ_SECTIONS = [
         q: "When will the money be taken from my account?"
         a: "The payment is taken immediately from your card."
       }
-      {
-        q: "Do I have to register to use the service?"
-        a: "Yes, you have to register to use the service for the first time. After that you will be issued with a client code and a password of your choice which you can then use to access the service. Your credit card details will not be saved. Registered clients will have to input their credit card details each time an order is placed."
-      }
     ]
   }
   {
