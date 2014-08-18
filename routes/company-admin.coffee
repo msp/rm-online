@@ -31,12 +31,12 @@ ADMIN_SECTIONS = [
   }
   {
     title: "Tax Returns"
-    intro: "It is a legal requirement for UK LTD/LLP Companies to file an annual tax return at the UK HM Revenue & Customs (HMRC), even if it is not trading and pay the due taxes. RM can provide assistance and advice in the process of filing these tax returns."
+    intro: "It is a legal requirement for UK LTD/LLP Companies to file an annual tax return at the UK HM Revenue & Customs (HMRC), even if it is not trading and pay the due taxes. RM can prepare and file your tax returns as well as provide assistance and advice in the process of filing these tax returns."
     bullets: []
   }
   {
     title: "VAT registrations"
-    intro: "Companies whose total sales exceed £70,000 in 12 month period must register for VAT as failure to do so could result in fines. VAT is added on to everything sold (with a few exceptions) and every 3 months a VAT return needs to be completed, signed by the director/member and filed at the VAT office. If the company buys from another VAT registered business, this VAT can be claimed back. RM can assist with the process of registering for VAT and the completion of the 1/3 VAT returns."
+    intro: "Companies whose total sales exceed £81,000 in 12 month period must register for VAT as failure to do so could result in fines. VAT is added on to everything sold (with a few exceptions) and every 3 months a VAT return needs to be completed, signed by the director/member and filed at the VAT office. If the company buys from another VAT registered business, this VAT can be claimed back. RM can assist with the process of registering for VAT and the completion of the 1/3 VAT returns."
     bullets: []
   }
   {
@@ -46,7 +46,7 @@ ADMIN_SECTIONS = [
   }
   {
     title: "Telephone answering"
-    intro: "RM can provide a dedicated telephone line for any UK LTD/LLP company and answer all calls in the company name. All telephone messages will be taken and sent to the company by email."
+    intro: "RM can provide a dedicated telephone line for any company and answer all calls in the company name. All telephone messages will be taken and sent to the company by email."
     bullets: []
   }
 ]
