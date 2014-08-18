@@ -145,7 +145,6 @@ exports.international = (req, res) ->
 exports.internationalShow = (req, res) ->
 
   country = COUNTRIES_SHOW[req.params.jurisdiction][0]
-  inspect(country)
 
   title = "International Company Formation"
   req.breadcrumbs(title, "/company-formations/international")
