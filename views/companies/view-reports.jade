@@ -25,7 +25,8 @@ block main
               each rep, index in reports[vendor.toUpperCase()][0].report
                 - var checkoutName = company.name+" | "+company.id+" | "+vendor+" | "+rep.name
                 - var guid = "rep-"+company.id+"-"+rep.name
+                - var date = ""
 
-                +reportsAndDocumentsBox(rep.description, checkoutName, guid, rep.name, rep.vat )
+                +reportsAndDocumentsBox(rep.description, checkoutName, guid, rep.name, rep.vat, date, vendor, company.id, country, rep.name, "", "", "")
 
 

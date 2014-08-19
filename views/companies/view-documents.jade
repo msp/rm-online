@@ -36,13 +36,14 @@ block main
                       each doc in cabinet.values
 
                         - var checkoutName = company.name+" | "+company.id+" | "+vendor+" | "+doc.document_id
+
                         - var guid = "doc-"+doc.document_id+"-"+company.id
                         - var price = vendor.toLowerCase() == "rm" ? "0.50" : "??"
                         - var desc = doc.doc_description
                         - var name = doc.document_type+" - "+doc.document_id
                         - var date = undefined
+
                         if (String(doc.document_date).trim().length > 0)
                           - date = moment(doc.document_date, "YYYYMMDD").format("DD/MM/YYYY")
-                        //- - date = String(doc.document_date).trim().length
 
-                        +reportsAndDocumentsBox(name, checkoutName, guid, desc, price, date)
+                        +reportsAndDocumentsBox(name, checkoutName, guid, desc, price, date, vendor, company.id, country, "doc", doc.document_id, doc.encrypted_id, doc.pages)

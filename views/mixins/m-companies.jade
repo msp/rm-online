@@ -1,4 +1,4 @@
-mixin reportsAndDocumentsBox(name, checkoutName, guid, description, price, date)
+mixin reportsAndDocumentsBox(name, checkoutName, guid, description, price, date, vendor, company_id, country, requestType, documentId, encryptedId, pages)
   - var sep = ""
   - var lastClass = ""
   .pure-u-1-3
@@ -12,6 +12,13 @@ mixin reportsAndDocumentsBox(name, checkoutName, guid, description, price, date)
               .checkout-name.item_name.hidden
                 h4= checkoutName
               .item_rmid.hidden= guid
+              .item_vendor.hidden= vendor
+              .item_company_id.hidden= company_id
+              .item_country.hidden= country
+              .item_request_type.hidden= requestType
+              .item_document_id.hidden= documentId
+              .item_encrypted_id.hidden= encryptedId
+              .item_pages.hidden= pages
           .pure-u-5-24
             img.pdf(src="/images/reports/pdf.png", alt="PDF")
           .pure-u-1

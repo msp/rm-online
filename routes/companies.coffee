@@ -189,6 +189,7 @@ exports.ukMappingCallback = (result) ->
 
     this.company = company
     this.title = company.name
+    this.country = this.req.params.country
 
     buildBreadcrumbs(this.req, company.name)
 
