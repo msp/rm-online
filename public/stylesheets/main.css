@@ -1356,6 +1356,8 @@ li.terms-section {
 
 #search-form .ui-autocomplete-input {
   width: 100%;
+  background-color: #b3dae4;
+  border: #b3dae4;
 }
 
 #search-form .search-box fieldset {
@@ -1411,6 +1413,23 @@ li.terms-section {
 
 #back-to-search {
   text-align: right;
+}
+
+.documents-info .l-box {
+  padding-left: 0;
+  padding-right: 20px;
+}
+
+.documents-info li {
+  margin-bottom: 8px;
+}
+
+.documents-info .fa {
+  color: #0184a2;
+}
+
+.documents-info .fa-li {
+  left: -40px;
 }
 
 #already-registered {
