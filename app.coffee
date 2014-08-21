@@ -123,7 +123,20 @@ app.get("/company-formations/UK/search/results", formations.search)
 app.get("/company-admin-services", companyAdmin.index)
 
 # Checkout
+
 app.post("/mock-checkout", mockCheckout.index)
+
+app.get "/payment-successful/:type/:extension/:session", (req, res) ->
+  title = "Payment Successful"
+  req.breadcrumbs(title, 'success')
+
+  res.render "checkout",
+    title: title
+    bcList: req.breadcrumbs()
+    path: req.path
+    verb: req.method
+    url: "http://rmonline.com/#{req.params.type}/#{req.params.session}.#{req.params.extension}"
+  return
 
 app.get "/checkout", (req, res) ->
   title = "Review your basket"
@@ -133,6 +146,7 @@ app.get "/checkout", (req, res) ->
     bcList: req.breadcrumbs()
     path: req.path
     verb: req.method
+    url: ""
   return
 
 app.get "/company-formations/iframe", (req, res) ->

@@ -48,7 +48,7 @@ head
     link(rel="import", href="/bower_components/google-map/google-map-search.html")
 
 body.pure-skin-rm
-  <!--[if lt IE 7]>
+  <!--[if lt IE 9]>
   p.browsehappy
     | You are using an
     strong outdated
@@ -99,7 +99,7 @@ body.pure-skin-rm
   script(src='/bower_components/responsive-tabs/js/jquery.responsiveTabs.min.js')
   script(src='/bower_components/simplecart-js/simpleCart.js')
   // Bootstrap modal is needed by SimpleCart
-  // Be careful about pulling in all of Bootstrap as it's collapse will clash 
+  // Be careful about pulling in all of Bootstrap as it's collapse will clash
   // with our JQuery Collapse plugin.
   script(src='/bower_components/bootstrap/js/modal.js')
   // endbower
@@ -122,3 +122,4 @@ body.pure-skin-rm
         $(document).ready(function() {
           $('select#country-selector').selectToAutocomplete();
         })
+  block main-js

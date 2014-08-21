@@ -7,12 +7,23 @@ block main
       h1 #{title}
 
       #checkout-intro
-        p
-          | Please review your items and then hit 'checkout' to start the payment process.
-          | You'll have the opportunity to pay by credit card or enter your subscriber details
-          | and receive any discounts due.
 
-        include includes/_cart.jade
-        a.pure-button.pure-button-primary.simpleCart_checkout(href="javascript:;") Checkout
+        if url == ""
+          p
+            | Please review your items and then hit 'checkout' to start the payment process.
+            | You'll have the opportunity to pay by credit card or enter your subscriber details
+            | and receive any discounts due.
 
-      iframe(name="payment-gateway-iframe", src="", width="1024", height="1400", seamless, scrolling="no")
+          include includes/_cart.jade
+          a.pure-button.pure-button-primary.simpleCart_checkout(href="javascript:;") Checkout
+
+      iframe(name="payment-gateway-iframe", src="#{url}", width="1024", height="1400", seamless, scrolling="no")
+
+block main-js
+  if url != ""
+    script.
+      $(document).ready(function() {
+        //- console.log("Thanks for your payment, we're clearing "+simpleCart.quantity()+" items from your shopping cart.")
+        simpleCart.empty();
+      })
+
