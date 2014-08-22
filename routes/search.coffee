@@ -12,7 +12,7 @@ defaultCountry = 'United Kingdom';
 class SearchRoute
   @SEARCH_RESULTS_TITLE: "Search Results"
   @INFO_SEARCH_TITLE: "Company Information Search"
-  @UK_AND_INT_REPORTS: "UK and International Reports"
+  @UK_AND_INT_REPORTS: "UK & International Reports"
   @COMPANY_DOCUMENTS: "Company Documents"
 
   @BREADCRUMBS = {

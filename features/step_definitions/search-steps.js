@@ -4,7 +4,7 @@ var myStepDefinitionsWrapper = function () {
 
   this.Then(/^I should be on the uk and international search page$/, function (callback) {
     this.assert.equal(this.browser.location.pathname, "/uk-and-international-reports/search");
-    this.assert.equal(this.browser.text("H1").toLowerCase(), "UK and International Reports".toLowerCase());
+    this.assert.equal(this.browser.text("H1").toLowerCase(), "UK & International Reports".toLowerCase());
     callback();
   });
 
@@ -44,7 +44,7 @@ var myStepDefinitionsWrapper = function () {
     } else if (docs == "reports") {
       this.assert.equal(this.browser.location.pathname.toLowerCase(), "/uk-and-international-reports/search/results".toLowerCase());
     }
-    
+
     self = this;
     this.browser.wait(WAIT, function() {
       self.assert.equal(self.browser.text("#num-search-results").toLowerCase(), num+" results for '"+term+"'".toLowerCase());
