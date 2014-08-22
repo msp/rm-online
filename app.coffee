@@ -10,6 +10,7 @@ stylus = require('stylus')
 #routes
 terms = require('./routes/terms')
 faq = require('./routes/faq')
+privacy = require('./routes/privacy')
 companies = require('./routes/companies')
 search = require('./routes/search')
 formations = require('./routes/formations')
@@ -90,6 +91,7 @@ app.get "/contact", (req, res) ->
 # Static
 app.get('/faq', faq.index)
 app.get('/terms', terms.index)
+app.get('/privacy-and-cookies', privacy.index)
 
 # Business Profiles
 app.get('/companies/:country/:cro', companies.show)

@@ -1,0 +1,20 @@
+extends ../index
+
+block main
+
+  .pure-u-1
+    .l-box
+      +breadcrumbs_from(bcList)
+
+      h1 Privacy &amp; Cookies
+      .pure-g-r
+        .pure-u-16-24
+          ol
+            each section in privacySections
+              li.privacy-section
+                h3= section.title
+                each para in section.intro
+                  p!= para
+                ul
+                  each item in section.list
+                    li= item
