@@ -11,7 +11,7 @@ Scenario: Add to cart
   Then I should see the product button display 1 item in cart
   When I view the cart
   Then I should see 1 items in the cart total
-  And the total cost should be 10.78
+  And the total cost should be 17.99
 
 Scenario: Remove from cart
   When I visit the profile page for company "02425919"
@@ -28,6 +28,6 @@ Scenario: Remove from cart
   When I view the reports tab
   And I click through to the Experian report
   And I should see the product button display 2 items in cart
-  And the total cost should be 21.56
+  And the total cost should be 35.98
 
 
