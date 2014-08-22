@@ -88,6 +88,14 @@ app.get "/contact", (req, res) ->
     bcList: req.breadcrumbs()
   return
 
+app.get "/corporate-social-responsibility", (req, res) ->
+  title = "Corporate Social Responsibility"
+  req.breadcrumbs(title, 'corporate-social-responsibility')
+  res.render "pages/corporate-social-responsibility",
+    title: title
+    bcList: req.breadcrumbs()
+  return
+
 # Static
 app.get('/faq', faq.index)
 app.get('/terms', terms.index)
