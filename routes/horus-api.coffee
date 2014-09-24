@@ -185,6 +185,7 @@ class HorusAPI
       vendor: self.req.params.vendor
       account_types: companies.ACCOUNT_TYPES
       images: companies.IMAGES_SHIM
+      searchURL: "/company-formations/UK/search/results"
       error: self.error
     return
 
