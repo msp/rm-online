@@ -21,7 +21,7 @@ var myStepDefinitionsWrapper = function () {
 
   this.Then(/^I should see the available documents & reports$/, function (callback) {
     this.browser.clickLink("Reports");
-    this.assert.equal(this.browser.queryAll("#reports .report-box").length, 6);
+    this.assert.equal(this.browser.queryAll("#reports .report-box").length, 5);
     callback();
   });
 
@@ -42,7 +42,7 @@ var myStepDefinitionsWrapper = function () {
   this.Then(/^I should be on the the report detail page$/, function (callback) {
     this.assert.ok(this.browser.success);
     this.assert.equal(this.browser.location.pathname, "/companies/gb/"+COMPANY_NUMBER+"/northern-connectors-limited/reports/ex");
-    this.assert.equal(this.browser.queryAll(".report-box").length, 4);
+    this.assert.equal(this.browser.queryAll(".report-box").length, 3);
     callback();
   });
 };
