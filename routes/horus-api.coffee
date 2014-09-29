@@ -42,7 +42,7 @@ class HorusAPI
     console.log("INT company reports, vendor: #{this.req.params.vendor}")
 
     @template = "companies/view-reports"
-    @_search(HorusAPI.INT_COMPANY_URL+"#{@term}", companies.intMappingCallback, companies.intValidationCallback)
+    @_search(HorusAPI.INT_COMPANY_URL+"#{@term}&country=#{@country.toUpperCase()}", companies.intMappingCallback, companies.intValidationCallback)
 
   ukCompanyDocuments: ->
     console.log("UK company documents, vendor: #{this.req.params.vendor}")
