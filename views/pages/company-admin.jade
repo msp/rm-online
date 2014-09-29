@@ -8,6 +8,11 @@ block main
 
       h1= title
 
+      p
+        | RM offer a range of Company Admin Services freeing you up to focus on your core business activities. You can view a selection of
+        a(href="/company-admin-services/prices")  prices here
+        |  or continue reading for further details.
+
       #admin-sections
         each section in admin_sections
           .admin-section
@@ -19,11 +24,4 @@ block main
                 each bullet in section.bullets
                   li= bullet
 
-  article.pure-u-2-5
-    .l-box
-      h3.international Need some help?
-      p Call Nerisa to discuss your requirements.
-  article.pure-u-3-5
-    .l-box
-      #contact_administration.contact
-        +contact("Company Admin Services", "Nerisa Jarrett", "+44 (0) 1462 427 300", "nerisa@rmonline.com", "")
+  include ../includes/_contact-nerissa

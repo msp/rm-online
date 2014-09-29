@@ -1,0 +1,12 @@
+article.pure-u-2-3
+  - each section in prices
+    h3= section.title
+    table.pure-table.company-admin-prices
+      tbody
+        - each p, index in section.prices
+          tr(class=index % 2 == 0  ? "" : "pure-table-odd")
+            td.service
+              strong= p.service
+              p= p.notes
+            td.price= p.price
+

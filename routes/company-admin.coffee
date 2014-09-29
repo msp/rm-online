@@ -51,6 +51,139 @@ ADMIN_SECTIONS = [
   }
 ]
 
+PRICES = [
+  {
+    title: "Documents"
+    prices: [
+      {
+        service: "Certificate of good standing (Normal Service)"
+        notes: "Generally takes about 5 working days to come through to us from Companies House"
+        price: "£45"
+      }
+      {
+        service: "Certificate of good standing (Express Service)"
+        notes: "Generally takes 24 hrs to come through to us from Companies House."
+        price: "£100"
+      }
+      {
+        service: "Apostilled Documents (Normal Service)"
+        notes: ""
+        price: "£120"
+      }
+      {
+        service: "Apostilled Documents (Express Service)"
+        notes: ""
+        price: "£245"
+      }
+    ]
+  }
+  {
+    title: "Accounting Services"
+    prices: [
+      {
+        service: "Dormant accounts"
+        notes: ""
+        price: "£30"
+      }
+      {
+        service: "Non-trading and Small Accounts"
+        notes: "(Small accounts having a turnover of less than £1000)"
+        price: "£130"
+      }
+      {
+        service: "Trading accounts"
+        notes: ""
+        price: "£130 - £2500"
+      }
+      {
+        service: "Audited accounts"
+        notes: ""
+        price: "from £5000"
+      }
+      {
+        service: "Changing details with HMRC"
+        notes: ""
+        price: "£50"
+      }
+      {
+        service: "CT600 (Tax Computations)"
+        notes: ""
+        price: "£80"
+      }
+      {
+        service: "VAT Registration"
+        notes: ""
+        price: "£100"
+      }
+      {
+        service: "VAT Deregistration"
+        notes: ""
+        price: "£200"
+      }
+      {
+        service: "Book Keeping"
+        notes: ""
+        price: "£100 - £250 per month"
+      }
+    ]
+  }
+  {
+    title: "Miscellaneous Goods & Services"
+    prices: [
+      {
+        service: "Change of directors/members"
+        notes: ""
+        price: "£75"
+      }
+      {
+        service: "Annual Return"
+        notes: "This service is for customers who want our experts to prepare and file their Annual Return. Inclusive of Companies House filing fee."
+        price: "£45"
+      }
+      {
+        service: "Increase in share capital – one share class only"
+        notes: ""
+        price: "£120"
+      }
+      {
+        service: "Administrative Restoration"
+        notes: ""
+        price: "£250 plus disbursements"
+      }
+      {
+        service: "Letter to Companies House"
+        notes: ""
+        price: "£45"
+      }
+      {
+        service: "Strike Off Application (Dissolution)"
+        notes: "(This fee applies to dormant companies only)"
+        price: "£125"
+      }
+      {
+        service: "Change of Company Name"
+        notes: ""
+        price: "£50"
+      }
+      {
+        service: "Company Re-registration"
+        notes: ""
+        price: "£265"
+      }
+      {
+        service: "Transfer of Shares"
+        notes: ""
+        price: "£160"
+      }
+      {
+        service: "Extra Copy of Mem and Arts"
+        notes: ""
+        price: "£45"
+      }
+    ]
+  }
+]
+
 
 exports.index = (req, res) ->
   title = "Company Admin Services"
@@ -58,5 +191,16 @@ exports.index = (req, res) ->
   res.render "pages/company-admin",
     title: title
     admin_sections: ADMIN_SECTIONS
+    bcList: req.breadcrumbs()
+  return
+
+exports.prices = (req, res) ->
+  title = "Company Admin Services"
+  req.breadcrumbs(title, '/company-admin-services')
+  title = "Prices"
+  req.breadcrumbs(title, '/company-admin-services/prices')
+  res.render "pages/company-admin-prices",
+    title: title
+    prices: PRICES
     bcList: req.breadcrumbs()
   return

@@ -1444,6 +1444,10 @@ li.terms-section {
   margin-bottom: 40px;
 }
 
+.company-admin-prices .service {
+  width: 75%;
+}
+
 .simpleCart_total {
   border-bottom: 4px solid #0184a2;
   padding: 10px;

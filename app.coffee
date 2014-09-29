@@ -131,6 +131,7 @@ app.get("/company-formations/UK/search/results", formations.search)
 
 #  Admin
 app.get("/company-admin-services", companyAdmin.index)
+app.get("/company-admin-services/prices", companyAdmin.prices)
 
 # Checkout
 

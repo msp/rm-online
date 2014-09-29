@@ -1,0 +1,11 @@
+extends ../index
+include ../mixins/m-contact
+
+block main
+  article.pure-u-1
+    .l-box
+      +breadcrumbs_from(bcList)
+
+      h1= title
+
+      include ../includes/_company-admin-prices
