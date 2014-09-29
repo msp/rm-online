@@ -32,4 +32,12 @@ mixin reportsAndDocumentsBox(name, checkoutName, guid, description, price, date,
                   .report-price.item_price £#{price}
                   input(type="hidden" value="1" class="item_Quantity")
                 .pure-u-15-24
-                  a(id="#{guid}").pure-button.pure-button-primary.item_add ADD TO CART
+                  if vendor.toLowerCase() != "ex"
+                    a(id="#{guid}").pure-button.pure-button-primary.item_add ADD TO CART
+                if vendor.toLowerCase() == "ex"
+                  .pure-u-1
+                    - experianURL = "https://secure.smebusinesscheck.co.uk/?aff=RMOL&promotion=RMOL&type=business&businessname="+company.name
+                    a(id="#{guid}", href=experianURL, target="_blank", data="").pure-button.pure-button-primary.experian-clickthru
+                      | BUY FROM EXPERIAN
+
+

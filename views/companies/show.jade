@@ -75,7 +75,7 @@ block main
                       .pure-u-1-3
                         .l-box
                           .report-box.hover-shadow
-                            a(href="/companies/"+country+"/"+company.id+"/"+slug(company.name).toLowerCase()+"/reports/"+slug(vendor).toLowerCase())
+                            a(href="/companies/"+country+"/"+company.id+"/"+slug(company.name).toLowerCase()+"/reports/"+slug(vendor).toLowerCase(), class=vendor.toLowerCase())
                               if images[vendor.toLowerCase()]
                                 img(src="/images/partner-logos/bw/#{slug(images[vendor.toLowerCase()]).toLowerCase()}.png", alt="#{images[vendor.toLowerCase()]}")
                               else

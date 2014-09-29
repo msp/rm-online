@@ -1,6 +1,9 @@
 var myStepDefinitionsWrapper = function () {
+
+  var FULL_REPORT_ID = "#rep-02425919-LFL";
+  
   function addToCart(callback) {
-    this.browser.clickLink("#rep-02425919-fullBus", callback);
+    this.browser.clickLink(FULL_REPORT_ID, callback);
   }
 
   function viewCart(callback) {
@@ -11,7 +14,7 @@ var myStepDefinitionsWrapper = function () {
     this.assert.equal(this.browser.text(".simpleCart_total"), "£" + whole + "." + unit)
   }
 
-  this.When(/^I add (\d+) standard reports? to my cart$/, function (num, callback) {
+  this.When(/^I add (\d+) full reports? to my cart$/, function (num, callback) {
     for(var i = 0; i < num; i++) {
       addToCart.call(this);
     }
@@ -38,7 +41,7 @@ var myStepDefinitionsWrapper = function () {
   });
 
   this.Then(/^I should see the product button display (\d+) items? in cart$/, function (num, callback) {
-    this.assert.equal(this.browser.text("#rep-02425919-fullBus"), "("+num+") IN CART");
+    this.assert.equal(this.browser.text(FULL_REPORT_ID), "("+num+") IN CART");
     callback();
   });
 };

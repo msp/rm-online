@@ -35,13 +35,13 @@ var myStepDefinitionsWrapper = function () {
     callback();
   });
 
-  this.When(/^I click through to the Experian report$/, function (callback) {
-    this.browser.clickLink("#reports .report-box a", callback);
+  this.When(/^I click through to the Equifax report$/, function (callback) {
+    this.browser.clickLink("#reports .report-box a.eq", callback);
   });
 
   this.Then(/^I should be on the the report detail page$/, function (callback) {
     this.assert.ok(this.browser.success);
-    this.assert.equal(this.browser.location.pathname, "/companies/gb/"+COMPANY_NUMBER+"/northern-connectors-limited/reports/ex");
+    this.assert.equal(this.browser.location.pathname, "/companies/gb/"+COMPANY_NUMBER+"/northern-connectors-limited/reports/eq");
     this.assert.equal(this.browser.queryAll(".report-box").length, 3);
     callback();
   });

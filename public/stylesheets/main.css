@@ -1320,6 +1320,11 @@ li.terms-section {
   line-height: 36px;
 }
 
+.report-box .experian-clickthru {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 .stats {
   margin-top: 50px;
   text-align: center;
