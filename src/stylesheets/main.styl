@@ -3,6 +3,7 @@
 /*superclasses*/
 $report
   padding 20px 20px
+  min-height 46px
 $merriweather-20
   font-family 'Merriweather', serif
   font-size 20px
@@ -363,6 +364,11 @@ li.terms-section
   .report-2, .document-2
     @extends $report
     background #B3DAE4
+  .document-2.ch, .document-3.ch
+    border 0px solid red
+    padding 10px
+    .pure-input-1
+      background-color white
   .report-3, .document-3
     @extends $report
     background #9ACDDB

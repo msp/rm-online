@@ -72,17 +72,24 @@ block main
                 .pure-g-r
                   if reports
                     each vendor in Object.keys(reports)
-                      .pure-u-1-3
-                        .l-box
-                          .report-box.hover-shadow
-                            a(href="/companies/"+country+"/"+company.id+"/"+slug(company.name).toLowerCase()+"/reports/"+slug(vendor).toLowerCase(), class=vendor.toLowerCase())
-                              if images[vendor.toLowerCase()]
-                                img(src="/images/partner-logos/bw/#{slug(images[vendor.toLowerCase()]).toLowerCase()}.png", alt="#{images[vendor.toLowerCase()]}")
-                              else
-                                p #{vendor}
-                              each rep, index in reports[vendor][0].report
-                                if index < 3
-                                  div(class="report-#{index+1}") #{rep.description}
+                      //- sometimes we get this instead of an empty set
+                      if reports[vendor][0] != "\n"
+                        .pure-u-1-3
+                          .l-box
+                            .report-box.hover-shadow
+                              a(href="/companies/"+country+"/"+company.id+"/"+slug(company.name).toLowerCase()+"/reports/"+slug(vendor).toLowerCase(), class=vendor.toLowerCase())
+                                if images[vendor.toLowerCase()]
+                                  img(src="/images/partner-logos/bw/#{slug(images[vendor.toLowerCase()]).toLowerCase()}.png", alt="#{images[vendor.toLowerCase()]}")
+                                else
+                                  p #{vendor}
+
+                                each val in [1,2,3]
+                                  if reports[vendor]
+                                    if reports[vendor][0].report[val-1]
+                                      div(class="report-#{val}") #{reports[vendor][0].report[val-1].description}
+                                    else
+                                      div(class="report-#{val}")
+                                        br
               #documents
                 .pure-g-r
                   if documents
@@ -96,6 +103,7 @@ block main
                                 each doc, index in documents[vendor][0].document
                                   if index < 3
                                     div(class="document-#{index+1}") [#{doc.document_type}] #{doc.doc_description}, #{doc.document_id}
+
 
                                 //- Need something more sophistciated to group the available docs into 3, by cabinet
                                 //- - var label = ""
@@ -114,12 +122,28 @@ block main
                                 //-     - label += comma+cabinet.label
                                 //-     - comma = ", "
                                 //-     - cabCount++
-                    if country.toLowerCase() != "gb"
-                      article.pure-u-2-5
-                        .l-box
-                          h3.international Available on request
-                          p Call Julia to discuss your requirements.
-                      article.pure-u-3-5
-                        .l-box
-                          #contact_documents.contact
-                            +contact("Documents & Reports", "Julia Kanger", "+44 (0) 1462 427 300", "infodesk@rmonline.com", "")
+                    // CH portal login gubbins via Horus.
+                    .pure-u-1-3
+                      .l-box
+                        .report-box.hover-shadow
+                          img(src="/images/partner-logos/bw/companies-house.png", alt="companies house")
+
+                          form(class="pure-form", action='http://www.rmonline.com/servlet/com.armadillo.chLogin.chLogin', method='GET')
+                            .document-1
+                              | RM Client Login
+                            .document-2.ch
+                              input(name='error_page', type='hidden', value='companiesx.htm')
+                              input.document-2.pure-input-1(type='text', name='reference', placeholder='Client Ref, up to 15 chars, A-Z & 0-9' required)
+                            .document-3.ch
+                              button.btn.pure-button.pure-button-primary(type='submit') Sign In
+
+
+                  if country.toLowerCase() != "gb"
+                    article.pure-u-2-5
+                      .l-box
+                        h3.international Available on request
+                        p Call Julia to discuss your requirements.
+                    article.pure-u-3-5
+                      .l-box
+                        #contact_documents.contact
+                          +contact("Documents & Reports", "Julia Kanger", "+44 (0) 1462 427 300", "infodesk@rmonline.com", "")

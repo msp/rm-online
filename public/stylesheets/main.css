@@ -5,6 +5,7 @@
 .report-box .report-3,
 .report-box .document-3 {
   padding: 20px 20px;
+  min-height: 46px;
 }
 
 #num-search-results,
@@ -1302,6 +1303,17 @@ li.terms-section {
 .report-box .report-2,
 .report-box .document-2 {
   background: #b3dae4;
+}
+
+.report-box .document-2.ch,
+.report-box .document-3.ch {
+  border: 0 solid #f00;
+  padding: 10px;
+}
+
+.report-box .document-2.ch .pure-input-1,
+.report-box .document-3.ch .pure-input-1 {
+  background-color: #fff;
 }
 
 .report-box .report-3,
