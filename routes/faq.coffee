@@ -28,7 +28,7 @@ FAQ_SECTIONS = [
       }
       {
         q: "Can I pay using another method? "
-        a: "If you do not have, or do not wish to use your card, you can have your report emailed or posted back to you and you can pay be cheque."
+        a: "If you do not have, or do not wish to use your card, you can have your report emailed or posted back to you and you can pay by cheque."
       }
       {
         q: "Will I get a receipt? "
