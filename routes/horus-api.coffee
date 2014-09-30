@@ -60,7 +60,7 @@ class HorusAPI
     console.log("INT company")
 
     @template = "companies/show"
-    @_search(HorusAPI.INT_COMPANY_URL+"#{@term}", companies.intMappingCallback, companies.intValidationCallback)
+    @_search(HorusAPI.INT_COMPANY_URL+"#{@term}&country=#{@country.toUpperCase()}", companies.intMappingCallback, companies.intValidationCallback)
 
   ukCompanySearch: ->
     console.log("UK companySearch")
