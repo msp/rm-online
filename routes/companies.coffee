@@ -147,20 +147,22 @@ exports.ukMappingCallback = (result) ->
 
     # we need to group the docs by vendor, then cabinet
     for vendor in vendors
-      do (vendor) ->
-        tmpVendor = {}
-        vendorDocs = []
-        for group in exports.CABINETS
-          do (group) ->
-            key = group.cabinet
-            tmpGrp = {}
-            tmpGrp["name"] = key
-            tmpGrp["values"] = ungrouped[vendor][0].document.filter (doc) -> doc.$.cabinet == group.cabinet
-            tmpGrp["short"] = CABINETS_DICT[key].short
-            tmpGrp["label"] = CABINETS_DICT[key].label
-            vendorDocs.push tmpGrp
-        tmpVendor[vendor] = vendorDocs
-        grouped.push tmpVendor
+      # console.log("VENDOR: "+vendor)
+      if vendor = "RM"
+        do (vendor) ->
+          tmpVendor = {}
+          vendorDocs = []
+          for group in exports.CABINETS
+            do (group) ->
+              key = group.cabinet
+              tmpGrp = {}
+              tmpGrp["name"] = key
+              tmpGrp["values"] = ungrouped[vendor][0].document.filter (doc) -> doc.$.cabinet == group.cabinet
+              tmpGrp["short"] = CABINETS_DICT[key].short
+              tmpGrp["label"] = CABINETS_DICT[key].label
+              vendorDocs.push tmpGrp
+          tmpVendor[vendor] = vendorDocs
+          grouped.push tmpVendor
     # inspect grouped
 
     this.documentsByCabinet = grouped
