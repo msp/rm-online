@@ -5,7 +5,7 @@ ADMIN_SECTIONS = [
     bullets: []
   }
   {
-    title: "Nominee secretary"
+    title: "Professional secretary"
     intro: "Under the 2006 Companies Act it is no longer a legal requirement to have a company secretary unless the company's articles of association require it. RM provides a full nominee secretarial service. RM recommends that clients always appoint a company secretary as:"
     bullets: [
       "They can easily be checked by 3rd parties"
@@ -15,7 +15,7 @@ ADMIN_SECTIONS = [
     ]
   }
   {
-    title: "Nominee directors/shareholders"
+    title: "Professional directors/shareholders"
     intro: "The Companies Act 2006 requires a private company to have at least one director, although the company’s articles of association may impose a higher minimum requirement for the number of directors. At least one director must be an individual. UK Company law requires that information on directors/shareholders must be registered on the public files at Companies House. RM can provide nominee directors or shareholders that can shield and protect this information to keep it confidential."
     bullets: []
   }
