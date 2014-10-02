@@ -120,6 +120,21 @@ body.pure-skin-rm
       script(src="/javascripts/vendor-hacked/jquery.select-to-autocomplete.js")
       script.
         $(document).ready(function() {
+
+          $('#state-selector').hide();
           $('select#country-selector').selectToAutocomplete();
+
+          $( "select#country-selector" ).change(function() {
+            //- US
+            if ($(this).val() == "US") {
+              $('#state-selector').show();
+              $('select#state-selector').selectToAutocomplete();
+            } else {
+              $('#state-selector').hide();
+              $('select#state-selector').next().hide();
+            }
+            //- DE
+            //- CA
+          });
         })
   block main-js
