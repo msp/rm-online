@@ -7,15 +7,19 @@ $report
 $merriweather-20
   font-family 'Merriweather', serif
   font-size 20px
+$source-sans-pro-16
+  font-family 'Source Sans Pro', serif
+  font-size 16px
+  line-height 24px
 
 
 /*Overrides*/
 .pure-skin-rm
+  table
+    @extends $source-sans-pro-16
   .content, .header, .footer
     html, button, input, select, textarea, .pure-g [class *= "pure-u"], .pure-g-r [class *= "pure-u"]
-      font-family 'Source Sans Pro', serif
-      font-size 16px
-      line-height 24px
+      @extends $source-sans-pro-16
       h1, h2, h3, h4
         font-family 'Merriweather', serif
         font-weight normal
