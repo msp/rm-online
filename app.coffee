@@ -128,6 +128,7 @@ app.get("/company-formations", formations.uk)
 app.get("/company-formations/UK", formations.uk)
 app.get("/company-formations/UK/search", formations.uk)
 app.get("/company-formations/UK/search/results", formations.search)
+app.get("/company-formations/payment-successful", formations.paymentSuccessful)
 
 #  Admin
 app.get("/company-admin-services", companyAdmin.index)

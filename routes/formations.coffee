@@ -172,6 +172,7 @@ exports.uk = (req, res) ->
 class FormationsRoute
   @SEARCH_RESULTS_TITLE: "Search Results"
   @UK_INFO_SEARCH_TITLE: "UK Company Formation"
+  @PAYMENT_SUCCESSFUL_TITLE: "Payment Successful"
 
 exports.search = (req, res) ->
   country =  req.params.country
@@ -183,5 +184,16 @@ exports.search = (req, res) ->
 
   api = new horusAPI(req, res, term, title, country)
   api.formationSearch()
+
+exports.paymentSuccessful = (req, res) ->
+  title = FormationsRoute.UK_INFO_SEARCH_TITLE
+  req.breadcrumbs(title, "/company-formations/UK/search")
+  title = FormationsRoute.PAYMENT_SUCCESSFUL_TITLE
+  req.breadcrumbs(title, req.url)
+
+  res.render "formations/payment-successful",
+    title: title
+    bcList: req.breadcrumbs()
+
 
 exports.countries = COUNTRIES
