@@ -113,6 +113,11 @@ class HorusAPI
     # love this API :/
     searchURL = HorusAPI.INT_COMPANY_SEARCH_URL+"&country=#{@country}&searchdata=#{@term}&searchdata2=#{@term}&companyName=#{@term}"
 
+    if @req.query.region
+      searchURL = searchURL + "&region=#{@req.query.region}"
+    if @req.query.reasonCode
+      searchURL = searchURL + "&reasonCode=#{@req.query.reasonCode}"
+
     @_search(searchURL, mappingCallback, validationCallback)
 
   formationSearch: ->

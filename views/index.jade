@@ -120,21 +120,38 @@ body.pure-skin-rm
       script(src="/javascripts/vendor-hacked/jquery.select-to-autocomplete.js")
       script.
         $(document).ready(function() {
+          $('#us-state-selector').hide();
+          $('#ca-state-selector').hide();
 
-          $('#state-selector').hide();
-          $('select#country-selector').selectToAutocomplete();
+          $('#country-selector').selectToAutocomplete();
+          $('#us-state-selector').selectToAutocomplete();
+          $('#ca-state-selector').selectToAutocomplete();
 
           $( "select#country-selector" ).change(function() {
-            //- US
+            console.log($(this).val());
             if ($(this).val() == "US") {
-              $('#state-selector').show();
-              $('select#state-selector').selectToAutocomplete();
+              $('#us-state-selector').show();
+              $('#ca-state-selector').hide();
+              $('#ca-state-selector').attr('disabled', true);
+              $('#ca-state-selector').next().hide();
+              $('#us-state-selector').removeAttr('disabled')
+              $('#us-state-selector').selectToAutocomplete();
+
+            } else if ($(this).val() == "CA") {
+              console.log("CANADA!");
+              $('#ca-state-selector').show();
+              $('#us-state-selector').hide();
+              $('#us-state-selector').attr('disabled', true);
+              $('#us-state-selector').next().hide();
+              $('#ca-state-selector').removeAttr('disabled')
+              $('#ca-state-selector').selectToAutocomplete();
             } else {
-              $('#state-selector').hide();
-              $('select#state-selector').next().hide();
+              $('#us-state-selector').hide();
+              $('#ca-state-selector').hide();
+              $('#us-state-selector').next().hide();
+              $('#ca-state-selector').next().hide();
             }
             //- DE
-            //- CA
           });
         })
   block main-js

@@ -32,7 +32,8 @@ exports.index = (req, res) ->
     bcList: req.breadcrumbs()
     country: country
     countries: clib.countryList(defaultCountry)
-    states: slib.stateList()
+    USStates: slib.stateList()
+    CAStates: slib.stateList("CA")
     path: req.path
   return
 
@@ -67,7 +68,8 @@ renderView = (req, res, view, title) ->
     bcList: req.breadcrumbs()
     country: country
     countries: clib.countryList(defaultCountry)
-    states: slib.stateList()
+    USStates: slib.stateList()
+    CAStates: slib.stateList("CA")
     path: req.path
     searchURL: req.path+"/results"
     searchTitle: "Search for information on a company"

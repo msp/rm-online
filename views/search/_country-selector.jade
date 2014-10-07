@@ -2,6 +2,10 @@ select(name="country", id="country-selector", autofocus="autofocus", autocorrect
   each countryOption in countries
     != countryOption
 
-select(name="state", id="state-selector", autofocus="autofocus", autocorrect="off", autocomplete="off", placeholder="type a state")
-  each stateOption in states
+select(name="region", id="us-state-selector", autofocus="autofocus", autocorrect="off", autocomplete="off", placeholder="type a state")
+  each stateOption in USStates
+    != stateOption
+
+select(name="region", id="ca-state-selector", autofocus="autofocus", autocorrect="off", autocomplete="off", placeholder="type a state")
+  each stateOption in CAStates
     != stateOption
