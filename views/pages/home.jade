@@ -3,10 +3,16 @@ extends ../index
 block main
   .pure-u-1
     .pure-g-r
-      .pure-u-1-2
+      .pure-u-1
         .l-box
-          h1.no-border.home Welcome to RM
-          p.intro-copy RM have been assisting law firms, accountants and professional service organisations with company information for due diligence and forming companies around the Globe for over 40 years. The services are discreet, professional and cost effective.
-      .pure-u-1-2
+          h1.no-border.home= title
+          p.intro-copy= intro
 
   include ../includes/_services.jade
+
+  .pure-u-1.home-below-fold
+    .pure-g-r
+      .pure-u-1
+        .l-box
+          h4.no-border.home= subTitle
+          p= outro

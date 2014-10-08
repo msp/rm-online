@@ -8,6 +8,7 @@ bodyParser = require("body-parser")
 stylus = require('stylus')
 
 #routes
+home = require('./routes/home')
 terms = require('./routes/terms')
 faq = require('./routes/faq')
 privacy = require('./routes/privacy')
@@ -47,11 +48,7 @@ app.locals.moment = require('moment')
 # app.param('jurisdiction', formations.param)
 
 # routes
-app.get "/", (req, res) ->
-  title = "Home"
-  res.render "pages/home",
-    title: title
-  return
+app.get('/', home.index)
 
 app.get "/news", (req, res) ->
   title = "Industry News"
