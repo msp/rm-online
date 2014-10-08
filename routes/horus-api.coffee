@@ -129,12 +129,21 @@ class HorusAPI
       this.results = result.horus
       this.suffix = this.req.query.suffix
 
-      numResults = this.results.GovTalkMessage[0].Body[0].NameSearch[0].SearchRows
+      # TODO MSP this was written with the server faililng. No idea of the data structure on successful call.
+      govTalkErrors = this.results.GovTalkMessage[0].GovTalkDetails[0].GovTalkErrors.length
+      console.log("ERRORS govTalkErrors: #{govTalkErrors}")
 
-      if numResults > 0
-        this.title = "'#{this.term} #{this.suffix}' already registered"
+      if govTalkErrors == 0
+        numResults = this.results.GovTalkMessage[0].Body[0].NameSearch[0].SearchRows
+
+        if numResults > 0
+          this.title = "'#{this.term} #{this.suffix}' already registered"
+        else
+          this.title = "'#{this.term} #{this.suffix}' available"
       else
-        this.title = "'#{this.term} #{this.suffix}' available"
+        govTalkError = this.results.GovTalkMessage[0].GovTalkDetails[0].GovTalkErrors[0].Error[0]
+        this.error = { code: [govTalkError.Number], description: ["GovTalk #{govTalkError.RaisedBy}: #{govTalkError.Text}"] }
+        this.results = undefined
 
     @_search(HorusAPI.FORMATIONS_URL+"#{@term} #{@req.query.suffix}", mappingCallback)
 
