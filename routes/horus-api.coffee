@@ -31,6 +31,7 @@ class HorusAPI
     @term = @term.trim()
     @country = country
     @company = undefined
+    @pricePackages = []
 
   ukCompanyReports: ->
     console.log("UK company reports, vendor: #{this.req.params.vendor}")
@@ -133,6 +134,8 @@ class HorusAPI
       govTalkErrors = this.results.GovTalkMessage[0].GovTalkDetails[0].GovTalkErrors.length
       console.log("ERRORS govTalkErrors: #{govTalkErrors}")
 
+      this.pricePackages = this.results.packages[0].package
+
       if govTalkErrors == 0
         numResults = this.results.GovTalkMessage[0].Body[0].NameSearch[0].SearchRows
 
@@ -200,6 +203,7 @@ class HorusAPI
       account_types: companies.ACCOUNT_TYPES
       images: companies.IMAGES_SHIM
       searchURL: "/company-formations/UK/search/results"
+      pricePackages: self.pricePackages
       error: self.error
     return
 
