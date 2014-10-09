@@ -12,167 +12,167 @@ doctype html
 <![endif]-->
 <!--[if gt IE 8]><!-->
 html.no-js
-<!--<![endif]-->
-head
-  meta(charset="utf-8")
-  meta(http-equiv="X-UA-Compatible", content="IE=edge")
-  title RM Online: #{title}
-  meta(name="description", content="#{meta}")
-  meta(name='viewport', content='width=device-width, initial-scale=1.0')
-  link(rel='stylesheet', href='http://yui.yahooapis.com/pure/0.4.2/pure-min.css')
-  link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Merriweather|Source+Sans+Pro')
+  <!--<![endif]-->
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    title RM Online: #{title}
+    meta(name="description", content="#{meta}")
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='http://yui.yahooapis.com/pure/0.4.2/pure-min.css')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Merriweather|Source+Sans+Pro')
 
-  // Place favicon.ico and apple-touch-icon.png in the root directory
-  // Bootstrap is customised for modal only functionality
-  // build:css styles/vendor.css
-  link(rel='stylesheet', href='/stylesheets/vendor/purecss/grid.css')
-  link(rel='stylesheet', href='/stylesheets/vendor/purecss/rm-skin.css')
-  link(rel='stylesheet', href='/stylesheets/vendor/hover.css')
-  link(rel='stylesheet', href='/bower_components/responsive-tabs/css/responsive-tabs.css')
-  link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+    // Place favicon.ico and apple-touch-icon.png in the root directory
+    // Bootstrap is customised for modal only functionality
+    // build:css styles/vendor.css
+    link(rel='stylesheet', href='/stylesheets/vendor/purecss/grid.css')
+    link(rel='stylesheet', href='/stylesheets/vendor/purecss/rm-skin.css')
+    link(rel='stylesheet', href='/stylesheets/vendor/hover.css')
+    link(rel='stylesheet', href='/bower_components/responsive-tabs/css/responsive-tabs.css')
+    link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
 
-  // bower:css
-  link(rel='stylesheet', href='/bower_components/font-awesome/css/font-awesome.css')
-  // endbower
-  // endbuild
-  // build:css(.tmp) styles/main.css
-  link(rel="stylesheet", href="/stylesheets/main.css")
-  // endbuild
+    // bower:css
+    link(rel='stylesheet', href='/bower_components/font-awesome/css/font-awesome.css')
+    // endbower
+    // endbuild
+    // build:css(.tmp) styles/main.css
+    link(rel="stylesheet", href="/stylesheets/main.css")
+    // endbuild
 
-  if polymer && (settings.env == "production" || settings.env == "development")
-    // Polyfill Web Components support for older browsers, must be first
-    script(src="/bower_components/platform/platform.js")
+    if polymer && (settings.env == "production" || settings.env == "development")
+      // Polyfill Web Components support for older browsers, must be first
+      script(src="/bower_components/platform/platform.js")
 
-    // Polymer imports
-    link(rel="import", href="/bower_components/google-map/google-map.html")
-    link(rel="import", href="/bower_components/google-map/google-map-search.html")
+      // Polymer imports
+      link(rel="import", href="/bower_components/google-map/google-map.html")
+      link(rel="import", href="/bower_components/google-map/google-map-search.html")
 
-body.pure-skin-rm
-  <!--[if lt IE 9]>
-  p.browsehappy
-    | You are using an
-    strong outdated
-    |  browser. Please
-    a(href="http://browsehappy.com/") upgrade your browser
-    |  to improve your experience.
-  <![endif]-->
+  body.pure-skin-rm
+    <!--[if lt IE 9]>
+    p.browsehappy
+      | You are using an
+      strong outdated
+      |  browser. Please
+      a(href="http://browsehappy.com/") upgrade your browser
+      |  to improve your experience.
+    <![endif]-->
 
-  if !excludeHeader
-    include includes/_header.jade
+    if !excludeHeader
+      include includes/_header.jade
 
-  section.content
-    .container.pure-g-r
-      block main
-      .pure-u-1.footer-padding
-        | &nbsp;
-
-  if extendTemplate
-    section.content.content-grey
-      .container.pure-g-r
-        block main-grey
-        .pure-u-1.footer-padding
-          | &nbsp;
     section.content
       .container.pure-g-r
-        block main-footer
+        block main
         .pure-u-1.footer-padding
           | &nbsp;
 
-  if path != '/checkout'
-    include includes/_modal-cart.jade
-  if !excludeFooter
-    include includes/_footer.jade
-    include includes/_google.jade
+    if extendTemplate
+      section.content.content-grey
+        .container.pure-g-r
+          block main-grey
+          .pure-u-1.footer-padding
+            | &nbsp;
+      section.content
+        .container.pure-g-r
+          block main-footer
+          .pure-u-1.footer-padding
+            | &nbsp;
 
-  <!--[if lt IE 9]>
-  script(src="/bower_components/es5-shim/es5-shim.js")
-  script(src="/bower_components/json3/lib/json3.min.js")
-  <![endif]-->
+    if path != '/checkout'
+      include includes/_modal-cart.jade
+    if !excludeFooter
+      include includes/_footer.jade
+      include includes/_google.jade
 
-  // MSP TODO simpleCart.js contains an edit. Fork repo?
-  // build:js javascripts/vendor.js
-  // bower:js
-  script(src='/bower_components/jquery/dist/jquery.js')
-  script(src='/bower_components/es5-shim/es5-shim.js')
-  script(src='/bower_components/json3/lib/json3.min.js')
-  script(src='/bower_components/jQuery-Collapse/src/jquery.collapse.js')
-  script(src='/bower_components/responsive-tabs/js/jquery.responsiveTabs.min.js')
-  script(src='/bower_components/simplecart-js/simpleCart.js')
-  // Bootstrap modal is needed by SimpleCart
-  // Be careful about pulling in all of Bootstrap as it's collapse will clash
-  // with our JQuery Collapse plugin.
-  script(src='/bower_components/bootstrap/js/modal.js')
-  // endbower
-  // endbuild
+    <!--[if lt IE 9]>
+    script(src="/bower_components/es5-shim/es5-shim.js")
+    script(src="/bower_components/json3/lib/json3.min.js")
+    <![endif]-->
 
-  // build:js(.tmp) javascripts/main.js
-  script(src='/javascripts/main.js')
-  // endbuild
+    // MSP TODO simpleCart.js contains an edit. Fork repo?
+    // build:js javascripts/vendor.js
+    // bower:js
+    script(src='/bower_components/jquery/dist/jquery.js')
+    script(src='/bower_components/es5-shim/es5-shim.js')
+    script(src='/bower_components/json3/lib/json3.min.js')
+    script(src='/bower_components/jQuery-Collapse/src/jquery.collapse.js')
+    script(src='/bower_components/responsive-tabs/js/jquery.responsiveTabs.min.js')
+    script(src='/bower_components/simplecart-js/simpleCart.js')
+    // Bootstrap modal is needed by SimpleCart
+    // Be careful about pulling in all of Bootstrap as it's collapse will clash
+    // with our JQuery Collapse plugin.
+    script(src='/bower_components/bootstrap/js/modal.js')
+    // endbower
+    // endbuild
 
-  if path == "/news"
-    script(src="https://www.google.com/jsapi")
-    script(src="/javascripts/news.js")
+    // build:js(.tmp) javascripts/main.js
+    script(src='/javascripts/main.js')
+    // endbuild
 
-  // zombie craps out with this script
-  if settings.env == "production" || settings.env == "development"
-    if /search/i.test(path)
-      script(src="/javascripts/vendor/jquery-ui-autocomplete.js")
-      script(src="/javascripts/vendor-hacked/jquery.select-to-autocomplete.js")
-      script.
-        $(document).ready(function() {
-          $('#us-state-selector').hide();
-          $('#ca-state-selector').hide();
-          $('#de-reason-selector').hide();
+    if path == "/news"
+      script(src="https://www.google.com/jsapi")
+      script(src="/javascripts/news.js")
 
-          $('#country-selector').selectToAutocomplete();
-          $('#us-state-selector').selectToAutocomplete();
-          $('#ca-state-selector').selectToAutocomplete();
-          $('#de-reason-selector').selectToAutocomplete();
+    // zombie craps out with this script
+    if settings.env == "production" || settings.env == "development"
+      if /search/i.test(path)
+        script(src="/javascripts/vendor/jquery-ui-autocomplete.js")
+        script(src="/javascripts/vendor-hacked/jquery.select-to-autocomplete.js")
+        script.
+          $(document).ready(function() {
+            $('#us-state-selector').hide();
+            $('#ca-state-selector').hide();
+            $('#de-reason-selector').hide();
 
-          $( "select#country-selector" ).change(function() {
-            if ($(this).val() == "US") {
-              $('#us-state-selector').show();
-              $('#ca-state-selector').hide();
-              $('#de-reason-selector').hide();
-              $('#ca-state-selector').attr('disabled', true);
-              $('#de-reason-selector').attr('disabled', true);
-              $('#ca-state-selector').next().hide();
-              $('#de-reason-selector').next().hide();
-              $('#us-state-selector').removeAttr('disabled')
-              $('#us-state-selector').selectToAutocomplete();
+            $('#country-selector').selectToAutocomplete();
+            $('#us-state-selector').selectToAutocomplete();
+            $('#ca-state-selector').selectToAutocomplete();
+            $('#de-reason-selector').selectToAutocomplete();
 
-            } else if ($(this).val() == "CA") {
-              $('#ca-state-selector').show();
-              $('#us-state-selector').hide();
-              $('#de-reason-selector').hide();
-              $('#us-state-selector').attr('disabled', true);
-              $('#de-reason-selector').attr('disabled', true);
-              $('#us-state-selector').next().hide();
-              $('#de-reason-selector').next().hide();
-              $('#ca-state-selector').removeAttr('disabled')
-              $('#ca-state-selector').selectToAutocomplete();
-            } else if ($(this).val() == "DE") {
-              $('#de-reason-selector').show();
-              $('#us-state-selector').hide();
-              $('#ca-state-selector').hide();
-              $('#us-state-selector').attr('disabled', true);
-              $('#ca-state-selector').attr('disabled', true);
-              $('#us-state-selector').next().hide();
-              $('#ca-state-selector').next().hide();
-              $('#de-reason-selector').removeAttr('disabled')
-              $('#de-reason-selector').selectToAutocomplete();
-            } else {
-              $('#us-state-selector').hide();
-              $('#ca-state-selector').hide();
-              $('#de-reason-selector').hide();
-              $('#us-state-selector').next().hide();
-              $('#ca-state-selector').next().hide();
-              $('#de-reason-selector').next().hide();
-              $('#us-state-selector').attr('disabled', true);
-              $('#ca-state-selector').attr('disabled', true);
-              $('#de-reason-selector').attr('disabled', true);
-            }
-            //- DE
-          });
-        })
-  block main-js
+            $( "select#country-selector" ).change(function() {
+              if ($(this).val() == "US") {
+                $('#us-state-selector').show();
+                $('#ca-state-selector').hide();
+                $('#de-reason-selector').hide();
+                $('#ca-state-selector').attr('disabled', true);
+                $('#de-reason-selector').attr('disabled', true);
+                $('#ca-state-selector').next().hide();
+                $('#de-reason-selector').next().hide();
+                $('#us-state-selector').removeAttr('disabled')
+                $('#us-state-selector').selectToAutocomplete();
+
+              } else if ($(this).val() == "CA") {
+                $('#ca-state-selector').show();
+                $('#us-state-selector').hide();
+                $('#de-reason-selector').hide();
+                $('#us-state-selector').attr('disabled', true);
+                $('#de-reason-selector').attr('disabled', true);
+                $('#us-state-selector').next().hide();
+                $('#de-reason-selector').next().hide();
+                $('#ca-state-selector').removeAttr('disabled')
+                $('#ca-state-selector').selectToAutocomplete();
+              } else if ($(this).val() == "DE") {
+                $('#de-reason-selector').show();
+                $('#us-state-selector').hide();
+                $('#ca-state-selector').hide();
+                $('#us-state-selector').attr('disabled', true);
+                $('#ca-state-selector').attr('disabled', true);
+                $('#us-state-selector').next().hide();
+                $('#ca-state-selector').next().hide();
+                $('#de-reason-selector').removeAttr('disabled')
+                $('#de-reason-selector').selectToAutocomplete();
+              } else {
+                $('#us-state-selector').hide();
+                $('#ca-state-selector').hide();
+                $('#de-reason-selector').hide();
+                $('#us-state-selector').next().hide();
+                $('#ca-state-selector').next().hide();
+                $('#de-reason-selector').next().hide();
+                $('#us-state-selector').attr('disabled', true);
+                $('#ca-state-selector').attr('disabled', true);
+                $('#de-reason-selector').attr('disabled', true);
+              }
+              //- DE
+            });
+          })
+    block main-js
