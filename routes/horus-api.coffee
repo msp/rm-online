@@ -1,12 +1,13 @@
 fs = require 'fs',
 https = require 'https',
+http = require 'http',
 xml2js = require 'xml2js'
 inspect = require('eyes').inspector({maxLength: false})
 companies = require('./companies')
 
 class HorusAPI
 
-  @SERVLET = "https://web.rmonline.com/servlet/com.armadillo.online"
+  @SERVLET = "http://web.rmonline.com/servlet/com.armadillo.online"
   @UK_COMPANY_SEARCH_URL = "#{HorusAPI.SERVLET}?service=rm008&function=busmatch_nocaptcha&stylesheet=none&searchdata="
   @INT_COMPANY_SEARCH_URL = "#{HorusAPI.SERVLET}?service=rm008&function=intcomatch_rmonline_nocaptcha&databases=LDP&type=A&requestType=search&archdb=LPD&stylesheet=none"
   @FORMATIONS_URL = "#{HorusAPI.SERVLET}?service=einc&function=cosearch_ch_alt&Request=NameAvailableSearch&SearchRows=1&stylesheet=none&SearchData="
@@ -161,7 +162,7 @@ class HorusAPI
 
     if self.validate then self.validate()
 
-    https.get(@url, (resp) ->
+    http.get(@url, (resp) ->
       resp.on "data", (chunk) ->
         responseBuffer += chunk
 
