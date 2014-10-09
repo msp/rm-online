@@ -1,6 +1,8 @@
 var myStepDefinitionsWrapper = function () {
   this.Then(/^I should be on the home page$/, function (callback) {
-    this.assert.equal(this.browser.text("H1"), "Welcome to RM");
+    this.assert.equal(this.browser.location.pathname, "/");
+    this.assert.ok(this.browser.query("H1"));
+    this.assert.ok(this.browser.query(".intro-copy"));
     callback();
   });
 
