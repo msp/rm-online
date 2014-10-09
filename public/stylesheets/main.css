@@ -205,7 +205,7 @@
 .pure-skin-rm .content .pure-g-r [class *= "pure-u"] h1.home,
 .pure-skin-rm .header .pure-g-r [class *= "pure-u"] h1.home,
 .pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h1.home {
-  font-size: 45px;
+  font-size: 40px;
   line-height: 45px;
   margin: 35px 0 40px 0;
 }
@@ -1155,7 +1155,7 @@
 }
 
 .home-below-fold {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .footer-padding {

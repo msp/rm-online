@@ -21,8 +21,7 @@ exports.index = (req, res) ->
         title     = cells.cells[2][1].value
         intro     = cells.cells[2][2].value
         meta      = cells.cells[2][3].value
-        subTitle  = cells.cells[2][4].value
-        outro     = cells.cells[2][5].value
+        outro     = cells.cells[2][4].value
 
         # inspect(cells.cells)
 
@@ -38,7 +37,6 @@ exports.index = (req, res) ->
         title: title
         intro: intro
         meta: meta
-        subTitle: subTitle
         outro: outro
     return
 return
