@@ -1,54 +1,9 @@
-//- Horus POST params to render the registration form in an iFrame, passing the desired pricing package
-.pure-g-r.pricing-packages
-  each package in pricePackages
-    .pure-u-1-3
-      .l-box
-        .report-box
-          form#horus-formations.pure-form.form-search(name='search', method='post', target="horus-iframe", action='http://web.rmonline.com/servlet/com.armadillo.online')
-            input(type='hidden', value='#{package.$.name}', name='package')
-            input(type='hidden', value='einc2', name='service')
-            input(type='hidden', value='cosearch_ch', name='function')
-            input(type='hidden', value='NameAvailableSearch', name='Request')
-            input(type='hidden', value='1', name='SearchRows')
-            input(type='hidden', value='initial_match_discount.xsl', name='stylesheet')
-            input#SearchData_2.input-xlarge(type='hidden', name='SearchData', value="#{requestedCompany}")
-
-            .pure-g
-              .pure-u-19-24
-                .l-box
-                  .report-name
-                    p= package.$.name
-                  .checkout-name.item_name.hidden
-                    h4= checkoutName
-                  .item_pages.hidden= pages
-              .pure-u-5-24
-                img.pdf(src="/images/reports/pdf.png", alt="PDF")
-              .pure-u-1
-                .l-box
-                  p= package.description
-                  br
-                  br
-                  //- p
-                  //-   a(href="") show details
-                    ul.pack-type
-                    li Certificate of Incorporation Printed
-                      li Electronic PDF of Certificate of Incorporation
-                      li 5 printed and bound copies of the Memorandum & Articles of Association
-                      li Electronic PDF of Memorandum & Articles of Association
-                      li Company Seal
-                      li Loose Leaf Corporate Register Completed and Printed
-                      li Share Certificates completed and printed
-                      li Shareholders Registered Completed and Printed
-                      li Directors Register Completed and Printed
-                      li PDF of Completed Shareholders Register
-                      li PDF of Completed Director Register
-                      li PDF of Completed Share Certificates
-                      li Mortgage Register
-                      li Certificate Frame
-                      li Attaché Case
-                  .pure-g
-                    .pure-u-11-24
-                      .report-price.item_price £#{package.default_vat}
-                    .pure-u-13-24
-                      button.horus-formations-post.btn.pure-button.pure-button-primary(type='submit') Register
-
+//- Horus POST params to render the registration form in an iFrame
+form#horus-formations.pure-form.form-search(name='search', method='post', target="horus-iframe", action='http://www.rmonline.com/servlet/com.armadillo.online')
+  input(type='hidden', value='einc2', name='service')
+  input(type='hidden', value='cosearch_ch', name='function')
+  input(type='hidden', value='NameAvailableSearch', name='Request')
+  input(type='hidden', value='1', name='SearchRows')
+  input(type='hidden', value='initial_match_discount.xsl', name='stylesheet')
+  input#SearchData_2.input-xlarge(type='hidden', name='SearchData', value="#{requestedCompany}")
+  button.horus-formations-post.btn.pure-button.pure-button-primary(type='submit') Register

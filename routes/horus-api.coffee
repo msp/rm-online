@@ -130,10 +130,11 @@ class HorusAPI
     mappingCallback = (result) ->
       this.results = result.horus
       this.suffix = this.req.query.suffix
+      govTalkErrors = 0
 
-      # TODO MSP this was written with the server faililng. No idea of the data structure on successful call.
-      govTalkErrors = this.results.GovTalkMessage[0].GovTalkDetails[0].GovTalkErrors.length
-      console.log("ERRORS govTalkErrors: #{govTalkErrors}")
+      if this.results.GovTalkMessage[0].GovTalkDetails[0].GovTalkErrors
+        govTalkErrors = this.results.GovTalkMessage[0].GovTalkDetails[0].GovTalkErrors.length
+        console.log("ERRORS govTalkErrors: #{govTalkErrors}")
 
       this.pricePackages = this.results.packages[0].package
 
