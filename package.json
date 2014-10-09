@@ -23,7 +23,8 @@
     "country-selector": "~1.1.0",
     "moment": "~2.8.1",
     "google-spreadsheets": "~0.3.0",
-    "googleclientlogin": "~0.2.8"
+    "googleclientlogin": "~0.2.8",
+    "newrelic": "~1.11.5"
   },
   "devDependencies": {
     "cucumber": "latest",

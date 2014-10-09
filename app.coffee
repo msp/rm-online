@@ -1,3 +1,4 @@
+require('newrelic')
 express = require("express")
 breadcrumbs = require('express-breadcrumbs')
 path = require("path")
