@@ -7,6 +7,7 @@ horusAPI = require('./horus-api')
 # clib = require("country-selector")
 clib = require("../public/javascripts/vendor-hacked/nodejs.countryList")
 slib = require("../public/javascripts/vendor-hacked/nodejs.stateList")
+rlib = require("../public/javascripts/vendor-hacked/nodejs.reasonCodeList")
 defaultCountry = 'United Kingdom';
 # defaultCountry = ''
 
@@ -34,6 +35,7 @@ exports.index = (req, res) ->
     countries: clib.countryList(defaultCountry)
     USStates: slib.stateList()
     CAStates: slib.stateList("CA")
+    DEReasons: rlib.reasonCodeList()
     path: req.path
   return
 
@@ -70,6 +72,7 @@ renderView = (req, res, view, title) ->
     countries: clib.countryList(defaultCountry)
     USStates: slib.stateList()
     CAStates: slib.stateList("CA")
+    DEReasons: rlib.reasonCodeList()
     path: req.path
     searchURL: req.path+"/results"
     searchTitle: "Search for information on a company"

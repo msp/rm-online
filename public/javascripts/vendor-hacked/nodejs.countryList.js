@@ -83,7 +83,7 @@ exports.countryList = function(selectedElementName){
 	,{name:"Gabon","data-alternative-spellings":"GA République Gabonaise"}
 	,{name:"Gambia","data-alternative-spellings":"GM"}
 	,{name:"Georgia","data-alternative-spellings":"GE საქართველო"}
-	,{name:"Germany","data-alternative-spellings":"DE Bundesrepublik Deutschland","data-relevancy-booster":"3"}
+	// ,{name:"Germany","data-alternative-spellings":"DE Bundesrepublik Deutschland","data-relevancy-booster":"3"}
 	,{name:"Ghana","data-alternative-spellings":"GH"}
 	,{name:"Gibraltar","data-alternative-spellings":"GI","data-relevancy-booster":"0.5"}
 	,{name:"Greece","data-alternative-spellings":"GR Ελλάδα","data-relevancy-booster":"1.5"}
