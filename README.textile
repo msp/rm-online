@@ -1,0 +1,47 @@
+h1. RM Online
+
+This is the front end for "www.rmonlne.com":www.rmonlne.com. It makes API calls to Horus for company data maintained by Alan Douglass over http/xml. We handle the shopping cart, checkout is handled by Horus via SagePay.
+
+h2. Development stack
+
+* Framework: Node.js / "Express":http://expressjs.com
+* View Templates: "Jade":http://jade-lang.com
+* Stylesheets: "Stylus":http://learnboost.github.io/stylus/
+* Testing Framework: "Cucumber.js":https://github.com/cucumber/cucumber-js
+* Front-end Framework: "Purecss.io":Purecss.io
+* Build system: "Grunt":http://gruntjs.com
+* Project template: Evolved from "Yeoman":http://yeoman.io
+
+h2. Getting Started
+
+# Install NodeJS
+# @$npm install@
+# Start server with @$grunt@
+
+h2. Deploy
+
+The site is hosted on "Heroku":rmonline.herokuapp.com
+Pushing to the Github remote will trigger CI from "Codeship.io":https://www.codeship.io/projects/20280 and a deployment to Heroku.
+
+h2. Asset processing
+
+Check the Gruntfile but file changes cause live reload (you'll need a browser plugin) and:
+
+* Stylus /src files -> Autoprefixer
+* Assets auto concatenated at (main|vendor).min.(js|css)
+
+h2. Tests
+
+Run the acceptance tests before you check in
+
+# Start server with @$NODE_ENV=test grunt@
+# @$cucumber.js features@
+
+h2. Relish
+
+Sign off your story by documenting the acceptance tests in Cukes. Once you're happy and you pushed the story to staging:
+
+ @$relish push rm-online@
+
+This pushes the feature files up to our "relish account":https://www.relishapp.com/msp/rm-online/docs.
+
