@@ -3,14 +3,14 @@ include ../mixins/m-home.jade
 .pure-u-1
   .pure-g-r
     .pure-u-1-2
-      +rm-reports
+      +rm-intro-box(funnels[0].title , funnels[0].body, "reports", "/uk-and-international-reports/search")
     .pure-u-1-2
-      +rm-documents
+      +rm-intro-box(funnels[1].title , funnels[1].body, "docs", "/company-documents/search")
 .pure-u-1
   .pure-g-r
     .pure-u-1-3
-      +rm-uk-formations
+      +rm-intro-box(funnels[2].title , funnels[2].body, "uk-formations", "/company-formations/UK/search")
     .pure-u-1-3
-      +rm-int-formations
+      +rm-intro-box(funnels[3].title, funnels[3].body, "int-formations", "/company-formations/international")
     .pure-u-1-3
-      +rm-company-admin-services
+      +rm-intro-box(funnels[4].title, funnels[4].body, "company-admin", "/company-admin-services")

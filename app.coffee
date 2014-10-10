@@ -64,10 +64,36 @@ app.get "/news", (req, res) ->
 app.get "/about", (req, res) ->
   title = "About Us"
   req.breadcrumbs(title, 'about')
+
+  #  tmp until SEO finalised then remove
+  funnels = [
+    {
+      title: "UK & International Business Reports"
+      body: "The only consolidator of all the major brand products from D&B, Experian, Equifax, EBR and RM."
+    }
+    {
+      title: "Company Documents"
+      body: "Available from Companies House and 200 countries across the globe, many instantly."
+    }
+    {
+      title: "UK Company Formations"
+      body: "Fast, professional, easy."
+    }
+    {
+      title: "International Company Formations"
+      body: "Simple, professional, cost effective."
+    }
+    {
+      title: "Company Admin Services"
+      body: "Making things simple for you."
+    }
+
+  ]
   res.render "pages/about",
     title: title
     bcList: req.breadcrumbs()
     extendTemplate: true
+    funnels: funnels
   return
 
 app.get "/services", (req, res) ->
