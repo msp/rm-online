@@ -18,7 +18,7 @@ var myStepDefinitionsWrapper = function () {
   this.Then(/^I should see a Limited company selector$/, function (callback) {
     this.assert.ok(this.browser.query("#company-suffix"));
     callback();
-  });  
+  });
 
   this.Then(/^I should see that "([^"]*)" is already registered$/, function (company, callback) {
     self = this;
@@ -35,7 +35,7 @@ var myStepDefinitionsWrapper = function () {
     this.browser.wait(WAIT, function() {
       self.assert.equal(self.browser.text("H1").toLowerCase(),"'"+company.toLowerCase()+"' available");
       self.assert.equal(self.browser.text("#formation-results H3").toLowerCase(),
-          "great, you're good to go ahead and register '"+company.toLowerCase()+"'. please click the button below to start the process");
+          "great, you're good to go ahead and register '"+company.toLowerCase()+"'. please select the pricing package below and hit the register button to start the process");
       callback();
     })
   });
