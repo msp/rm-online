@@ -2,7 +2,7 @@ moment = require('moment')
 formations = require('./formations')
 
 exports.generate = (req, res) ->
-  appUrl = 'http://rmonline.herokuapp.com'
+  appUrl = 'http://rmonline.com'
   now = moment(new Date).format 'YYYY-MM-DD'
 
   res.header "Content-Type", "application/xml"
