@@ -23,21 +23,26 @@ html.no-js
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Merriweather|Source+Sans+Pro')
 
     // Place favicon.ico and apple-touch-icon.png in the root directory
-    // Bootstrap is customised for modal only functionality
-    // build:css styles/vendor.css
-    link(rel='stylesheet', href='/stylesheets/vendor/purecss/grid.css')
-    link(rel='stylesheet', href='/stylesheets/vendor/purecss/rm-skin.css')
-    link(rel='stylesheet', href='/stylesheets/vendor/hover.css')
-    link(rel='stylesheet', href='/bower_components/responsive-tabs/css/responsive-tabs.css')
-    link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
 
-    // bower:css
-    link(rel='stylesheet', href='/bower_components/font-awesome/css/font-awesome.css')
-    // endbower
-    // endbuild
-    // build:css(.tmp) styles/main.css
-    link(rel="stylesheet", href="/stylesheets/main.css")
-    // endbuild
+    if settings.env != "production"
+      //-<!-- build:css public/stylesheets/vendor.min.css -->
+      // Bootstrap is customised for modal only functionality
+      link(rel='stylesheet', href='/stylesheets/vendor/purecss/grid.css')
+      link(rel='stylesheet', href='/stylesheets/vendor/purecss/rm-skin.css')
+      link(rel='stylesheet', href='/stylesheets/vendor/hover.css')
+      link(rel='stylesheet', href='/bower_components/responsive-tabs/css/responsive-tabs.css')
+      link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+      link(rel='stylesheet', href='/bower_components/font-awesome/css/font-awesome.css')
+      //-<!-- endbuild -->
+    else
+      link(rel='stylesheet', href='/stylesheets/vendor.min.css')
+
+    if settings.env != "production"
+      //-<!-- build:css(.tmp) public/stylesheets/main.min.css -->
+      link(rel="stylesheet", href="/stylesheets/main.css")
+      //-<!-- endbuild -->
+    else
+      link(rel="stylesheet", href="/stylesheets/main.min.css")
 
     if polymer && (settings.env == "production" || settings.env == "development")
       // Polyfill Web Components support for older browsers, must be first
@@ -89,25 +94,29 @@ html.no-js
     script(src="/bower_components/json3/lib/json3.min.js")
     <![endif]-->
 
-    // MSP TODO simpleCart.js contains an edit. Fork repo?
-    // build:js javascripts/vendor.js
-    // bower:js
-    script(src='/bower_components/jquery/dist/jquery.js')
-    script(src='/bower_components/es5-shim/es5-shim.js')
-    script(src='/bower_components/json3/lib/json3.min.js')
-    script(src='/bower_components/jQuery-Collapse/src/jquery.collapse.js')
-    script(src='/bower_components/responsive-tabs/js/jquery.responsiveTabs.min.js')
-    script(src='/bower_components/simplecart-js/simpleCart.js')
-    // Bootstrap modal is needed by SimpleCart
-    // Be careful about pulling in all of Bootstrap as it's collapse will clash
-    // with our JQuery Collapse plugin.
-    script(src='/bower_components/bootstrap/js/modal.js')
-    // endbower
-    // endbuild
+    if settings.env != "production"
+      // MSP TODO simpleCart.js contains an edit. Fork repo?
+      //-<!-- build:js public/javascripts/vendor.min.js -->
+      script(src='/bower_components/jquery/dist/jquery.js')
+      script(src='/bower_components/es5-shim/es5-shim.js')
+      script(src='/bower_components/json3/lib/json3.min.js')
+      script(src='/bower_components/jQuery-Collapse/src/jquery.collapse.js')
+      script(src='/bower_components/responsive-tabs/js/jquery.responsiveTabs.min.js')
+      script(src='/bower_components/simplecart-js/simpleCart.js')
+      // Bootstrap modal is needed by SimpleCart
+      // Be careful about pulling in all of Bootstrap as it's collapse will clash
+      // with our JQuery Collapse plugin.
+      script(src='/bower_components/bootstrap/js/modal.js')
+      //-<!-- endbuild -->
+    else
+      script(src='/javascripts/vendor.min.js')
 
-    // build:js(.tmp) javascripts/main.js
-    script(src='/javascripts/main.js')
-    // endbuild
+    if settings.env != "production"
+      //-<!-- build:js(.tmp) public/javascripts/main.min.js -->
+      script(src='/javascripts/main.js')
+      //-<!-- endbuild -->
+    else
+      script(src='/javascripts/main.min.js')
 
     if path == "/news"
       script(src="https://www.google.com/jsapi")

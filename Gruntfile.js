@@ -11,7 +11,18 @@ module.exports = function (grunt) {
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
+  // Time how long tasks take. Can help when optimizing build times
+  require('time-grunt')(grunt);
+
+  // Configurable paths
+  var config = {
+      app: 'views'
+  };
+
   grunt.initConfig({
+
+    // Project settings
+    config: config,
 
     express: {
       options: {
@@ -47,7 +58,7 @@ module.exports = function (grunt) {
           ,'public/stylesheets/**/*.css'
           ,'json/**/*.json'
         ],
-        tasks:  ['express:dev' ],
+        tasks:  ['express:dev', 'jadeUsemin'],
         // server used with FF extension
         options: {
           livereload: true,
@@ -82,6 +93,21 @@ module.exports = function (grunt) {
         ,src: 'src/stylesheets/main.css'
         ,dest: 'public/stylesheets/main.css'
       }
+    },
+
+    jadeUsemin: {
+        scripts: {
+            options: {
+                tasks: {
+                    js: ['concat', 'uglify'],
+                    css: ['concat', 'cssmin']
+                }
+                ,prefix: '../public',
+            }
+            ,files: [{
+                src: 'views/index.jade'
+            }]
+        }
     },
 
     // Automatically inject Bower components into the app
