@@ -20,15 +20,17 @@ exports.index = (req, res) ->
       , (err, cells) ->
         title     = cells.cells[2][1].value
         h1        = cells.cells[2][2].value
-        intro     = cells.cells[2][3].value
-        meta      = cells.cells[2][4].value
-        outro     = cells.cells[2][5].value
+        heading   = cells.cells[2][3].value
+        intro     = cells.cells[2][4].value
+        meta      = cells.cells[2][5].value
+        outro     = cells.cells[2][6].value
 
         # inspect(cells.cells)
 
         res.render "pages/home",
           title: title
           h1: h1
+          heading: heading
           intro: intro
           meta: meta
           outro: outro
@@ -37,6 +39,7 @@ exports.index = (req, res) ->
       res.render "pages/home",
         title: title
         h1: h1
+        heading: heading
         intro: intro
         meta: meta
         outro: outro

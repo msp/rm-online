@@ -184,6 +184,31 @@
   padding-bottom: 0;
 }
 
+.pure-skin-rm .content html .heading.no-border,
+.pure-skin-rm .header html .heading.no-border,
+.pure-skin-rm .footer html .heading.no-border,
+.pure-skin-rm .content button .heading.no-border,
+.pure-skin-rm .header button .heading.no-border,
+.pure-skin-rm .footer button .heading.no-border,
+.pure-skin-rm .content input .heading.no-border,
+.pure-skin-rm .header input .heading.no-border,
+.pure-skin-rm .footer input .heading.no-border,
+.pure-skin-rm .content select .heading.no-border,
+.pure-skin-rm .header select .heading.no-border,
+.pure-skin-rm .footer select .heading.no-border,
+.pure-skin-rm .content textarea .heading.no-border,
+.pure-skin-rm .header textarea .heading.no-border,
+.pure-skin-rm .footer textarea .heading.no-border,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .heading.no-border,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .heading.no-border,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .heading.no-border,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .heading.no-border,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .heading.no-border,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .heading.no-border {
+  border: none;
+  padding-bottom: 0;
+}
+
 .pure-skin-rm .content html h1.home,
 .pure-skin-rm .header html h1.home,
 .pure-skin-rm .footer html h1.home,
@@ -207,6 +232,36 @@
 .pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h1.home {
   font-size: 40px;
   line-height: 45px;
+  margin: 35px 0 40px 0;
+}
+
+.pure-skin-rm .content html .heading.home,
+.pure-skin-rm .header html .heading.home,
+.pure-skin-rm .footer html .heading.home,
+.pure-skin-rm .content button .heading.home,
+.pure-skin-rm .header button .heading.home,
+.pure-skin-rm .footer button .heading.home,
+.pure-skin-rm .content input .heading.home,
+.pure-skin-rm .header input .heading.home,
+.pure-skin-rm .footer input .heading.home,
+.pure-skin-rm .content select .heading.home,
+.pure-skin-rm .header select .heading.home,
+.pure-skin-rm .footer select .heading.home,
+.pure-skin-rm .content textarea .heading.home,
+.pure-skin-rm .header textarea .heading.home,
+.pure-skin-rm .footer textarea .heading.home,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .heading.home,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .heading.home,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .heading.home,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .heading.home,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .heading.home,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .heading.home {
+  font-family: 'Merriweather',serif;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 45px;
+  color: #0184a2;
+  padding-bottom: 20px;
   margin: 35px 0 40px 0;
 }
 
