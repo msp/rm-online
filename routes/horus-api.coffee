@@ -28,7 +28,7 @@ class HorusAPI
     @documentsByCabinet = undefined
     @template = "search/results"
     @results = undefined
-    @debug = false
+    @debug = true
     @term = @term.trim()
     @country = country
     @company = undefined
