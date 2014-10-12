@@ -1,0 +1,1 @@
+for i in {1..3};do curl -s -w "%{time_total}\n" -o /dev/null -X GET "http://web.rmonline.com/servlet/com.armadillo.online?service=einc&function=cosearch_ch_alt&Request=NameAvailableSearch&SearchRows=1&stylesheet=none&SearchData=foo%20LIMITED"; done
