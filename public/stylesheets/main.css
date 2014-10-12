@@ -1526,6 +1526,29 @@ li.terms-section {
   margin-top: 50px;
 }
 
+.pricing-packages-modal-dialog {
+  margin: 30px auto;
+  width: 800px;
+}
+
+table#pricing-packages .feature {
+  width: 30%;
+  text-align: left;
+}
+
+table#pricing-packages th,
+table#pricing-packages td {
+  width: 17.5%;
+  border: 0 solid #808080;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table#pricing-packages th h4:hover {
+  cursor: help;
+}
+
 .admin-section {
   margin-bottom: 40px;
 }

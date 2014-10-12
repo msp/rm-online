@@ -54,12 +54,19 @@ block main
 
           else
             #company-available
-              h3 Great, you're good to go ahead and register '#{term} #{suffix}'. Please select the pricing package below and hit the register button to start the process
+              p
+                | Great, you're good to go ahead and register '#{term} #{suffix}'.
+                br
+                | Please compare our
+                a(href="#" data-toggle='modal', data-target='#pricing-packages-modal')  pricing packages
+
+                | , select the desired package below and hit the register button to start the process.
 
               - var requestedCompany = term+" "+suffix
               include _pricing-packages
 
-
+    .pure-u-1
+      include ../includes/_modal-pricing-packages.jade
     .pure-u-1
       iframe(src="/company-formations/spike", width="1024", height="2300", seamless, scrolling="no", id="horus-iframe", name="horus-iframe", style="display:none;")
 

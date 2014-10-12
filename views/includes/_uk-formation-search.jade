@@ -16,6 +16,10 @@
           | RM offers a high quality professional company formation service. Our executive package includes everything necessary to commence trading as a UK registered company.
           | All documents are presented in a specially designed case so as the business progresses, official documents can be kept safely and within easy reach.
           | With 40 years experience, RM specialises in establishing and managing companies, trusts and private foundations.
+          br
+          | Compare our
+          a(href="#" data-toggle='modal', data-target='#pricing-packages-modal')  pricing packages
+          |.
     .pure-u-1-2
       .l-box
         img.intro-icon(src="/images/search/search-icon-large.png", alt="search for company information")
@@ -52,3 +56,7 @@ if !term
         li Public Limited Companies
         li Flat Management Companies
         li Limited by Guarantee
+
+.pure-u-1
+  .l-box
+    include _modal-pricing-packages.jade

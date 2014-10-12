@@ -24,8 +24,6 @@ var myStepDefinitionsWrapper = function () {
     self = this;
     this.browser.wait(WAIT, function() {
       self.assert.equal(self.browser.text("H1").toLowerCase(),"'"+company+"' already registered");
-      self.assert.equal(self.browser.text("#formation-results H3").toLowerCase(),
-        "please try an alternative or select one of our suggested variations.");
       callback();
     })
   });
@@ -34,14 +32,15 @@ var myStepDefinitionsWrapper = function () {
     self = this;
     this.browser.wait(WAIT, function() {
       self.assert.equal(self.browser.text("H1").toLowerCase(),"'"+company.toLowerCase()+"' available");
-      self.assert.equal(self.browser.text("#formation-results H3").toLowerCase(),
-          "great, you're good to go ahead and register '"+company.toLowerCase()+"'. please select the pricing package below and hit the register button to start the process");
       callback();
     })
   });
 
   this.Then(/^I should see (\d+) alternative suggestions similar to "([^"]*)"$/, function (num, company, callback) {
     this.assert.ok(this.browser.query("#formation-results #alternative-names"));
+    this.assert.equal(self.browser.text("#formation-results H3").toLowerCase(),
+        "please try an alternative or select one of our suggested variations.");
+
     this.assert.equal(this.browser.queryAll("#formation-results #alternative-names tbody tr").length, num);
     callback();
   });
