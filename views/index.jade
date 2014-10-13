@@ -125,63 +125,9 @@ html.no-js
     // zombie craps out with this script
     if settings.env == "production" || settings.env == "development"
       if /search/i.test(path)
-        script(src="/javascripts/vendor/jquery-ui-autocomplete.js")
-        script(src="/javascripts/vendor-hacked/jquery.select-to-autocomplete.js")
-        script.
-          $(document).ready(function() {
-            $('#us-state-selector').hide();
-            $('#ca-state-selector').hide();
-            $('#de-reason-selector').hide();
+        include includes/_autocomplete-js
 
-            $('#country-selector').selectToAutocomplete();
-            $('#us-state-selector').selectToAutocomplete();
-            $('#ca-state-selector').selectToAutocomplete();
-            $('#de-reason-selector').selectToAutocomplete();
-
-            $( "select#country-selector" ).change(function() {
-              if ($(this).val() == "US") {
-                $('#us-state-selector').show();
-                $('#ca-state-selector').hide();
-                $('#de-reason-selector').hide();
-                $('#ca-state-selector').attr('disabled', true);
-                $('#de-reason-selector').attr('disabled', true);
-                $('#ca-state-selector').next().hide();
-                $('#de-reason-selector').next().hide();
-                $('#us-state-selector').removeAttr('disabled')
-                $('#us-state-selector').selectToAutocomplete();
-
-              } else if ($(this).val() == "CA") {
-                $('#ca-state-selector').show();
-                $('#us-state-selector').hide();
-                $('#de-reason-selector').hide();
-                $('#us-state-selector').attr('disabled', true);
-                $('#de-reason-selector').attr('disabled', true);
-                $('#us-state-selector').next().hide();
-                $('#de-reason-selector').next().hide();
-                $('#ca-state-selector').removeAttr('disabled')
-                $('#ca-state-selector').selectToAutocomplete();
-              } else if ($(this).val() == "DE") {
-                $('#de-reason-selector').show();
-                $('#us-state-selector').hide();
-                $('#ca-state-selector').hide();
-                $('#us-state-selector').attr('disabled', true);
-                $('#ca-state-selector').attr('disabled', true);
-                $('#us-state-selector').next().hide();
-                $('#ca-state-selector').next().hide();
-                $('#de-reason-selector').removeAttr('disabled')
-                $('#de-reason-selector').selectToAutocomplete();
-              } else {
-                $('#us-state-selector').hide();
-                $('#ca-state-selector').hide();
-                $('#de-reason-selector').hide();
-                $('#us-state-selector').next().hide();
-                $('#ca-state-selector').next().hide();
-                $('#de-reason-selector').next().hide();
-                $('#us-state-selector').attr('disabled', true);
-                $('#ca-state-selector').attr('disabled', true);
-                $('#de-reason-selector').attr('disabled', true);
-              }
-              //- DE
-            });
-          })
     block main-js
+
+
+
