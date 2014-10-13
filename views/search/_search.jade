@@ -10,7 +10,7 @@ form#search-form.pure-form(action="#{searchURL}", method="get")
       //-       a(id="int-info-search", href="#")  International
       .pure-g-r
         .pure-u-14-24
-          input(id='search-term', type='text', value='', placeholder='enter a company name', name="term")
+          input(id='search-term', type='text', value='', placeholder='enter a company name', name="term", required)
         .pure-u-5-24
           if !formations
             include _country-selector

@@ -1,15 +1,15 @@
-select(name="country", id="country-selector", autofocus="autofocus", autocorrect="off", autocomplete="off", placeholder="type a country")
+select(name="country", id="country-selector", autofocus="autofocus", autocorrect="off", autocomplete="off", placeholder="type a country" required)
   each countryOption in countries
     != countryOption
 
-select(name="region", id="us-state-selector", autofocus="autofocus", autocorrect="off", autocomplete="off", placeholder="type a state", disabled, style="display:none")
+select(name="region", id="us-state-selector", autofocus="autofocus", autocorrect="off", autocomplete="off", placeholder="type a state", disabled, style="display:none" required)
   each stateOption in USStates
     != stateOption
 
-select(name="region", id="ca-state-selector", autofocus="autofocus", autocorrect="off", autocomplete="off", placeholder="type a state", disabled, style="display:none")
+select(name="region", id="ca-state-selector", autofocus="autofocus", autocorrect="off", autocomplete="off", placeholder="type a state", disabled, style="display:none" required)
   each stateOption in CAStates
     != stateOption
 
-select(name="reasonCode", id="de-reason-selector", autofocus="autofocus", autocorrect="off", autocomplete="off", placeholder="type a state", disabled, style="display:none")
+select(name="reasonCode", id="de-reason-selector", autofocus="autofocus", autocorrect="off", autocomplete="off", placeholder="type a state", disabled, style="display:none" required)
   each reasonOption in DEReasons
     != reasonOption
