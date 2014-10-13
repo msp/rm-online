@@ -205,6 +205,10 @@ exports.intMappingCallback = (result) ->
     this.error = result.horus.error[0]
     console.log("ERROR from Horus")
     inspect(this.error)
+  else if result.horus.DGX[0].error
+    this.error = { code: [96], description: result.horus.DGX[0].error }
+    console.log("DGX ERROR from Horus")
+    inspect(this.error)
   else
     this.results = result.horus.DGX[0].CREDITMSGSRSV2[0].LOOKUPTRNRS[0].LOOKUPRS[0].LOOKUPRSCOMPANY
     this.reports = result.horus.DGX[0].reports[0]
