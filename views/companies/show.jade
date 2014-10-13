@@ -102,7 +102,10 @@ block main
                                 img(src="/images/partner-logos/bw/#{slug(vendor).toLowerCase()}.png", alt="#{vendor}")
                                 each doc, index in documents[vendor][0].document
                                   if index < 3
-                                    div(class="document-#{index+1}") [#{doc.document_type}] #{doc.doc_description}, #{doc.document_id}
+                                    - var date = ""
+                                    if (String(doc.document_date).trim().length > 0)
+                                      - date = "- "+moment(doc.document_date, "YYYYMMDD").format("DD/MM/YYYY")
+                                    div(class="document-#{index+1}") #{doc.doc_description} #{date}
 
 
                                 //- Need something more sophistciated to group the available docs into 3, by cabinet
