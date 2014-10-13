@@ -3,6 +3,15 @@ extends index
 block main
   .pure-u-1
     .l-box
-      h1= message
-      h2= error.status
-      pre #{error.stack}
+      h1 #{status}: #{message}
+      - var userMessage = ""
+      if status == 404
+        - userMessage = "Sorry, we can't seem to find that page."
+      if status == 500
+        - userMessage = "Sorry, something blew up in the grid. We've been notified."
+
+      p= userMessage
+
+      if error.stack
+        h2= error.status
+        pre #{error.stack}
