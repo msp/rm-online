@@ -28,7 +28,7 @@ class HorusAPI
     @documentsByCabinet = undefined
     @template = "search/results"
     @results = undefined
-    @debug = true
+    @debug = false
     @term = @term.trim()
     @country = country
     @company = undefined
@@ -157,7 +157,7 @@ class HorusAPI
       @term = @term.replace(new RegExp(suffix+"$", "gi"), "")
 
   _search: (@url, @callback, @validate) ->
-    if @debug then console.log("URL: #{@url}")
+    console.log("URL: #{@url}")
     self = this
     responseBuffer = ""
 

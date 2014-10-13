@@ -1,0 +1,6 @@
+{
+  "express": {
+      "staticCache" : 604800000
+  }
+}
+

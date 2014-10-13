@@ -7,6 +7,9 @@ logger = require("morgan")
 cookieParser = require("cookie-parser")
 bodyParser = require("body-parser")
 stylus = require('stylus')
+config = require('config')
+compression = require('compression')
+
 
 #routes
 home = require('./routes/home')
@@ -26,19 +29,22 @@ app = express()
 app.set "views", path.join(__dirname, "views")
 app.set "view engine", "jade"
 
+#  gzip responses
+app.use(compression());
+
 # breadcrumbs
 app.use(breadcrumbs.init())
 app.use(breadcrumbs.setHome("Home"))
 
-app.use(favicon(__dirname + '/public/favicon.ico'))
+app.use(favicon(__dirname + '/public/favicon.ico', { maxAge: config.get('express.staticCache') }))
 app.use logger("dev")
 app.use bodyParser.json()
 app.use bodyParser.urlencoded()
 app.use cookieParser()
 
 # grunt is tasking care of this instead. Remove?
-app.use stylus.middleware(path.join(__dirname, "public"))
-app.use express.static(path.join(__dirname, "public"))
+app.use(stylus.middleware(path.join(__dirname, "public")))
+app.use(express.static(path.join(__dirname, "public"), { maxAge: config.get('express.staticCache') }))
 
 #  helpers
 app.locals.slug = require('slug')
@@ -226,10 +232,12 @@ if app.get("env") is "development"
 
     return
 
-
 # production error handler
 # no stacktraces leaked to user
 app.use (err, req, res, next) ->
+  # don't log 500/404 but otherwise..
+  if !err.status
+    console.error("!BANG! #{err.stack}")
   res.status err.status or 500
   res.render "error",
     status: err.status

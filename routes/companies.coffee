@@ -221,15 +221,6 @@ exports.intMappingCallback = (result) ->
     company.name =  this.results[0].NME
     company.address1 = this.results[0].ADR_LINE
     company.address2 = this.results[0].POST_CODE
-    # company.address3 = this.results[0].ro_address[0].line_three
-    # company.address4 = this.results[0].ro_address[0].line_four
-    # company.postcode = this.results[0].POST_CODE
-    # company.type = this.results[0].company_type_description
-    # company.incorporationDate = this.results[0].incorporation_date
-    # company.status = this.results[0].company_status
-    # company.latestAccounts = this.results[0].acc_made_up_date
-    # company.latestAnnualReturn = this.results[0].ret_made_up_date
-    # company.accountsType = exports.ACCOUNT_TYPES[this.results[0].accounts_type]
 
     this.company = company
     this.title = company.name
