@@ -147,8 +147,7 @@ exports.ukMappingCallback = (result) ->
 
     # we need to group the docs by vendor, then cabinet
     for vendor in vendors
-      # console.log("VENDOR: "+vendor)
-      if vendor = "RM" && ungrouped[vendor].document
+      if vendor == "RM" && ungrouped[vendor][0].document
         do (vendor) ->
           tmpVendor = {}
           vendorDocs = []
