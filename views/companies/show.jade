@@ -94,7 +94,7 @@ block main
                 .pure-g-r
                   if documents
                     each vendor in Object.keys(documents)
-                      if vendor == "RM"
+                      if vendor == "RM" && documents[vendor][0].document
                         .pure-u-1-3
                           .l-box
                             .report-box.hover-shadow
