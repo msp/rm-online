@@ -93,38 +93,15 @@ block main
               #documents
                 .pure-g-r
                   if documents
-                    each vendor in Object.keys(documents)
-                      if vendor == "RM" && documents[vendor][0].document
-                        .pure-u-1-3
-                          .l-box
-                            .report-box.hover-shadow
-                              a(href="/companies/"+country+"/"+company.id+"/documents/"+slug(vendor).toLowerCase(), class="#{vendor.toLowerCase()}")
-                                img(src="/images/partner-logos/bw/#{slug(vendor).toLowerCase()}.png", alt="#{vendor}")
-                                each doc, index in documents[vendor][0].document
-                                  if index < 3
-                                    - var date = ""
-                                    if (String(doc.document_date).trim().length > 0)
-                                      - date = "- "+moment(doc.document_date, "YYYYMMDD").format("DD/MM/YYYY")
-                                    div(class="document-#{index+1}") #{doc.doc_description} #{date}
-
-
-                                //- Need something more sophistciated to group the available docs into 3, by cabinet
-                                //- - var label = ""
-                                //- - var comma = ""
-                                //- - var divIndex = 1
-                                //- - var cabCount = 1
-                                //- each cabinet, index in documentsByCabinet[0][vendor.toUpperCase()]
-                                //-   //- if cabinet.values.length > 0
-                                //-   if cabCount == 4
-                                //-     div(class="document-#{divIndex}") #{label}
-                                //-     - label = ""
-                                //-     - comma = ""
-                                //-     - divIndex++
-                                //-     - cabCount = 1
-                                //-   else
-                                //-     - label += comma+cabinet.label
-                                //-     - comma = ", "
-                                //-     - cabCount++
+                    if documents.RM[0].document
+                      .pure-u-1-3
+                        .l-box
+                          .report-box.hover-shadow
+                            a(href="/companies/"+country+"/"+company.id+"/documents/rm", class="rm")
+                              img(src="/images/partner-logos/bw/rm.png", alt="Buy 50p docuements from RM")
+                              div(class="document-1") 50p documents from RM
+                              div(class="document-2") Click to here to see a full list
+                              div(class="document-3") #{documents.RM[0].document.length} Available
                     // CH portal login gubbins via Horus.
                     .pure-u-1-3
                       .l-box

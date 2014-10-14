@@ -6,9 +6,20 @@ var myStepDefinitionsWrapper = function () {
     COMPANY_NUMBER = companyNumber;
     this.visit("companies/gb/"+companyNumber, callback);
   });
+  
+  this.When(/^I visit the Belgian profile page for company "([^"]*)"$/, function (companyNumber, callback) {
+    COMPANY_NUMBER = companyNumber;
+    this.visit("companies/BE/"+companyNumber, callback);
+  });
 
   this.Then(/^I should be on the profile page for "([^"]*)"$/, function (companyName, callback) {
     this.assert.equal(this.browser.location.pathname, "/companies/gb/"+COMPANY_NUMBER);
+    this.assert.equal(this.browser.text("H1").toLowerCase(), companyName.toLowerCase());
+    callback();
+  });
+
+  this.Then(/^I should be on the Belgian profile page for "([^"]*)"$/, function (companyName, callback) {
+    this.assert.equal(this.browser.location.pathname, "/companies/BE/"+COMPANY_NUMBER);
     this.assert.equal(this.browser.text("H1").toLowerCase(), companyName.toLowerCase());
     callback();
   });
@@ -19,12 +30,12 @@ var myStepDefinitionsWrapper = function () {
     callback();
   });
 
-  this.Then(/^I should see the (\d+) vendor reports available$/, function (num, callback) {
+  this.Then(/^I should see the (\d+) vendor report sets? available$/, function (num, callback) {
     this.assert.equal(this.browser.queryAll("#reports .report-box").length, num);
     callback();
   });
 
-  this.Then(/^I should see (\d+) vendor documents available$/, function (num, callback) {
+  this.Then(/^I should see (\d+) vendor document sets? available$/, function (num, callback) {
     this.assert.equal(this.browser.queryAll("#documents .report-box").length, num);
     callback();
   });
@@ -84,5 +95,15 @@ var myStepDefinitionsWrapper = function () {
   });
 
 
+  this.Then(/^I should see (\d+) 50p RM documents available$/, function (num, callback) {
+    this.assert.equal(this.browser.text(".report-box .rm .document-3").toLowerCase(), num+" available".toLowerCase());
+    callback();
+  });
+
+  this.Then(/^I should see an option to contact Julia$/, function (callback) {
+    this.assert.ok(this.browser.query("#contact_documents"));
+    callback();
+  });
+  
 };
 module.exports = myStepDefinitionsWrapper;
