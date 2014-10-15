@@ -4,10 +4,10 @@ http = require 'http',
 xml2js = require 'xml2js'
 inspect = require('eyes').inspector({maxLength: false})
 companies = require('./companies')
+config = require('config')
 
 class HorusAPI
 
-  @DOMAIN = "web.rmonline.com"
   @SERVLET = "/servlet/com.armadillo.online"
   @UK_COMPANY_SEARCH_URL = "#{HorusAPI.SERVLET}?service=rm008&function=busmatch_nocaptcha&stylesheet=none&searchdata="
   @INT_COMPANY_SEARCH_URL = "#{HorusAPI.SERVLET}?service=rm008&function=intcomatch_rmonline_nocaptcha&databases=LDP&type=A&requestType=search&archdb=LPD&stylesheet=none"
@@ -161,14 +161,15 @@ class HorusAPI
       @term = @term.replace(new RegExp(suffix+"$", "gi"), "")
 
   _search: (@url, @callback, @validate) ->
-    console.log("URL: #{@url}")
+    domain = config.get('express.horusDomain')
+    console.log("URL: #{domain}#{@url}")
     self = this
     responseBuffer = ""
     timeOut = undefined
     timeOutThreshold = process.env.HORUS_TIMEOUT_MS || 15000
 
     options = {
-      hostname: HorusAPI.DOMAIN
+      hostname: domain
       ,path: @url
       ,method: 'GET'
     }

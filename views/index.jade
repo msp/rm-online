@@ -24,7 +24,7 @@ html.no-js
 
     // Place favicon.ico and apple-touch-icon.png in the root directory
 
-    if settings.env != "production"
+    if settings.env != "production" && settings.env != "staging"
       //-<!-- build:css public/stylesheets/vendor.min.css -->
       // Bootstrap is customised for modal only functionality
       link(rel='stylesheet', href='/stylesheets/vendor/purecss/grid.css')
@@ -37,14 +37,14 @@ html.no-js
     else
       link(rel='stylesheet', href='/stylesheets/vendor.min.css')
 
-    if settings.env != "production"
+    if settings.env != "production" && settings.env != "staging"
       //-<!-- build:css(.tmp) public/stylesheets/main.min.css -->
       link(rel="stylesheet", href="/stylesheets/main.css")
       //-<!-- endbuild -->
     else
       link(rel="stylesheet", href="/stylesheets/main.min.css")
 
-    if polymer && (settings.env == "production" || settings.env == "development")
+    if polymer && (settings.env == "production" || settings.env == "staging"|| settings.env == "development")
       // Polyfill Web Components support for older browsers, must be first
       script(src="/bower_components/platform/platform.js")
 
@@ -94,7 +94,7 @@ html.no-js
     script(src="/bower_components/json3/lib/json3.min.js")
     <![endif]-->
 
-    if settings.env != "production"
+    if settings.env != "production" && settings.env != "staging"
       // MSP TODO simpleCart.js contains an edit. Fork repo?
       //-<!-- build:js public/javascripts/vendor.min.js -->
       script(src='/bower_components/jquery/dist/jquery.js')
@@ -111,7 +111,7 @@ html.no-js
     else
       script(src='/javascripts/vendor.min.js')
 
-    if settings.env != "production"
+    if settings.env != "production" && settings.env != "staging"
       //-<!-- build:js(.tmp) public/javascripts/main.min.js -->
       script(src='/javascripts/main.js')
       //-<!-- endbuild -->
@@ -123,7 +123,7 @@ html.no-js
       script(src="/javascripts/news.js")
 
     // zombie craps out with this script
-    if settings.env == "production" || settings.env == "development"
+    if settings.env == "production" || settings.env == "staging" || settings.env == "development"
       if /search/i.test(path)
         include includes/_autocomplete-js
 

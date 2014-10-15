@@ -1,6 +1,7 @@
 {
   "express": {
       "staticCache" : 604800000
+      ,"horusDomain" : "web.rmonline.com"
   }
 }
 
