@@ -9,3 +9,4 @@ npm-debug.log
 tmp.*
 horus/spike
 newrelic_agent.log
+rm.log

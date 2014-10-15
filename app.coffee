@@ -9,6 +9,8 @@ bodyParser = require("body-parser")
 stylus = require('stylus')
 config = require('config')
 compression = require('compression')
+memwatch = require('memwatch')
+inspect = require('eyes').inspector({maxLength: false})
 
 
 #routes
@@ -24,6 +26,16 @@ sitemap = require('./routes/sitemap')
 companyAdmin = require('./routes/company-admin')
 
 app = express()
+
+memwatch.on "leak", (info) ->
+  console.log "LEAK"
+  inspect info
+  return
+
+memwatch.on "stats", (stats) ->
+  console.log "STATS"
+  inspect stats
+  return
 
 # view engine setup
 app.set "views", path.join(__dirname, "views")
