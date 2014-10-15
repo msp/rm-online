@@ -7,7 +7,8 @@ companies = require('./companies')
 
 class HorusAPI
 
-  @SERVLET = "http://web.rmonline.com/servlet/com.armadillo.online"
+  @DOMAIN = "web.rmonline.com"
+  @SERVLET = "/servlet/com.armadillo.online"
   @UK_COMPANY_SEARCH_URL = "#{HorusAPI.SERVLET}?service=rm008&function=busmatch_nocaptcha&stylesheet=none&searchdata="
   @INT_COMPANY_SEARCH_URL = "#{HorusAPI.SERVLET}?service=rm008&function=intcomatch_rmonline_nocaptcha&databases=LDP&type=A&requestType=search&archdb=LPD&stylesheet=none"
   @FORMATIONS_URL = "#{HorusAPI.SERVLET}?service=einc&function=cosearch_ch_alt&Request=NameAvailableSearch&SearchRows=1&stylesheet=none&SearchData="
@@ -15,8 +16,11 @@ class HorusAPI
   @UK_COMPANY_URL = "#{HorusAPI.SERVLET}?service=ccard_v3&function=cobasic_nocaptcha&stylesheet=none&reference="
   @INT_COMPANY_URL = "#{HorusAPI.SERVLET}?service=ccard_v3&function=intcobasic&requestType=product&stylesheet=none&session=&companyID="
 
-  @HTTP_ERROR = "Sorry, unsuccessful response from our search API. Please try again later."
-  @TRANSPORT_ERROR = "ERROR transport error talking to Horus: "
+  @TRANSPORT_ERROR = {code: 99, msg: "ERROR transport error talking to Horus: "}
+  @HTTP_ERROR  = {code: 98, msg: "Sorry, unsuccessful response from our search API. Please try again later."}
+  @HORUS_ERROR = {code: 97}
+  @TIMEOUT_ERROR = {code: 94, msg:"Sorry, unable to get a response from our back end service after "}
+
   @SUFFIXES = ["LIMITED", "PLC", "LLP"]
 
   constructor: (@req, @res, @term, @title, @country) ->
@@ -38,31 +42,31 @@ class HorusAPI
     console.log("UK company reports, vendor: #{this.req.params.vendor}")
 
     @template = "companies/view-reports"
-    @_search(HorusAPI.UK_COMPANY_URL+"#{@term}", companies.ukMappingCallback, companies.ukValidationCallback)
+    @_search(HorusAPI.UK_COMPANY_URL+"#{encodeURIComponent(@term)}", companies.ukMappingCallback, companies.ukValidationCallback)
 
   intCompanyReports: ->
     console.log("INT company reports, vendor: #{this.req.params.vendor}")
 
     @template = "companies/view-reports"
-    @_search(HorusAPI.INT_COMPANY_URL+"#{@term}&country=#{@country.toUpperCase()}", companies.intMappingCallback, companies.intValidationCallback)
+    @_search(HorusAPI.INT_COMPANY_URL+"#{encodeURIComponent(@term)}&country=#{@country.toUpperCase()}", companies.intMappingCallback, companies.intValidationCallback)
 
   ukCompanyDocuments: ->
     console.log("UK company documents, vendor: #{this.req.params.vendor}")
 
     @template = "companies/view-documents"
-    @_search(HorusAPI.UK_COMPANY_URL+"#{@term}", companies.ukMappingCallback, companies.ukValidationCallback)
+    @_search(HorusAPI.UK_COMPANY_URL+"#{encodeURIComponent(@term)}", companies.ukMappingCallback, companies.ukValidationCallback)
 
   ukCompany: ->
     console.log("UK company")
 
     @template = "companies/show"
-    @_search(HorusAPI.UK_COMPANY_URL+"#{@term}", companies.ukMappingCallback, companies.ukValidationCallback)
+    @_search(HorusAPI.UK_COMPANY_URL+"#{encodeURIComponent(@term)}", companies.ukMappingCallback, companies.ukValidationCallback)
 
   intCompany: ->
     console.log("INT company")
 
     @template = "companies/show"
-    @_search(HorusAPI.INT_COMPANY_URL+"#{@term}&country=#{@country.toUpperCase()}", companies.intMappingCallback, companies.intValidationCallback)
+    @_search(HorusAPI.INT_COMPANY_URL+"#{encodeURIComponent(@term)}&country=#{@country.toUpperCase()}", companies.intMappingCallback, companies.intValidationCallback)
 
   ukCompanySearch: ->
     console.log("UK companySearch")
@@ -86,7 +90,7 @@ class HorusAPI
       console.log("validationCallback, term: #{this.term}")
       if !this.term then this._renderTemplate()
 
-    @_search(HorusAPI.UK_COMPANY_SEARCH_URL+"#{@term}", mappingCallback, validationCallback)
+    @_search(HorusAPI.UK_COMPANY_SEARCH_URL+"#{encodeURIComponent(@term)}", mappingCallback, validationCallback)
 
   intCompanySearch: ->
     console.log("INT companySearch")
@@ -96,7 +100,7 @@ class HorusAPI
       records = []
 
       if result.horus.error
-        this.error = { code: [97], description: result.horus.error }
+        this.error = { code: [HorusAPI.HORUS_ERROR.code], description: result.horus.error }
       else
         for record in result.horus.DGX[0].CREDITMSGSRSV2[0].LOOKUPTRNRS[0].LOOKUPRS[0].LOOKUPRSCOMPANY
           tmp =
@@ -113,7 +117,7 @@ class HorusAPI
       if !this.term then this._renderTemplate()
 
     # love this API :/
-    searchURL = HorusAPI.INT_COMPANY_SEARCH_URL+"&country=#{@country}&searchdata=#{@term}&searchdata2=#{@term}&companyName=#{@term}"
+    searchURL = HorusAPI.INT_COMPANY_SEARCH_URL+"&country=#{@country}&searchdata=#{encodeURIComponent(@term)}&searchdata2=#{encodeURIComponent(@term)}&companyName=#{encodeURIComponent(@term)}"
 
     if @req.query.region
       searchURL = searchURL + "&region=#{@req.query.region}"
@@ -150,7 +154,7 @@ class HorusAPI
         this.error = { code: [govTalkError.Number], description: ["GovTalk #{govTalkError.RaisedBy}: #{govTalkError.Text}"] }
         this.results = undefined
 
-    @_search(HorusAPI.FORMATIONS_URL+"#{@term} #{@req.query.suffix}", mappingCallback)
+    @_search(HorusAPI.FORMATIONS_URL+"#{encodeURIComponent(@term)} #{@req.query.suffix}", mappingCallback)
 
   _removeAnyUserSuffixes: () ->
     for suffix in HorusAPI.SUFFIXES
@@ -160,10 +164,19 @@ class HorusAPI
     console.log("URL: #{@url}")
     self = this
     responseBuffer = ""
+    timeOut = undefined
+    timeOutThreshold = process.env.HORUS_TIMEOUT_MS || 15000
+
+    options = {
+      hostname: HorusAPI.DOMAIN
+      ,path: @url
+      ,method: 'GET'
+    }
 
     if self.validate then self.validate()
 
-    http.get(@url, (resp) ->
+    horusGet = http.request(options, (resp) ->
+
       resp.on "data", (chunk) ->
         responseBuffer += chunk
 
@@ -179,13 +192,32 @@ class HorusAPI
             if self.debug then inspect(self.results)
             self._renderTemplate()
         else
-          self.error = { code: [98], description: [HorusAPI.HTTP_ERROR] }
+          self.error = { code: [HorusAPI.HTTP_ERROR.code], description: [HorusAPI.HTTP_ERROR.msg] }
           self._renderTemplate()
+    )
 
-    ).on "error", (e) ->
-      console.log(HorusAPI.TRANSPORT_ERROR+e.message)
-      self.error = { code: [99], description: [e.message]}
+    # Heroku has 30 secs reponse limit before we get platform errors
+    # lets limit req times and handle long running reqs gracefully
+    timeOutCallback = ->
+      horusGet.emit "horus-timeout"
+      return
+    timeOut = setTimeout(timeOutCallback, timeOutThreshold)
+
+    horusGet.addListener "response", () ->
+      clearTimeout(timeOut)
+
+    horusGet.on "horus-timeout", () ->
+      self.error = { code: [HorusAPI.TIMEOUT_ERROR.code], description: [HorusAPI.TIMEOUT_ERROR.msg+timeOutThreshold/1000+" seconds."] }
+      horusGet.abort()
+
+    horusGet.on "error", (e) ->
+      console.log(HorusAPI.TRANSPORT_ERROR.msg+e.message)
+      inspect e
+      if !self.error
+        self.error = { code: [HorusAPI.TRANSPORT_ERROR.code], description: [e.message]}
       self._renderTemplate()
+
+    horusGet.end()
 
   # TODO this is WAY overloaded to cater for each template
   _renderTemplate: () ->
