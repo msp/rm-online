@@ -26,7 +26,8 @@
     "googleclientlogin": "~0.2.8",
     "newrelic": "~1.11.5",
     "config": "~1.2.4",
-    "compression": "~1.1.1"
+    "compression": "~1.1.1",
+    "memwatch": "~0.2.2"
   },
   "devDependencies": {
     "cucumber": "latest",
@@ -46,7 +47,6 @@
     "grunt-filerev": "~2.0.0",
     "grunt-contrib-uglify": "~0.6.0",
     "grunt-jade-usemin": "~0.8.0",
-    "v8-profiler": "~5.2.0",
-    "memwatch": "~0.2.2"
+    "v8-profiler": "~5.2.0"
   }
 }
