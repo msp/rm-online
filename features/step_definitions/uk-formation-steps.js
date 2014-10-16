@@ -49,5 +49,10 @@ var myStepDefinitionsWrapper = function () {
     this.assert.equal(this.browser.queryAll("#formation-results #alternative-names .horus-formations-post").length, num);
     callback();
   });
+
+  this.Then(/^I should see (\d+) pricing packages available$/, function (num, callback) {
+    this.assert.equal(this.browser.queryAll(".report-box").length, num);
+    callback();
+  });
 };
 module.exports = myStepDefinitionsWrapper;

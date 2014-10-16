@@ -22,6 +22,7 @@ Feature: UK Formation
    When I visit the "company-formations/uk/search" page
    And I execute a company search for "XradialX XsolutionsX"
    Then I should see that "XradialX XsolutionsX limited" is available
+   And I should see 4 pricing packages available
 
   Scenario: Replace user typed suffixes
     When I visit the "company-formations/uk/search" page

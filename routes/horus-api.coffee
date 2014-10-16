@@ -154,7 +154,7 @@ class HorusAPI
         this.error = { code: [govTalkError.Number], description: ["GovTalk #{govTalkError.RaisedBy}: #{govTalkError.Text}"] }
         this.results = undefined
 
-    @_search(HorusAPI.FORMATIONS_URL+"#{encodeURIComponent(@term)} #{@req.query.suffix}", mappingCallback)
+    @_search(HorusAPI.FORMATIONS_URL+"#{encodeURIComponent(@term+' '+@req.query.suffix)}", mappingCallback)
 
   _removeAnyUserSuffixes: () ->
     for suffix in HorusAPI.SUFFIXES
