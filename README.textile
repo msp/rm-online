@@ -23,6 +23,15 @@ h2. Deploy
 The site is hosted on "Heroku":rmonline.herokuapp.com
 Pushing to the Github remote will trigger CI from "Codeship.io":https://www.codeship.io/projects/20280 and a deployment to Heroku.
 
+Runtime config:
+
+@$heroku config@
+
+* NODE_ENV
+* HORUS_TIMEOUT_MS
+* CLUSTER
+* WORKERS (if clustered)
+
 h2. Asset processing
 
 Check the Gruntfile but file changes cause live reload (you'll need a browser plugin) and:
