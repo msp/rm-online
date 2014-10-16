@@ -27,7 +27,7 @@ module.exports = function (grunt) {
     express: {
       options: {
        // Override defaults here
-//       delay: 300
+        // delay: 300,
         port: process.env.PORT || 9000
       },
       dev: {
@@ -58,7 +58,7 @@ module.exports = function (grunt) {
           ,'public/stylesheets/**/*.css'
           ,'json/**/*.json'
         ],
-        tasks:  ['express:dev', 'jadeUsemin'],
+        tasks:  ['jadeUsemin', 'express:dev'],
         // server used with FF extension
         options: {
           livereload: true,

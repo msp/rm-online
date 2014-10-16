@@ -1,0 +1,12 @@
+.pure-u-1
+  .l-box
+    h3 Partner Organisations
+    .pure-g-r.partners
+      each logo, index in ["D&B", "Experian", "Equifax", "Companies House", "Mossack Fonseca", "Jordans"]
+        - firstClass = ""
+        if index % 3 == 0
+          - firstClass = "no-left-margin"
+        - alt = partners && partners[index] ? partners[index] : logo+" partner organisation"
+        .pure-u-1-3
+          .logo(class="#{firstClass}")
+            img(src="/images/partner-logos/#{slug(logo).toLowerCase()}.png", alt="#{alt}")

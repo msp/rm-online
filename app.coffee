@@ -27,15 +27,16 @@ companyAdmin = require('./routes/company-admin')
 
 app = express()
 
-memwatch.on "leak", (info) ->
-  console.log "LEAK"
-  inspect info
-  return
+if process.env.MEMWATCH
+  memwatch.on "leak", (info) ->
+    console.log "LEAK"
+    inspect info
+    return
 
-memwatch.on "stats", (stats) ->
-  console.log "STATS"
-  inspect stats
-  return
+  memwatch.on "stats", (stats) ->
+    console.log "STATS"
+    inspect stats
+    return
 
 # view engine setup
 app.set "views", path.join(__dirname, "views")

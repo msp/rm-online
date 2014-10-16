@@ -1210,7 +1210,7 @@
 }
 
 .home-below-fold {
-  margin-top: 20px;
+  margin-top: 80px;
 }
 
 .footer-padding {
@@ -1419,7 +1419,8 @@ li.terms-section {
 }
 
 .partners .no-left-margin {
-  margin-left: 0;
+  margin-left: -webkit-calc();
+  margin-left: calc();
 }
 
 .quote {
@@ -1711,6 +1712,10 @@ google-map img {
   .pure-skin-rm .header .pure-g-r [class *= "pure-u"] .pure-table thead th,
   .pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .pure-table thead th {
     font-size: 16px;
+  }
+
+  .partners .no-left-margin {
+    margin-left: 0;
   }
 }
 

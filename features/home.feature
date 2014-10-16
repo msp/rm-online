@@ -7,3 +7,4 @@ Feature: Home page
     When I visit the home page
     Then I should be on the home page
     And I should see 5 available services
+    And I should see the company partners

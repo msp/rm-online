@@ -33,6 +33,8 @@ exports.index = (req, res) ->
     }
 
   ]
+  partners = []
+
   # https://docs.google.com/spreadsheets/d/1UdXbKkQawR5dPbPFzt8efE0CO9i1cDCW1z6A7HUo3qo/pubhtml
   GoogleSpreadsheets
     key: "1UdXbKkQawR5dPbPFzt8efE0CO9i1cDCW1z6A7HUo3qo"
@@ -40,7 +42,7 @@ exports.index = (req, res) ->
     console.log("ERROR: #{err}")
     if !err
       spreadsheet.worksheets[0].cells
-        range: "R1C1:R20C20"
+        range: "R1C1:R23C23"
       , (err, cells) ->
 
         inspect(cells.cells)
@@ -61,7 +63,12 @@ exports.index = (req, res) ->
         funnels[3].body   = cells.cells[2][14].value
         funnels[4].title  = cells.cells[2][15].value
         funnels[4].body   = cells.cells[2][16].value
-
+        partners[0]       = cells.cells[2][17].value
+        partners[1]       = cells.cells[2][18].value
+        partners[2]       = cells.cells[2][19].value
+        partners[3]       = cells.cells[2][20].value
+        partners[4]       = cells.cells[2][21].value
+        partners[5]       = cells.cells[2][22].value
 
 
         res.render "pages/home",
@@ -72,6 +79,8 @@ exports.index = (req, res) ->
           meta: meta
           outro: outro
           funnels: funnels
+          partners: partners
+          extendTemplate: true
 
     else
       res.render "pages/home",
@@ -82,5 +91,7 @@ exports.index = (req, res) ->
         meta: meta
         outro: outro
         funnels: funnels
+        partners: partners
+        extendTemplate: true
     return
 return
