@@ -1,6 +1,7 @@
 var myStepDefinitionsWrapper = function () {
 
   var COMPANY_NUMBER = undefined;
+  var WAIT = 30000
 
   this.When(/^I visit the profile page for company "([^"]*)"$/, function (companyNumber, callback) {
     COMPANY_NUMBER = companyNumber;
@@ -13,15 +14,21 @@ var myStepDefinitionsWrapper = function () {
   });
 
   this.Then(/^I should be on the profile page for "([^"]*)"$/, function (companyName, callback) {
-    this.assert.equal(this.browser.location.pathname, "/companies/gb/"+COMPANY_NUMBER);
-    this.assert.equal(this.browser.text("H1").toLowerCase(), companyName.toLowerCase());
-    callback();
+    self = this;
+    this.browser.wait(WAIT, function() {
+      self.assert.equal(self.browser.location.pathname, "/companies/gb/"+COMPANY_NUMBER);
+      self.assert.equal(self.browser.text("H1").toLowerCase(), companyName.toLowerCase());
+      callback();
+    })
   });
 
   this.Then(/^I should be on the Belgian profile page for "([^"]*)"$/, function (companyName, callback) {
-    this.assert.equal(this.browser.location.pathname, "/companies/BE/"+COMPANY_NUMBER);
-    this.assert.equal(this.browser.text("H1").toLowerCase(), companyName.toLowerCase());
-    callback();
+    self = this;
+    this.browser.wait(WAIT, function() {
+      self.assert.equal(self.browser.location.pathname, "/companies/BE/"+COMPANY_NUMBER);
+      self.assert.equal(self.browser.text("H1").toLowerCase(), companyName.toLowerCase());
+      callback();
+    })
   });
 
   this.Then(/^I should see a company overview$/, function (callback) {
