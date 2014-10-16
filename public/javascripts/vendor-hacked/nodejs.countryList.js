@@ -259,7 +259,7 @@ exports.countryList = function(selectedElementName){
 
   // MSP
 	if( !selectedElementName || selectedElementName.length < 1)
-		html = '<option value="" selected="selected">Select Country</option>\n';
+		html = '<option value="" selected="selected">type a country</option>\n';
 
 	json.forEach(function(element, index, array){
 

@@ -11,7 +11,7 @@ Feature: UK Formation
 
  Scenario: Existing company search
    When I visit the "company-formations/uk/search" page
-   And I execute a company search for "radial solutions"
+   And I execute a formation search for "radial solutions"
    Then I should see that "radial solutions limited" is already registered
    And I should see the company formation search box
    # Disabled until perf is sorted.
@@ -20,17 +20,17 @@ Feature: UK Formation
 
  Scenario: Non existing company search
    When I visit the "company-formations/uk/search" page
-   And I execute a company search for "XradialX XsolutionsX"
+   And I execute a formation search for "XradialX XsolutionsX"
    Then I should see that "XradialX XsolutionsX limited" is available
    And I should see 4 pricing packages available
 
   Scenario: Replace user typed suffixes
     When I visit the "company-formations/uk/search" page
-    And I execute a company search for "XradialX XsolutionsX LIMITED"
+    And I execute a formation search for "XradialX XsolutionsX LIMITED"
     Then I should see that "XradialX XsolutionsX limited" is available
     When I visit the "company-formations/uk/search" page
-    And I execute a company search for "XradialX XsolutionsX PLC"
+    And I execute a formation search for "XradialX XsolutionsX PLC"
     Then I should see that "XradialX XsolutionsX limited" is available
     When I visit the "company-formations/uk/search" page
-    And I execute a company search for "XradialX XsolutionsX LLP"
+    And I execute a formation search for "XradialX XsolutionsX LLP"
     Then I should see that "XradialX XsolutionsX limited" is available

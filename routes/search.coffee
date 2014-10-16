@@ -4,12 +4,9 @@ xml2js = require 'xml2js'
 inspect = require('eyes').inspector({maxLength: false})
 horusAPI = require('./horus-api')
 
-# clib = require("country-selector")
 clib = require("../public/javascripts/vendor-hacked/nodejs.countryList")
 slib = require("../public/javascripts/vendor-hacked/nodejs.stateList")
 rlib = require("../public/javascripts/vendor-hacked/nodejs.reasonCodeList")
-defaultCountry = 'United Kingdom';
-# defaultCountry = ''
 
 class SearchRoute
   @SEARCH_RESULTS_TITLE: "Search Results"
@@ -32,7 +29,7 @@ exports.index = (req, res) ->
     title: title
     bcList: req.breadcrumbs()
     country: country
-    countries: clib.countryList(defaultCountry)
+    countries: clib.countryList()
     USStates: slib.stateList()
     CAStates: slib.stateList("CA")
     DEReasons: rlib.reasonCodeList()
@@ -69,7 +66,7 @@ renderView = (req, res, view, title) ->
     title: title
     bcList: req.breadcrumbs()
     country: country
-    countries: clib.countryList(defaultCountry)
+    countries: clib.countryList()
     USStates: slib.stateList()
     CAStates: slib.stateList("CA")
     DEReasons: rlib.reasonCodeList()

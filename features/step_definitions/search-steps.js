@@ -26,8 +26,13 @@ var myStepDefinitionsWrapper = function () {
     callback();
   });
 
-
   this.When(/^I execute a company search for "([^"]*)"$/, function (term, callback) {
+    this.browser.fill("#search-term", term).
+      select("#country-selector", "United Kingdom").
+        pressButton("#search-submit", callback);
+  });
+
+  this.When(/^I execute a formation search for "([^"]*)"$/, function (term, callback) {
     this.browser.fill("#search-term", term).
       pressButton("#search-submit", callback);
   });

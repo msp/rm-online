@@ -215,7 +215,7 @@ exports.intMappingCallback = (result) ->
 
     company = new Company
 
-    inspect(this.results)
+    # inspect(this.results)
     company.id = this.results[0].DUNS_NBR
     company.name =  this.results[0].NME
     company.address1 = this.results[0].ADR_LINE
