@@ -1,14 +1,13 @@
 GoogleSpreadsheets = require("google-spreadsheets")
-GoogleClientLogin = require("googleclientlogin").GoogleClientLogin
 inspect = require('eyes').inspector({maxLength: false})
 
 exports.index = (req, res) ->
 
   title = "Welcome to RM"
   h1 = ""
+  heading= ""
   intro = "RM have been assisting law firms, accountants and professional service organisations with company information for due diligence and forming companies around the Globe for over 40 years. The services are discreet, professional and cost effective."
   meta =  "COMPANY FORMATION, REGISTRATION, REPORTS AND CREDIT CHECKS FOR ANY UK OR OFFSHORE COMPANY"
-  subTitle = ""
   outro = ""
   funnels = [
     {

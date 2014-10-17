@@ -159,6 +159,37 @@
   margin-bottom: 40px;
 }
 
+.pure-skin-rm .content html .heading,
+.pure-skin-rm .header html .heading,
+.pure-skin-rm .footer html .heading,
+.pure-skin-rm .content button .heading,
+.pure-skin-rm .header button .heading,
+.pure-skin-rm .footer button .heading,
+.pure-skin-rm .content input .heading,
+.pure-skin-rm .header input .heading,
+.pure-skin-rm .footer input .heading,
+.pure-skin-rm .content select .heading,
+.pure-skin-rm .header select .heading,
+.pure-skin-rm .footer select .heading,
+.pure-skin-rm .content textarea .heading,
+.pure-skin-rm .header textarea .heading,
+.pure-skin-rm .footer textarea .heading,
+.pure-skin-rm .content .pure-g [class *= "pure-u"] .heading,
+.pure-skin-rm .header .pure-g [class *= "pure-u"] .heading,
+.pure-skin-rm .footer .pure-g [class *= "pure-u"] .heading,
+.pure-skin-rm .content .pure-g-r [class *= "pure-u"] .heading,
+.pure-skin-rm .header .pure-g-r [class *= "pure-u"] .heading,
+.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .heading {
+  font-family: 'Merriweather',serif;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 35px;
+  border-bottom: 1px solid;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+  color: #0184a2;
+}
+
 .pure-skin-rm .content html h1.no-border,
 .pure-skin-rm .header html h1.no-border,
 .pure-skin-rm .footer html h1.no-border,
@@ -209,32 +240,6 @@
   padding-bottom: 0;
 }
 
-.pure-skin-rm .content html h1.home,
-.pure-skin-rm .header html h1.home,
-.pure-skin-rm .footer html h1.home,
-.pure-skin-rm .content button h1.home,
-.pure-skin-rm .header button h1.home,
-.pure-skin-rm .footer button h1.home,
-.pure-skin-rm .content input h1.home,
-.pure-skin-rm .header input h1.home,
-.pure-skin-rm .footer input h1.home,
-.pure-skin-rm .content select h1.home,
-.pure-skin-rm .header select h1.home,
-.pure-skin-rm .footer select h1.home,
-.pure-skin-rm .content textarea h1.home,
-.pure-skin-rm .header textarea h1.home,
-.pure-skin-rm .footer textarea h1.home,
-.pure-skin-rm .content .pure-g [class *= "pure-u"] h1.home,
-.pure-skin-rm .header .pure-g [class *= "pure-u"] h1.home,
-.pure-skin-rm .footer .pure-g [class *= "pure-u"] h1.home,
-.pure-skin-rm .content .pure-g-r [class *= "pure-u"] h1.home,
-.pure-skin-rm .header .pure-g-r [class *= "pure-u"] h1.home,
-.pure-skin-rm .footer .pure-g-r [class *= "pure-u"] h1.home {
-  font-size: 40px;
-  line-height: 45px;
-  margin: 35px 0 40px 0;
-}
-
 .pure-skin-rm .content html .heading.home,
 .pure-skin-rm .header html .heading.home,
 .pure-skin-rm .footer html .heading.home,
@@ -256,12 +261,8 @@
 .pure-skin-rm .content .pure-g-r [class *= "pure-u"] .heading.home,
 .pure-skin-rm .header .pure-g-r [class *= "pure-u"] .heading.home,
 .pure-skin-rm .footer .pure-g-r [class *= "pure-u"] .heading.home {
-  font-family: 'Merriweather',serif;
-  font-weight: normal;
   font-size: 40px;
   line-height: 45px;
-  color: #0184a2;
-  padding-bottom: 20px;
   margin: 35px 0 40px 0;
 }
 
@@ -1525,6 +1526,18 @@ li.terms-section {
 
 .pricing-packages {
   margin-top: 50px;
+}
+
+.pricing-packages .pure-u-1-4 .l-box.reduced {
+  padding: 15px 15px;
+}
+
+.pricing-packages .pure-u-1-4 .l-box.reduced-more {
+  padding: 5px 8px;
+}
+
+.pricing-packages .pure-u-1-4 .horus-formations-post {
+  padding: 8px 15px;
 }
 
 .pricing-packages-modal-dialog {

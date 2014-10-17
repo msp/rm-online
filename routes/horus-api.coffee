@@ -183,6 +183,7 @@ class HorusAPI
 
       resp.on "end", () ->
         if self.debug then console.log(responseBuffer)
+        console.log(resp.statusCode)
         if resp.statusCode == 200
           self.parser.parseString responseBuffer, (err, result) ->
             if err && self.debug then inspect(err)

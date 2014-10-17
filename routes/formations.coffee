@@ -4,6 +4,7 @@ xml2js = require 'xml2js'
 inspect = require('eyes').inspector({maxLength: false})
 horusAPI = require('./horus-api')
 slug = require('slug')
+GoogleSpreadsheets = require("google-spreadsheets")
 
 COUNTRIES = [
   {
@@ -159,15 +160,73 @@ exports.internationalShow = (req, res) ->
   return
 
 exports.uk = (req, res) ->
+
   title = "UK Company Formation"
-  req.breadcrumbs(title, "/company-formations/UK/search")
-  res.render "formations/uk",
-    title: title
-    bcList: req.breadcrumbs()
-    searchTitle: "Check company name availability"
-    searchButton: "Check name"
-    searchURL: "/company-formations/UK/search/results"
-  return
+  h1 = ""
+  heading= "UK Company Formations"
+  intro = "RM have been assisting law firms, accountants and professional service organisations with company information for due diligence and forming companies around the Globe for over 40 years. The services are discreet, professional and cost effective."
+  meta =  "COMPANY FORMATION, REGISTRATION, REPORTS AND CREDIT CHECKS FOR ANY UK OR OFFSHORE COMPANY"
+  benefitsHeading = ""
+  benefits = ""
+  servicesHeading = ""
+  services = ""
+  req.breadcrumbs(title, req.url)
+
+  # https://docs.google.com/spreadsheets/d/1ZblOqr9Fhz0SEU3kaK1amtDGOgA7uz8BaTk8BSs9xRA/pubhtml
+  GoogleSpreadsheets
+    key: "1ZblOqr9Fhz0SEU3kaK1amtDGOgA7uz8BaTk8BSs9xRA"
+  , (err, spreadsheet) ->
+    console.log("ERROR: #{err}")
+    if !err
+      spreadsheet.worksheets[0].cells
+        range: "R1C1:R10C10"
+      , (err, cells) ->
+
+        inspect(cells.cells)
+
+        title             = cells.cells[2][1].value
+        h1                = cells.cells[2][2].value
+        heading           = cells.cells[2][3].value
+        intro             = cells.cells[2][4].value
+        meta              = cells.cells[2][5].value
+        benefitsHeading   = cells.cells[2][6].value
+        benefits          = cells.cells[2][7].value.split("\n")
+        servicesHeading   = cells.cells[2][8].value
+        services          = cells.cells[2][9].value.split("\n")
+
+        res.render "formations/uk",
+          title: title
+          h1: h1
+          heading: heading
+          intro: intro
+          meta: meta
+          benefits: benefits
+          benefitsHeading: benefitsHeading
+          services: services
+          servicesHeading: servicesHeading
+          bcList: req.breadcrumbs()
+          searchTitle: "Check company name availability"
+          searchButton: "Check name"
+          searchURL: "/company-formations/UK/search/results"
+        return
+
+    else
+      res.render "formations/uk",
+        title: title
+        h1: h1
+        heading: heading
+        intro: intro
+        meta: meta
+        benefits: benefits
+        benefitsHeading: benefitsHeading
+        services: services
+        servicesHeading: servicesHeading
+        bcList: req.breadcrumbs()
+        searchTitle: "Check company name availability"
+        searchButton: "Check name"
+        searchURL: "/company-formations/UK/search/results"
+    return
+
 
 class FormationsRoute
   @SEARCH_RESULTS_TITLE: "Search Results"

@@ -18,7 +18,7 @@ Feature: UK Formation
    # And I should see 10 alternative suggestions similar to "radial solutions"
    # And I should see the option to register those alternative 10 suggestions
 
- Scenario: Non existing company search
+Scenario: Non existing company search
    When I visit the "company-formations/uk/search" page
    And I execute a formation search for "XradialX XsolutionsX"
    Then I should see that "XradialX XsolutionsX limited" is available

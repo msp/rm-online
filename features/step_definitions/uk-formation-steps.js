@@ -4,7 +4,6 @@ var myStepDefinitionsWrapper = function () {
 
   this.Then(/^I should be on the UK company formation page$/, function (callback) {
     this.assert.equal(this.browser.location.pathname, "/company-formations/uk/search");
-    this.assert.equal(this.browser.text("H1").toLowerCase(), "UK Company Formation".toLowerCase());
     callback();
   });
 
@@ -23,7 +22,8 @@ var myStepDefinitionsWrapper = function () {
   this.Then(/^I should see that "([^"]*)" is already registered$/, function (company, callback) {
     self = this;
     this.browser.wait(WAIT, function() {
-      self.assert.equal(self.browser.text("H1").toLowerCase(),"'"+company+"' already registered");
+      self.assert.ok(self.browser.query(".company-unavailable"));
+      self.assert.equal(self.browser.text(".heading").toLowerCase(),"'"+company+"' already registered");
       callback();
     })
   });
