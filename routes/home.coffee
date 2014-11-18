@@ -1,14 +1,11 @@
-GoogleSpreadsheets = require("google-spreadsheets")
-inspect = require('eyes').inspector({maxLength: false})
-
 exports.index = (req, res) ->
 
-  title = "Welcome to RM"
-  h1 = ""
-  heading= ""
-  intro = "RM have been assisting law firms, accountants and professional service organisations with company information for due diligence and forming companies around the Globe for over 40 years. The services are discreet, professional and cost effective."
-  meta =  "COMPANY FORMATION, REGISTRATION, REPORTS AND CREDIT CHECKS FOR ANY UK OR OFFSHORE COMPANY"
-  outro = ""
+  title = "Register Company with world no1 company formation firm RM"
+  h1 = "Register Company-Fast Company Formation"
+  heading= "Welcome to RM"
+  intro = "RM Information Professionals - For over 40 years, the first choice for UK and International company formation, company set-up and registration, business information, company data, documents and services. Whether informing your business, or forming a new business, we offer 1-click solutions allowing you to register company names, brand trademarks, find company data and documents, incorporate articles of association for a limited company and register company information for new firms. We are the only professional services firm to consolidate Companies House data from 220 countries with access to the commercial databases, branded solutions and scores from Dun&Bradstreet, Experian, Equifax, Jordans, EBR European Business Registry, RM and Mossack Fonseca. Use our comprehensive company data and accounts to gain the business intelligence required to manage risk; conduct anti-money laundering (AML), know your customer (KYC) and other regulatory compliance audits and carry out credit or fraud checks - all offered with unlimited free company search and discounts for frequent customers."
+  meta =  "COMPANY FORMATION AGENTS, REGISTRATION, REPORTS AND CREDIT CHECKS FOR ANY UK OR OFFSHORE COMPANY"
+  outro = "RM Information Professionals - The first choice for UK and International company formation, business information, company data, documents and services. Whether informing your business, or forming a new business, we offer a 1 click company services solution. Search for and research companies data and accounts, available instantly online, and covering company data comprehensively - we are the only professional services firm to consolidate company by country data with the commercial databases, branded solutions and scores from Dun & Bradstreet, Experian, Equifax, EBR, RM and Mossack Fonseca. Credit check your customers, order company documents and detailed business and credit reports online instantly. Anti money laundering information & documents online & in hard copy. Incorporate and register your company & file trademarks for your brand. Free search functions allow you to access over 200 million company reports from 220 countries."
   funnels = [
     {
       title: "UK & International Business Reports"
@@ -32,65 +29,16 @@ exports.index = (req, res) ->
     }
 
   ]
-  partners = []
+  partners = ["D&B partner organisation", "Experian partner organisation", "Equifax partner organisation", "Companies House partner organisation", "Mossack Fonseca partner organisation", "Jordans partner organisation"]
 
-  # https://docs.google.com/spreadsheets/d/1UdXbKkQawR5dPbPFzt8efE0CO9i1cDCW1z6A7HUo3qo/pubhtml
-  GoogleSpreadsheets
-    key: "1UdXbKkQawR5dPbPFzt8efE0CO9i1cDCW1z6A7HUo3qo"
-  , (err, spreadsheet) ->
-    console.log("ERROR: #{err}")
-    if !err
-      spreadsheet.worksheets[0].cells
-        range: "R1C1:R23C23"
-      , (err, cells) ->
-
-        inspect(cells.cells)
-
-        title             = cells.cells[2][1].value
-        h1                = cells.cells[2][2].value
-        heading           = cells.cells[2][3].value
-        intro             = cells.cells[2][4].value
-        meta              = cells.cells[2][5].value
-        outro             = cells.cells[2][6].value
-        funnels[0].title  = cells.cells[2][7].value
-        funnels[0].body   = cells.cells[2][8].value
-        funnels[1].title  = cells.cells[2][9].value
-        funnels[1].body   = cells.cells[2][10].value
-        funnels[2].title  = cells.cells[2][11].value
-        funnels[2].body   = cells.cells[2][12].value
-        funnels[3].title  = cells.cells[2][13].value
-        funnels[3].body   = cells.cells[2][14].value
-        funnels[4].title  = cells.cells[2][15].value
-        funnels[4].body   = cells.cells[2][16].value
-        partners[0]       = cells.cells[2][17].value
-        partners[1]       = cells.cells[2][18].value
-        partners[2]       = cells.cells[2][19].value
-        partners[3]       = cells.cells[2][20].value
-        partners[4]       = cells.cells[2][21].value
-        partners[5]       = cells.cells[2][22].value
-
-
-        res.render "pages/home",
-          title: title
-          h1: h1
-          heading: heading
-          intro: intro
-          meta: meta
-          outro: outro
-          funnels: funnels
-          partners: partners
-          extendTemplate: true
-
-    else
-      res.render "pages/home",
-        title: title
-        h1: h1
-        heading: heading
-        intro: intro
-        meta: meta
-        outro: outro
-        funnels: funnels
-        partners: partners
-        extendTemplate: true
-    return
+  res.render "pages/home",
+    title: title
+    h1: h1
+    heading: heading
+    intro: intro
+    meta: meta
+    outro: outro
+    funnels: funnels
+    partners: partners
+    extendTemplate: true
 return
