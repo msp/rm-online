@@ -52,6 +52,7 @@ html.no-js
       link(rel="import", href="/bower_components/google-map/google-map.html")
       link(rel="import", href="/bower_components/google-map/google-map-search.html")
 
+    include includes/_google.jade
   body.pure-skin-rm
     <!--[if lt IE 9]>
     p.browsehappy
@@ -87,7 +88,6 @@ html.no-js
       include includes/_modal-cart.jade
     if !excludeFooter
       include includes/_footer.jade
-      include includes/_google.jade
 
     <!--[if lt IE 9]>
     script(src="/bower_components/es5-shim/es5-shim.js")
